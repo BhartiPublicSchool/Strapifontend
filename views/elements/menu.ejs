@@ -7,9 +7,9 @@
             <div class="row">
                 <div class="col">
                     <% if (Array.isArray(menu.menu_hover_image) && menu.menu_hover_image[0] && menu.menu_hover_image[0].formats.medium) { %>
-                        <img width="300" src="http://localhost:1337<%= menu.menu_hover_image[0].formats.medium.url %>" alt="">
+                        <img width="300" src="<%= env + menu.menu_hover_image[0].formats.medium.url %>" alt="">
                         <% } else if(Array.isArray(menu.menu_hover_image) && menu.menu_hover_image[0] && menu.menu_hover_image[0].formats.small) {%>
-                            <img width="300" src="http://localhost:1337<%= menu.menu_hover_image[0].formats.small.url %>" alt="">
+                            <img width="300" src="<%= env + menu.menu_hover_image[0].formats.small.url %>" alt="">
                             <% }  else {%>
     
                                 <img width="300" src="" alt="Image Not Available">
