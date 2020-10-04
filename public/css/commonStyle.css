@@ -1,0 +1,152 @@
+@font-face {
+    font-family: Bebas;
+    src: url('../font/Bebas-Neue-Cyrillic.ttf');
+}
+
+@font-face {
+    font-family: Julias-San;
+    src: url('../font/JuliusSansOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: sofiaPro;
+    src: url('../font/sofiapro-light.otf');
+}
+
+body {
+    font-family: sofiaPro !important;
+}
+
+p,
+span,
+pre {
+    font-family: sofiaPro;
+}
+
+h1,
+h2
+ {
+    font-family: Bebas;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-family: Julias-San;
+}
+
+ section,
+        section p,
+        p.fixp,
+        section h1,
+        section h2,
+        section h3,
+        section h4,
+        section h5,
+        section h6,
+        section span {
+          
+            font-family: Julias-San;
+        } 
+
+
+@media screen and (min-width: 73.75rem) {
+    .contain {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .contain {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media screen and (min-width: 30rem) {
+    .contain {
+        padding-left: 15.84px;
+        padding-right: 15.84px;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .contain {
+        padding-top: 96px;
+        padding-bottom: 96px;
+    }
+}
+
+.contain {
+    max-width: 78.75rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 48px 0;
+}
+
+@media screen and (min-width: 73.75rem) {
+    .contain {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .contain {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media screen and (min-width: 30rem) {
+    .contain {
+        padding-left: 15.84px;
+        padding-right: 15.84px;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .contain {
+        padding-top: 96px;
+        padding-bottom: 96px;
+    }
+    .contain {
+        max-width: 78.75rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 12px;
+    }
+}
+
+@media screen and (min-width: 73.75rem) {
+    .contain,
+    .contain--small {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .contain,
+    .contain--small {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media screen and (min-width: 30rem) {
+    .contain,
+    .contain--small {
+        padding-left: 15.84px;
+        padding-right: 15.84px;
+    }
+    .contain,
+    .contain--small {
+        max-width: 62.75rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem .75rem;
+    }
+}

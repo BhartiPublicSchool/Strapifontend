@@ -1,3 +1,4 @@
+require('./common');
 const express = require('express');
 const axios = require('axios');
 const app = express();
@@ -24,6 +25,17 @@ app.get('/', async(req, res) => {
         console.error(error);
     }
 });
+
+app.get('/home', async(req, res) => {
+    try {
+        const response = await axios.get('http://localhost:1337/home');
+        console.log(response.data, process.env.NODE_ENV);
+        res.render('home', { faq: response.data, env: process.env.NODE_ENV == 'Development' ? "http://localhost:1337" : "" })
+    } catch (error) {
+        console.error(error);
+    }
+});
+
 
 
 

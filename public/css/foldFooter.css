@@ -1,0 +1,72 @@
+footer {
+    position: relative;
+    /* min-height: 500px; */
+}
+
+._fold_footer {
+    /* position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 2; */
+}
+
+.footer-title,
+.footer-link a {
+    color: #fff;
+}
+
+/* @media screen and (max-width:776px) {
+    .footer-bg {
+        height: 200vh;
+    }
+}
+
+@media screen and (max-width:776px) and (orientation:landscape) {
+    .footer-bg {
+        height: 260vh;
+    }
+} */
+
+.footer-bg::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to top, rgb(0 0 0 / 42%) 0%, rgb(0 0 0 / 49%) 10%, rgb(0 0 0 / 43%) 30%, rgb(0 0 0 / 59%) 70%, rgb(0 0 0 / 56%) 90%, rgb(0 0 0 / 54%) 100%);    
+}
+
+.social-icons a {
+    padding: 1rem;
+    border-radius: 50%;
+    margin: 0 0.5rem;
+    width: 50px;
+    text-decoration: none;
+    transition: background .3s, color .3s;
+    position: relative;
+    display: block;
+    color: #fff;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.social-icons a:hover,
+.social-icons a:focus {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.44);
+}
+
+
