@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="commonStyle.css">
     <link rel="stylesheet" href="refined.css">
     <title>I am ejs</title>
@@ -16,10 +17,11 @@
             max-width: 60rem;
             margin: 0 auto;
         }
+
         /* .header-underline h5 {
             position: relative;
         } */
-        
+
         .header-underline h5:before {
             content: '';
             background: #56a0d3;
@@ -29,10 +31,133 @@
             bottom: 85px;
             transform: translateX(200%);
         }
+
+        /*  */
+
+
+        .card-overlay {
+            background-size: cover;
+            background-position: top center;
+            overflow: hidden;
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            height: 380px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .card-overlay .pop-btn-text {
+            font-family: "Julius Sans One", sans-serif;
+            background: rgba(27, 39, 54, 0.8);
+        }
+
+        .card-overlay .pop-btn-text {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-overlay .pop-btn-text:before {
+            content: '';
+            background: rgba(27, 39, 54, 0.8);
+            background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, transparent), color-stop(50%, rgba(27, 39, 54, 0.8)));
+            background: linear-gradient(to right bottom, transparent 50%, rgba(27, 39, 54, 0.8) 50%);
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            height: 50px;
+            width: 100%;
+            -webkit-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+        }
+
+        .card-overlay .pop-btn-text>.fsElementContent {
+            font-size: 18px;
+            line-height: 24px;
+        }
+
+        .card-overlay .pop-btn-text>.fsElementContent {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            height: auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            margin-bottom: 15px;
+        }
+
+        .card-overlay .pop-btn-text>footer {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            height: auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .img-container::after {
+            clear: both;
+            content: ' ';
+            display: block;
+            font-size: 0;
+            height: 0;
+            visibility: hidden;
+        }
+
+        .card-overlay:hover .pop-btn-text,
+        .card-overlay:hover .pop-btn-text>footer,
+        .card-overlay.focused .pop-btn-text>.fsElementContent,
+        .card-overlay.focused .pop-btn-text>footer {
+            max-height: 380px;
+        }
+
+        .card-overlay:hover .pop-btn-text>footer,
+        .card-overlay.focused .pop-btn-text>.fsElementContent,
+        .card-overlay.focused .pop-btn-text>footer {
+            opacity: 1;
+            -webkit-transition: all 0.8s ease-in-out;
+            transition: all 0.8s ease-in-out;
+        }
     </style>
 </head>
 
 <body>
+    <div style="margin: 2rem; width: 20%;">
+        <div class="img-container">
+            <section class="card-overlay" data-use-new="true"
+                data-image-sizes="[{&quot;url&quot;:&quot;https://resources.finalsite.net/images/f_auto,q_auto/v1562948051/windwardschoolorg/c83it6xu4q6dplm762q5/HomepageTestMS.png&quot;,&quot;width&quot;:256}]"
+                data-aspect-ratio="1.05078125" alt=""
+                style="background-image: url(&quot;https://resources.finalsite.net/images/f_auto,q_auto/v1562948051/windwardschoolorg/c83it6xu4q6dplm762q5/HomepageTestMS.png&quot;);">
+                <div class="pop-btn-text">
+                    <header>
+                        <h2>Middle School</h2>
+                    </header>
+                    <footer>
+                        <div class="">
+                            <p><a data-page-name="Middle School" href="/fs/pages/386">Explore Middle School</a></p>
+
+                        </div>
+                    </footer>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+
     <div class="jumbotron custom-jumbotron d-flex justify-content-center align-items-end">
         <h1>
             Addmission FAQ
@@ -48,7 +173,9 @@
             <div class="d-flex flex-column flex-md-row">
                 <div class="px-2">
                     <p>
-                        Prospective students and their parents understand the BPS experience. In an effort to help you decide if BPS is the right school for you, we’d like to share many of those questions and answers. If you have a specific question, please email us at ​admissions.sv@bps.edu.in
+                        Prospective students and their parents understand the BPS experience. In an effort to help you
+                        decide if BPS is the right school for you, we’d like to share many of those questions and
+                        answers. If you have a specific question, please email us at ​admissions.sv@bps.edu.in
                         or call the Admissions Office at ​011-22502878/ 011-22512878.
                     </p>
                     <!-- <p>
@@ -62,7 +189,9 @@
             </div>
             <div class="px-2 my-4">
                 <p>
-                    Prospective students and their parents understand the BPS experience. In an effort to help you decide if BPS is the right school for you, we’d like to share many of those questions and answers. If you have a specific question, please email us at ​admissions.sv@bps.edu.in
+                    Prospective students and their parents understand the BPS experience. In an effort to help you
+                    decide if BPS is the right school for you, we’d like to share many of those questions and answers.
+                    If you have a specific question, please email us at ​admissions.sv@bps.edu.in
                     or call the Admissions Office at ​011-22502878/ 011-22512878.
                 </p>
             </div>
@@ -83,18 +212,27 @@
                     <div id="accordionExample">
                         <div class="my-1" id="headingOne">
 
-                            <a class="btn btn-block text-left custom-faq-font font-weight-bold p-3" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" onclick="myFunction.call(this)">
-                                <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg> Why choose Bharti Public School?
+                            <a class="btn btn-block text-left custom-faq-font font-weight-bold p-3" type="button"
+                                data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne" onclick="myFunction.call(this)">
+                                <svg width="0.875em" height="0.875em" viewBox="0 0 16 16"
+                                    class="bi bi-chevron-down mr-3" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                </svg> Why choose Bharti Public School?
                             </a>
 
                         </div>
 
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
                             <div class="card-body">
-                                Every student at BPS can find his/her niche and his/her passion, whether it is through the traditional college preparatory courses offered, the various athletic opportunities, visual and performing arts events, or co-curricular activities. Students have
-                                a chance to get involved in the community and develop skills that help them to develop as strong, independent young adults. From student leadership to robotics, there are so many ways for students to become active members
+                                Every student at BPS can find his/her niche and his/her passion, whether it is through
+                                the traditional college preparatory courses offered, the various athletic opportunities,
+                                visual and performing arts events, or co-curricular activities. Students have
+                                a chance to get involved in the community and develop skills that help them to develop
+                                as strong, independent young adults. From student leadership to robotics, there are so
+                                many ways for students to become active members
                                 of the community.
                             </div>
                         </div>
@@ -103,36 +241,56 @@
 
                         <div class="my-1" id="headingTwo">
 
-                            <button class="btn btn-block text-left collapsed custom-faq-font font-weight-bold p-3" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" onclick="myFunction.call(this)">
-                        <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                        How will I see the campus and are applicants allowed to visit for the day?
-                      </button>
+                            <button class="btn btn-block text-left collapsed custom-faq-font font-weight-bold p-3"
+                                type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo" onclick="myFunction.call(this)">
+                                <svg width="0.875em" height="0.875em" viewBox="0 0 16 16"
+                                    class="bi bi-chevron-down mr-3" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                                How will I see the campus and are applicants allowed to visit for the day?
+                            </button>
 
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
                             <div class="card-body">
-                                Keeping in view the students’ safety, one can only visit the campus after the school hours with the permission of the management. You can also take a virtual tour of our ​campus here​!
+                                Keeping in view the students’ safety, one can only visit the campus after the school
+                                hours with the permission of the management. You can also take a virtual tour of our
+                                ​campus here​!
                             </div>
                         </div>
 
                         <div class="my-1" id="headingThree">
 
-                            <button class="btn btn-block text-left collapsed custom-faq-font font-weight-bold p-3" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" onclick="myFunction.call(this)">
-                        <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                        When are applications due?
-                      </button>
+                            <button class="btn btn-block text-left collapsed custom-faq-font font-weight-bold p-3"
+                                type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree" onclick="myFunction.call(this)">
+                                <svg width="0.875em" height="0.875em" viewBox="0 0 16 16"
+                                    class="bi bi-chevron-down mr-3" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                                When are applications due?
+                            </button>
 
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
                             <div class="card-body">
-                                Kindergarten: Applications are accepted as per the dates scheduled by the Directorate Of Education of Delhi. These admissions are based on a point system. ● Primary, Middle and Secondary: Applications are invited through mail (admissions.sv@bps.edu.in)
-                                in the month of March, subject to availability of seats. These admissions are based on the Entrance Test. Students scoring the highest marks, are selected and finally screened through interviews. ● For Class XI: Admissions
-                                to class XI are invited after the declaration of Class X CBSE Board Result. Provisional admissions are done on the basis of the Pre Board Mark sheet in the month of May; but are reviewed after the CBSE Result Declaration.
-                                Students must meet with the criteria adopted by the school stream wise. ○ Science stream: above 80% aggregate and 80% in Mathematics and Science each. ○ Commerce Stream: above 80% aggregate and 80% in Mathematics. ○ Humanities:
+                                Kindergarten: Applications are accepted as per the dates scheduled by the Directorate Of
+                                Education of Delhi. These admissions are based on a point system. ● Primary, Middle and
+                                Secondary: Applications are invited through mail (admissions.sv@bps.edu.in)
+                                in the month of March, subject to availability of seats. These admissions are based on
+                                the Entrance Test. Students scoring the highest marks, are selected and finally screened
+                                through interviews. ● For Class XI: Admissions
+                                to class XI are invited after the declaration of Class X CBSE Board Result. Provisional
+                                admissions are done on the basis of the Pre Board Mark sheet in the month of May; but
+                                are reviewed after the CBSE Result Declaration.
+                                Students must meet with the criteria adopted by the school stream wise. ○ Science
+                                stream: above 80% aggregate and 80% in Mathematics and Science each. ○ Commerce Stream:
+                                above 80% aggregate and 80% in Mathematics. ○ Humanities:
                                 above 75% aggregate and 75% in Mathematics, if opting for Economics and IP.
                             </div>
                         </div>
@@ -153,9 +311,15 @@
 
     </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         function myFunction() {

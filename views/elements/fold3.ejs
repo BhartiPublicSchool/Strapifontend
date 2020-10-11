@@ -1,0 +1,27 @@
+<div class="_feature_box">
+ 
+    <figure class="_fold_3_overlay"> 
+        <!-- <img width="100%" height="100%" src="./3rdFold/Community_2.JPG" alt=""> -->
+        <% if (Array.isArray(card.card_img) && card.card_img[0] && card.card_img[0].formats.medium) { %>
+            <img width="100%" height="100%" src="<%= env + card.card_img[0].formats.medium.url %>" alt="">
+            <% } else if(Array.isArray(card.card_img) && card.card_img[0] && card.card_img[0].formats.small) {%>
+                <img width="100%" height="100%"  src="<%= env + card.card_img[0].formats.small.url %>" alt="">
+                <% }  else {%>
+    
+                    <img width="100%" height="100%"  src="" alt="Image Not Available">
+                    <% } %>
+     
+
+
+        <p class="fixp">  <%= card.card_title %></p>
+        <figcaption>
+            <div>
+                <p class="my-2">
+                    <%= card.card_text %></p>
+                <button type="button"  style="border-radius:0;" href=" <%= card.link.link_href %>" class="btn btn-outline-light my-2">  <%= card.link.link_title %></button>
+
+            </div>
+        </figcaption>
+    </figure>
+
+</div>
