@@ -1,32 +1,34 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Bharti Public School</title>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./animate.css">
-    <link rel="stylesheet" href="./dropdownhover.css">
-    <link rel="stylesheet" href="./topnavbar.css">
-    <link rel="stylesheet" href="./_fold_2.css">
-    <link rel="stylesheet" href="./_fold_3.css">
-    <link rel="stylesheet" href="./_fold_4.css">
-    <link rel="stylesheet" href="./_fold_5.css">
-    <link rel="stylesheet" href="./_fold_6.css">
-    <link rel="stylesheet" href="./_fold_footer.css">
-    <link rel="stylesheet" href="./commonStyle.css">
+    <link rel="stylesheet" href="css/commonStyle.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/fold2.css">
+    <link rel="stylesheet" href="css/fold3.css">
+    <link rel="stylesheet" href="css/fold4.css">
+    <link rel="stylesheet" href="css/fold5.css">
+    <link rel="stylesheet" href="css/fold6.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -37,61 +39,71 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script>
     <style>
-         :root {
+        :root {
             --grey: #363E47;
             --blue: #28295d;
             --green: #62a25d;
             --yellow: rgb(255, 210, 29);
             --orange: #df682d;
         }
-        
-        header {
-            font-family: 'Bebas Neue', cursive;
+
+        .header-brand {
+            position: absolute;
+            width: 9rem;
+            height: 7rem;
+            margin-top: 0.25rem;
         }
-        
-        section,
-        section p,
-        section h1,
-        section h2,
-        section h3,
-        section h4,
-        section h5,
-        section h6,
-        section span {
-            font-family: 'Julius Sans One', sans-serif;
+
+        .header-brand-sticky {
+            width: 9rem;
+            height: 4rem;
+            margin-top: 0.25rem;
         }
-        
-        body {
-            font-family: sofia-pro, sans-serif;
-            font-style: normal;
-            font-weight: 100;
+
+        .body-wrap {
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+            /* background: #ffffffa1; */
+            /* margin: 0.75rem; */
         }
-        
-        @media (min-width: 1000px) {
+
+        @media screen and (min-width: 768px) {
             .body-wrap {
-                /* margin: 1rem; */
-                border-bottom: 15px solid #fff;
+                margin: 0.75rem;
+            }
+
+            .header-brand {
+                width: 10rem;
+                height: 6rem;
+            }
+
+            .header-title-text h1 {
+                /* padding-top: 1rem !important; */
+                font-size: 7vw !important;
+                /* font-size: 85px; */
+                height: 15rem;
+                line-height: 20px;
+                color: #fff;
+                letter-spacing: 10px;
             }
         }
-        
-        .body-wrap {
-            overflow-x: hidden;
-            position: relative;
-            margin: 1rem;
-        }
-        
+
         .bpsHomeVideoContainer {
             position: relative;
             width: 100%;
-            /* height: 100%; */
+            max-height: 100vh;
             overflow: hidden;
+            object-fit: cover;
         }
-        
+
         .body-wrap .bpsHomeVideoContainer video {
             object-fit: cover;
             display: block;
-            min-height: 100%;
+            min-height: 100vh;
+            /* //change */
             min-width: 100%;
             width: auto;
             max-height: none;
@@ -99,35 +111,44 @@
             backface-visibility: hidden;
             perspective: 1000;
         }
-        
+
         .home-wrap-container {
             position: absolute;
             z-index: 1;
             width: 100%;
-            /* height: 100%; */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            /* align-items: flex-end; */
         }
-        
+
         .title-strip {
             -webkit-animation-name: mymove;
             animation-name: mymove
         }
-        
+
+        .header-title-text h1 {
+            font-size: 10vw;
+            padding-top: 10rem;
+        }
+
         @keyframes mymove {
             0% {
                 opacity: 0;
                 filter: blur(10px);
                 transform: scaleX(1.75);
             }
+
             100% {
                 opacity: 1;
                 filter: blur(0);
                 transform: scaleX(1);
             }
         }
-        
+
         button.explore {
             cursor: pointer;
-            padding: 0.71429em 1.07143em;
+            padding: 0.81429em 2.07143em;
             font-family: "Roboto Condensed", sans-serif;
             font-size: 0.875em;
             text-transform: uppercase;
@@ -138,7 +159,7 @@
             font-weight: 700;
             transition: background 0.3s, box-shadow 0.3s, color 0.3s;
         }
-        
+
         button.explore span::after {
             position: absolute;
             left: 0;
@@ -147,11 +168,11 @@
             -moz-transform-origin: left;
             transform-origin: left;
         }
-        
+
         button.explore:hover {
             background: var(--blue);
         }
-        
+
         .loading span {
             width: 25px;
             height: 25px;
@@ -164,601 +185,61 @@
             animation-iteration-count: infinite;
             animation-timing-function: ease-in-out;
         }
-        
+
         .loading :nth-child(2) {
             background-coLor: #000;
             animation-delay: 0.4s;
         }
-        
-        ._fold_1 div::before {
-            content: '';
-            width: 100%;
-            height: 100%;
-            position: absolute;
+
+
+
+
+        #box3 {
+            right: 0;
+            bottom: 1100px;
+            height: 40vw;
+            width: 60vw;
+            background: linear-gradient(-45deg, #f7f7f7 50%, transparent 50%);
+        }
+
+        #box2 {
             left: 0;
-            top: 0;
-            /* z-index: 2; */
-            background-color: rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to top, rgb(0 0 0 / 19%) 0%, rgb(0 0 0 / 15%) 10%, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.05) 70%, rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0.5) 100%);
+            top: 700px;
+            height: 80vw;
+            width: 60vw;
+            background: linear-gradient(45deg, #f7f7f7 50%, transparent 50%);
         }
-        /* Header start */
-        
-        .sticky {
-            box-shadow: 0 3px 12px 0 rgba(0, 0, 0, .08);
-            position: fixed !important;
-            background: var(--blue) !important;
-            top: 0;
-            width: 100%;
-            min-height: 7rem;
-            z-index: 3;
-            transform: translateY(-100%);
-            animation: sticky-slide-down .4s ease .25s forwards;
-        }
-        
-        .header-out {
-            transition: all 0.4s;
-        }
-        
-        @keyframes sticky-slide-down {
-            100% {
-                transform: translateY(0);
+
+        @media screen and (max-width:622px) {
+            #box2 {
+                top: 1300px;
             }
-        }
-        
-        .sticky .top-nav-bar-container {
-            display: none;
-        }
-        
-        .sticky .header-container {
-            padding-top: 2rem;
-        }
-        /* Header end */
-        
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 10;
-            top: 0;
-            left: 0;
-            background-color: #1B2736;
-            color: #fff;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 1rem;
-        }
-        
-        .card {
-            background-color: rgba(11, 54, 91, 0.71);
-            border-top: 1px solid rgb(128, 128, 128);
-            border-bottom: 1px solid grey;
-        }
-        /* .show {
-            background-color: rgba(21, 107, 182, 0.71);
-        } */
-        
-        .card-header {
-            padding: .75rem 1.25rem;
-            margin-bottom: 0;
-            background-color: rgba(7, 32, 54, 0.71);
-            border-bottom: 1px solid rgba(0, 0, 0, .125);
         }
     </style>
 </head>
 
 <body>
-    <div id="mySidenav" class="sidenav">
+    <%- include('shared/sidebar', {obj: "sidebar"}); %>
+    <%- include('shared/header', { Menu: faq.Menu }); %>
+    <%- include('shared/stickyHeader', { Menu: faq.Menu }); %>
 
-        <div>
-            <div class="Menu">
-
-                <section class="fsElement fsNavigation fsList nav-utility-mobile" id="fsEl_2502" data-use-new="true">
-
-                    <header class="d-flex justify-content-between mx-3">
-
-                        <div>
-                            <figure class="fsImage">
-                                <picture><img alt="Bharti Public School" src="./logo.png"></picture>
-                            </figure>
-                        </div>
-
-                        <div> <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times text-white"></i></a></div>
-
-                    </header>
-                    <!-- <div class="top-nav-bar-container">
-                        <ul class="top-nav-bar-items mb-0">
-                            <li class="top-nav-bar-item " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a class="dropdown-item dropdown-toggle" href="">Quicklinks&nbsp;</a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <ul class="list-unstyled mx-3">
-                                        <li> <a class="dropdown-item" href="#">Forms & Certificates</a></li>
-                                        <li> <a class="dropdown-item" href="#">BPS Bulletin</a></li>
-                                        <li> <a class="dropdown-item" href="#">Admission Handbook</a></li>
-                                        <li> <a class="dropdown-item" href="#">Employment</a></li>
-                                    </ul>
-                                </div>
-
-
-
-                            </li>
-
-                            <li class="top-nav-bar-item"><a class="dropdown-item" href="">Apply</a> </li>
-                            <li class="top-nav-bar-item">
-                                <a class="dropdown-item" href="">Pay Fees</a>
-                            </li>
-                            <li class="top-nav-bar-item">
-                                <a class="dropdown-item" href="">MyBharti</a></li>
-
-
-                            <li class="top-nav-bar-item"><a style="vertical-align: middle;" class="mx-4" href="/search"><i class="fa fa-search text-white"></i></a></li>
-
-
-                        </ul>
-
-                    </div> -->
-
-
-                </section>
-                <div class="accordion mx-4 my-4" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h4 class="d-flex justify-content-between mb-0">
-                                <button class="btn text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            QuickLinks
-                          </button>
-                                <button class="btn text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <i class="fa fa-chevron-down fa-xs"></i>
-                          </button>
-
-                            </h4>
-                        </div>
-
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <ul class="list-unstyled mx-3">
-                                    <li> <a class="dropdown-item" href="#">Forms & Certificates</a></li>
-                                    <li> <a class="dropdown-item" href="#">BPS Bulletin</a></li>
-                                    <li> <a class="dropdown-item" href="#">Admission Handbook</a></li>
-                                    <li> <a class="dropdown-item" href="#">Employment</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h4 class="d-flex justify-content-between mb-0">
-                                <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            About
-                          </button>
-                                <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <i class="fa fa-chevron-down fa-xs"></i>
-                          </button>
-
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                                beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h4 class="d-flex justify-content-between mb-0">
-                                <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                           Addmission
-                          </button>
-                                <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <i class="fa fa-chevron-down fa-xs"></i>
-                          </button>
-
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                                beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-        </div>
-    </div>
-
-    <div id="myHeader" style="position: absolute; background: transparent; z-index: 3;" class="d-flex w-100 px-3">
-        <div style="position: absolute; width: 190px; height: 90px;" class="ml-2 mt-2">
-            <a> <img width="90%" height="100%" alt="" src="http://localhost:1337<%= faq.homeVideo[0].logo.url  %>"> </a>
-        </div>
-        <div class="d-flex flex-column w-100">
-            <div class="top-nav-bar-container">
-                <ul class="top-nav-bar-items mb-0">
-                    <li class="top-nav-bar-item " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a class="dropdown-item dropdown-toggle" href="">Quicklinks&nbsp;</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <ul class="list-unstyled mx-3">
-                                <li> <a class="dropdown-item" href="#">Forms & Certificates</a></li>
-                                <li> <a class="dropdown-item" href="#">BPS Bulletin</a></li>
-                                <li> <a class="dropdown-item" href="#">Admission Handbook</a></li>
-                                <li> <a class="dropdown-item" href="#">Employment</a></li>
-                            </ul>
-                        </div>
-
-
-
-                    </li>
-
-                    <li class="top-nav-bar-item"><a class="dropdown-item" href="">Apply</a> </li>
-                    <li class="top-nav-bar-item">
-                        <a class="dropdown-item" href="">Pay Fees</a>
-                    </li>
-                    <li class="top-nav-bar-item">
-                        <a class="dropdown-item" href="">MyBharti</a></li>
-
-
-                    <li class="top-nav-bar-item"><a style="vertical-align: middle;" class="mx-4" href="/search"><i class="fa fa-search text-white"></i></a></li>
-
-
-                </ul>
-
-            </div>
-            <div class="header-container mt-2">
-                <div class="d-flex justify-content-end">
-
-                    <div class="header-column">
-                        <nav class="navbar navbar-expand-lg ">
-                            <button class="navbar-toggler d-block d-lg-none" onclick="openNav()">
-                                <i class="fa fa-bars fa-lg text-white"></i>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarText">
-
-                                <ul class="navbar-nav mr-auto">
-                                    <% faq.Menu.forEach(function(m){ %>
-
-                                        <%- include('elements/dropdown', {menu: m}); %>
-
-                                            <% }); %>
-
-
-                                </ul>
-
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
     <div class="body-wrap">
-        <div class="home-wrap-container">
-            <!-- <div class="d-flex flex-column">
-                <div class="top-nav-bar-container">
-                    <ul class="top-nav-bar-items">
-                        <li class="top-nav-bar-item " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a class="dropdown-item dropdown-toggle" href="">Quicklinks&nbsp;</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Forms & Certificates</a>
-                                <a class="dropdown-item" href="#">BPS Bulletin</a>
-                                <a class="dropdown-item" href="#">Admission Handbook</a>
-                                <a class="dropdown-item" href="#">Employment</a>
-                            </div>
 
-
-                        </li>
-
-                        <li class="top-nav-bar-item"><a class="dropdown-item" href="">Apply</a> </li>
-                        <li class="top-nav-bar-item">
-                            <a class="dropdown-item" href="">Pay Fees</a>
-                        </li>
-                        <li class="top-nav-bar-item">
-                            <a class="dropdown-item" href="">MyBharti</a></li>
-
-
-                        <li class="top-nav-bar-item"><a style="vertical-align: middle;" class="mx-4" href="/search"><i class="fa fa-search text-white"></i></a></li>
-
-
-                    </ul>
-                </div>
-
-                <div class="header-container " style="height: 65px;">
-                    <div class="d-flex justify-content-between">
-                        <div style="margin-top: -3em;" class="header-column">
-                            <div class="ml-4" style="width: 190px; height: 125px;">
-                                <a> <img width="80%" height="75%" alt="" src="./logo.png"> </a>
-                            </div>
-                        </div>
-
-                        <div class="header-column">
-                            <nav class="navbar navbar-expand-lg ">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                                    <i class="fa fa-bars"></i>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarText">
-                                    <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item">
-                                            <div class="dropdown">
-                                                <a class="dropbtn dropdown-item">
-                                                    About
-                                                  </a>
-                                                <div class="dropdown-content p-5">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <img width="300" src="./Dropdown/About Dropdown.jpeg" alt="">
-                                                        </div>
-                                                        <div class="col">
-
-                                                            <ol style="list-style: lower-alpha;">
-                                                                <li>
-                                                                    <p>
-                                                                        Bharti Public School strives to innovate and offer students educational opportunities that are unique, engaging, and relevant to life in the 21st century. Our students explore their multiple interests in a dynamic academic environment while growing within
-                                                                        a nurturing community.
-
-                                                                    </p>
-                                                                </li>
-                                                            </ol>
-                                                        </div>
-                                                        <div class="col">
-                                                            <ul class="list-group list-group-flush">
-                                                                <li class="list-group-item">
-                                                                    <a href=""> Our Mission</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <a href=""> Explore Campus</a></li>
-                                                                <li class="list-group-item">
-                                                                    <a href=""> A Rich History</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <a href=""> The BPS Difference</a>
-                                                                </li>
-                                                                <li class="list-group-item"> <a href=""> Leadership</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-
-
-                                                </div>
-                                            </div>
-
-                                        </li>
-                                        <li>
-                                            <div class="dropdown">
-                                                <a class="dropbtn dropdown-item">
-                                                    Admissions
-                                                  </a>
-                                                <div class="dropdown-content p-5">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <img width="300" src="./Dropdown/Admissions Dropdown.JPG" alt="">
-                                                        </div>
-                                                        <div class="col">
-                                                            <ol style="list-style: lower-alpha;">
-                                                                <li>
-                                                                    <p>
-                                                                        Learn more about Bharti Public School’s admissions process, find answers to commonly asked questions about the school and submit your application online.
-
-                                                                    </p>
-                                                                </li>
-                                                            </ol>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="col">
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">
-                                                                        <a href=""> Admission FAQ</a>
-                                                                    </li>
-                                                                    <li class="list-group-item">
-                                                                        <a href=""> Apply Now!</a></li>
-                                                                    <li class="list-group-item">
-                                                                        <a href=""> Tuition Fees</a>
-                                                                    </li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="">Forms & Certificates</a>
-                                                                    </li>
-
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </li>
-                                        <li>
-                                            <div class="dropdown">
-                                                <a class="dropdown-item dropbtn">
-                                                    Academics
-                                                  </a>
-                                                <div class="dropdown-content p-5">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <img width="300" src="./Dropdown/Academics dropdown.jpg" alt="">
-                                                        </div>
-                                                        <div class="col">
-                                                            <ol style="list-style: lower-alpha;">
-                                                                <li>
-                                                                    <p>
-                                                                        At the heart of Bharti Public School’s philosophy is the belief that education must engage more than the mind alone. A BPS education is comprehensive, rigorous and complemented by opportunities to participate in a wide range of extra-curricular activities
-                                                                        that foster growth and development.
-
-                                                                    </p>
-                                                                </li>
-                                                            </ol>
-                                                        </div>
-                                                        <div class="col">
-
-                                                            <ul class="list-group list-group-flush">
-                                                                <li class="list-group-item">
-                                                                    <a href=""> Common Page</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <a href="">  Lower School</a></li>
-                                                                <li class="list-group-item">
-                                                                    <a href=""> Middle School</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <a href="">Upper School</a>
-                                                                </li>
-                                                                <li class="list-group-item"> <a href=""> Student Resources</a></li>
-                                                            </ul>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </li>
-                                        <li>
-                                            <div class="dropdown">
-                                                <a class="dropdown-item dropbtn">
-                                                    Life at BPS
-                                                  </a>
-                                                <div class="dropdown-content p-5">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <img width="300" src="./Dropdown/life at BPS_dropdown.JPG" alt="">
-                                                        </div>
-                                                        <div class="col">
-
-                                                            <ol style="list-style: lower-alpha;">
-                                                                <li>
-                                                                    <p>
-                                                                        Bharti Public School creates an atmosphere of innovation and creativity which, by design, always be front and center. The pursuit and implementation of new ideas has been a hallmark of the school for more than four decades, resulting in a relentless search
-                                                                        for new and better ideas that have made Bharti Public School into an epitome of academic progress.
-
-                                                                    </p>
-                                                                </li>
-                                                            </ol>
-                                                        </div>
-                                                        <div class="col">
-
-                                                            <ul class="list-group list-group-flush">
-                                                                <li class="list-group-item">
-                                                                    <a href=""> Common Page</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <a href=""> Athletics</a></li>
-                                                                <li class="list-group-item">
-                                                                    <a href="">Creative Arts</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <a href=""> Community Outreach</a>
-                                                                </li>
-                                                                <li class="list-group-item"> <a href=""> Outdoor Education</a></li>
-                                                            </ul>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </li>
-                                        <li>
-                                            <div class="dropdown">
-                                                <a class="dropdown-item dropbtn">
-                                                    Community
-                                                  </a>
-                                                <div class="dropdown-content p-5">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <img width="300" src="./Dropdown/Community dropdown.JPG" alt="">
-                                                        </div>
-                                                        <div class="col">
-                                                            <ol style="list-style: lower-alpha;">
-                                                                <li>
-                                                                    <p>
-                                                                        The Bharti Public School community, better known as Bharti Parivaar spells growth, impetus and success for the school and its fraternity including our faculty, staff, students, and alumni members.
-
-
-                                                                    </p>
-                                                                </li>
-                                                            </ol>
-                                                        </div>
-                                                        <div class="col">
-                                                            <ul class="list-group list-group-flush">
-                                                                <li class="list-group-item">
-                                                                    <a href="">Faculty+</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <a href="">Parents+</a></li>
-                                                                <li class="list-group-item">
-                                                                    <a href=""> Students+</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <a href="">Alumni</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </li>
-                                        <li>
-                                            <div class="dropdown">
-                                                <a class="dropdown-item dropbtn">
-                                                    Contact
-                                                  </a>
-                                                <div class="dropdown-content p-5">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <img width="300" src="./Dropdown/Contact Dropdown.JPG" alt="">
-                                                        </div>
-                                                        <div class="col">
-                                                            <ol style="list-style: lower-alpha;">
-                                                                <li>
-                                                                    <p>
-                                                                        In case of any questions or concerns, you may contact the school and get your queries answered. The school is consistently engaged in numerous activities and workshops, updates of which can be found on social media
-
-                                                                    </p>
-                                                                </li>
-                                                            </ol>
-                                                        </div>
-                                                        <div class="col">
-                                                            <ul class="list-group list-group-flush">
-                                                                <li class="list-group-item">
-                                                                    <a href="">Contact</a>
-                                                                </li>
-                                                                <li class="list-group-item">
-                                                                    <a href="">Employment</a></li>
-                                                            </ul>
-                                                        </div>
-
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
-            <div style="padding-top: 20%;" class="text-center">
-                <header class="">
-                    <h1 class="text-white fadeInUp delay-2s animated fast" style="font-size: 7vw;">
-                        <%= faq.homeVideo[0].heading  %>
-                    </h1>
+        <div class="home-wrap-container align-items-lg-end align-items-center">
+            <div class="text-center">
+                <header class="header-title-text mb-5">
+                    <h1 class="text-white fadeInUp delay-2s animated fast">Your Journey Starts Here</h1>
                     <div class="expore-btn  delay-3s animated">
-                        <button type="button" style="letter-spacing: 3px;" class="explore"><span> Explore our Campus</span></button>
+                        <button type="button"
+                            style="letter-spacing: 3px; box-shadow: inset 0 0 0 0.14286em transparent;"
+                            class="explore"><span> Explore Campus</span></button>
                     </div>
-                    <div class="py-5">
-                        <a href="#fold_2" class="down"><i class="fa fa-chevron-down fa-2x text-white" aria-hidden="true"></i></a>
+                    <div class="arrow mb-3 bounce">
+                        <a style="cursor: pointer;" onclick="gotoPos()">
+                            <!-- <i class="fa fa-angle-double-down fa-3x text-white" aria-hidden="true"></i> -->
+                            <img width="100%" src="./assets/down.png" alt="">
+                        </a>
+
                     </div>
 
                 </header>
@@ -766,123 +247,30 @@
 
         </div>
         <div id="_fold_1_media" class="_fold_1 bpsHomeVideoContainer delay-1s fadeIn animated">
-            <video loop autoplay id="home_media" width="100%" muted src="http://localhost:1337<%=faq.homeVideo[0].titleVideo[0].url %>"></video>
+            <video loop autoplay id="home_media" width="100%" muted src="./bps_gC15GSHO.compressed.mp4"></video>
             <div></div>
         </div>
 
-        <div id="fold_2" class="_fold_2">
-            <div class="d-flex justify-content-center align-items-center">
-                <section class="text-center m-5">
-                    <section></section>
-                    <h1 style="font-size: 2.5rem;" data-aos="fade-up" data-aos-duration="2000"><span>PRIDE</span><br>in Everything We Do</h1>
-                    <p data-aos="fade-up" data-aos-duration="1000">At BPS, our Core Values of Positivity, Resilience, Integrity, Determination and Empowerment are more than mere words. Our students and faculty live and breathe them every day. Our values set BPS’ students apart and send them out into
-                        the world as confident and capable leaders of the 21st century.
-                    </p>
-                    <h5><a style="text-decoration: none;" href="">Learn more about BPS PRIDE</a></h5>
-                </section>
-            </div>
-        </div>
+        <%- include('elements/fold2', {fold2: faq.BPS_PRIDE }); %>
 
         <div class="_fold_3">
             <div class="d-flex flex-wrap">
-                <div class="_feature_box">
-                    <figure class="_fold_3_overlay"> <img width="100%" height="100%" src="./3rdFold/Community_2.JPG" alt="">
-                        <p class="fixp">Learning</p>
-                        <figcaption>
-                            <div>
-                                <p class="my-2">
-                                    Our students are at the heart of Bharti Public School. Our teachers are dedicated, internationally experienced professionals and as a CBSE Board school, with world-class amenities our highly motivated students acquire attitudes for a holistic development
-                                    to meet the growing demands of the 21st century.</p>
-                                <button type="button" class="btn btn-rounded btn-light box-shadow-2 my-2">LEARN MORE</button>
 
-                            </div>
-                        </figcaption>
-                    </figure>
+                <% faq.Fold3.forEach(function(card){ %>
 
-                </div>
-                <div class="_feature_box">
-                    <figure class="_fold_3_overlay"> <img width="100%" height="100%" src="./3rdFold/Arts.JPG" alt="">
-                        <p class="fixp">Arts</p>
-                        <figcaption>
-                            <div>
-                                <p class="my-2">
-                                    The Arts thrive at Bharti Public School. Guided by talented and creative faculty, our students are taught foundational skills while also being challenged to express their own artistic vision. They imagine, create, and express through various clubs, debates
-                                    and cultural events .
-                                </p>
-                                <button type="button" class="btn btn-rounded btn-light box-shadow-2 my-5 my-sm-2 ">LEARN MORE</button>
+                <%- include('elements/fold3', {card: card}); %>
 
-                            </div>
-                        </figcaption>
-                    </figure>
-
-                </div>
-                <div class="_feature_box">
-                    <figure class="_fold_3_overlay"> <img width="100%" height="100%" src="./3rdFold/Athletics.jpg" alt="">
-                        <p class="fixp">Athletics</p>
-                        <figcaption>
-                            <div style="z-index: 5;">
-                                <p class="my-2">BPS encourages every student to participate in different competitive sports. The Bharti Pro Sports Excellence Arena (BPSEA) boasts of a dedicated athletic-track, indoor cricket pitch, basketball and volleyball courts where
-                                    student-athletes are challenged to learn and develop new skills, and achieve common goals.</p>
-                                <button type="button" class="btn btn-rounded btn-light box-shadow-2 my-2">LEARN MORE</button>
-
-                            </div>
-                        </figcaption>
-                    </figure>
-
-                </div>
-                <div class="_feature_box">
-                    <figure class="_fold_3_overlay"> <img width="100%" height="100%" src="./3rdFold/Learning.jpg" alt="">
-                        <p class="fixp">Campus</p>
-                        <figcaption>
-                            <div style="z-index: 5;">
-                                <p class="my-2">Beautiful and functional, BPS stands out among schools in East Delhi with its exciting, purpose-built facilities. It is a citadel of learning that reflects through its vitality in classrooms, energy on the playgrounds and
-                                    state-of-the-art infrastructure, reflecting the spirit of our extraordinary school.
-                                </p>
-                                <button type="button" class="btn btn-rounded btn-light box-shadow-2 my-2">LEARN MORE</button>
-
-                            </div>
-                        </figcaption>
-                    </figure>
-
-                </div>
-                <div class="_feature_box">
-                    <figure class="_fold_3_overlay"> <img width="100%" height="100%" src="./3rdFold/Campus_2.jpg" alt="">
-                        <p class="fixp">Community</p>
-                        <figcaption>
-                            <div style="z-index: 5;">
-                                <p class="my-2">Our Community defines our success. From first steps until well after graduation, the BPS community remains a supportive, caring and diverse part of school life. Join us, get involved and experience everything a top school
-                                    in Delhi has to offer, from volunteer opportunities to exciting events and initiatives.
-                                </p>
-                                <button type="button" class="btn btn-rounded btn-light box-shadow-2 my-2">LEARN MORE</button>
-
-                            </div>
-                        </figcaption>
-                    </figure>
-
-                </div>
-                <div class="_feature_box">
-                    <figure class="_fold_3_overlay"> <img width="100%" height="100%" src="./3rdFold/OutdoorEducation.jpg" alt="">
-                        <p class="fixp">Outdoor Education</p>
-                        <figcaption>
-                            <div style="z-index: 5;">
-                                <p class="my-2">BPS’s outdoor education department, has run more than 20 outdoor expeditions and day trips each year for over a decade. Taking learning outside the classroom and into the society, BPS has a strong holistic focus incorporated
-                                    into all its programs.
-                                </p>
-                                <button type="button" class="btn btn-rounded btn-light box-shadow-2 my-2">LEARN MORE</button>
-
-                            </div>
-                        </figcaption>
-                    </figure>
-
-                </div>
+                <% }); %>
 
             </div>
+            <!-- <div style="position: absolute; z-index: -1;" id="box3" data-scroll-speed="6"></div> -->
         </div>
 
-        <!-- <div data-aos="fade-up" data-aos-duration="1000" class="_fold_4">
+
+        <div data-aos="fade-up" data-aos-duration="2000" class="_fold_4">
             <section>
                 <header class="my-5" data-aos="fade-down">
-                    <h1 class="text-center">BPS at a Glance</h1>
+                    <h1 class="text-center pb-5">BPS at a Glance</h1>
                 </header>
                 <div class="statistics-slider">
                     <div>
@@ -890,118 +278,57 @@
 
                             <div class="">
                                 <figure class="">
-                                    <picture class="text-center"><img height="200" alt="" id="" role="presentation" src="./stats/teacher_faculty.png"></picture>
+                                    <picture class="text-center"><img height="200" alt="" id="" role="presentation"
+                                            src="./stats/classroom_moving-icon.gif"></picture>
                                 </figure>
 
                             </div>
-                            <h2 class="text-center"> 550 years</h2>
+                            <h2 class="text-center stat-text1"> 550 years</h2>
                         </header>
-                        <p class="text-center">Collective Faculty Experience</p>
+                        <p class="text-center stat-text2">Collective Faculty Experience</p>
                     </div>
                     <div>
                         <header>
 
                             <div class="fsElementHeaderContent">
                                 <figure class="fsImage">
-                                    <picture class="text-center"><img width="200" height="200" alt="" id="" role="presentation" src="./stats/student.png"></picture>
+                                    <picture class="text-center"><img width="200" height="200" alt="" id=""
+                                            role="presentation" src="./stats/student_moving-icon.gif"></picture>
                                 </figure>
 
                             </div>
-                            <h2 class="text-center" class="fsElementTitle">10,000+</h2>
+                            <h2 class="text-center stat-text1" class="fsElementTitle">10,000+</h2>
                         </header>
-                        <p class="text-center">Bhartians since Inception </p>
+                        <p class="text-center stat-text2">Bhartians since Inception </p>
                     </div>
                     <div>
                         <header>
 
                             <div class="fsElementHeaderContent">
                                 <figure class="fsImage">
-                                    <picture><img width="200" height="200" alt="" id="" role="presentation" src="./stats/unfolding infinite potential.png" width="94"></picture>
+                                    <picture><img width="200" height="200" alt="" id="" role="presentation"
+                                            src="./stats/money_moving-icon.gif" width="94"></picture>
                                 </figure>
 
                             </div>
-                            <h2 class="text-center">100%</h2>
+                            <h2 class="text-center stat-text1">100%</h2>
                         </header>
-                        <p class="text-center">Unfolding Infinite Potential </p>
+                        <p class="text-center stat-text2">Unfolding Infinite Potential </p>
                     </div>
                     <div>
                         <header>
 
                             <div class="fsElementHeaderContent">
                                 <figure class="fsImage">
-                                    <picture><img width="200" height="200" alt="" id="" role="presentation" src="./stats/winner.png"></picture>
+                                    <picture><img width="200" height="200" alt="" id="" role="presentation"
+                                            src="./stats/trophy_moving-icon.gif"></picture>
                                 </figure>
 
 
                             </div>
-                            <h2 class="text-center">25+</h2>
+                            <h2 class="text-center stat-text1">25+</h2>
                         </header>
-                        <p class="text-center">Extra-Curricular Activities </p>
-                    </div>
-
-
-                </div>
-            </section>
-
-        </div> -->
-        <div data-aos="fade-up" data-aos-duration="1000" class="_fold_4">
-            <section>
-                <header class="my-5" data-aos="fade-down">
-                    <h1 class="text-center">BPS at a Glance</h1>
-                </header>
-                <div class="statistics-slider">
-                    <div>
-                        <header>
-
-                            <div class="">
-                                <figure class="">
-                                    <picture class="text-center"><img height="200" alt="" id="" role="presentation" src="./stats/classroom_moving-icon.gif"></picture>
-                                </figure>
-
-                            </div>
-                            <h2 class="text-center"> 550 years</h2>
-                        </header>
-                        <p class="text-center">Collective Faculty Experience</p>
-                    </div>
-                    <div>
-                        <header>
-
-                            <div class="fsElementHeaderContent">
-                                <figure class="fsImage">
-                                    <picture class="text-center"><img width="200" height="200" alt="" id="" role="presentation" src="./stats/student_moving-icon.gif"></picture>
-                                </figure>
-
-                            </div>
-                            <h2 class="text-center" class="fsElementTitle">10,000+</h2>
-                        </header>
-                        <p class="text-center">Bhartians since Inception </p>
-                    </div>
-                    <div>
-                        <header>
-
-                            <div class="fsElementHeaderContent">
-                                <figure class="fsImage">
-                                    <picture><img width="200" height="200" alt="" id="" role="presentation" src="./stats/money_moving-icon.gif" width="94"></picture>
-                                </figure>
-
-                            </div>
-                            <h2 class="text-center">100%</h2>
-                        </header>
-                        <p class="text-center">Unfolding Infinite Potential </p>
-                    </div>
-                    <div>
-                        <header>
-
-                            <div class="fsElementHeaderContent">
-                                <figure class="fsImage">
-                                    <picture><img width="200" height="200" alt="" id="" role="presentation" src="./stats/trophy_moving-icon.gif"></picture>
-                                </figure>
-
-
-                            </div>
-                            <h2 class="text-center">25+</h2>
-                        </header>
-                        <p class="text-center">Extra-Curricular Activities </p>
+                        <p class="text-center stat-text2">Extra-Curricular Activities </p>
                     </div>
 
 
@@ -1009,111 +336,68 @@
             </section>
 
         </div>
-        <!-- <section class="_fold_5">
-            <header class="my-5">
-                <h1 class="text-center">Our Story</h1>
+        <section class="_fold_6">
+            <header class="mt-5 mb-4 py-3">
+                <h1 class="pt-3 text-center text-white">News & Announcements</h1>
             </header>
-            <div class="d-flex richHistory">
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1.JPG">
+            <div style="width: 99%;" class="d-flex mx-auto news-annuncement">
+                <div class="news-track" data-toggle="modal" data-target="#exampleModal">
+                    <div class="news-image"><img width="100%" height="100%" src="./Richhistory/1.JPG">
                     </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title">Our Founding Fathers
-                        </h4>
-                        <div class="slide-text"> 1980 was the year, when sharing a common passion for teaching, Dr. S.L. Batra & Sh. H.C.B. Bharti opened the doors of BPS to their first batch of students.</div>
+                    <div class="news-content">
+                        <h5 class="news-title">Our Founding Fathers
+                        </h5>
+                        <div class="news-text"> 1980 was the year, when sharing a common passion for teaching, Dr. S.L.
+                            Batra & Sh. H.C.B. Bharti opened the doors of BPS to their first batch of students.</div>
                     </div>
                 </div>
 
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1980-old building.jpg">
+                <div class="news-track" data-toggle="modal" data-target="#exampleModal">
+                    <div class="news-image"><img width="100%" height="100%" src="./Richhistory/1980-old building.jpg">
                     </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title">School Shed</h4>
-                        <div class="slide-text">The indefatigable efforts of the founders reaped fruits and within seven years, BPS moved to Swasthya Vihar – its present dwelling. It was a humble brick ‘n’ mortar structure that became home to faculty and students alike.
+                    <div class="news-content">
+                        <h5 class="news-title">School Shed</h5>
+                        <div class="news-text">The indefatigable efforts of the founders reaped fruits and within seven
+                            years, BPS moved to Swasthya Vihar – its present dwelling. It was a humble brick ‘n’ mortar
+                            structure that became home to faculty and students alike.
                         </div>
                     </div>
                 </div>
 
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/OK_1980-Founder-1-ConvertImage (1).jpg">
+                <div class="news-track">
+                    <div class="news-image"><img width="100%" height="100%"
+                            src="./Richhistory/OK_1980-Founder-1-ConvertImage (1).jpg">
                     </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title"> State Teachers Award to the Founder</h4>
-                        <div class="slide-text"> For his unparalleled dedication and selfless devotion towards academia, the founder-director, Dr. S.L. Batra was bestowed with the prestigious State Teachers’ Award. </div>
-                    </div>
-                </div>
-
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1990.jpg">
-                    </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title">Inauguration of School Campus at Swasthya Vihar
-                        </h4>
-                        <div class="slide-text"> From 1980 to 1998, the school saw a meteoric rise from a humble structure to the present day state-of-the-art green campus. With changing times, the campus became more modern and functional in approach.</div>
+                    <div class="news-content">
+                        <h5 class="news-title"> State Teachers Award to the Founder</h5>
+                        <div class="news-text"> For his unparalleled dedication and selfless devotion towards academia,
+                            the founder-director, Dr. S.L. Batra was bestowed with the prestigious State Teachers’
+                            Award. </div>
                     </div>
                 </div>
 
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1995.jpg">
+                <div class="news-track">
+                    <div class="news-image"><img width="100%" height="100%" src="./Richhistory/1990.jpg">
                     </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title">BPS opens its second branch at Mayur Vihar </h4>
-                        <div class="slide-text"> BPS continued to flourish in leaps and bounds; unveiled its another branch at Mayur Vihar in 2004. The imposing structure is a testimony of the hard work of the think tank.</div>
-                    </div>
-                </div>
-
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1998.JPG">
-                    </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title">Silver Jubilee Celebrations at the National Stadium
-
-                        </h4>
-                        <div class="slide-text"> Sunita Godara, National Marathon Champion facilitated the annual sports function at the National Stadium with participation of all students at BPS.</div>
+                    <div class="news-content">
+                        <h5 class="news-title">Inauguration of School Campus at Swasthya Vihar
+                        </h5>
+                        <div class="news-text"> From 1980 to 1998, the school saw a meteoric rise from a humble
+                            structure to the present day state-of-the-art green campus. With changing times, the campus
+                            became more modern and functional in approach.</div>
                     </div>
                 </div>
 
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/OK_2004.jpg">
-                    </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title">BPS inaugurates its third branch, Prakriti at Noida
 
-                        </h4>
-                        <div class="slide-text"> The Bharti Group of Schools takes a stride and inaugurates Prakriti, a K-12 school with learner-centred curriculum and interdisciplinary learning methods</div>
+                <div class="news-track">
+                    <div class="news-image"><img width="100%" height="100%" src="./Richhistory/43.jpg">
                     </div>
-                </div>
+                    <div class="news-content">
+                        <h5 class="news-title">School operations go ONLINE!
 
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/OK_2013-Teachers State Award.jpg">
-                    </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title"> National Award given to Dr. Savita Arora
-
-                        </h4>
-                        <div class="slide-text"> Our Principal, Dr. Savita Arora was the recipient of the prestigious National Award for Teachers and was facilitated by President, Pranab Mukherjee.</div>
-                    </div>
-                </div>
-
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/OK_2006_2.jpg">
-                    </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title">BPS unveils its sports arena, BPSEA
-
-                        </h4>
-                        <div class="slide-text"> The Bharti Pro Sports Excellence Arena (BPSEA) boasts of a dedicated athletic-track, indoor cricket pitch, basketball and volleyball courts</div>
-                    </div>
-                </div>
-
-                <div class="history-track">
-                    <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/43.jpg">
-                    </div>
-                    <div class="history-content p-2">
-                        <h4 class="slide-title">School operations go ONLINE!
-
-                        </h4>
-                        <div class="slide-text"> As BPS celebrates its 40th year anniversary, its operations including academics and activities go digital!</div>
+                        </h5>
+                        <div class="news-text"> As BPS celebrates its 40th year anniversary, its operations including
+                            academics and activities go digital!</div>
                     </div>
                 </div>
 
@@ -1122,35 +406,48 @@
 
 
             </div>
-            <div class="d-flex justify-content-center">
-                <a style="cursor: pointer;" class="m-2 text-dark timeline-prev">
-                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-                      </svg>
-                </a>
-                <a style="cursor: pointer;" class="m-2 text-dark timeline-next">
-                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z"/>
-                      </svg>
-                </a>
-            </div>
-
-        </section> -->
+        </section>
         <section class="_fold_5">
-            <header class="my-5">
+            <header class="mt-5 mb-5">
                 <h1 class="text-center">Our Story</h1>
             </header>
-            <div class="d-flex richHistory">
+            <section class="slick-timeline-dots">
+                <div class="timeline">
+                    <div class="dots-container">
+                        <div class="events">
+                            <ol style="list-style: none;">
+
+                                <li><a id="0" href="#0" data-date="16/01/2014" class="selected">1980</a></li>
+                                <li><a id="1" href="#0" data-date="28/02/2014">1981</a></li>
+                                <li><a id="2" href="#0" data-date="20/04/2014">1995</a></li>
+                                <li><a id="3" href="#0" data-date="20/05/2014">1998</a></li>
+                                <li><a id="4" href="#0" data-date="09/07/2014">2004</a></li>
+                                <li><a id="5" href="#0" data-date="30/08/2014">2005</a></li>
+                                <li><a id="6" href="#0" data-date="15/09/2014">2009</a></li>
+                                <li><a id="7" href="#0" data-date="01/11/2014">2013</a></li>
+                                <li><a id="8" href="#0" data-date="10/12/2014">2019</a></li>
+                                <li><a id="9" href="#0" data-date="19/01/2015">2020</a></li>
+
+                            </ol>
+
+                            <span class="filling-line" aria-hidden="true"></span>
+                        </div> <!-- .events -->
+                    </div> <!-- .dots-container -->
+                </div>
+            </section>
+
+
+            <div id="richHistory" class="d-flex richHistory">
                 <div class="history-track">
                     <div class="d-flex  flex-column flex-md-row">
                         <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1.JPG">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title">Our Founding Fathers
                             </h5>
-                            <div class="slide-text"> 1980 was the year, when sharing a common passion for teaching, Dr. S.L. Batra & Sh. H.C.B. Bharti opened the doors of BPS to their first batch of students.</div>
+                            <div class="slide-text"> 1980 was the year, when sharing a common passion for teaching, Dr.
+                                S.L. Batra & Sh. H.C.B. Bharti opened the doors of BPS to their first batch of students.
+                            </div>
                         </div>
                     </div>
 
@@ -1158,11 +455,14 @@
 
                 <div class="history-track">
                     <div class="d-flex flex-column flex-md-row">
-                        <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1980-old building.jpg">
+                        <div class="slide-image"><img width="100%" height="100%"
+                                src="./Richhistory/1980-old building.jpg">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title">School Shed</h5>
-                            <div class="slide-text">The indefatigable efforts of the founders reaped fruits and within seven years, BPS moved to Swasthya Vihar – its present dwelling. It was a humble brick ‘n’ mortar structure that became home to faculty and students alike.
+                            <div class="slide-text">The indefatigable efforts of the founders reaped fruits and within
+                                seven years, BPS moved to Swasthya Vihar – its present dwelling. It was a humble brick
+                                ‘n’ mortar structure that became home to faculty and students alike.
                             </div>
                         </div>
                     </div>
@@ -1170,11 +470,14 @@
 
                 <div class="history-track">
                     <div class="d-flex flex-column flex-md-row">
-                        <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/OK_1980-Founder-1-ConvertImage (1).jpg">
+                        <div class="slide-image"><img width="100%" height="100%"
+                                src="./Richhistory/OK_1980-Founder-1-ConvertImage (1).jpg">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title"> State Teachers Award to the Founder</h5>
-                            <div class="slide-text"> For his unparalleled dedication and selfless devotion towards academia, the founder-director, Dr. S.L. Batra was bestowed with the prestigious State Teachers’ Award. </div>
+                            <div class="slide-text"> For his unparalleled dedication and selfless devotion towards
+                                academia, the founder-director, Dr. S.L. Batra was bestowed with the prestigious State
+                                Teachers’ Award. </div>
                         </div>
                     </div>
                 </div>
@@ -1183,10 +486,12 @@
                     <div class="d-flex flex-column flex-md-row">
                         <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1990.jpg">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title">Inauguration of School Campus at Swasthya Vihar
                             </h5>
-                            <div class="slide-text"> From 1980 to 1998, the school saw a meteoric rise from a humble structure to the present day state-of-the-art green campus. With changing times, the campus became more modern and functional in approach.</div>
+                            <div class="slide-text"> From 1980 to 1998, the school saw a meteoric rise from a humble
+                                structure to the present day state-of-the-art green campus. With changing times, the
+                                campus became more modern and functional in approach.</div>
                         </div>
                     </div>
                 </div>
@@ -1195,22 +500,25 @@
                     <div class="d-flex flex-column flex-md-row">
                         <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1995.jpg">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title">BPS opens its second branch at Mayur Vihar </h5>
-                            <div class="slide-text"> BPS continued to flourish in leaps and bounds; unveiled its another branch at Mayur Vihar in 2004. The imposing structure is a testimony of the hard work of the think tank.</div>
+                            <div class="slide-text"> BPS continued to flourish in leaps and bounds; unveiled its another
+                                branch at Mayur Vihar in 2004. The imposing structure is a testimony of the hard work of
+                                the think tank.</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="history-track">
                     <div class="d-flex flex-column flex-md-row">
-                        <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1998.JPG">
+                        <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/1998.jpg">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title">Silver Jubilee Celebrations at the National Stadium
 
                             </h5>
-                            <div class="slide-text"> Sunita Godara, National Marathon Champion facilitated the annual sports function at the National Stadium with participation of all students at BPS.</div>
+                            <div class="slide-text"> Sunita Godara, National Marathon Champion facilitated the annual
+                                sports function at the National Stadium with participation of all students at BPS.</div>
                         </div>
                     </div>
                 </div>
@@ -1219,24 +527,29 @@
                     <div class="d-flex flex-column flex-md-row">
                         <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/OK_2004.jpg">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title">BPS inaugurates its third branch, Prakriti at Noida
 
                             </h5>
-                            <div class="slide-text"> The Bharti Group of Schools takes a stride and inaugurates Prakriti, a K-12 school with learner-centred curriculum and interdisciplinary learning methods</div>
+                            <div class="slide-text"> The Bharti Group of Schools takes a stride and inaugurates
+                                Prakriti, a K-12 school with learner-centred curriculum and interdisciplinary learning
+                                methods</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="history-track">
                     <div class="d-flex flex-column flex-md-row">
-                        <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/OK_2013-Teachers State Award.jpg">
+                        <div class="slide-image"><img width="100%" height="100%"
+                                src="./Richhistory/OK_2013-Teachers State Award.jpg">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title"> National Award given to Dr. Savita Arora
 
                             </h5>
-                            <div class="slide-text"> Our Principal, Dr. Savita Arora was the recipient of the prestigious National Award for Teachers and was facilitated by President, Pranab Mukherjee.</div>
+                            <div class="slide-text"> Our Principal, Dr. Savita Arora was the recipient of the
+                                prestigious National Award for Teachers and was facilitated by President, Pranab
+                                Mukherjee.</div>
                         </div>
                     </div>
                 </div>
@@ -1245,11 +558,12 @@
                     <div class="d-flex flex-column flex-md-row">
                         <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/OK_2006_2.jpg">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title">BPS unveils its sports arena, BPSEA
 
                             </h5>
-                            <div class="slide-text"> The Bharti Pro Sports Excellence Arena (BPSEA) boasts of a dedicated athletic-track, indoor cricket pitch, basketball and volleyball courts</div>
+                            <div class="slide-text"> The Bharti Pro Sports Excellence Arena (BPSEA) boasts of a
+                                dedicated athletic-track, indoor cricket pitch, basketball and volleyball courts</div>
                         </div>
                     </div>
                 </div>
@@ -1258,188 +572,39 @@
                     <div class="d-flex flex-column flex-md-row">
                         <div class="slide-image"><img width="100%" height="100%" src="./Richhistory/43.jpg">
                         </div>
-                        <div class="history-content px-2 pt-3">
+                        <div class="history-content">
                             <h5 class="slide-title">School operations go ONLINE!
 
                             </h5>
-                            <div class="slide-text"> As BPS celebrates its 40th year anniversary, its operations including academics and activities go digital!</div>
+                            <div class="slide-text"> As BPS celebrates its 40th year anniversary, its operations
+                                including academics and activities go digital!</div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
             </div>
+
             <div class="d-flex justify-content-center">
                 <a style="cursor: pointer;" class="m-2 text-dark timeline-prev">
-                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-                      </svg>
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 </a>
                 <a style="cursor: pointer;" class="m-2 text-dark timeline-next">
-                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z"/>
-                      </svg>
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
 
         </section>
-        <section class="_fold_6">
-            <header class="my-5">
-                <h1 class="text-center">News & Announcements</h1>
-            </header>
-            <div class="d-flex news-annuncement">
-                <div class="news-track" data-toggle="modal" data-target="#exampleModal">
-                    <div class="news-image"><img width="100%" height="100%" src="./Richhistory/1.JPG">
-                    </div>
-                    <div class="news-content p-2">
-                        <h4 class="news-title">Our Founding Fathers
-                        </h4>
-                        <div class="news-text"> 1980 was the year, when sharing a common passion for teaching, Dr. S.L. Batra & Sh. H.C.B. Bharti opened the doors of BPS to their first batch of students.</div>
-                    </div>
-                </div>
 
-                <div class="news-track" data-toggle="modal" data-target="#exampleModal">
-                    <div class="news-image"><img width="100%" height="100%" src="./Richhistory/1980-old building.jpg">
-                    </div>
-                    <div class="news-content p-2">
-                        <h4 class="news-title">School Shed</h4>
-                        <div class="news-text">The indefatigable efforts of the founders reaped fruits and within seven years, BPS moved to Swasthya Vihar – its present dwelling. It was a humble brick ‘n’ mortar structure that became home to faculty and students alike.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news-track">
-                    <div class="news-image"><img width="100%" height="100%" src="./Richhistory/OK_1980-Founder-1-ConvertImage (1).jpg">
-                    </div>
-                    <div class="news-content p-2">
-                        <h4 class="news-title"> State Teachers Award to the Founder</h4>
-                        <div class="news-text"> For his unparalleled dedication and selfless devotion towards academia, the founder-director, Dr. S.L. Batra was bestowed with the prestigious State Teachers’ Award. </div>
-                    </div>
-                </div>
-
-                <div class="news-track">
-                    <div class="news-image"><img width="100%" height="100%" src="./Richhistory/1990.jpg">
-                    </div>
-                    <div class="news-content p-2">
-                        <h4 class="news-title">Inauguration of School Campus at Swasthya Vihar
-                        </h4>
-                        <div class="news-text"> From 1980 to 1998, the school saw a meteoric rise from a humble structure to the present day state-of-the-art green campus. With changing times, the campus became more modern and functional in approach.</div>
-                    </div>
-                </div>
-
-
-                <div class="news-track">
-                    <div class="news-image"><img width="100%" height="100%" src="./Richhistory/43.jpg">
-                    </div>
-                    <div class="news-content p-2">
-                        <h4 class="news-title">School operations go ONLINE!
-
-                        </h4>
-                        <div class="news-text"> As BPS celebrates its 40th year anniversary, its operations including academics and activities go digital!</div>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-        </section>
-        <footer>
-            <div class="footer-bg">
-
-                <div>
-                    <img width="100%" height="100%" src="./school.png" alt="">
-                </div>
-                <div class="_fold_footer row ml-0">
-                    <div class="social-icons col-md-4">
-                        <h4 class="text-white text-center my-5">Stay Connected</h4>
-                        <div class="d-flex justify-content-center">
-                            <div>
-                                <a href="https://www.facebook.com/Bhartipublicschooldelhi/"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="https://www.linkedin.com/school/bharti-public-school---india/"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="https://www.instagram.com/bhartipublicschooldelhi/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <div class=" p-3">
-
-                            <img src="./logo.png" alt="">
-
-                        </div>
-                        <div class="footer-title my-4">
-                            <h6><b> Bharti Public School</b></h6>
-                            <h6>Swasthya Vihar</h6>
-                            <p>Near, Metro Station, Vikas Marg, Nirman Vihar, <br>Swasthya Vihar, New Delhi 110092.</p>
-
-                        </div>
-                        <div class="d-flex justify-content-around  text-white">
-
-                            <!-- <div class="footer-links"> -->
-                            <!-- <div class="d-flex "> -->
-                            <a class=" btn btn-outline-light" href="">Explore</a>
-                            <a class="btn btn-outline-light" href="">Apply</a>
-                            <a class="btn btn-outline-light" href="">Contact Us</a>
-                            <!-- </div> -->
-                            <!-- </div> -->
-                        </div>
-
-                    </div>
-
-                    <div class="acredition col-md-4 text-center">
-                        <h4 class="text-white my-5">Accreditation</h4>
-                        <div class="d-flex justify-content-center">
-                            <div style="width: 150px;">
-                                <img width="100%" src="./accreditation/cbse-logo-png-3-1.png" alt="">
-                            </div>
-                            <div style="width: 150px;">
-                                <img width="100%" src="./accreditation/Last Fold - Accreditation British council.png" alt="">
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-
-
-
-                </div>
-
-            </div>
-
-
-
-        </footer>
-
-        <!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    ...
-                </div>
-            </div>
-        </div> -->
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
                         ...
@@ -1453,9 +618,10 @@
         </div>
 
 
+
     </div>
 
-
+    <%- include('shared/footer', {obj: "stickyHeader"}); %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
@@ -1464,15 +630,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <script>
-        gsap.from(".dropdown-item", {
-            duration: 0.5,
-            scale: 0.5,
-            opacity: 0,
-            delay: 0.2,
-            stagger: 0.1,
-            ease: "elastic",
-            force3D: true
-        });
+        function openSearchBar() {
+            document.getElementById("searchBar").style.height = "100%";
+        }
+
+        function closeSearchBar() {
+            document.getElementById("searchBar").style.height = "0%";
+        }
+    </script>
+    <script>
+        // gsap.from(".dropdown-item", {
+        //     duration: 0.5,
+        //     scale: 0.5,
+        //     opacity: 0,
+        //     delay: 0.2,
+        //     stagger: 0.1,
+        //     ease: "elastic",
+        //     force3D: true
+        // });
+        (function () { a = { _b: 0, c: function () { this._b++; return this.b; } }; HTMLElement.prototype.pseudoStyle = function (d, e, f) { var g = "pseudoStyles"; var h = document.head || document.getElementsByTagName('head')[0]; var i = document.getElementById(g) || document.createElement('style'); i.id = g; var j = "pseudoStyle" + a.c(); this.className += " " + j; i.innerHTML += " ." + j + ":" + d + "{" + e + ":" + f + "}"; h.appendChild(i); return this; }; })();
         gsap.set(".explore", {
             scale: 0.1,
             opacity: 0,
@@ -1487,48 +663,63 @@
         });
     </script>
     <script>
+        let scrollyArrow = document.getElementById('fold_2');
+        function gotoPos() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: scrollyArrow.offsetTop
+            });
+        }
         function openNav() {
             console.log("open sidenav");
             document.getElementById("mySidenav").style.width = "100%";
         }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
 
-        (function($) {
-            $(document).ready(function() {
+        function updateFilling(filling, index) {
+            //change .filling-line length according to the selected event
+            var scaleValue = (126 * (index + 1)) / 1200;
+            setTransformValue(filling.get(0), 'scaleX', scaleValue);
+        }
 
+        function setTransformValue(element, property, value) {
+            element.style["-webkit-transform"] = property + "(" + value + ")";
+            element.style["-moz-transform"] = property + "(" + value + ")";
+            element.style["-ms-transform"] = property + "(" + value + ")";
+            element.style["-o-transform"] = property + "(" + value + ")";
+            element.style["transform"] = property + "(" + value + ")";
+        }
+        function getIndex(index) {
+            var timeline = $('.richHistory');
+            // console.log($(this));
+            let filling_element = timeline.find('.filling-line');
+            updateFilling(filling_element, index);
 
-                window.onscroll = function() {
-                    myFunction()
-                };
+        }
 
-                // Get the header
-                var header = document.getElementById("myHeader");
-                var videoContent = document.getElementById('_fold_1_media')
-                console.log(window.pageYOffset);
-                // Get the offset position of the navbar
-                var sticky = videoContent.offsetHeight;
-
-                // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-                function myFunction() {
-                    if (window.pageYOffset > sticky) {
-                        header.classList.remove("header-out");
-                        header.classList.add("sticky");
-                    } else if (window.pageYOffset <= 2) {
-                        header.classList.remove("sticky");
-                        header.classList.add("header-out");
-                    }
-                }
-                var controller = new ScrollMagic.Controller();
+        (function ($) {
+            $(document).ready(function () {
+                // var controller = new ScrollMagic.Controller();
 
                 // $("._fold_1").each(function() {
                 //     var tl = new TimelineMax();
                 //     var child = $(this).find("#home_media");
                 //     // var child1 = $(this).find("._fold_2");
-                //     tl.to(child, 1, {
-                //         y: -180,
+                //     tl.to(child, 0.1, {
+                //         height: 0,
                 //         ease: Linear.easeNone
                 //     });
 
@@ -1536,8 +727,8 @@
 
                 //     var scene = new ScrollMagic.Scene({
                 //             triggerElement: this,
-                //             triggerHook: 0.1,
-                //             duration: "100%"
+                //             triggerHook: 0.01,
+                //             duration: "500%"
                 //         }).setTween(tl)
                 //         .addTo(controller);
                 // });
@@ -1553,8 +744,10 @@
                     centerMode: true,
                     variableWidth: true,
                     centerPadding: '100px',
-                    customPaging: function(slick, index) {
-                        return '<span>' + (timeLine[index]) + '</span>';
+                    customPaging: function (slick, index) {
+                        return `<span id="time${index}" >` + (timeLine[index]) + '</span>';
+                        // <a onclick="getIndex(${index})" data-date="${timeLine[index]}">${timeLine[index]}</a>
+                        // ;
                     },
                     responsive: [{
                         breakpoint: 768,
@@ -1562,7 +755,7 @@
                             arrows: false,
                             centerMode: true,
                             centerPadding: '40px',
-                            slidesToShow: 3
+                            slidesToShow: 1
                         }
                     }, {
                         breakpoint: 480,
@@ -1574,38 +767,61 @@
                         }
                     }]
                 });
+
+                var timeline = $('.richHistory');
+                let filler = timeline.find('.slick-dots');
+                filler.append(' <span id="filling-line" class="filling-line" aria-hidden="true"></span>');
+                var filling_element = timeline.find('.filling-line');
+                let spans = filler.find('span');
+
+                filler.on('click', 'span', function (event) {
+                    console.log("xxyyzz", event.target.id);
+                    event.preventDefault();
+                    spans.removeClass('selected');
+                    $(this).addClass('selected');
+                    // updateOlderEvents($(this));
+
+                    updateFilling(filling_element, Number(event.target.id));
+                    // updateVisibleContent($(this), dotComponent['eventsContent']);
+                });
+
+                updateFilling(filling_element, 0);
+
+
                 $('.statistics-slider').slick({
                     effect: 'cube',
                     cubeEffect: {
                         slideShadows: false,
                     },
-                    dots: true,
+                    // dots: true,
                     infinite: false,
                     nextArrow: $('#Next'),
                     speed: 300,
                     slidesToShow: 4,
                     slidesToScroll: 4,
                     responsive: [{
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 3,
-                                slidesToScroll: 3,
-                                infinite: true,
-                                dots: true
-                            }
-                        }, {
-                            breakpoint: 600,
-                            settings: {
-                                slidesToShow: 2,
-                                slidesToScroll: 2
-                            }
-                        }, {
-                            breakpoint: 480,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            }
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
                         }
+                    }, {
+                        breakpoint: 600,
+                        settings: {
+                            dots: true,
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    }, {
+                        breakpoint: 480,
+                        settings: {
+                            dots: true,
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
                         // You can unslick at a given breakpoint now by adding:
                         // settings: "unslick"
                         // instead of a settings object
@@ -1617,16 +833,18 @@
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     arrows: true,
-                    dots: true,
+                    prevArrow: '<a class="slide-arrow prev-arrow"><i class="fa fa-long-arrow-left text-white" aria-hidden="true"></i></a>',
+                    nextArrow: '<a class="slide-arrow next-arrow"><i class="fa fa-long-arrow-right text-white" aria-hidden="true"></i></a>',
+                    // dots: true,
                     responsive: [{
-                        breakpoint: 1024,
+                        breakpoint: 1120,
                         settings: {
                             arrows: true,
                             slidesToShow: 2,
                             slidesToScroll: 2,
                         }
                     }, {
-                        breakpoint: 576,
+                        breakpoint: 768,
                         settings: {
                             arrows: true,
                             slidesToShow: 1,
@@ -1638,11 +856,192 @@
             });
         })(jQuery);
 
+
+
         // $('.overlay').addClass('overlay-blue');
     </script>
     <script>
-        AOS.init();
+        $.fn.moveIt = function () {
+            var $window = $(window);
+            var instances = [];
+
+            $(this).each(function () {
+                instances.push(new moveItItem($(this)));
+            });
+
+            window.addEventListener('scroll', function () {
+                var scrollTop = $window.scrollTop();
+                instances.forEach(function (inst) {
+                    inst.update(scrollTop);
+                });
+            }, {
+                passive: true
+            });
+        }
+
+        var moveItItem = function (el) {
+            this.el = $(el);
+            this.speed = parseInt(this.el.attr('data-scroll-speed'));
+        };
+
+        moveItItem.prototype.update = function (scrollTop) {
+            this.el.css('transform', 'translateY(' + -(scrollTop / this.speed) + 'px)');
+        };
+
+        // Initialization
+        $(function () {
+            $('[data-scroll-speed]').moveIt();
+        });
     </script>
+    <script>
+        // AOS.init();
+        // below listed default settings
+        AOS.init({
+            // Global settings:
+            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+            initClassName: 'aos-init', // class applied after initialization
+            animatedClassName: 'aos-animate', // class applied on animation
+            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+            offset: 120, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 500, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: true, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+        });
+        window.onscroll = function () {
+            myFunction()
+        };
+
+        // Get the header
+        var header = document.getElementById("myHeader");
+        var videoContent = document.getElementById('_fold_1_media')
+        console.log(window.pageYOffset);
+        // Get the offset position of the navbar
+        var sticky = videoContent.offsetHeight;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.remove("header-out");
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+                header.classList.add("header-out");
+            }
+        }
+    </script>
+    <script>
+        $(window).resize(function () {
+            if (window.innerWidth > 1000) {
+                // for (i = 0; i < dotComponent['timelineDates'].length; i++) { 
+                //     dotComponent['timelineEvents'].eq(i).css('left', (i+1)*eventsMinDistance+'px');
+                // }
+            }
+        });
+        jQuery(document).ready(function ($) {
+            var timelines = $('.slick-timeline-dots'),
+                eventsMinDistance = 100;
+
+            (timelines.length > 0) && initTimeline(timelines);
+
+            function initTimeline(timelines) {
+                timelines.each(function () {
+                    var timeline = $(this),
+                        dotComponent = {};
+                    //cache timeline components 
+                    dotComponent['timelineWrapper'] = timeline.find('.dots-container');
+                    dotComponent['eventsWrapper'] = dotComponent['timelineWrapper'].children('.events');
+                    dotComponent['fillingLine'] = dotComponent['eventsWrapper'].children('.filling-line');
+                    dotComponent['timelineEvents'] = dotComponent['eventsWrapper'].find('a');
+                    dotComponent['timelineDates'] = dotComponent['timelineEvents'];
+                    if (window.innerWidth > 1000) {
+                        eventsMinDistance = window.innerWidth / (dotComponent['timelineDates'].length + 1);
+                        eventsMinDistance -= 5;
+                    }
+
+
+
+                    for (i = 0; i < dotComponent['timelineDates'].length; i++) {
+                        dotComponent['timelineEvents'].eq(i).css('left', (i + 1) * eventsMinDistance + 'px');
+                    }
+                    //assign a width to the timeline
+                    var timelineTotWidth = setTimelineWidth(dotComponent, eventsMinDistance);
+
+
+                    dotComponent['eventsWrapper'].on('click', 'a', function (event) {
+                        event.preventDefault();
+                        dotComponent['timelineEvents'].removeClass('selected');
+                        $(this).addClass('selected');
+                        document.getElementById(`time${event.target.id}`).click();
+                        // updateOlderEvents($(this));
+                        updateFilling($(this), dotComponent['fillingLine'], timelineTotWidth);
+                        // updateVisibleContent($(this), dotComponent['eventsContent']);
+                    });
+
+                    $('.timeline-next').on('click', (event) => {
+                        console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                        document.getElementById(`${(Number($('a.selected')[0].id) + 1) % 10}`).click();
+                        // console.log($('a.selected')[0].id);
+                    })
+                    $('.timeline-prev').on('click', (event) => {
+                        console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                        let number = Number($('a.selected')[0].id) - 1;
+                        if (number < 0) {
+                            number = 9;
+                        }
+                        document.getElementById(`${number % 10}`).click();
+
+                    })
+
+
+                });
+            }
+
+
+
+            function updateFilling(selectedEvent, filling, totWidth) {
+                //change .filling-line length according to the selected event
+                var eventStyle = window.getComputedStyle(selectedEvent.get(0), null),
+                    eventLeft = eventStyle.getPropertyValue("left"),
+                    eventWidth = eventStyle.getPropertyValue("width");
+                eventLeft = Number(eventLeft.replace('px', '')) + Number(eventWidth.replace('px', '')) / 2;
+                var scaleValue = eventLeft / totWidth;
+                setTransformValue(filling.get(0), 'scaleX', scaleValue);
+            }
+
+            function setTimelineWidth(dotComponent, width) {
+
+                let totalWidth = (dotComponent['timelineDates'].length + 1) * width;
+                dotComponent['eventsWrapper'].css('width', totalWidth + 'px');
+                updateFilling(dotComponent['timelineEvents'].eq(0), dotComponent['fillingLine'], totalWidth);
+
+                return totalWidth;
+            }
+
+
+            function setTransformValue(element, property, value) {
+                element.style["-webkit-transform"] = property + "(" + value + ")";
+                element.style["-moz-transform"] = property + "(" + value + ")";
+                element.style["-ms-transform"] = property + "(" + value + ")";
+                element.style["-o-transform"] = property + "(" + value + ")";
+                element.style["transform"] = property + "(" + value + ")";
+            }
+
+
+        });
+    </script>
+
+
 </body>
 
 </html>

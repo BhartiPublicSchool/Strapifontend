@@ -20,7 +20,7 @@ app.get('/', async(req, res) => {
     try {
         const response = await axios.get('http://localhost:1337/home');
         console.log(response.data);
-        res.render('bps_home', { faq: response.data })
+        res.render('bps_home', { faq: response.data, env: process.env.NODE_ENV == 'Development' ? "http://localhost:1337" : "" })
     } catch (error) {
         console.error(error);
     }

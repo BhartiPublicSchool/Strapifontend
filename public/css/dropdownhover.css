@@ -9,8 +9,9 @@
 
 /* Dropdown Button */
 
-.dropbtn {
+a.dropbtn {
     color: #fff;
+    cursor: pointer !important;
 }
 
 

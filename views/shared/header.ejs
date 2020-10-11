@@ -1,0 +1,75 @@
+
+    <div style="position: absolute; background: transparent; z-index: 3;" class="d-flex w-100 px-3">
+        <div class="header-brand pl-4 pt-3">
+            <a href="bps_home.html">
+                <img width="140" height="90" alt="" src="./logo.png"> 
+        </a>
+        </div>
+        <div class=" d-flex flex-column w-100">
+            <div class="d-flex justify-content-end mt-3">
+                <ul class="d-none d-md-flex top-nav-bar-items">
+                    <li class="top-nav-bar-item " id="dropdownMenuButton">
+                        <p class="text-white px-3 px-3 py-2 mb-0" href="">Quicklinks&nbsp;</p>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <ul class="list-unstyled mx-3">
+                                <li> <a class="dropdown-item" href="#">Forms & Certificates</a></li>
+                                <li> <a class="dropdown-item" href="#">BPS Bulletin</a></li>
+                                <li> <a class="dropdown-item" href="#">Admission Handbook</a></li>
+
+                                <li> <a class="dropdown-item" href="#">Employment</a></li>
+                            </ul>
+                        </div> </li>
+
+                    <li class="top-nav-bar-item"><a class="dropdown-item" href="">Apply</a> </li>
+                    <li class="top-nav-bar-item">
+                        <a class="dropdown-item" href="">Pay Fees</a>
+                    </li>
+                    <li class="top-nav-bar-item">
+                        <a class="dropdown-item" href="">MyBharti</a></li>
+                     </ul>
+                     <li style="list-style: none;" class="top-nav-bar-item"><a  class="mx-2" onclick="openSearchBar()"><i class="btn fa fa-search text-white"></i></a></li>
+                <button class="navbar-toggler d-block d-lg-none" onclick="openNav()">
+                    <i class="fa fa-bars text-white"></i>
+                </button>
+            </div>
+            <div class="header-container">
+                <div class="d-flex justify-content-end">
+
+                    <div class="header-column">
+                        <nav class="navbar navbar-expand-lg ">
+
+                            <div class="collapse navbar-collapse" id="navbarText">
+
+                                <ul class="navbar-nav d-hover mr-auto">
+                                    <% Menu.forEach(function(m){ %>
+    
+                                        <%- include('../elements/menu', {menu: m}); %>
+    
+                                            <% }); %>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="searchBar" class="searchBar-overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSearchBar()">&times;</a>
+        <div class="searchBar-overlay-content">
+            <div class="searchbox">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search here..." aria-label="Search here..." aria-describedby="basic-addon2">
+                    <div class="input-group-append bg-light rounded-right ">
+                       <i class="btn fa fa-search fa-2x "></i>
+                    </div>
+                  </div>
+               
+               
+            </div>
+        </div>
+      </div>
+    

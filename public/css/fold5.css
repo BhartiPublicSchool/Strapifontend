@@ -137,6 +137,11 @@ box-shadow: -3px 5px 3px 1px rgba(72, 73, 77, 0.271);
           margin-right: 0;
       }
   }
+
+  .richHistory .history-content::before {
+    content: '';
+    background: black;
+  }
   
   .richHistory .history-content {
       /* height: 10rem; */

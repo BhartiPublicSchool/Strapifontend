@@ -228,10 +228,13 @@ figure._fold_3_overlay {
 }
 
 
+.lt-ie8 figure._fold_3_overlay::before,
+.lt-ie9 figure._fold_3_overlay::before,
 figure._fold_3_overlay::before {
     content: '';
     /* background: rgba(48, 63, 159, 0.87); */
     background: rgb(51, 52, 99, 0.92);
+    background: hsla(239, 32%, 29%, 0.92);
     height: 100%;
     width: 100%;
     top: 0;
@@ -243,6 +246,10 @@ figure._fold_3_overlay::before {
     transform: skew(-45deg) scale(3) translateX(100%);
 }
 
+.lt-ie8 figure._fold_3_overlay:hover:before,
+.lt-ie8 figure._fold_3_overlay:focus:before,
+.lt-ie9 figure._fold_3_overlay:hover:before,
+.lt-ie9 figure._fold_3_overlay:focus:before,
 figure._fold_3_overlay:hover:before,
 figure._fold_3_overlay:focus:before {
     opacity: 1;

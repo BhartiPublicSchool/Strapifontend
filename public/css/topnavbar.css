@@ -7,6 +7,7 @@
     --menuTextColor: #fff;
 }
 
+
 .top-nav-bar {
     display: flex;
 }
@@ -166,14 +167,14 @@ transform: translateY(-10px);
     padding-top: 1rem;
 }
 
-.card {
+.sidenav .card {
     background-color: rgba(11, 54, 91, 0.71);
     border-top: 1px solid rgb(128, 128, 128);
     border-bottom: 1px solid grey;
 }
 
 
-.card-header {
+.sidenav .card-header {
     padding: .75rem 1.25rem;
     margin-bottom: 0;
     background-color: rgba(7, 32, 54, 0.71);
