@@ -187,9 +187,25 @@ section span {
   left: 1px;
 }
 
-.u-line-center {
+.u-line-center, .u-line-center-white {
   position: relative;
 }
+
+.u-line-center-white h3:before {
+  content: "";
+  background:#fff;
+  width: 100px;
+  height: 0.20rem;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -5px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+
 
 .u-line-center h3:before {
   content: "";

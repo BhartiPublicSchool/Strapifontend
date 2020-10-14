@@ -13,13 +13,42 @@
 
 
 <!--  -->
+<% if (fold2.fold2_bg.formats.large) { %>
+    <div id="fold_2" class="_fold_2"
+                 style="background-image: url('<%= env + fold2.fold2_bg.formats.large.url %>');
+                        background-repeat: no-repeat;
+                        background-size: 400px 200px;
+                        background-position: center;">
+  <% }  else if (fold2.fold2_bg.formats.medium) { %>
+    <div id="fold_2" class="_fold_2"
+    style="background-image: url('<%= env + fold2.fold2_bg.formats.medium.url %>');
+           background-repeat: no-repeat;
+           background-size: 400px 200px;
+           background-position: center;">
+  
+<% } else if(fold2.fold2_bg.formats.small) {%>
+    <div id="fold_2" class="_fold_2"
+    style="background-image: url('<%= env + fold2.fold2_bg.formats.small.url %>');
+           background-repeat: no-repeat;
+           background-size: 400px 200px;
+           background-position: center;">
+    
+    <% }  else if(fold2.fold2_bg.formats.thumbnail) {%>
+        <div id="fold_2" class="_fold_2"
+        style="background-image: url('<%= env + fold2.fold2_bg.formats.thumbnail.url %>');
+               background-repeat: no-repeat;
+               background-size: 400px 200px;
+               background-position: center;">
+        <% }  else {%>
+            <div id="fold_2" class="_fold_2"
+            style="background-image: url('./assets/INFINITYSIGN.png');
+                   background-repeat: no-repeat;
+                   background-size: 400px 200px;
+                   background-position: center;">
+    
+        <% } %>
+    
 
-<div id="fold_2" class="_fold_2" style="background-image: url(./assets/INFINITYSIGN.png);
-background-repeat: no-repeat;
-
-background-size: 400px 200px;
-
-background-position: center;">
     <div style="z-index: 1;" class="d-flex justify-content-center align-items-center">
         <section class="text-center m-5">
             <!-- <section></section> -->

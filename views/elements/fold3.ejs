@@ -2,8 +2,10 @@
  
     <figure class="_fold_3_overlay"> 
         <!-- <img width="100%" height="100%" src="./3rdFold/Community_2.JPG" alt=""> -->
-        <% if (card.card_img && card.card_img.formats.medium) { %>
-            <img width="100%" height="100%" src="<%= env + card.card_img.formats.medium.url %>" alt="">
+        <% if (card.card_img && card.card_img.formats.large) { %>
+            <img width="100%" height="100%" src="<%= env + card.card_img.formats.large.url %>" alt="">
+          <% }  else if (card.card_img && card.card_img.formats.medium) { %>
+                <img width="100%" height="100%" src="<%= env + card.card_img.formats.medium.url %>" alt="">
             <% } else if(card.card_img && card.card_img.formats.small) {%>
                 <img width="100%" height="100%"  src="<%= env + card.card_img.formats.small.url %>" alt="">
                 <% }  else if(Array.isArray(card.card_img) && card.card_img && card.card_img.formats.thumbnail) {%>

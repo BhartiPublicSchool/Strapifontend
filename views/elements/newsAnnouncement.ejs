@@ -1,0 +1,25 @@
+<div class="news-track" data-toggle="modal" data-target="#exampleModal">
+    <div class="news-image">
+        <% if (card.news_img && card.news_img.formats.large) { %>
+        <img width="100%" height="100%" src="<%= env + card.news_img.formats.large.url %>" alt="">
+        <% }  else if (card.news_img && card.news_img.formats.medium) { %>
+        <img width="100%" height="100%" src="<%= env + card.news_img.formats.medium.url %>" alt="">
+        <% } else if(card.news_img && card.news_img.formats.small) {%>
+        <img width="100%" height="100%" src="<%= env + card.news_img.formats.small.url %>" alt="">
+        <% }  else if(Array.isArray(card.news_img) && card.news_img && card.news_img.formats.thumbnail) {%>
+        <img width="100%" height="100%" src="<%= env + card.news_img.formats.thumbnail.url %>" alt="">
+        <% }  else {%>
+
+        <img width="100%" height="100%" src="" alt="Image Not Available">
+        <% } %>
+        <!-- <img width="100%" height="100%" src="./Richhistory/1.JPG"> -->
+
+    </div>
+    <div class="news-content">
+        <h5 class="news-title"> <%= card.new_title %>
+        </h5>
+        <div class="news-text">
+            <%= card.news_text %>
+        </div>
+    </div>
+</div>
