@@ -146,7 +146,7 @@
             }
         }
 
-        button.explore {
+        /* button.explore {
             cursor: pointer;
             padding: 0.81429em 2.07143em;
             font-family: "Roboto Condensed", sans-serif;
@@ -158,9 +158,9 @@
             color: #fff;
             font-weight: 700;
             transition: background 0.3s, box-shadow 0.3s, color 0.3s;
-        }
+        } */
 
-        button.explore span::after {
+        /* button.explore span::after {
             position: absolute;
             left: 0;
             width: 100%;
@@ -171,7 +171,7 @@
 
         button.explore:hover {
             background: var(--blue);
-        }
+        } */
 
         .loading span {
             width: 25px;
@@ -232,7 +232,7 @@
                     <div class="expore-btn  delay-3s animated">
                         <button type="button"
                             style="letter-spacing: 3px; box-shadow: inset 0 0 0 0.14286em transparent;"
-                            class="btn btn-outline-light rounded-0"><span> EXPLORE CAMPUS</span></button>
+                            class="btn btn-outline-light rounded-0 explore"><span> EXPLORE CAMPUS</span></button>
                     </div>
                     <div class="arrow mb-3 bounce">
                         <a style="cursor: pointer;" onclick="gotoPos()">
@@ -270,7 +270,9 @@
         <div data-aos="fade-up" data-aos-duration="2000" class="_fold_4">
             <section>
                 <header class="my-5" data-aos="fade-down">
-                    <h1 class="text-center pb-5">BPS at a Glance</h1>
+                    <h1 class="text-center pb-5">
+                        <%= faq.Fold4_title.title %>
+                    </h1>
                 </header>
                 <div class="statistics-slider">
                     <% faq.Fold4.forEach(function(card){ %>
@@ -284,10 +286,30 @@
             </section>
 
         </div>
-        <section class="_fold_6">
+
+        <% if (faq.newsAnnouncement_title_with_bg.background.formats.large) { %>
+            <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + faq.newsAnnouncement_title_with_bg.background.formats.large.url %>');">
+          <% }  else if (faq.newsAnnouncement_title_with_bg.background.formats.medium) { %>
+            <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + faq.newsAnnouncement_title_with_bg.background.formats.medium.url %>');">
+        <% } else if(faq.newsAnnouncement_title_with_bg.background.formats.small) {%>
+            <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + faq.newsAnnouncement_title_with_bg.background.formats.small.url %>');">
+            
+            <% }  else if(faq.newsAnnouncement_title_with_bg.background.formats.thumbnail) {%>
+                <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + faq.newsAnnouncement_title_with_bg.background.formats.thumbnail.url %>');">
+                <% }  else {%>
+                    <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url(./school.png);">
+            
+                <% } %>
+            
+       
+         
+         
             <header class="mt-5 mb-4 py-3">
                 <div class="u-line-center-white pt-4">
-                    <h3 class="text-center text-white f-40">News & Announcements</h3>
+                    <h3 class="text-center text-white f-40">
+                        <%=  faq.newsAnnouncement_title_with_bg.title %>
+                       
+                    </h3>
                 </div>
 
             </header>
@@ -403,7 +425,7 @@
 
     </div>
 
-    <%- include('shared/footer', {obj: "stickyHeader"}); %>
+    <%- include('shared/footer', {footer: faq.Footer}); %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
