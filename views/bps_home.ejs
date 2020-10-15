@@ -247,7 +247,8 @@
 
         </div>
         <div id="_fold_1_media" class="_fold_1 bpsHomeVideoContainer delay-1s fadeIn animated">
-            <video loop autoplay id="home_media" width="100%" muted src="<%= env + faq.homeVideo[0].titleVideo[0].url %>"></video>
+            <video loop autoplay id="home_media" width="100%" muted
+                src="<%= env + faq.homeVideo[0].titleVideo[0].url %>"></video>
             <div></div>
         </div>
 
@@ -286,29 +287,13 @@
             </section>
 
         </div>
-
-        <% if (faq.newsAnnouncement_title_with_bg.background.formats.large) { %>
-            <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + faq.newsAnnouncement_title_with_bg.background.formats.large.url %>');">
-          <% }  else if (faq.newsAnnouncement_title_with_bg.background.formats.medium) { %>
-            <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + faq.newsAnnouncement_title_with_bg.background.formats.medium.url %>');">
-        <% } else if(faq.newsAnnouncement_title_with_bg.background.formats.small) {%>
-            <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + faq.newsAnnouncement_title_with_bg.background.formats.small.url %>');">
-            
-            <% }  else if(faq.newsAnnouncement_title_with_bg.background.formats.thumbnail) {%>
-                <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + faq.newsAnnouncement_title_with_bg.background.formats.thumbnail.url %>');">
-                <% }  else {%>
-                    <section class="_fold_6" style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url(./school.png);">
-            
-                <% } %>
-            
-       
-         
-         
+        <section class="_fold_6"
+            style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(faq.newsAnnouncement_title_with_bg.background, quality) %>');">
             <header class="mt-5 mb-4 py-3">
                 <div class="u-line-center-white pt-4">
                     <h3 class="text-center text-white f-40">
                         <%=  faq.newsAnnouncement_title_with_bg.title %>
-                       
+
                     </h3>
                 </div>
 
@@ -385,7 +370,7 @@
             </div>
 
 
-      
+
 
             <div class="d-flex justify-content-center">
                 <a style="cursor: pointer;" class="m-2 text-dark timeline-prev">
@@ -467,194 +452,194 @@
         });
     </script>
 
-<script>
+    <script>
 
-    function openSearchBar() {
-        document.getElementById("searchBar").style.height = "100%";
-    }
+        function openSearchBar() {
+            document.getElementById("searchBar").style.height = "100%";
+        }
 
-    function closeSearchBar() {
-        document.getElementById("searchBar").style.height = "0%";
-    }
-    let scrollyArrow = document.getElementById('fold_2');
-    function gotoPos() {
-        window.scroll({
-            behavior: 'smooth',
-            left: 0,
-            top: scrollyArrow.offsetTop
-        });
-    }
-    function openNav() {
-        console.log("open sidenav");
-        document.getElementById("mySidenav").style.width = "100%";
-    }
-    function gotoTop() {
-        window.scroll({
-            behavior: 'smooth',
-            left: 0,
-            top: 0
-        });
+        function closeSearchBar() {
+            document.getElementById("searchBar").style.height = "0%";
+        }
+        let scrollyArrow = document.getElementById('fold_2');
+        function gotoPos() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: scrollyArrow.offsetTop
+            });
+        }
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
 
-    }
+        }
 
 
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
 
-    function updateFilling(filling, index) {
-        //change .filling-line length according to the selected event
-        var scaleValue = (126 * (index + 1)) / 1200;
-        setTransformValue(filling.get(0), 'scaleX', scaleValue);
-    }
+        function updateFilling(filling, index) {
+            //change .filling-line length according to the selected event
+            var scaleValue = (126 * (index + 1)) / 1200;
+            setTransformValue(filling.get(0), 'scaleX', scaleValue);
+        }
 
-    function setTransformValue(element, property, value) {
-        element.style["-webkit-transform"] = property + "(" + value + ")";
-        element.style["-moz-transform"] = property + "(" + value + ")";
-        element.style["-ms-transform"] = property + "(" + value + ")";
-        element.style["-o-transform"] = property + "(" + value + ")";
-        element.style["transform"] = property + "(" + value + ")";
-    }
-    function getIndex(index) {
-        var timeline = $('.richHistory');
-        // console.log($(this));
-        let filling_element = timeline.find('.filling-line');
-        updateFilling(filling_element, index);
+        function setTransformValue(element, property, value) {
+            element.style["-webkit-transform"] = property + "(" + value + ")";
+            element.style["-moz-transform"] = property + "(" + value + ")";
+            element.style["-ms-transform"] = property + "(" + value + ")";
+            element.style["-o-transform"] = property + "(" + value + ")";
+            element.style["transform"] = property + "(" + value + ")";
+        }
+        function getIndex(index) {
+            var timeline = $('.richHistory');
+            // console.log($(this));
+            let filling_element = timeline.find('.filling-line');
+            updateFilling(filling_element, index);
 
-    }
+        }
 
-    (function ($) {
-        $(document).ready(function () {
-            var timelineLength = parseInt('<%=faq.StoryTimeline.length %>');
+        (function ($) {
+            $(document).ready(function () {
+                var timelineLength = parseInt('<%=faq.StoryTimeline.length %>');
                 let timeLine = [];
                 '<% faq.StoryTimeline.forEach(function(card){ %>'
                 timeLine.push(parseInt('<%= card.Year %>'));
 
                 '<% }); %>'
 
-            $('.richHistory').slick({
+                $('.richHistory').slick({
 
-                nextArrow: $('.timeline-next'),
-                prevArrow: $('.timeline-prev'),
-                slidesToShow: 3,
-                dots: true,
-                centerMode: true,
-                variableWidth: true,
-                centerPadding: '100px',
-                customPaging: function (slick, index) {
-                    return `<span id="time${index}" >` + (timeLine[index]) + '</span>';
-                    // <a onclick="getIndex(${index})" data-date="${timeLine[index]}">${timeLine[index]}</a>
-                    // ;
-                },
-                responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 1
+                    nextArrow: $('.timeline-next'),
+                    prevArrow: $('.timeline-prev'),
+                    slidesToShow: 3,
+                    dots: true,
+                    centerMode: true,
+                    variableWidth: true,
+                    centerPadding: '100px',
+                    customPaging: function (slick, index) {
+                        return `<span id="time${index}" >` + (timeLine[index]) + '</span>';
+                        // <a onclick="getIndex(${index})" data-date="${timeLine[index]}">${timeLine[index]}</a>
+                        // ;
+                    },
+                    responsive: [{
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }, {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '100px',
+                            slidesToShow: 1
+                        }
+                    }]
+                });
+
+                var timeline = $('.richHistory');
+                let filler = timeline.find('.slick-dots');
+                filler.append(' <span id="filling-line" class="filling-line" aria-hidden="true"></span>');
+                var filling_element = timeline.find('.filling-line');
+                let spans = filler.find('span');
+
+                filler.on('click', 'span', function (event) {
+                    console.log("xxyyzz", event.target.id);
+                    event.preventDefault();
+                    spans.removeClass('selected');
+                    $(this).addClass('selected');
+                    // updateOlderEvents($(this));
+
+                    updateFilling(filling_element, Number(event.target.id));
+                    // updateVisibleContent($(this), dotComponent['eventsContent']);
+                });
+
+                updateFilling(filling_element, 0);
+
+
+                $('.statistics-slider').slick({
+                    effect: 'cube',
+                    cubeEffect: {
+                        slideShadows: false,
+                    },
+                    // dots: true,
+                    infinite: false,
+                    nextArrow: $('#Next'),
+                    speed: 300,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    }, {
+                        breakpoint: 600,
+                        settings: {
+                            dots: true,
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    }, {
+                        breakpoint: 480,
+                        settings: {
+                            dots: true,
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
-                }, {
-                    breakpoint: 480,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '100px',
-                        slidesToShow: 1
-                    }
-                }]
+
+                    ]
+                });
+
+                $('.news-annuncement').slick({
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    arrows: true,
+                    prevArrow: '<a class="slide-arrow prev-arrow"><i class="fa fa-long-arrow-left text-white" aria-hidden="true"></i></a>',
+                    nextArrow: '<a class="slide-arrow next-arrow"><i class="fa fa-long-arrow-right text-white" aria-hidden="true"></i></a>',
+                    // dots: true,
+                    responsive: [{
+                        breakpoint: 1120,
+                        settings: {
+                            arrows: true,
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        }
+                    }, {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: true,
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }]
+                });
+
             });
-
-            var timeline = $('.richHistory');
-            let filler = timeline.find('.slick-dots');
-            filler.append(' <span id="filling-line" class="filling-line" aria-hidden="true"></span>');
-            var filling_element = timeline.find('.filling-line');
-            let spans = filler.find('span');
-
-            filler.on('click', 'span', function (event) {
-                console.log("xxyyzz", event.target.id);
-                event.preventDefault();
-                spans.removeClass('selected');
-                $(this).addClass('selected');
-                // updateOlderEvents($(this));
-
-                updateFilling(filling_element, Number(event.target.id));
-                // updateVisibleContent($(this), dotComponent['eventsContent']);
-            });
-
-            updateFilling(filling_element, 0);
-
-
-            $('.statistics-slider').slick({
-                effect: 'cube',
-                cubeEffect: {
-                    slideShadows: false,
-                },
-                // dots: true,
-                infinite: false,
-                nextArrow: $('#Next'),
-                speed: 300,
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
-                    }
-                }, {
-                    breakpoint: 600,
-                    settings: {
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                }, {
-                    breakpoint: 480,
-                    settings: {
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-                
-                ]
-            });
-
-            $('.news-annuncement').slick({
-                infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                arrows: true,
-                prevArrow: '<a class="slide-arrow prev-arrow"><i class="fa fa-long-arrow-left text-white" aria-hidden="true"></i></a>',
-                nextArrow: '<a class="slide-arrow next-arrow"><i class="fa fa-long-arrow-right text-white" aria-hidden="true"></i></a>',
-                // dots: true,
-                responsive: [{
-                    breakpoint: 1120,
-                    settings: {
-                        arrows: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                    }
-                }, {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                }]
-            });
-
-        });
-    })(jQuery);
+        })(jQuery);
 
 
 
     // $('.overlay').addClass('overlay-blue');
-</script>
+    </script>
 
 
     <script>
@@ -762,8 +747,8 @@
                     dotComponent['timelineEvents'] = dotComponent['eventsWrapper'].find('a');
                     dotComponent['timelineDates'] = dotComponent['timelineEvents'];
                     // if (window.innerWidth > 1000) {
-                        eventsMinDistance = window.innerWidth / (dotComponent['timelineDates'].length + 1);
-                        eventsMinDistance -= parseInt('<%=faq.StoryTimeline.length %>') *1.5;
+                    eventsMinDistance = window.innerWidth / (dotComponent['timelineDates'].length + 1);
+                    eventsMinDistance -= parseInt('<%=faq.StoryTimeline.length %>') * 1.5;
                     // }
 
 
@@ -821,7 +806,7 @@
                 let totalWidth = (dotComponent['timelineDates'].length + 1) * width;
                 dotComponent['eventsWrapper'].css('width', totalWidth + 'px');
                 updateFilling(dotComponent['timelineEvents'].eq(0), dotComponent['fillingLine'], totalWidth);
-console.log(dotComponent['timelineDates'].length);
+                console.log(dotComponent['timelineDates'].length);
                 return totalWidth;
             }
 
