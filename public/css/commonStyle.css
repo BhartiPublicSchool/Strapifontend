@@ -1,5 +1,5 @@
 :root {
-  --grey: #363E47;
+  --grey: #363e47;
   --blue: #28295d;
   --green: #62a25d;
   --yellow: rgb(255, 210, 29);
@@ -20,6 +20,12 @@
   font-family: sofiaPro;
   src: url("font/sofiapro-light.otf");
 }
+
+/* markdown style */
+h4 p {
+  font-family: Julias-San;
+}
+/* markdown style end */
 
 body {
   font-family: sofiaPro !important;
@@ -187,15 +193,16 @@ section span {
   left: 1px;
 }
 
-.u-line-center, .u-line-center-white {
+.u-line-center,
+.u-line-center-white {
   position: relative;
 }
 
 .u-line-center-white h3:before {
   content: "";
-  background:#fff;
+  background: #fff;
   width: 100px;
-  height: 0.20rem;
+  height: 0.2rem;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -206,12 +213,11 @@ section span {
   text-align: center;
 }
 
-
 .u-line-center h3:before {
   content: "";
   background: rgb(40, 53, 147);
   width: 80px;
-  height: 0.20rem;
+  height: 0.2rem;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -226,7 +232,7 @@ section span {
 a.explore {
   cursor: pointer;
   text-transform: uppercase;
-  background: #363E47;
+  background: #363e47;
   border: 0;
   /* border-radius: 0; */
   box-shadow: inset 0 0 0 0.14286em transparent;
@@ -235,14 +241,10 @@ a.explore {
   transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
-
-
 a.explore:hover {
   color: #fff;
   background: var(--blue);
 }
-
-
 
 /* searchBar */
 
@@ -253,19 +255,19 @@ a.explore:hover {
   z-index: 4;
   top: 0;
   left: 0;
-  background-color:var(--blue);
- opacity: 0.95;
+  background-color: var(--blue);
+  opacity: 0.95;
   overflow-y: hidden;
   transition: 0.5s;
 }
 
 .searchBar-overlay-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchBar-overlay a {
@@ -277,7 +279,8 @@ a.explore:hover {
   transition: 0.3s;
 }
 
-.searchBar-overlay a:hover, .searchBar-overlay a:focus {
+.searchBar-overlay a:hover,
+.searchBar-overlay a:focus {
   color: #f1f1f1;
 }
 
@@ -290,11 +293,15 @@ a.explore:hover {
 }
 
 @media screen and (max-height: 450px) {
-  .searchBar-overlay {overflow-y: auto;}
-  .searchBar-overlay a {font-size: 20px}
+  .searchBar-overlay {
+    overflow-y: auto;
+  }
+  .searchBar-overlay a {
+    font-size: 20px;
+  }
   .searchBar-overlay .closebtn {
-  font-size: 40px;
-  top: 15px;
-  right: 35px;
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
   }
 }

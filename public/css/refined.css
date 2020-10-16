@@ -85,6 +85,25 @@
 }
 
 
+.nav-link {
+    color: black;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  nav.bg-light {
+    height: 50px;
+  }
+  nav.bg-light a:hover{
+    font-weight: bolder;
+    border-bottom: 3px solid var(--blue);
+  }
+  
+  .btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgb(46 48 51 / 84%);
+  }
+
+
 
 
 

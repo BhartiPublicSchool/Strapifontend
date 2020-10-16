@@ -11,7 +11,8 @@
                 data-aos-offset="0"><span> <%= fold2.fold2_title_start %></span><br> <%= fold2.fold2_title_end %></h1>
             <p style="font-family: 'sofiaPro'; font-size: 18px;" class="my-5" data-aos="fade-right"
                 data-aos-duration="2000">
-                <%= fold2.fold2_text %>
+          
+                <%- md.render(String(fold2.fold2_text)) -%>
             </p>
             <h5 class="my-5" data-aos="fade-left" data-aos-duration="2000">
                 <a style="text-decoration: none;"

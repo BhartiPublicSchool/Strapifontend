@@ -1,988 +1,371 @@
+<!doctype html>
+<html lang="en">
 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!doctype html>
-        <html lang="en">
-        
-        <head>
-            <!-- Required meta tags -->
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-          <!-- jQuery library -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        
-          <!-- Popper JS -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        
-          <!-- Latest compiled JavaScript -->
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-            <!-- Bootstrap CSS -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-            <link rel="stylesheet" href="css/commonStyle.css">
-            <link rel="stylesheet" href="css/refined.css">
-            <link rel="stylesheet" href="css/topnavbar.css">
-            <link rel="stylesheet" href="css/dropdownhover.css">
-            <link rel="stylesheet" href="css/foldFooter.css">
-            <title>Bharti Public School</title>
-            <style>
-                
-                .header-underline h5:before {
-                    content: '';
-                    background: #56a0d3;
-                    width: 57px;
-                    height: 2px;
-                    position: absolute;
-                    bottom: 85px;
-                    transform: translateX(200%);
-                }
-                
-                .jumbotron .overlay {
-                    position: absolute;
-                    top: 0.75rem;
-                    width: calc(100% - 1.5rem);
-                    height: 550px;
-                    background-color: rgba(0, 0, 0, 0.1);
-                    background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
-        
-                }
-        
-                :root {
-                    --color-1: rgba(197, 191, 191, 0.45);
-                    --color-2: #12312323;
-                    --color-3: #2334352a;
-                    --color-4: #acf45323;
-                    --color-5: #2334352a;
-                }
-                
-                .bps-mission-element,
-                .bps-mission-bg {
-                    -webkit-box-flex: 1;
-                    -ms-flex: 1 1 100%;
-                    flex: 1 1 100%;
-                }
-                
-                .bps-mission-element {
-                    position: relative;
-                    -webkit-box-flex: 1;
-                    -ms-flex: 1 0;
-                    flex: 1 0;
-                    height: 350px;
-                    background-size: cover;
-                    background-position: center center;
-                    border-left: 1px solid #fff;
-                    margin-bottom: 0 !important;
-                    text-align: center;
-                }
-                
-                .bps-mission-container>.bps-mission-element:nth-child(1):before {
-                    background-color: #d9f770;
-                }
-                
-                .bps-mission-container>.bps-mission-element:nth-child(2):before {
-                    background-color: #72caed;
-                    ;
-                }
-                
-                .bps-mission-container>.bps-mission-element:nth-child(3):before {
-                    background-color: #6785e7;
-                }
-                
-                .bps-mission-container>.bps-mission-element:nth-child(4):before {
-                    background-color: #69f09c;
-                }
-                
-                .bps-mission-container>.bps-mission-element:nth-child(5):before {
-                    background-color: #fa74d2;
-                }
-                
-                .bps-mission-container-2>.bps-mission-element:nth-child(1):before {
-                    background-color: #69f09c;
-                }
-                
-                .bps-mission-container-2>.bps-mission-element:nth-child(2):before {
-                    background-color: #fa74d2;
-                }
-                
-                .bps-mission-container>.bps-mission-element:before {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    left: 0;
-                    opacity: .8;
-                    transition: opacity .3s ease-in-out;
-                }
-                
-                .bps-mission-container>.bps-mission-element>header {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    opacity: 1;
-                    transition: opacity .3s ease-in-out;
-                }
-                
-                .bps-mission-container>.bps-mission-element>.bps-mission-container {
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-                    border: 1px solid rgba(0, 0, 0, 0.3);
-                    width: calc(100% - 20px);
-                    height: calc(100% - 20px);
-                    opacity: 0;
-                    transition: opacity .3s ease-in-out;
-                    color: rgb(153 83 83 / 70%);
-                }
-                
-                .bps-mission-container>.bps-mission-element .title-center {
-                    position: absolute;
-                    top: 50%;
-                    -webkit-transform: translateY(-50%);
-                    -ms-transform: translateY(-50%);
-                    transform: translateY(-50%);
-                    left: 0;
-                    width: 100%;
-                    padding: 30px !important;
-                }
-                
-                .bps-mission-container>.bps-mission-element .title-center {
-                    position: absolute;
-                    top: 50%;
-                    -webkit-transform: translateY(-50%);
-                    -ms-transform: translateY(-50%);
-                    transform: translateY(-50%);
-                    left: 0;
-                    width: 100%;
-                    padding: 30px !important;
-                }
-                
-                .bps-mission-container>.bps-mission-element>.bps-mission-container .title-text {
-                    margin-top: 0;
-                    font-weight: normal;
-                    line-height: 40px;
-                    color: #0785b7;
-                    font-weight: 700;
-                    margin-bottom: 16px;
-                    font-size: 20px;
-                    color: #fff;
-                    margin-bottom: 0;
-                }
-        
-                .title-center p {
-                    font-family: sofiaPro;
-                    color: #000;
-                }
-                
-                @media screen and (max-width: 1050px) {
-                    .bps-mission-container>.bps-mission-element>.bps-mission-container .title-text {
-                        font-size: 28px;
-                    }
-                }
-                
-                .bps-mission-container>.bps-mission-element>footer {
-                    position: absolute;
-                    bottom: 22px;
-                    right: 17px;
-                    opacity: 1;
-                    transition: opacity .3s ease-in-out;
-                }
-                
-                .bps-mission-container>.bps-mission-element>footer .bps-mission-footer {
-                    color: rgba(0, 0, 0, 0.7);
-                    text-transform: uppercase;
-                    font-family: "Roboto Condensed", sans-serif;
-                    font-weight: 600;
-                }
-                
-                .bps-mission-container>.bps-mission-element>footer .bps-mission-footer p {
-                    display: inline;
-                }
-                
-                .bps-mission-container>.bps-mission-element>footer .bps-mission-footer:after {
-                    display: inline-block;
-                    margin-left: 0.35714em;
-                    font-family: 'FontAwesome';
-                    font-weight: normal;
-                    content: '\f055';
-                }
-                
-                .bps-mission-container>.bps-mission-element:hover>header,
-                .bps-mission-container>.bps-mission-element:hover>footer {
-                    opacity: 0;
-                }
-                
-                .bps-mission-container>.bps-mission-element:hover>.bps-mission-container {
-                    opacity: 1;
-                }
-                
-                .bps-mission-container>.bps-mission-element:hover:before {
-                    opacity: 1;
-                }
-                .mission-video-container {
-                    min-width:420px ;
-                }
-                
-                @media screen and (max-width:768px) {
-                    .mission-video-container {
-                    min-width:320px ;
-                }
-                }
-                
-                @media (max-width: 1050px) {
-                    .bps-mission-container>.bps-mission-element {
-                        -webkit-box-flex: 1;
-                        -ms-flex: 1 1 100%;
-                        flex: 1 1 100%;
-                    }
-                }
-                
-                @media screen and (max-width: 768px) {
-                    .jumbotron .overlay {
-                    width: 100%;
-                   
-                    top: 0;
-                    }
-                }
-            </style>
-        </head>
-        
-        <body>
-            <div id="mySidenav" class="sidenav">
-        
-                <div>
-                    <div class="Menu">
-        
-                        <section class="fsElement fsNavigation fsList nav-utility-mobile" id="fsEl_2502" data-use-new="true">
-        
-                            <header class="d-flex justify-content-between mx-3">
-        
-                                <div>
-                                    <figure class="fsImage">
-                                        <picture><img alt="Bharti Public School" src="./logo.png"></picture>
-                                    </figure>
-                                </div>
-        
-                                <div> <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times fa-2x text-white"></i></a></div>
-        
-                            </header>
-                        </section>
-                        <div class="accordion mx-4 my-4" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h4 class="d-flex justify-content-between mb-0">
-                                        <button class="btn text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    QuickLinks
-                                  </button>
-                                        <button class="btn text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <i class="fa fa-chevron-down fa-xs"></i>
-                                  </button>
-        
-                                    </h4>
-                                </div>
-        
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <ul class="list-unstyled mx-3">
-                                            <li> <a class="dropdown-item" href="#">Forms & Certificates</a></li>
-                                            <li> <a class="dropdown-item" href="#">BPS Bulletin</a></li>
-                                            <li> <a class="dropdown-item" href="#">Admission Handbook</a></li>
-                                            <li> <a class="dropdown-item" href="#">Employment</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <h4 class="d-flex justify-content-between mb-0">
-                                        <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    About
-                                  </button>
-                                        <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <i class="fa fa-chevron-down fa-xs"></i>
-                                  </button>
-        
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <ul class="list-unstyled mx-3">
-                                            <li> <a class="dropdown-item" href="mission.html">Our Mission</a></li>
-                                            <li> <a class="dropdown-item" href="the-bps-difference.html">The BPS Difference</a></li>
-                                            <li> <a class="dropdown-item" href="a-rich-history.html">A Rich History</a></li>
-                                            <li> <a class="dropdown-item" href="leadership.html">Leadership</a></li>
-                                        </ul>  </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h4 class="d-flex justify-content-between mb-0">
-                                        <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                   admission
-                                  </button>
-                                        <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <i class="fa fa-chevron-down fa-xs"></i>
-                                  </button>
-        
-                                    </h4>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                                        beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        
-        
-                    </div>
-        
-        
-                </div>
-            </div>
-            <div style="position: absolute; background: transparent; z-index: 3; width: 98%;" class="d-flex px3">
-                <div class="header-brand pl-4 pt-3">
-                    <a href="bps_home.html">
-                        <img width="140" height="90" alt="" src="./logo.png"> 
-                </a>
-                </div>
-                <div class=" d-flex flex-column w-100">
-                    <div class="d-flex justify-content-end mt-3">
-                        <ul class="d-none d-md-flex top-nav-bar-items">
-                            <li class="top-nav-bar-item " id="dropdownMenuButton">
-                                <p class="text-white px-3 px-3 py-2 mb-0" href="">Quicklinks&nbsp;</p>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <ul class="list-unstyled mx-3">
-                                        <li> <a class="dropdown-item" href="#">Forms & Certificates</a></li>
-                                        <li> <a class="dropdown-item" href="#">BPS Bulletin</a></li>
-                                        <li> <a class="dropdown-item" href="#">Admission Handbook</a></li>
-        
-                                        <li> <a class="dropdown-item" href="#">Employment</a></li>
-                                    </ul>
-                                </div> </li>
-        
-                            <li class="top-nav-bar-item"><a class="dropdown-item" href="">Apply</a> </li>
-                            <li class="top-nav-bar-item">
-                                <a class="dropdown-item" href="">Pay Fees</a>
-                            </li>
-                            <li class="top-nav-bar-item">
-                                <a class="dropdown-item" href="">MyBharti</a></li>
-                             </ul>
-                        <li style="list-style: none;" class="top-nav-bar-item"><a style="vertical-align: bottom;" class="mx-4 py-2" href="/search"><i class="fa fa-search text-white"></i></a></li>
-                        <button class="navbar-toggler d-block d-lg-none" onclick="openNav()">
-                            <i class="fa fa-bars text-white"></i>
-                        </button>
-                    </div>
-                    <div class="header-container">
-                        <div class="d-flex justify-content-end">
-        
-                            <div class="header-column">
-                                <nav class="navbar navbar-expand-lg ">
-        
-                                    <div class="collapse navbar-collapse" id="navbarText">
-        
-                                        <ul class="navbar-nav d-hover mr-auto">
-                                            <li>
-                                                <div class="dropdown">
-                                                    <a  href="mission.html" class="dropbtn dropdown-item">
-                                                        About
-                                                      </a>
-                                                    <div class="dropdown-content p-5">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <img width="300"  src="./Dropdown/About Dropdown.jpeg" alt="">
-                                                            </div>
-                                                            <div class="col">
-        
-                                                               
-                                                                        <p>
-                                                                            Established in 1980, Bharti Public School offers students educational opportunities that are unique and relevant to 21st century life. Our roots are local, but reach has gone global!
-        
-                                                                        </p>
-                                                                  
-                                                            </div>
-                                                            <div class="col">
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">
-                                                                        <a href="./mission.html"> Our Mission</a>
-                                                                    </li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="./explore-campus.html"> Explore Campus</a></li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="a-rich-history.html"> A Rich History</a>
-                                                                    </li>
-                                                                  
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col">
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">
-                                                                        <a href="the-bps-difference.html"> The BPS Difference</a>
-                                                                    </li>
-                                                                    <li class="list-group-item"> <a href="./leadership.html"> Leadership</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-        
-        
-                                                    </div>
-                                                </div>
-        
-                                            </li>
-                                            <li>
-                                                <div class="dropdown">
-                                                    <a href="admission-faq.html" class="dropbtn dropdown-item">
-                                                        Admissions
-                                                      </a>
-                                                    <div class="dropdown-content p-5">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <img width="300"  src="./Dropdown/Admissions Dropdown.JPG" alt="">
-                                                            </div>
-                                                            <div class="col">
-                                                               
-                                                                        <p>
-                                                                            Learn more about Bharti Public School’s admissions process, find answers to commonly asked questions about the school and submit your application online.
-        
-                                                                        </p>
-                                                                  
-                                                            </div>
-                                                            <div class="col">
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">
-                                                                        <a href="admission-faq.html"> Admission FAQ</a>
-                                                                    </li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="apply-now.html"> Apply Now!</a></li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="tuition-fees.html"> Tuition Fees</a>
-                                                                    </li>
-                                                                    
-        
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col">
-                                                                <ul class="list-group list-group-flush">
-                                                                    
-                                                                    <li class="list-group-item">
-                                                                        <a href="forms-and-certificates.html">Forms & Certificates</a>
-                                                                    </li>
-        
-                                                                </ul>
-                                                            </div>
-                                                          
-                                                        </div>
-        
-                                                    </div>
-                                                </div>
-        
-                                            </li>
-                                            <li>
-                                                <div class="dropdown">
-                                                    <a href="common-page.html" class="dropdown-item dropbtn">
-                                                        Academics
-                                                      </a>
-                                                    <div class="dropdown-content p-5">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <img width="300"  src="./Dropdown/Academics dropdown.jpg" alt="">
-                                                            </div>
-                                                            <div class="col">
-                                                               
-                                                                        <p>
-                                                                            At the heart of our philosophy is the belief that education must engage more than the mind alone. A BPS education is comprehensive and complemented by a wide range of extra-curricular activities that foster growth and development.
-                                                                        </p>
-                                                                 
-                                                            </div>
-                                                            <div class="col">
-        
-                                                                <ul class="list-group list-group-flush">
-                                                                    
-                                                                    <li class="list-group-item">
-                                                                        <a href="lower-school.html">  Lower School</a></li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="middle-school.html"> Middle School</a>
-                                                                    </li>
-                                                                  
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col">
-        
-                                                                <ul class="list-group list-group-flush">
-                                                                   
-                                                                    <li class="list-group-item">
-                                                                        <a href="upper-school.html">Upper School</a>
-                                                                    </li>
-                                                                    <li class="list-group-item"> <a href="student-resources.html"> Student Resources</a></li>
-                                                                </ul>
-                                                            </div>
-        
-                                                        </div>
-        
-                                                    </div>
-                                                </div>
-        
-                                            </li>
-                                            <li>
-                                                <div class="dropdown">
-                                                    <a href="life-at-bps.html" class="dropdown-item dropbtn">
-                                                        Life at BPS
-                                                      </a>
-                                                    <div class="dropdown-content p-5">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <img width="300"  src="./Dropdown/life at BPS_dropdown.JPG" alt="">
-                                                            </div>
-                                                            <div class="col">
-        
-                                                                
-                                                                        <p>
-                                                                            The pursuit and implementation of new ideas has been a hallmark of the school for more than four decades, resulting in a relentless search for new and better ideas that have made Bharti Public School into an epitome of academic progress.
-                                                                        </p>
-                                                                  
-                                                            </div>
-                                                            <div class="col">
-        
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">
-                                                                        <a href=""> Common Page</a>
-                                                                    </li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="athletics.html"> Athletics</a></li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="creative-arts.html">Creative Arts</a>
-                                                                    </li>
-                                                                  
-                                                                </ul>
-        
-                                                            </div>
-                                                            <div class="col">
-        
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">
-                                                                        <a href="community-outreach.html"> Community Outreach</a>
-                                                                    </li>
-                                                                    <li class="list-group-item"> <a href="outdoor-education.html"> Outdoor Education</a></li>
-                                                                </ul>
-        
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-        
-                                            </li>
-                                            <li>
-                                                <div class="dropdown">
-                                                    <a href="community.html" class="dropdown-item dropbtn">
-                                                        Community
-                                                      </a>
-                                                    <div class="dropdown-content p-5">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <img width="300"  src="./Dropdown/Community dropdown.JPG" alt="">
-                                                            </div>
-                                                            <div class="col">
-                                                               
-                                                                        <p>
-                                                                            The Bharti Public School community, better known as Bharti Parivaar spells growth, impetus and success for the school and its fraternity including our faculty, staff, students, and alumni members.
-        
-        
-                                                                        </p>
-                                                                  
-                                                            </div>
-                                                            <div class="col">
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">
-                                                                        <a href="faculty.html">Faculty+</a>
-                                                                    </li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="">Parents+</a></li>
-                                                                    <li class="list-group-item">
-                                                                        <a href=""> Students+</a>
-                                                                    </li>
-                                                                   
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col">
-                                                                <ul class="list-group list-group-flush">
-                                                                   
-                                                                    <li class="list-group-item">
-                                                                        <a href="">Alumni</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-        
-                                                    </div>
-                                                </div>
-        
-                                            </li>
-                                            <li>
-                                                <div class="dropdown">
-                                                    <a class="dropdown-item dropbtn">
-                                                        Contact
-                                                      </a>
-                                                    <div class="dropdown-content p-5">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <img width="300"  src="./Dropdown/Contact Dropdown.JPG" alt="">
-                                                            </div>
-                                                            <div class="col">
-                                                               
-                                                                        <p>
-                                                                            In case of any questions or concerns, you may contact the school and get your queries answered. The school is consistently engaged in numerous activities and workshops, updates of which can be found on social media
-        
-                                                                        </p>
-                                                                  
-                                                            </div>
-                                                            <div class="col">
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">
-                                                                        <a href="">Contact</a>
-                                                                    </li>
-                                                                    <li class="list-group-item">
-                                                                        <a href="">Employment</a></li>
-                                                                </ul>
-                                                            </div>
-        
-        
-                                                        </div>
-        
-                                                    </div>
-                                                </div>
-        
-                                            </li>
-        
-                                        </ul>
-        
-                                    </div>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-        
-                </div>
-            </div>
-        <div class="body-wrap">
-            <div style="background-image: url(./Mission/determination.jpg);
-            background-size: cover; background-position: center;" class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
-               <div class="overlay"></div>
-               <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
-               letter-spacing: 10px;">
-                   Our Mission
-                </h1>
-            </div>
-            <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-                <a href="a-rich-history.html" class="nav-link text-center p-1 m-1">A Rich History</a>
-                <a href="the-bps-difference.html" class="nav-link text-center p-1 m-1">The BPS Difference</a>
-                <a href="leadership.html" class="nav-link text-center p-1 m-1">Leadership</a>
-                <a href="explore-campus.html" class="nav-link text-center p-1 m-1">Explore Campus</a>
-            </nav>
-        </div>
-            <div class="contain f-18">
-                <div>
-                    <div class="my-5 ">
-                        <div class="my-5">
-                            <div class="u-line-center ">
-                                <h3 class="text-center f-40">Mission Statement</h3>
-                            </div>
-                        </div>
-                      
-                       
-                        <h4 style="color: #3562a5;" class=" mx-1 px-1 mx-lg-5 px-lg-5 text-center">BPS is an institution that empowers each child with a sound foundation of knowledge and life skills. Believing that education is a process of discovery, we assist them in recognising and unfolding their fullest potential. We are dedicated
-                            to providing holistic education, encompassing the intelectual, emotional, physical, spiritual and social aspect of growth. We take upon the task of not only raising career conscious students but also socially responsible and global
-                            citizens.
-                        </h4>
-                    </div>
-                    <section class="my-5 u-line-center">
-                        <h3 class="text-center f-40">PRIDE in Everything We Do
-                        </h3>
-                    </section>
-                    <div class="d-flex flex-column flex-md-row">
-                        <div style="flex:3;"  class="text-justify">
-                            <p>At BPS, our Core Values of Positivity, Resilience, Integrity, Determination and Empowerment are more than mere words. Our students and faculty live and breathe them every day. Our values set BPS’ students apart and send them out into
-                                the world as confident and capable leaders of the 21st century.</p>
-                                <p>
-                                    Starting in kindergarten, these Core Values are modeled and reinforced on a daily basis. They
-        become second-nature. Students are empowered to make good decisions, respect diverse
-        perspectives and engage thoughtfully and productively in their school community, at home and
-        beyond.
-        
-                                </p>
-                            </div>
-                        <div style="flex:2;" class="mission-video-container text-center mx-0 ml-md-4 mb-3">
-                            <video width="100%" style="min-height: 260px" controls>
-                                <source src="../10thsept.webm">
-                               
-                              Your browser does not support the video tag.
-                              </video>
-                        </div>
-        
-                    </div>
-                    <div>
-                        <p>
-                            Every parent wants their child to succeed. BPS parents know that long-term success and
-        well-being demand more than impressive test scores. They choose BPS because our curricula
-        and our culture go far beyond intellectual development. Students are challenged academically,
-        but they also learn to excel socially, ethically, physically and artistically and encourage others to
-        follow you.
-        
-                        </p>
-                    </div>
-                </div>
-        
-            </div>
-            <div class="body-wrap">
-            <div class="d-flex my-5">
-                <div class="bps-mission-container d-flex w-100 flex-wrap">
-                    <section class="bps-mission-element " style="background-image: url('./Mission/pride.jpg');">
-                        <header role="presentation">
-                            <div class="title-center">
-                                <h4 class="bps-mission-title">Positivity</h4>
-        
-                            </div>
-                        </header>
-                        <div class="bps-mission-container">
-                            <div class="title-center">
-                                <div class="title-text">Positivity</div>
-                                <p>Be a Positive thinker and focus on the bright side of life with the belief that you can overcome any obstacle and difficulty</p>
-        
-        
-                            </div>
-                        </div>
-                        <footer role="presentation">
-                            <div class="bps-mission-footer">
-                                <p>Positivity</p>
-        
-                            </div>
-                        </footer>
-        
-        
-                    </section>
-                    <section class="bps-mission-element " style="background-image: url('./Mission/Resilience.JPG');">
-                        <header role="presentation">
-                            <div class="title-center">
-                                <h4 class="bps-mission-title">Resilience</h4>
-        
-                            </div>
-                        </header>
-                        <div class="bps-mission-container">
-                            <div class="title-center">
-                                <div class="title-text">Resilience</div>
-                                <p>Recognise your strengths imbibing a strong mental and emotional attitude. Strive for excellence in all that you do - academics, arts, sports, and character. Do not settle for less than your best effort.
-                                </p>
-        
-        
-                            </div>
-                        </div>
-                        <footer role="presentation">
-                            <div class="bps-mission-footer">
-                                <p>Resilience</p>
-        
-                            </div>
-                        </footer>
-        
-        
-                    </section>
-                    <section class="bps-mission-element " style="background-image: url('Mission/Integrity.jpg');">
-                        <header role="presentation">
-                            <div class="title-center">
-                                <h4 class="bps-mission-title">Integrity</h4>
-        
-                            </div>
-                        </header>
-                        <div class="bps-mission-container">
-                            <div class="title-center">
-                                <div class="title-text">Integrity</div>
-                                <p>Always treat others with kindness and civility. Adhere to your values regardless of the situation. Always be someone of whom you are proud.</p>
-        
-        
-                            </div>
-                        </div>
-                        <footer role="presentation">
-                            <div class="bps-mission-footer">
-                                <p>Integrity</p>
-        
-                            </div>
-                        </footer>
-        
-        
-                    </section>
-                    <section class="bps-mission-element " style="background-image: url('Mission/determination.jpg');">
-                        <header role="presentation">
-                            <div class="title-center">
-                                <h4 class="bps-mission-title">Determination</h4>
-        
-                            </div>
-                        </header>
-                        <div class="bps-mission-container">
-                            <div class="title-center">
-                                <div class="title-text">Determination</div>
-                                <p>Do what you love. Follow your passion. Have a firmness of purpose and the resolve to achieve a goal with the resolution to overcome any obstacles.</p>
-        
-        
-                            </div>
-                        </div>
-                        <footer role="presentation">
-                            <div class="bps-mission-footer">
-                                <p>Determination</p>
-        
-                            </div>
-                        </footer>
-        
-        
-                    </section>
-                    <section class="bps-mission-element " style="background-image: url('Mission/empowerment.jpg');">
-                        <header role="presentation">
-                            <div class="title-center">
-                                <h4 class="bps-mission-title">Empowerment</h4>
-        
-                            </div>
-                        </header>
-                        <div class="bps-mission-container">
-                            <div class="title-center">
-                                <div class="title-text">Empowerment</div>
-                                <p>Control the course of your life and help others realize their abilities and potential. Your words and actions must be uplifting. Always act with empathy.
-                                </p>
-        
-        
-                            </div>
-                        </div>
-                        <footer role="presentation">
-                            <div class="bps-mission-footer">
-                                <p>Empowerment</p>
-        
-                            </div>
-                        </footer>
-        
-        
-                    </section>
-                </div>
-            </div>
-            <footer style="background-image: url(./bg_footer.jpg);
-            margin-top: 0.75rem;
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/commonStyle.css">
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+    <title>Bharti Public School</title>
+    <style>
+        .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+
+        :root {
+            --color-1: rgba(197, 191, 191, 0.45);
+            --color-2: #12312323;
+            --color-3: #2334352a;
+            --color-4: #acf45323;
+            --color-5: #2334352a;
+        }
+
+        .bps-mission-element,
+        .bps-mission-bg {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+        }
+
+        .bps-mission-element {
+            position: relative;
+            -webkit-box-flex: 1;
+            -ms-flex: 1 0;
+            flex: 1 0;
+            height: 350px;
             background-size: cover;
-            background-position: center;">
-                <div class="footer-bg" >
-        
-                  
-                    <div class="row mx-0">
-                        <div style="z-index: 1;" class="social-icons col-md-4">
-                            <h4 class="text-white text-center my-5">Stay Connected</h4>
-                            <div class="d-flex justify-content-center">
-                                <div>
-                                    <a href="https://www.facebook.com/Bhartipublicschooldelhi/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.linkedin.com/school/bharti-public-school---india/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.linkedin.com/school/bharti-public-school---india/"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.instagram.com/bhartipublicschooldelhi/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-        
-                        </div>
-                        <div style="z-index: 1;" class="col-md-4 text-center pt-4">
-                            <div class=" p-3">
-        
-                                <img src="./logo.png" alt="">
-        
-                            </div>
-                            <div class="footer-title my-5">
-                                <!-- <h6><b> Bharti Public School</b></h6>
-                                <h6>Swasthya Vihar</h6> -->
-                                <p>Near, Metro Station, Vikas Marg, Nirman Vihar, <br>Swasthya Vihar, New Delhi 110092.</p>
-        
-                            </div>
-                            <div class="d-flex justify-content-around  text-white mt-2">
-        
-                                <!-- <div class="footer-links"> -->
-                                <!-- <div class="d-flex "> -->
-                                <a style="min-width: 115px;" class=" btn btn-outline-light rounded-0" href="">Explore</a>
-                                <a style="min-width: 115px;" class="btn btn-outline-light rounded-0" href="">Apply</a>
-                                <a style="min-width: 115px;" class="btn btn-outline-light rounded-0" href="">Contact Us</a>
-                                <!-- </div> -->
-                                <!-- </div> -->
-                            </div>
-        
-                        </div>
-        
-                        <div style="z-index: 1;" class="acredition col-md-4 text-center">
-                            <h4 class="text-white my-5">Accreditation</h4>
-                            <div class="d-flex justify-content-center">
-                                <div style="width: 150px;">
-                                    <img width="100%" src="./accreditation/cbse-logo-png-3-1.png" alt="">
-                                </div>
-                                <div style="width: 150px;">
-                                    <img width="100%" src="./accreditation/Last Fold - Accreditation British council.png" alt="">
-                                </div>
-                            </div>
-                        </div>
+            background-position: center center;
+            border-left: 1px solid #fff;
+            margin-bottom: 0 !important;
+            text-align: center;
+        }
+
+        .bps-mission-container>.bps-mission-element:nth-child(1):before {
+            background-color: #d9f770;
+        }
+
+        .bps-mission-container>.bps-mission-element:nth-child(2):before {
+            background-color: #72caed;
+            ;
+        }
+
+        .bps-mission-container>.bps-mission-element:nth-child(3):before {
+            background-color: #6785e7;
+        }
+
+        .bps-mission-container>.bps-mission-element:nth-child(4):before {
+            background-color: #69f09c;
+        }
+
+        .bps-mission-container>.bps-mission-element:nth-child(5):before {
+            background-color: #fa74d2;
+        }
+
+        .bps-mission-container-2>.bps-mission-element:nth-child(1):before {
+            background-color: #69f09c;
+        }
+
+        .bps-mission-container-2>.bps-mission-element:nth-child(2):before {
+            background-color: #fa74d2;
+        }
+
+        .bps-mission-container>.bps-mission-element:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: .8;
+            transition: opacity .3s ease-in-out;
+        }
+
+        .bps-mission-container>.bps-mission-element>header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            transition: opacity .3s ease-in-out;
+        }
+
+        .bps-mission-container>.bps-mission-element>.bps-mission-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            color: rgb(153 83 83 / 70%);
+        }
+
+        .bps-mission-container>.bps-mission-element .title-center {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            left: 0;
+            width: 100%;
+            padding: 30px !important;
+        }
+
+        .bps-mission-container>.bps-mission-element .title-center {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            left: 0;
+            width: 100%;
+            padding: 30px !important;
+        }
+
+        .bps-mission-container>.bps-mission-element>.bps-mission-container .title-text {
+            margin-top: 0;
+            font-weight: normal;
+            line-height: 40px;
+            color: #0785b7;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 0;
+        }
+
+        .title-center p {
+            font-family: sofiaPro;
+            color: #000;
+        }
+
+        @media screen and (max-width: 1050px) {
+            .bps-mission-container>.bps-mission-element>.bps-mission-container .title-text {
+                font-size: 28px;
+            }
+        }
+
+        .bps-mission-container>.bps-mission-element>footer {
+            position: absolute;
+            bottom: 22px;
+            right: 17px;
+            opacity: 1;
+            transition: opacity .3s ease-in-out;
+        }
+
+        .bps-mission-container>.bps-mission-element>footer .bps-mission-footer {
+            color: rgba(0, 0, 0, 0.7);
+            text-transform: uppercase;
+            font-family: "Roboto Condensed", sans-serif;
+            font-weight: 600;
+        }
+
+        .bps-mission-container>.bps-mission-element>footer .bps-mission-footer p {
+            display: inline;
+        }
+
+        .bps-mission-container>.bps-mission-element>footer .bps-mission-footer:after {
+            display: inline-block;
+            margin-left: 0.35714em;
+            font-family: 'FontAwesome';
+            font-weight: normal;
+            content: '\f055';
+        }
+
+        .bps-mission-container>.bps-mission-element:hover>header,
+        .bps-mission-container>.bps-mission-element:hover>footer {
+            opacity: 0;
+        }
+
+        .bps-mission-container>.bps-mission-element:hover>.bps-mission-container {
+            opacity: 1;
+        }
+
+        .bps-mission-container>.bps-mission-element:hover:before {
+            opacity: 1;
+        }
+
+        .mission-video-container {
+            min-width: 420px;
+        }
+
+        @media screen and (max-width:768px) {
+            .mission-video-container {
+                min-width: 320px;
+            }
+        }
+
+        @media (max-width: 1050px) {
+            .bps-mission-container>.bps-mission-element {
+                -webkit-box-flex: 1;
+                -ms-flex: 1 1 100%;
+                flex: 1 1 100%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+                width: 100%;
+
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+
+
+    <div class="body-wrap">
+        <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+            background-size: cover; background-position: center;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+               letter-spacing: 10px;">
+                <%= data.page_title %>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <a href="a-rich-history.html" class="nav-link text-center p-1 m-1">A Rich History</a>
+            <a href="the-bps-difference.html" class="nav-link text-center p-1 m-1">The BPS Difference</a>
+            <a href="leadership.html" class="nav-link text-center p-1 m-1">Leadership</a>
+            <a href="explore-campus.html" class="nav-link text-center p-1 m-1">Explore Campus</a>
+        </nav>
+    </div>
+    <div class="contain f-18">
+        <div>
+            <div class="my-5 ">
+                <div class="my-5">
+                    <div class="u-line-center ">
+                        <h3 class="text-center f-40"><%= data.fold1.heading %></h3>
                     </div>
-                    <div class="row mx-0 mt-4">
-                        <div style="z-index: 1" class="w-100 pt-4 px-5 mx-0 ml-md-3 mr-md-5 d-flex flex-column flex-md-row justify-content-between">
-                            <div style="flex:2;">
-                                <ul style="list-style: none;" class="d-flex justify-content-around px-0">
-                                    <li><a class="text-white p-2" href="#">Directory</a></li>
-                                    <li style="border-right: 1px solid #fff;"></li>
-                                    <li><a class="text-white p-2" href="#">Site Map</a></li>
-                                    <li style="border-right: 1px solid #fff;"></li>
-                                    <li><a class="text-white p-2" href="#">Careers</a></li>
-                                  </ul>  
-                            </div>
-                          <div style="z-index: 1; flex: 5;" class="text-white mx-0">
-                            <p class="text-md-right text-center mr-md-4">© 2020 Bharti Public School</p>
-                          </div>
-        
-                          </div>
-                    </div>
-                    
-        
-                   
                 </div>
-                <div class="mr-2 mb-2" style="display: inline;
-                position: absolute;
-                bottom: 0;
-                z-index: 1;
-                right: 0;">
-                    <a  style=" cursor: pointer;"  onclick="gotoTop()">
-                        <div class="d-flex flex-column">
-                            <i class="fa fa-angle-double-up fa-2x text-white mx-3"></i>
-                            <span style="font-size: 10px;" class="text-white">Take me up</span>
-                        </div>
-                      
-                    </a>
-                   
-                </div>
-        
-        
-            </footer>
+
+
+                <h4 style="color: #3562a5;" class=" mx-1 px-1 mx-lg-5 px-lg-5 text-center">
+                    <%- md.render(String(data.fold1.mission_body)) -%>
+
+                </h4>
             </div>
-            <script>
-                   function openNav() {
-                    console.log("open sidenav");
-                    document.getElementById("mySidenav").style.width = "100%";
-                }
-                function gotoTop() {
-                    window.scroll({
-                    behavior: 'smooth',
-                    left: 0,
-                    top: 0
-          });
-              
-                }
-        
-        
-                function closeNav() {
-                    document.getElementById("mySidenav").style.width = "0";
-                }
-            </script>
-        </body>
-        
-        </html>
+            <section class="my-5 u-line-center">
+                <h3 class="text-center f-40"><%= data.fold2[0].heading %>
+                </h3>
+            </section>
+            <div class="d-flex flex-column flex-md-row">
+                <div style="flex:3;" class="text-justify">
+                    <%- md.render(String(data.fold2[0].text)) -%>
+                </div>
+                <div style="flex:2;" class="mission-video-container text-center mx-0 ml-md-4 mb-3">
+                    <video width="100%" style="min-height: 260px" controls>
+                        <source src="<%= data.fold2[0].video.url %>">
+
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+            </div>
+            <div>
+                <%- md.render(String(data.fold2[0].extra_text)) -%>
+            </div>
+        </div>
+
+    </div>
+    <div class="body-wrap">
+        <div class="d-flex my-5">
+            <div class="bps-mission-container d-flex w-100 flex-wrap">
+                <% data.fold3.forEach(function(m){ %>
+                <section class="bps-mission-element "
+                    style="background-image: url('<%= env + handler.mediaSelection(m.img, quality) %>');">
+                    <header role="presentation">
+                        <div class="title-center">
+                            <h4 class="bps-mission-title"><%= m.heading %></h4>
+
+                        </div>
+                    </header>
+                    <div class="bps-mission-container">
+                        <div class="title-center">
+                            <div class="title-text"><%= m.heading %></div>
+                            <%- md.render(String(m.text)) -%>
+
+
+                        </div>
+                    </div>
+                    <footer role="presentation">
+                        <div class="bps-mission-footer">
+                            <p><%= m.heading %></p>
+
+                        </div>
+                    </footer>
+
+
+                </section>
+
+
+                <% }); %>
+
+            </div>
+        </div>
+
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+    <script>
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>
