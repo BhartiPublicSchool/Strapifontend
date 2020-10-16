@@ -1,0 +1,15 @@
+.rounded-img{
+    width: 75px;
+    height: 75px;
+}
+
+.custom-background-card{
+    background: #f0f0f3
+}
+
+.carousel-indicators li {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: #404040;
+}

@@ -1,0 +1,91 @@
+.custom-jumbotron{
+    height: 550px;
+    margin: 0;
+    background: gray;
+}
+
+.padding-margin{
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.custom-possibilities{
+    max-width: 45.25rem;
+    margin: 0 auto;
+}
+.custom-button{
+    background: #2A72A2;
+}
+.custom-faq-border-bottom{
+    border-bottom: 0
+}
+.custom-faq-card-background{
+    background: #EEEDED;
+}
+.custom-faq-font{
+    color: #1B2736;
+    background: #EEEDED;
+}
+
+.custom-faq-font:hover {
+    /* background: #427C9E; */
+    background: var(--blue);
+    color: white;
+}
+
+.custom-faq-font-focus {
+    color: #EEEDED;
+    background: var(--blue);
+    
+}
+.custom-faq-font-focus:hover{
+    color: #EEEDED;
+    background: var(--blue);
+    /* background: #1B2736; */
+}
+
+.font-blue-on-hover:hover {
+   
+        color: var(--blue);
+  
+}
+
+.nav-heading{
+    height: 50px;
+    background: #EEEDED;
+}
+
+
+
+.parallex{
+    background-image: url("https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_5/v1534861867/chadwick/zultbsozyxen4vdgqfed/mandala-1_.jpg");
+    height: 400px; 
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.custom-table {
+    color: white;
+    background: var(--blue);
+    /* background: #333e48; */
+    border-color: grey;
+}
+.w-16{
+    width: 16.6%;
+    text-align: center;
+}
+
+.custom-card{
+    /* background: var(--blue); */
+    background-color:#433e96;
+    color: white;
+}
+
+
+
+
+
+

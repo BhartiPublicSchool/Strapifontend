@@ -219,9 +219,9 @@
 </head>
 
 <body>
-    <%- include('shared/sidebar', {obj: "sidebar"}); %>
-    <%- include('shared/header', { Menu: faq.Menu }); %>
-    <%- include('shared/stickyHeader', { Menu: faq.Menu }); %>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
 
     <div class="body-wrap">
 
@@ -248,16 +248,16 @@
         </div>
         <div id="_fold_1_media" class="_fold_1 bpsHomeVideoContainer delay-1s fadeIn animated">
             <video loop autoplay id="home_media" width="100%" muted
-                src="<%= env + faq.homeVideo.titleVideo.url %>"></video>
+                src="<%= env + data.homeVideo.titleVideo.url %>"></video>
             <div></div>
         </div>
 
-        <%- include('elements/fold2', {fold2: faq.BPS_PRIDE }); %>
+        <%- include('elements/fold2', {fold2: data.BPS_PRIDE }); %>
 
         <div class="_fold_3">
             <div class="d-flex flex-wrap">
 
-                <% faq.Fold3.forEach(function(card){ %>
+                <% data.Fold3.forEach(function(card){ %>
 
                 <%- include('elements/fold3', {card: card}); %>
 
@@ -272,11 +272,11 @@
             <section>
                 <header class="my-5" data-aos="fade-down">
                     <h1 class="text-center pb-5">
-                        <%= faq.Fold4_title.title %>
+                        <%= data.Fold4_title.title %>
                     </h1>
                 </header>
                 <div class="statistics-slider">
-                    <% faq.Fold4.forEach(function(card){ %>
+                    <% data.Fold4.forEach(function(card){ %>
 
                     <%- include('elements/fold4', {card: card}); %>
 
@@ -288,11 +288,11 @@
 
         </div>
         <section class="_fold_6"
-            style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(faq.newsAnnouncement_title_with_bg.background, quality) %>');">
+            style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>');">
             <header class="mt-5 mb-4 py-3">
                 <div class="u-line-center-white pt-4">
                     <h3 class="text-center text-white f-40">
-                        <%=  faq.newsAnnouncement_title_with_bg.title %>
+                        <%=  data.newsAnnouncement_title_with_bg.title %>
 
                     </h3>
                 </div>
@@ -300,7 +300,7 @@
             </header>
             <div style="width: 99%;" class="d-flex mx-auto news-annuncement">
 
-                <% faq.NewsAndAnnouncement.forEach(function(card){ %>
+                <% data.NewsAndAnnouncement.forEach(function(card){ %>
 
                 <%- include('elements/newsAnnouncement', {card: card}); %>
 
@@ -319,7 +319,7 @@
                     <div class="dots-container">
                         <div class="events">
                             <ol style="list-style: none;">
-                                <% faq.StoryTimeline.forEach(function(card, index){ %>
+                                <% data.StoryTimeline.forEach(function(card, index){ %>
                                 <% if (index != 0) { %>
                                 <li><a id="<%= index %>" href="#<%= index %>"
                                         data-date="<%= card.Year %>"><%= card.Year %></a></li>
@@ -363,7 +363,7 @@
 
 
             <div id="richHistory" class="d-flex richHistory">
-                <% faq.StoryTimeline.forEach(function(card){ %>
+                <% data.StoryTimeline.forEach(function(card){ %>
 
                 <%- include('elements/story', {card: card}); %>
                 <% }); %>
@@ -410,7 +410,7 @@
 
     </div>
 
-    <%- include('shared/footer', {footer: faq.Footer}); %>
+    <%- include('shared/footer', {footer: data.Footer}); %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
@@ -510,9 +510,9 @@
 
         (function ($) {
             $(document).ready(function () {
-                var timelineLength = parseInt('<%=faq.StoryTimeline.length %>');
+                var timelineLength = parseInt('<%=data.StoryTimeline.length %>');
                 let timeLine = [];
-                '<% faq.StoryTimeline.forEach(function(card){ %>'
+                '<% data.StoryTimeline.forEach(function(card){ %>'
                 timeLine.push(parseInt('<%= card.Year %>'));
 
                 '<% }); %>'
@@ -748,7 +748,7 @@
                     dotComponent['timelineDates'] = dotComponent['timelineEvents'];
                     // if (window.innerWidth > 1000) {
                     eventsMinDistance = window.innerWidth / (dotComponent['timelineDates'].length + 1);
-                    eventsMinDistance -= parseInt('<%=faq.StoryTimeline.length %>') * 1.5;
+                    eventsMinDistance -= parseInt('<%=data.StoryTimeline.length %>') * 1.5;
                     // }
 
 
@@ -772,14 +772,14 @@
 
                     $('.timeline-next').on('click', (event) => {
                         console.log(document.getElementById(`${$('a.selected')[0].id}`));
-                        document.getElementById(`${(Number($('a.selected')[0].id) + 1) % parseInt('<%=faq.StoryTimeline.length %>')}`).click();
+                        document.getElementById(`${(Number($('a.selected')[0].id) + 1) % parseInt('<%=data.StoryTimeline.length %>')}`).click();
                         // console.log($('a.selected')[0].id);
                     })
                     $('.timeline-prev').on('click', (event) => {
                         console.log(document.getElementById(`${$('a.selected')[0].id}`));
                         let number = Number($('a.selected')[0].id) - 1;
                         if (number < 0) {
-                            number = parseInt('<%=faq.StoryTimeline.length %>') - 1;
+                            number = parseInt('<%=data.StoryTimeline.length %>') - 1;
                         }
                         document.getElementById(`${number % 10}`).click();
 
