@@ -17,8 +17,9 @@
 
                 </header>
             </section>
-            <div class="accordion mx-4 my-4" id="accordionExample">
-                <!-- <div class="card">
+            <div class="accordion mx-4 my-4" id="sideBarAccourdian">
+
+                <div class="card">
                     <div class="card-header" id="headingOne">
                         <h4 class="d-flex justify-content-between mb-0">
                             <button class="btn text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -31,7 +32,7 @@
                         </h4>
                     </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#sideBarAccourdian">
                         <div class="card-body">
                             <ul class="list-unstyled mx-3">
                                 <li> <a class="dropdown-item" href="#">Forms & Certificates</a></li>
@@ -41,22 +42,22 @@
                             </ul>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <% Menu.forEach(function(menu){ %>
                     <div class="card">
                         <div class="card-header" id="headingTwo">
                             <h4 class="d-flex justify-content-between mb-0">
-                                <a class="btn text-white collapsed"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <a href="<%= menu.menu_href %>" class="btn text-white">
                                     <%= menu.menu_item %>
                                 </a>
-                                <button class="btn text-white collapsed"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="btn text-white collapsed"  data-toggle="collapse" data-target="#<%= menu.menu_item %>" aria-expanded="false" aria-controls="<%= menu.menu_item %>">
                             <i class="fa fa-chevron-down fa-xs"></i>
                           </button>
     
                             </h4>
                         </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div id="<%= menu.menu_item %>" class="collapse" aria-labelledby="<%= menu.menu_item %>" data-parent="#sideBarAccourdian">
                             <div class="card-body">
                                 <ul class="list-unstyled mx-3">
                                     <% menu.submenu.forEach(function(item, index){ %>
