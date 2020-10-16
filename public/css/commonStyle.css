@@ -4,6 +4,7 @@
   --green: #62a25d;
   --yellow: rgb(255, 210, 29);
   --orange: #df682d;
+  --blue-transparent: rgba(40, 41, 93, 0.75);
 }
 
 @font-face {

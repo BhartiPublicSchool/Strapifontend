@@ -70,18 +70,30 @@ app.get("/mission", async (req, res) => {
   }
 });
 
-app.get("/mission", async (req, res) => {
+app.get("/explore-campus", async (req, res) => {
   try {
     const response = await axios.get("http://localhost:1337/explore-campus");
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
-    res.render("mission", {
+    res.render("explore-campus", {
       data: response.data,
+      common: commons.data,
       md,
       env,
       handler : handler,
       quality : "large"
     });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/explore-campus/slides", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/explore-campus");
+    console.log(response.data, process.env.NODE_ENV);
+    console.log(env);
+    res.send(response.data.Legends);
   } catch (error) {
     console.error(error);
   }

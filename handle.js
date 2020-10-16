@@ -31,6 +31,12 @@ function mediaSelection(params, mediaQuality = "large") {
   return mediaURL;
 }
 
+function textSelection(param, defaultText) {
+  console.log(param, defaultText);
+  return param ? param.legend_title : null ? param.legend_title : defaultText;
+}
+
 module.exports = {
   mediaSelection,
+  textSelection
 };
