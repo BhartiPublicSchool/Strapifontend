@@ -228,7 +228,7 @@
         <div class="home-wrap-container align-items-lg-end align-items-center">
             <div class="text-center">
                 <header class="header-title-text mb-5">
-                    <h1 class="text-white fadeInUp delay-2s animated fast">Your Journey Starts Here</h1>
+                    <h1 class="text-white fadeInUp delay-2s animated fast"> <%= data.homeVideo.heading  %></h1>
                     <div class="expore-btn  delay-3s animated">
                         <button type="button"
                             style="letter-spacing: 3px; box-shadow: inset 0 0 0 0.14286em transparent;"
@@ -410,7 +410,7 @@
 
     </div>
 
-    <%- include('shared/footer', {footer: data.Footer}); %>
+    <%- include('shared/footer', {footer: common.footer}); %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>

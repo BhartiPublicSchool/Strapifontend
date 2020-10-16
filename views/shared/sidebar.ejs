@@ -18,7 +18,7 @@
                 </header>
             </section>
             <div class="accordion mx-4 my-4" id="accordionExample">
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-header" id="headingOne">
                         <h4 class="d-flex justify-content-between mb-0">
                             <button class="btn text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -41,49 +41,42 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <h4 class="d-flex justify-content-between mb-0">
-                            <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        About
-                      </button>
-                            <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="fa fa-chevron-down fa-xs"></i>
-                      </button>
+                </div> -->
 
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                        <div class="card-body">
-                            <ul class="list-unstyled mx-3">
-                                <li> <a class="dropdown-item" href="mission.html">Our Mission</a></li>
-                                <li> <a class="dropdown-item" href="the-bps-difference.html">The BPS Difference</a></li>
-                                <li> <a class="dropdown-item" href="a-rich-history.html">A Rich History</a></li>
-                                <li> <a class="dropdown-item" href="leadership.html">Leadership</a></li>
-                            </ul>  </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="headingThree">
-                        <h4 class="d-flex justify-content-between mb-0">
-                            <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                       admission
-                      </button>
-                            <button class="btn text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <i class="fa fa-chevron-down fa-xs"></i>
-                      </button>
+                <% Menu.forEach(function(menu){ %>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h4 class="d-flex justify-content-between mb-0">
+                                <a class="btn text-white collapsed"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <%= menu.menu_item %>
+                                </a>
+                                <button class="btn text-white collapsed"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fa fa-chevron-down fa-xs"></i>
+                          </button>
+    
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <ul class="list-unstyled mx-3">
+                                    <% menu.submenu.forEach(function(item, index){ %>
 
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                            beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        <% if(index <= 2){ %>
+                                            <li> <a class="dropdown-item" href="<%= item.menu_link %>">  <%= item.sub_menu_item %></a></li>
+                                              
+                                          
+                                        <% } %>
+                
+                                        <% }); %>
+                                  
+                                         </ul>  </div>
                         </div>
                     </div>
-                </div>
+                 
+
+                        <% }); %>
+              
+           
             </div>
 
 
