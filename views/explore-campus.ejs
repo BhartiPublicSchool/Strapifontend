@@ -995,11 +995,12 @@
 
     <div class="body-wrap d-flex flex-column">
         <div class="d-block d-md-none wrapper">
-            <% data.Legends.forEach(function(m){ %>
+            <% data.Legends.forEach(function(m, index){ %>
             <div class="tiles">
                 <header>
                     <h4 class="tileTitle m-3">
-                        <%= m.legend_title %>
+                        <a style="cursor: pointer;" class="text-decoration-none text-white" onclick="slideOverlay(Number('<%= index%>')+1)">   <%= m.legend_title %></a></li>
+                      
                     </h4>
                 </header>
                 <section class="px-3">
