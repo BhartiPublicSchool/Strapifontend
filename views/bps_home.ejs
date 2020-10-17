@@ -709,10 +709,10 @@
                     dotComponent['fillingLine'] = dotComponent['eventsWrapper'].children('.filling-line');
                     dotComponent['timelineEvents'] = dotComponent['eventsWrapper'].find('a');
                     dotComponent['timelineDates'] = dotComponent['timelineEvents'];
-                    // if (window.innerWidth > 1000) {
+                    if (window.innerWidth > 1000) {
                     eventsMinDistance = window.innerWidth / (dotComponent['timelineDates'].length + 1);
                     eventsMinDistance -= parseInt('<%=data.StoryTimeline.length %>') * 1.5;
-                    // }
+                    }
 
 
 
