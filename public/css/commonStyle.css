@@ -183,7 +183,7 @@ section span {
   position: relative;
 }
 
-.u-line h3:before {
+.u-line h3:before, .u-line h5:before.u-line h6:before  {
   content: "";
   background: rgb(40, 53, 147);
   width: 80px;
@@ -305,4 +305,52 @@ a.explore:hover {
     top: 15px;
     right: 35px;
   }
+}
+
+
+
+.faculty-tabs a {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.1875;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 1px solid #E6E6E6;
+  padding: 14px 17px;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  position: relative;
+  background: #F2F2F2;
+  color: #252B33;
+
+}
+
+.faculty-tabs a.active {
+  background: #012E61;
+  color: #FFF;
+  border-color: #012E61;
+}
+.faculty-tabs a.active:after {
+  border-top-color: #012E61;
+}
+.faculty-tabs a:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+ 
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 7px solid transparent;
+  -webkit-transition: 0.3s border;
+  transition: 0.3s border;
+}
+
+.faculty-tabs a.active {
+  background: #012E61;
+  color: #FFF;
+  border-color: #012E61;
 }

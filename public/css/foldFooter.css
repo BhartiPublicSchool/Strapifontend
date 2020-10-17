@@ -68,12 +68,36 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b000000', e
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.social-icons a:hover,
-.social-icons a:focus {
+.social-icons a.fb:hover,
+.social-icons a.fb:focus {
     color: #fff;
     cursor: pointer;
     text-decoration: none;
-    background: rgba(0, 0, 0, 0.44);
+    background: #3b5998;
+}
+
+.social-icons a.yt:hover,
+.social-icons a.yt:focus {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    background: #c4302b;
+}
+
+.social-icons a.ln:hover,
+.social-icons a.ln:focus {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    background: #0e78a8;
+}
+
+.social-icons a.in:hover,
+.social-icons a.in:focus {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    background: #DD2A7B;
 }
 
 

@@ -40,7 +40,7 @@
     function getSlideTemplate(params, index = "") {
         return `<div class="carousel-item ${Number(index) == 0 ? 'active' : ''}">
                             <img class="d-block w-100" width="80%" style = "max-height:390px"
-                                src="http://localhost:1337${mediaSelection(params.slide_img)}" alt="First slide">
+                                src="${mediaSelection(params.slide_img)}" alt="First slide">
                             <div class="carousel-caption d-none d-md-block"
                                 style="background-color: var(--blue-transparent);">
                                 <h5>${params.slide_title}</h5>
