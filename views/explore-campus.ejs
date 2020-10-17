@@ -3,41 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script> 
-    function mediaSelection(params, mediaQuality = "large") {
-  if(Array.isArray(params)){
-    console.log("array");
-    params = params[0];
-  }
-  let mediaURL = "";
-  if (params && params.formats) {
-    switch (mediaQuality) {
-      case "large":
-        if (params.formats.large) {
-          mediaURL = params.formats.large.url;
-          break;
+    <script>
+        function mediaSelection(params, mediaQuality = "medium") {
+            if (Array.isArray(params)) {
+                console.log("array");
+                params = params[0];
+            }
+            let mediaURL = "";
+            if (params && params.formats) {
+                switch (mediaQuality) {
+                    case "large":
+                        if (params.formats.large) {
+                            mediaURL = params.formats.large.url;
+                            break;
+                        }
+                    case "medium":
+                        if (params.formats.medium) {
+                            mediaURL = params.formats.medium.url;
+                            break;
+                        }
+                    case "small":
+                        if (params.formats.small) {
+                            mediaURL = params.formats.small.url;
+                            break;
+                        }
+                    case "thumbnail":
+                        if (params.formats.thumbnail) {
+                            mediaURL = params.formats.thumbnail.url;
+                            break;
+                        }
+                }
+            }
+            return mediaURL;
         }
-      case "medium":
-        if (params.formats.medium) {
-          mediaURL = params.formats.medium.url;
-          break;
-        }
-      case "small":
-        if (params.formats.small) {
-          mediaURL = params.formats.small.url;
-          break;
-        }
-      case "thumbnail":
-        if (params.formats.thumbnail) {
-          mediaURL = params.formats.thumbnail.url;
-          break;
-        }
-    }
-  }
-  return mediaURL;
-}
-    function getSlideTemplate(params, index = "") {
-        return `<div class="carousel-item ${Number(index) == 0 ? 'active' : ''}">
+        function getSlideTemplate(params, index = "") {
+            return `<div class="carousel-item ${Number(index) == 0 ? 'active' : ''}">
                             <img class="fadeIn d-block rounded img-fluid" src="${mediaSelection(params.slide_img)}" alt="First slide">
                             <div class="carousel-caption"
                                 style="background-color: var(--blue-transparent);">
@@ -45,13 +45,13 @@
                                 <p>${params.slide_text}</p>
                             </div>
                         </div>`
-    }
-    function getIndicators(index) {
-        console.log("sdsd");
-        return `<li data-target="#carouselExampleIndicators" data-slide-to="${index}" class="${Number(index) == 0 ? 'active' : ''}"></li>`;
-        
-    }
-    function slideOverlay(index) {
+        }
+        function getIndicators(index) {
+            console.log("sdsd");
+            return `<li data-target="#carouselExampleIndicators" data-slide-to="${index}" class="${Number(index) == 0 ? 'active' : ''}"></li>`;
+
+        }
+        function slideOverlay(index) {
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
             var results = $("#inner");
@@ -59,14 +59,14 @@
             indicators.empty();
             results.empty();
             $('#overlay').addClass('slideShowView');
-           let toAppend = [];
-           let controls = []
-           slides[index].slides.forEach((s, i) => {
-           toAppend.push(getSlideTemplate(s, i));
-           controls.push(getIndicators(i));
-          });
-          indicators.append(controls);
-          results.append(toAppend.join(""));
+            let toAppend = [];
+            let controls = []
+            slides[index].slides.forEach((s, i) => {
+                toAppend.push(getSlideTemplate(s, i));
+                controls.push(getIndicators(i));
+            });
+            indicators.append(controls);
+            results.append(toAppend.join(""));
 
         }
 
@@ -401,7 +401,8 @@
             animation-fill-mode: both
         }
 
-        .animate, .active img{
+        .animate,
+        .active img {
             -webkit-animation-duration: 1s;
             -webkit-animation-fill-mode: both;
             animation-duration: 1s;
@@ -510,9 +511,11 @@
             max-width: 100%;
             /* width: auto; */
         }
+
         .carousel-item {
             transition: all 0.5s;
         }
+
         .carousel-item.active {
             transition: all 0.5s;
         }
@@ -708,14 +711,13 @@
     <div id="overlay" class="overlay zoomIn">
         <div style="width: 80%;">
             <div class="d-flex justify-content-center w-100 my-4">
-                <div id="carouselExampleIndicators" class="carousel"
-                    data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
                     <ol id="indicators" class="carousel-indicators">
-                      
+
                     </ol>
                     <div id="inner" class="carousel-inner">
 
-                    
+
                     </div>
                     <div class="control-next">
                         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
@@ -987,8 +989,9 @@
             <div class="tiles">
                 <header>
                     <h4 class="tileTitle m-3">
-                        <a style="cursor: pointer;" class="text-decoration-none text-white" onclick="slideOverlay(Number('<%= index%>')+1)">   <%= m.legend_title %></a></li>
-                      
+                        <a style="cursor: pointer;" class="text-decoration-none text-white"
+                            onclick="slideOverlay(Number('<%= index%>')+1)"> <%= m.legend_title %></a></li>
+
                     </h4>
                 </header>
                 <section class="px-3">
@@ -996,7 +999,7 @@
                 </section>
             </div>
             <% }); %>
-           
+
 
         </div>
         <div class="d-none d-md-block lagend px-3 my-4">
@@ -1008,8 +1011,9 @@
 
             <ol class="d-flex flex-wrap justify-content-center">
                 <% data.Legends.forEach(function(m, index){ %>
-                    <li class="legend-item"> <a style="cursor: pointer;" class="text-decoration-none text-dark" onclick="slideOverlay(Number('<%= index%>')+1)"> <%= m.legend_title %></a></li>
-                    <% }); %>
+                <li class="legend-item"> <a style="cursor: pointer;" class="text-decoration-none text-dark"
+                        onclick="slideOverlay(Number('<%= index%>'))"> <%= m.legend_title %></a></li>
+                <% }); %>
 
 
 
