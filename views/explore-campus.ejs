@@ -1018,8 +1018,8 @@
             </header>
 
             <ol class="d-flex flex-wrap justify-content-center">
-                <% data.Legends.forEach(function(m){ %>
-                    <li class="legend-item">  <%= m.legend_title %></li>
+                <% data.Legends.forEach(function(m, index){ %>
+                    <li class="legend-item"> <a style="cursor: pointer;" class="text-decoration-none text-dark" onclick="slideOverlay(Number('<%= index%>')+1)"> <%= m.legend_title %></a></li>
                     <% }); %>
 
 
