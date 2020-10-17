@@ -36,7 +36,12 @@ function textSelection(param, defaultText) {
   return param ? param.legend_title : null ? param.legend_title : defaultText;
 }
 
+function urlStringSelection(param) {
+  (param && param.url) ? param.url : ""; 
+}
+
 module.exports = {
   mediaSelection,
-  textSelection
+  textSelection,
+  urlStringSelection
 };
