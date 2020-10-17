@@ -30,6 +30,7 @@ h4 p {
 
 body {
   font-family: sofiaPro !important;
+  font-size: 18px;
 }
 
 p,
@@ -48,6 +49,13 @@ h4,
 h5,
 h6 {
   font-family: Julias-San;
+}
+
+.f-julias-san {
+  font-family: Julias-San;
+}
+.f-sofia-pro {
+  font-family: sofiaPro;
 }
 
 section,
