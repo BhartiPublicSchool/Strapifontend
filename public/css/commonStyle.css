@@ -55,7 +55,7 @@ h6 {
   font-family: Julias-San;
 }
 .f-sofia-pro {
-  font-family: sofiaPro;
+  font-family: sofiaPro !important;
 }
 
 section,
