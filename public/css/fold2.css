@@ -17,10 +17,7 @@
   position: relative;
 }
 
-._fold_2 p {
-  font-family: "sofiaPro";
-  font-size: 18px;
-}
+
 
 ._fold_2:after {
   content: "";
