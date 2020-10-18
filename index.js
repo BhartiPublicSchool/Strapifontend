@@ -178,7 +178,6 @@ app.get("/tuition-fees", async (req, res) => {
   }
 });
 
-
 app.get("/a-rich-history", async (req, res) => {
   try {
     const response = await axios.get("http://localhost:1337/a-rich-history");
