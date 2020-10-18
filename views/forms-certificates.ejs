@@ -1,0 +1,288 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <link rel="stylesheet" href="csscommonStyle.css"> 
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+    <title>I am ejs</title>
+    <style>
+        
+        .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+        
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+        
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+            width: 100%;
+           
+            top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+<div class="body-wrap">
+    <div style="background-image: url(./FormsCertificates/1\ -\ title\ banner.png);
+    background-size: cover;" class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+       <div class="overlay"></div>
+       <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+        <%= data.page_title %>
+        </h1>
+    </div>
+    <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+        <a href="" class="nav-link text-center p-1 m-1">Admissions FAQ!</a>
+        <a href="" class="nav-link text-center p-1 m-1">Application Process</a>
+        <a href="" class="nav-link text-center p-1 m-1">Explore Campus</a>
+    </nav>
+</div>
+    <div class="contain">
+      
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">FORMS & CERTIFICATES:</h3>
+                       
+                        <div class="card-text">
+                            <ul>
+                                <li>Marksheets</li>
+                                <li>Duplicate Copies</li>
+                                <li>Transfer Certificate</li>
+                                <li>Transcript Request Form</li>
+                                <li>Merit List/ CBSE Results</li>
+                            </ul>
+                        </div>
+                       
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4 py-3">
+                <button class="btn btn-primary px-4" style="background: #1B2736;">DOWNLOAD ADMISSIONS BROCHURE</button>
+            </div>
+        </div>
+    </div>
+    <div class="body-wrap">
+
+
+        <footer style="background-image: url(./bg_footer.jpg);
+        background-size: cover;
+        background-position: center;">
+            <div class="footer-bg">
+    
+    
+                <div class="row mx-0">
+                    <div style="z-index: 1;" class="social-icons col-md-4">
+                        <h4 class="text-white text-center my-5">Stay Connected</h4>
+                        <div class="d-flex justify-content-center">
+                            <div>
+                                <a href="https://www.facebook.com/Bhartipublicschooldelhi/"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="https://www.linkedin.com/school/bharti-public-school---india/"><i
+                                        class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="https://www.linkedin.com/school/bharti-public-school---india/"><i
+                                        class="fa fa-youtube" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="https://www.instagram.com/bhartipublicschooldelhi/"><i class="fa fa-instagram"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div style="z-index: 1;" class="col-md-4 text-center pt-4">
+                        <div class=" p-3">
+    
+                            <img src="./logo.png" alt="">
+    
+                        </div>
+                        <div class="footer-title my-5">
+                            <!-- <h6><b> Bharti Public School</b></h6>
+                            <h6>Swasthya Vihar</h6> -->
+                            <p>Near, Metro Station, Vikas Marg, Nirman Vihar, <br>Swasthya Vihar, New Delhi 110092.</p>
+    
+                        </div>
+                        <div class="d-flex justify-content-around  text-white mt-2">
+    
+                            <!-- <div class="footer-links"> -->
+                            <!-- <div class="d-flex "> -->
+                            <a style="min-width: 115px;" class=" btn btn-outline-light rounded-0" href="">Explore</a>
+                            <a style="min-width: 115px;" class="btn btn-outline-light rounded-0" href="">Apply</a>
+                            <a style="min-width: 115px;" class="btn btn-outline-light rounded-0" href="">Contact Us</a>
+                            <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
+    
+                    </div>
+    
+                    <div style="z-index: 1;" class="acredition col-md-4 text-center">
+                        <h4 class="text-white my-5">Accreditation</h4>
+                        <div class="d-flex justify-content-center">
+                            <div style="width: 150px;">
+                                <img width="100%" src="./accreditation/cbse-logo-png-3-1.png" alt="">
+                            </div>
+                            <div style="width: 150px;">
+                                <img width="100%" src="./accreditation/Last Fold - Accreditation British council.png"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-0 mt-4">
+                    <div style="z-index: 1"
+                        class="w-100 pt-4 px-5 mx-0 ml-md-3 mr-md-5 d-flex flex-column flex-md-row justify-content-between">
+                        <div style="flex:2;">
+                            <ul style="list-style: none;" class="d-flex justify-content-around px-0">
+                                <li><a class="text-white p-2" href="#">Directory</a></li>
+                                <li style="border-right: 1px solid #fff;"></li>
+                                <li><a class="text-white p-2" href="#">Site Map</a></li>
+                                <li style="border-right: 1px solid #fff;"></li>
+                                <li><a class="text-white p-2" href="#">Careers</a></li>
+                            </ul>
+                        </div>
+                        <div style="z-index: 1; flex: 5;" class="text-white mx-0">
+                            <p class="text-md-right text-center mr-md-4">© 2020 Bharti Public School</p>
+                        </div>
+    
+                    </div>
+                </div>
+    
+    
+    
+            </div>
+            <div class="mr-2 mb-2" style="display: inline;
+            position: absolute;
+            bottom: 0;
+            z-index: 1;
+            right: 0;">
+                <a style=" cursor: pointer;" onclick="gotoTop()">
+                    <div class="d-flex flex-column">
+                        <i class="fa fa-angle-double-up fa-2x text-white mx-3"></i>
+                        <span style="font-size: 10px;" class="text-white">Take me up</span>
+                    </div>
+    
+                </a>
+    
+            </div>
+    
+    
+        </footer>
+        </div>
+    
+    
+    
+    
+    
+    
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    
+        <script type="text/javascript">
+            function openNav() {
+                console.log("open sidenav");
+                document.getElementById("mySidenav").style.width = "100%";
+            }
+            function gotoTop() {
+                window.scroll({
+                    behavior: 'smooth',
+                    left: 0,
+                    top: 0
+                });
+    
+            }
+    
+    
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+            function myFunction() {
+                console.log(this);
+                if (!$(this).hasClass("faq-vistited")) {
+                    $(this).addClass("custom-faq-font-focus")
+                    $(this).addClass("faq-vistited")
+                    $(this).removeClass("custom-faq-font")
+    
+    
+                } else {
+                    $(this).addClass("custom-faq-font")
+                    $(this).removeClass("faq-vistited")
+                    $(this).removeClass("custom-faq-font-focus")
+                }
+            }
+        </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+</body>
+
+</html>
