@@ -192,7 +192,7 @@ section span {
   position: relative;
 }
 
-.u-line h3:before, .u-line h5:before.u-line h6:before  {
+.u-line h3:before, .u-line h5:before, .u-line h6:before  {
   content: "";
   background: rgb(40, 53, 147);
   width: 80px;
@@ -203,16 +203,15 @@ section span {
   left: 1px;
 }
 
-.u-line-center,
-.u-line-center-white {
+.u-line-center, .u-line-center-white {
   position: relative;
 }
 
-.u-line-center-white h3:before {
+.u-line-center h3:before {
   content: "";
-  background: #fff;
-  width: 100px;
-  height: 0.2rem;
+  background: rgb(40, 53, 147);
+  width: 80px;
+  height: 0.20rem;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -222,16 +221,15 @@ section span {
   bottom: 0;
   text-align: center;
 }
-
-.u-line-center h3:before {
+.u-line-center-white h4:before {
   content: "";
-  background: rgb(40, 53, 147);
+  background:#fff;
   width: 80px;
-  height: 0.2rem;
+  height: 0.20rem;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: -5px;
+  margin-bottom: -8px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -242,19 +240,31 @@ section span {
 a.explore {
   cursor: pointer;
   text-transform: uppercase;
-  background: #363e47;
+  /* background: #363E47; */
+  background-color: #433e96;
   border: 0;
   /* border-radius: 0; */
-  box-shadow: inset 0 0 0 0.14286em transparent;
+  -webkit-box-shadow: 0 25px 50px -17px rgba(74,68,176,0.6);
+    box-shadow: 0 25px 50px -17px rgba(74,68,176,0.6);
+  /* box-shadow: inset 0 0 0 0.14286em transparent; */
   color: #fff;
   min-width: 220px;
-  transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+  /* transition: background 0.3s, box-shadow 0.3s, color 0.3s; */
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
 }
+
+
 
 a.explore:hover {
   color: #fff;
   background: var(--blue);
+  transform: scale(0.965);
 }
+
+
 
 /* searchBar */
 

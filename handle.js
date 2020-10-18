@@ -37,11 +37,17 @@ function textSelection(param, defaultText) {
 }
 
 function urlStringSelection(param) {
-  (param && param.url) ? param.url : ""; 
+  return (param && param.url) ? param.url : ""; 
+}
+
+function isPresent(param, defaultText = "") {
+  console.log(Boolean(param));
+  return param ? param : defaultText; 
 }
 
 module.exports = {
   mediaSelection,
   textSelection,
-  urlStringSelection
+  urlStringSelection,
+  isPresent
 };
