@@ -1,0 +1,240 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/commonStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+    <title>Bharti Public School</title>
+    <style>
+        
+        .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+        
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+        
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+            width: 100%;
+           
+            top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+<div class="body-wrap">
+    <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover;" class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+       <div class="overlay"></div>
+       <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+           <%= data.page_title %>
+        </h1>
+    </div>
+    <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+        <a href="mission.html" class="nav-link text-center p-1 m-1">Our Mission</a>
+        <a href="the-bps-difference.html" class="nav-link text-center p-1 m-1">The BPS Difference</a>
+        <a href="leadership.html" class="nav-link text-center p-1 m-1">A-Rich History</a>
+        <a href="explore-campus.html" class="nav-link text-center p-1 m-1">Explore Campus</a>
+    </nav>
+</div>
+    <div class="contain">
+        <div>
+            <section class="my-5 u-line">
+                <h2 class="font-weight-bold">Late Shri (Dr.) S.L. Batra
+                </h2>
+                <h3 >Founder Director</h3>
+            </section>
+            <div class="d-flex flex-column flex-md-row">
+              
+               
+                <div class="text-justify f-18">
+                    <p>At BPS, our Core Values of Positivity, Resilience, Integrity, Determination and Empowerment are more than mere words. Our students and faculty live and breathe them every day. Our values set BPS’ students apart and send them out into
+                        the world as confident and capable leaders of the 21st century.</p>
+                        <p>Dr. Batra has a Doctorate in English. He had earned the prestigious State Award and numerous other distinctions for excellence in education.He was instrumental in bringing up the the Bharti Group of Schools from scratch to this prestigious state. His passion for work was iconic. Even severe illness and long periods of hospitalisation could not bog him down. He would spring back each time with a more infectious zest for life and greater commitment to work. Never the one to compromise with his core values of honesty and integrity, his quest for perfection was iconic. A Samaritan, his philanthropic ways had people flocking to him for advice and help and … no one ever returned empty handed.</p>
+                </div>
+                <div class="text-center mx-0 ml-md-4 mb-3">
+                    <img style="min-width: 250px;" width="280" height="320"  src="Leadership/Copy of director sir_2.jpg"  alt="">
+                </div>
+
+            </div>
+            <div class="text-justify f-18">
+               
+                <p>Dr. Batra's leadership at the Bharti Public Group of Schools will be sorely missed. His lofty ideals will, forever, be a source of strength and inspiration for all of us and guide us in all our endeavors. His lofty ideals will, forever, be a source of strength and inspiration for all of us and guide us in all our endeavors</p>
+            </div>
+           
+
+        </div>
+
+        <div>
+            <section class="my-5 u-line">
+                <h2 class="font-weight-bold">Shri H. C. B. Bharti
+
+                </h2>
+                <h3>Chairman</h3>
+            </section>
+            <div class="d-flex flex-column flex-md-row ">
+              
+               
+                <div class="text-justify f-18">
+                    <p>An eminent and widely respected educator, Mr. Bharti is the Chairman of Bharti Public Group of Schools, guiding and counseling on all aspects of the school. Mr H.C.B. Bharti holds three Masters degrees - in Education, Economics and
+                        English. As a passionate educator, a dynamic communicator and a self- motivated individual he sees a career spanning over 50 years. Having taught Economics in the initial stages of his career, he later gave shape to his vision
+                        of inclusive, progressive education by co-founding the prestigious Bharti Public Group of Schools.
+                    </p> 
+                    <p>Under his able stewardship, the BPS group has over the past 40 years established itself as one of the premier schools of NCR. Owing to his efforts, the group can now boast of establishment of three branches at Swasthya Vihar, Mayur Vihar
+                        and Noida.
+                    </p></div>
+                <div class="text-center mx-0 ml-md-4 mb-3">
+                    <img style="min-width: 250px;" width="280" height="320"  src="Leadership/Copy of chairman 2.jpg"  alt="">
+                </div>
+
+            </div>
+            <div class="text-justify f-18">
+              
+                <p>Bearing a progressive and an enthusiastic persona with a flair for mentoring and coaching, he strongly believes that rendering education is the highest service to humanity and delivers it with perfection and devotion. His desire as an
+                    educator is to prepare students for life.
+                </p>
+            </div>
+           
+
+        </div>
+
+        <div>
+            <section class="my-5 u-line">
+                <h2 class="font-weight-bold">Mr. Rajesh Batra</h2>
+                <h3 >Director</h3>
+            </section>
+            <div class="d-flex flex-column flex-md-row ">
+              
+               
+                <div class="text-justify f-18">
+                    <p>Mr. Batra started his career teaching Accountancy to senior students at Bharti Public School, Swasthya Vihar along with handling Administrative affairs of the School. He holds a Masters Degree in Commerce and in Education. Mr. Batra’s
+                        commendable managerial and administration skills have helped the school acquire phenomenal progress and has won itself a niche among the leading schools of East Delhi.</p>
+                        <p>His conviction and passion are to promote the Academic, emotional and social well being of all pupils under his care and he believes in working in synergy with the parent community. As an able administrator he ensures that the school environment
+                            is safe, sustainable and invites innovation providing the best experiential learning resources for the students be it academics or sports.
+                        </p>
+                    </div>
+                <div class="text-center mx-0 ml-md-4 mb-3">
+                    <img style="min-width: 250px;" width="280" height="320"  src="Leadership/Copy of rajesh sir 3_white back.jpg"  alt="">
+                </div>
+
+            </div>
+            <div class="text-justify f-18">
+              
+                <p>His vision is to impart holistic education and create a powerful impact on today’s generation. As an educator and an adventurous global traveler, he has kept myself abreast with the ever changing teaching pedagogies, reinventing, moving
+                    ahead with technology. Mr. Batra has been instrumental in promoting a fair approach in dealing with everyone alike and he is best known for his family-like approach in dealing with all the students, their parents and the teachers.
+                    He is attached to and also has initiated many community service and wellness programmes.
+                </p>
+                <p>
+                    As the Director of BPS he specialises both in institution development and in solving the academic & administrative issues of the institution. He has time-honored a quality – conscious school where Modernity is fortified by Tradition.
+
+                </p>
+            </div>
+           
+
+        </div>
+
+        <div>
+            <section class="my-5 u-line">
+                <h2 class="font-weight-bold">Dr. Savita Arora</h2>
+                <!-- <p style="font-size: 28px;" class="font-weight-bold"></p> -->
+                <h3 >Principal, National Awardee</h3>
+            </section>
+            <div class="d-flex flex-column justify-content-between flex-md-row ">
+              
+               
+                <div class="text-justify f-18">
+                    <p>Dr. Savita Arora, Principal, Bharti Public School, Swasthya Vihar, is a great visionary, a patient listener, a lady of principles and substance. She has been felicitated with the National Teachers Award 2012 by the Hon’ble President
+                        of India for her exemplary and tireless efforts. She feels blessed to be bestowed with the National Award at such a young age. Success to her is not basking in personal glory; but a responsibility to understand the strengths and
+                        needs of her students and teachers. As a Resource Person for CBSE Capacity-Building Programmes on Happy Classroom, Life Skillsvalues and English Core – XII; she is immensely driven to share her expertise and experience with like-minded
+                        teachers
+                    </p>
+                    <p>
+                        She is a dedicated educationist, having an enormous experience of more than three decades. An avid orator and a prolific writer, she has penned down numerous articles and short poems on the issues related to children, who are very close to her heart.
+                    </p> </div>
+                <div class="text-center mx-0 ml-md-4 mb-3">
+                    <img style="min-width: 250px;" width="320" height="320"  src="Leadership/Copy of IMG_3389_pp.jpg"  alt="">
+                </div>
+
+            </div>
+            <div class="text-justify f-18">
+               
+                <p>She sincerely believes that real education lies way beyond the books. For her, education is the name of our Attitude, Actions, Language and Behaviour with others. With this vision, she has embarked on a mission to instill the values and
+                    life skills in the future generation. She has authored a series of books, ‘Dew Drops’- a book on life skills, for classes I to VIII, to inspire and guide the students to lead a purposeful life. Having rich experience of counseling
+                    she has taken numerous ‘Positive Parenting Workshop’ for the parents.
+                </p>
+                <p>
+                    She believes that a Principal is the nucleus of a community called school and is involved in grooming future national builders. She lives with the vision that an Educator does not mean a Sage on the stage; it means a Guide by the side.
+
+                </p>
+            </div>
+           
+
+        </div>
+
+    </div>
+
+    <%- include('shared/footer', {footer: common.footer}); %>
+     
+    <script>
+        function openNav() {
+         console.log("open sidenav");
+         document.getElementById("mySidenav").style.width = "100%";
+     }
+     function gotoTop() {
+         window.scroll({
+         behavior: 'smooth',
+         left: 0,
+         top: 0
+});
+   
+     }
+
+
+     function closeNav() {
+         document.getElementById("mySidenav").style.width = "0";
+     }
+ </script>
+   
+</body>
+
+</html>

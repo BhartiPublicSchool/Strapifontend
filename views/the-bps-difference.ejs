@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/commonStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+    <title>Bharti Public School</title>
+    <style>
+        .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+
+        
+
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+                width: 100%;
+
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+    <div class="body-wrap">
+        <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+                The BPS Difference
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <a href="mission.html" class="nav-link text-center p-1 m-1">Our Mission</a>
+            <a href="the-bps-difference.html" class="nav-link text-center p-1 m-1">A Rich History</a>
+            <a href="leadership.html" class="nav-link text-center p-1 m-1">Leadership</a>
+            <a href="explore-campus.html" class="nav-link text-center p-1 m-1">Explore Campus</a>
+        </nav>
+        
+    </div>
+
+    <div class="contain">
+        <div>
+            <div class="my-5">
+                <div class="text-center u-line-center">
+                    <h3 class=" f-40">
+                        Unfolding a Brighter Future
+                    </h3>
+                </div>
+            </div>
+           
+            <section class="text-center font-weight-bold f-20">
+                <p>
+                    At Bharti Public School, we’re like family. The BPS fraternity deeply cares about your child’s
+                    growth, happiness and success. For more than 40 years, parents have trusted us to help
+                    their children develop academic excellence, exemplary character and a lifelong quest for
+                    learning. They know that each day their sons and daughters are here on campus, the values
+                    they honor at home are strengthened.
+
+                </p>
+            </section>
+        </div>
+
+        <div class="pt-5">
+            <div class="my-5">
+                <!-- <section class="u-line-center">
+                    <h3 class="text-center f-40">PRIDE in Everything We Do
+                    </h3>
+                </section> -->
+            </div>
+          
+            <div>
+             
+                <div class="d-flex flex-column flex-md-row">
+                
+
+                    <div style="flex:3;" class="text-justify f-18">
+                        <section class=" u-line">
+                            <h3>Education like No Other.
+        
+                            </h3>
+                           
+                        </section>
+                        <div class="my-5">
+                            <p>BPS students are given every opportunity to grow both inside and outside the classroom so
+                                they’re prepared to navigate life’s challenges with confidence. Our community and culture
+                                are designed to support both academic success and strength of character. It's about each
+                                child growing as a person, contributing his or her unique talents and learning to thrive in
+                                a
+                                complex and exciting world.
+                            </p>
+                        </div>
+                      
+                    </div>
+                    <div style="flex:2;" class="text-center mx-0 ml-md-4 mb-3">
+                        <img class="img-fluid shadow" src="bps-differnece/1 - Education like No Other.jpg" alt="">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+<!-- 2nd row -->
+      
+        <div>
+<div class="mt-5 mb-3">
+   
+</div>
+           
+<div class="row my-4">
+    <div class="col-md-6 mb-2">
+        <img class="img-fluid shadow" src="bps-differnece/2 - World class Faculty.png" alt="">
+    </div>
+    <div class="col-md-6 text-muted text-justify">
+        <section class=" u-line">
+            <h3>World-Class Faculty.</h3>
+        </section>
+        <p class="my-5 f-18">
+            BPS attracts passionate, dedicated faculty from the National Capital Region and boasts
+            of one-on-one mentoring meaning our faculty know your children well and help guide
+            them to unfold their infinite potential. Meet BPS’ amazing teachers.
+
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="mt-5 mb-3">
+            <div>
+             
+                <div class="d-flex flex-column flex-md-row">
+                
+
+                    <div style="flex:3;" class="f-18">
+                        <section class=" u-line">
+                            <h3>Spectacular Educational Environment.
+        
+                            </h3>
+                           
+                        </section>
+                        <div class="text-justify f-18 my-5">
+                            <p>Our campus is a beautiful, natural, safe setting where students get to indulge their love
+                                of learning while building lifelong relationships with friends and mentors. From our
+                                expansive landscape, to our state-of-the-art auditorium and spacious athletic facilities,
+                                the 5-acre BPS campus is a living extension of the classroom.
+                            </p>
+                        </div>
+                      
+                    </div>
+                    <div style="flex:2;" class="text-center mx-0 ml-md-4 mb-3">
+                        <img class="img-fluid shadow" src="bps-differnece/3 - Spectacular Educational Environment.jpg" alt="">
+
+                    </div>
+
+                </div>
+            </div>
+
+           
+        </div>
+
+        <div>
+         
+            <div class="row my-4">
+                <div class="col-md-6 mb-2">
+                    <img class="img-fluid shadow" src="bps-differnece/4 - we are community family.JPG" alt="">
+                </div>
+                <div class="col-md-6 text-muted text-justify">
+                    <section class=" u-line">
+                        <h3>We are not just a Community, we are a Family!
+
+                        </h3>
+                    </section>
+                    <p class="my-5 f-18">
+                        When you enroll your child at Bharti Public School, Swasthya Vihar, you become part of
+                        our family. A family that boasts result-driven academics, all-star athletics, award-winning
+                        theater performances and community outreach. At BPS, your child will experience
+                        holistic, hands-on learning that sparks a lifetime of courage, conviction and excellence. It
+                        also ensures that our teachers and college advisers can play a strong mentorship role in
+                        the growth and development of your child.
+            
+                    </p>
+            
+                </div>
+            
+            </div>
+         
+            <section class="my-4"> 
+                <p class="font-weight-bold text-center f-20">Remember when you step foot in BPS, you’re not entering a school, but a community!</p>
+            </section>
+        </div>
+
+    </div>
+
+  
+ 
+
+
+   
+    </div>
+
+    <%- include('shared/footer', {footer: common.footer}); %>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+</body>
+
+</html>

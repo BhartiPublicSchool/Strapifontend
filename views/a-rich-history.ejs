@@ -1,0 +1,245 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="css/commonStyle.css">
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+    <title>Bharti Public School</title>
+    <style>
+        
+        .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+        
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+        
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+            width: 100%;
+           
+            top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+
+<div class="body-wrap">
+    <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover; background-position: center;" class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+       <div class="overlay"></div>
+       <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+           <%= data.page_title %>
+        </h1>
+    </div>
+    <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+        
+        <a href="mission.html" class="nav-link text-center p-1 m-1">Our Mission</a>
+        <a href="the-bps-difference.html" class="nav-link text-center p-1 m-1">The BPS Difference</a>
+        <a href="leadership.html" class="nav-link text-center p-1 m-1">Leadership</a>
+        <a href="explore-campus.html" class="nav-link text-center p-1 m-1">Explore Campus</a>
+    </nav>
+    <div class="contain f-18">
+        <div class="text-justify">
+            <div class="text-center my-5 u-line-center">
+                <h3 class="f-40">
+                    Our Founder’s pursuit of learning lives on in every Bhartian.
+                </h3>
+            </div>
+            <div class="my-5">
+
+                <div class="d-flex flex-column flex-md-row">
+    
+    
+                    <div style="flex:4;" class="text-muted text-justify f-18">
+                        <p>BPS is steeped in more than 40 years of rich history and tradition that began with the extraordinary vision of one man — Late Shri S. L. Batra. From teaching classes in the 1980s in a tiny shed to securing acres of land in East Delhi,
+                            Shri S.L. Batra was a true educationist. He long envisioned a progressive school that offered education as an experience to anyone eager to learn and willing to work hard. Inspired by a deep love of learning, the gifts of nature and
+                            the diversity of humanity, Late Shri S. L. Batra set out to bring a better educational experience at a time and place where it was needed most.</p>
+                        <p>
+    
+                    </div>
+                    <div style="flex:3;" class="text-center mx-0 ml-md-4 mb-3">
+                        <img class="img-fluid" src="Richhistory/1.JPG" alt="">
+    
+                    </div>
+    
+                </div>
+            </div>
+    
+            <div class="row my-4">
+                <div class="col-md-6 mb-2">
+                    <img class="w-100" src="Richhistory/2.jpg" alt="">
+                </div>
+                <div class="col-md-6 text-muted text-justify">
+                    <p class=" f-18">
+                        Bharti Public School, Swasthya Vihar has been blossoming with a spirit and a vision to ignite the passion for learning among its students, for the past four decades. Ever since the inception of the school it has made rapid strides & phenomenal progress
+                        and has won itself a niche among the leading schools of East Delhi. The journey from aspiration to achievement has been a long one. The edifice ‘Unfolding the Infinite Potential’ stands true under the tutelage and direction of the
+                        current Principal, Dr. Savita Arora, a recipient of the National Teacher’s Award awarded by the Hon’ble President of India, Dr. Pranab Mukherjee.
+    
+                    </p>
+    
+                </div>
+    
+            </div>
+            <div class="my-5">
+
+                <div class="d-flex flex-column flex-md-row">
+                    <div style="flex:4;" class="text-justify text-muted f-18">
+                       
+                        <p>
+                            BPS is a proud recipient of the British Council’s International School Award for the second time in row and as a part of the same; the school pursues regular national and international exchange programmes with the U.K., USA and France for teachers and
+                            students, thereby developing global perspective and cementing lifelong relationships.</p>
+                            <p> The green school campus boasts of an excellent infrastructure with modern facilities like smart boards. The well stocked digital library provides the latest & up-to-date books for reading & reference material. It has fully equipped computer and science
+                                labs with updated internet facilities.</p>
+    
+                    </div>
+                    <div style="flex:3;" class="text-center mx-0 ml-md-4 mb-3">
+                        <img class="img-fluid" src="Richhistory/3.jpg" alt="">
+    
+                    </div>
+    
+                </div>
+                <div class="text-muted">
+                    <p>
+                        The school auditorium & an amphitheatre provides a conducive environment for holding various events in the school. It is an excellent arena for budding sports persons with facilities for indoor
+                        and outdoor games. The school boasts of full-fledged cricket, skating, badminton & basketball academies being run by ex-international players. Many of our sports stars have participated and won accolades at the National School Games.
+                       </p>
+                </div>
+
+            </div>
+    
+            <div class="row my-4">
+                <div class="col-md-6 mb-2">
+                    <img class="w-100" src="Richhistory/OK_2004.jpg" alt="">
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted text-justify f-18">
+                        Growth happens outside the comfort zone. Your Upper School experience will challenge you to
+                        break through your comfort zone — whether that’s trying new sports, creative arts or community
+                        outreach program, opportunities to discover your untapped talents and passions await around
+                        every corner. Your self-discovery is supported by the entire BPS community to prepare you for
+                        the real world.
+    
+    
+    
+    
+                    </p>
+    
+                </div>
+    
+            </div>
+            <div class="my-5">
+                <div class="d-flex flex-column flex-md-row">
+    
+    
+                    <div style="flex:4;" class="text-justify text-muted f-18">
+                       
+                        <p>
+                            The integration of life skills in the curriculum and Social Outreach Initiatives has inculcated a system of values among the students. This has made them aware and sensitive towards the societal responsibility to the community and encouraged them to think
+                            beyond the narrow confines of ‘I’ and reach out to connect compassionately with all.</p>
+                            <p>
+                                The role of school in child development begins as early as pre-school and continues through childhood. We not only provide a structured education but also promote a child’s mental and psychological growth. Aside from learning academics, the students are
+                                provided experience to imbibe the life skills such as teamwork, good manners, unity, sharing, and responsibility in a safe environment.
+                            </p>  
+    
+                    </div>
+                    <div style="flex:3;" class="text-center mx-0 ml-md-4 mb-3">
+                        <img class="img-fluid" src="Richhistory/4.JPG" alt="">
+    
+                    </div>
+    
+                </div>
+            </div>
+            <div>
+              
+            </div>
+
+        </div>
+    </div>
+
+
+    <%- include('shared/footer', {footer: common.footer}); %>
+</div>
+   
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+ 
+    <script type="text/javascript">
+      function openNav() {
+         console.log("open sidenav");
+         document.getElementById("mySidenav").style.width = "100%";
+     }
+     function gotoTop() {
+         window.scroll({
+         behavior: 'smooth',
+         left: 0,
+         top: 0
+});
+   
+     }
+
+
+     function closeNav() {
+         document.getElementById("mySidenav").style.width = "0";
+     }
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+</body>
+
+</html>

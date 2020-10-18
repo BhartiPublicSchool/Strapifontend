@@ -88,6 +88,114 @@ app.get("/explore-campus", async (req, res) => {
   }
 });
 
+app.get("/the-bps-difference", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/the-bps-difference");
+    console.log(response.data, process.env.NODE_ENV);
+    console.log(env);
+    res.render("the-bps-difference", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/leadership", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/leadership");
+    console.log(response.data, process.env.NODE_ENV);
+    console.log(env);
+    res.render("leadership", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/admission-faq", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/admission-faq");
+    console.log(response.data, process.env.NODE_ENV);
+    console.log(env);
+    res.render("admission-faq", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/apply", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/apply-now");
+    console.log(response.data, process.env.NODE_ENV);
+    console.log(env);
+    res.render("apply", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/tuition-fees", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/tuition-fees");
+    console.log(response.data, process.env.NODE_ENV);
+    console.log(env);
+    res.render("tuition-fees", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+
+app.get("/a-rich-history", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/a-rich-history");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("a-rich-history", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.get("/explore-campus/slides", async (req, res) => {
   try {
     const response = await axios.get("http://localhost:1337/explore-campus");
@@ -98,5 +206,6 @@ app.get("/explore-campus/slides", async (req, res) => {
     console.error(error);
   }
 });
+
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

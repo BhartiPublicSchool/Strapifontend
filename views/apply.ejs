@@ -1,0 +1,225 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/commonStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+    <title>Bharti Public School</title>
+    <style>
+        
+        .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+        
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+        
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+            width: 100%;
+           
+            top: 0;
+            }
+        }
+      
+       
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+<div class="body-wrap">
+    <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover;" class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+       <div class="overlay"></div>
+       <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+         Apply To BPS
+        </h1>
+    </div>
+    <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+        <a href="admission-faq.html" class="nav-link text-center p-1 m-1">Admissions FAQ!</a>
+        <a href="forms-and-certificates.html" class="nav-link text-center p-1 m-1">Forms & Certificates</a>
+        <a href="tuition-fees.html" class="nav-link text-center p-1 m-1">Tuition Fees</a>
+    </nav>
+</div>
+    <div class="contain">
+        <div >
+            <div class="my-5">
+                <section class="u-line-center">
+                    <h3 class="text-center f-40"> We hold the key to unlocking your child’s potential
+                    </h3>
+                </section>
+            </div>
+           
+         
+            <div class="text-justify f-18">
+                <p>
+                    Bharti Public School’s application period begins one year in advance of a child’s anticipated entry. We accept applications to all grades, but for those that are not main entry points, space is dependent on attrition. For your convenience, we have laid down our admissions process and all supplemental documents required as listed below.
+                </p>
+                
+            </div>
+            <div class="py-5 px-2">
+                <h4 style="font-size: 3rem;">STEPS TO APPLY TO BPS</h4>
+            </div>
+            <div class="">
+
+                <!-- <div class="py-2 px-2">
+                    <h4 style="font-size: 3rem;">Admissions FAQ</h4>
+                </div> -->
+                <div>
+                    <div id="accordionExample">
+                        <div class="my-1" id="headingOne">
+                            <a class="btn btn-block text-left custom-faq-font font-weight-bold p-3" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" onclick="myFunction.call(this)">
+                                <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg> 
+                                Fill an Online Application Form through “Parents Apply”
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                            <div class="card-body">
+                                Alternatively, you can submit the application along with the supporting documents:
+                                <ul>
+                                    <li>
+                                        Birth Certificate
+                                    </li>
+                                    <li>
+                                        Address Proof (Aadhar card of father, mother and child)
+                                    </li>
+                                    <li>
+                                        2 Passport size photograph of father and mother
+                                    </li>
+                                    <li>
+                                        3 Passport size photograph of child
+                                    </li>
+                                    <li>
+                                        Medical FItness of child
+                                    </li>
+                                    <li>
+                                        Copy of form filled on “Parents Apply”
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="text-center my-5">
+                  <a style="text-decoration: none;" class="btn font-blue-on-hover">
+                    <h2 class="font-weight-bold">Join Bharti Parivaar Today!</h2>
+                  </a> 
+                </section>
+
+                <div  class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
+                    <div class="my-2 text-center">
+                        <a  class="btn explore">Forms & Certificates</a>
+                    </div>
+                    <div class="my-2 text-center">
+                        <a  class="btn explore">Admissions Brochure</a>
+                    </div>
+                   
+                </div>
+               
+            </div>
+        </div> 
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+    
+    
+    
+    
+    
+    
+    
+       
+    
+        <script type="text/javascript">
+            function openNav() {
+                console.log("open sidenav");
+                document.getElementById("mySidenav").style.width = "100%";
+            }
+            function gotoTop() {
+                window.scroll({
+                    behavior: 'smooth',
+                    left: 0,
+                    top: 0
+                });
+    
+            }
+    
+    
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+            function myFunction() {
+                console.log(this);
+                if (!$(this).hasClass("faq-vistited")) {
+                    $(this).addClass("custom-faq-font-focus")
+                    $(this).addClass("faq-vistited")
+                    $(this).removeClass("custom-faq-font")
+    
+    
+                } else {
+                    $(this).addClass("custom-faq-font")
+                    $(this).removeClass("faq-vistited")
+                    $(this).removeClass("custom-faq-font-focus")
+                }
+            }
+        </script>
+
+   
+
+    <script type="text/javascript">
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+</body>
+
+</html>
