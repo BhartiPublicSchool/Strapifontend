@@ -35,7 +35,7 @@
             transform: translateX(200%);
         }
 
-        
+
 
         .jumbotron .overlay {
             position: absolute;
@@ -68,178 +68,177 @@
             <div class="overlay"></div>
             <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
        letter-spacing: 10px;">
-                The BPS Difference
+                <%= handler.safeView(data, 'page_title') %>
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <a href="mission.html" class="nav-link text-center p-1 m-1">Our Mission</a>
-            <a href="the-bps-difference.html" class="nav-link text-center p-1 m-1">A Rich History</a>
-            <a href="leadership.html" class="nav-link text-center p-1 m-1">Leadership</a>
-            <a href="explore-campus.html" class="nav-link text-center p-1 m-1">Explore Campus</a>
+            <a href="/mission" class="nav-link text-center p-1 m-1">Our Mission</a>
+            <a href="/the-bps-difference" class="nav-link text-center p-1 m-1">A Rich History</a>
+            <a href="/leadership" class="nav-link text-center p-1 m-1">Leadership</a>
+            <a href="/explore-campus" class="nav-link text-center p-1 m-1">Explore Campus</a>
         </nav>
-        
+
     </div>
 
     <div class="contain">
         <div>
             <div class="my-5">
-                <div class="text-center u-line-center">
+                <div
+                    class="text-center  <%= handler.isPresent(!Boolean(handler.safeView(data.fold2, 'title')), 'u-line-center') %>">
                     <h3 class=" f-40">
-                        Unfolding a Brighter Future
+                        <%= handler.safeView(data.fold2, 'title') %>
                     </h3>
                 </div>
             </div>
-           
-            <section class="text-center font-weight-bold f-20">
-                <p>
-                    At Bharti Public School, we’re like family. The BPS fraternity deeply cares about your child’s
-                    growth, happiness and success. For more than 40 years, parents have trusted us to help
-                    their children develop academic excellence, exemplary character and a lifelong quest for
-                    learning. They know that each day their sons and daughters are here on campus, the values
-                    they honor at home are strengthened.
 
-                </p>
+            <section class="text-center font-weight-bold f-20">
+                <%- md.render(String(handler.safeView(data.fold2,'text'))) -%>
             </section>
         </div>
 
         <div class="pt-5">
-            <div class="my-5">
-                <!-- <section class="u-line-center">
-                    <h3 class="text-center f-40">PRIDE in Everything We Do
-                    </h3>
-                </section> -->
-            </div>
-          
-            <div>
-             
-                <div class="d-flex flex-column flex-md-row">
-                
+            <div class="mb-4">
+                <section class=" <%= handler.isPresent(!Boolean(data.fold3[0].title), 'u-line-center') %>">
+                    <h3 class="text-center f-40">
 
+                        <%= handler.safeView(data.fold3[0], 'title') %>
+                    </h3>
+                </section>
+            </div>
+
+            <div class="my-5">
+
+                <div class="d-flex flex-column flex-md-row">
                     <div style="flex:3;" class="text-justify f-18">
-                        <section class=" u-line">
-                            <h3>Education like No Other.
-        
-                            </h3>
-                           
-                        </section>
-                        <div class="my-5">
-                            <p>BPS students are given every opportunity to grow both inside and outside the classroom so
-                                they’re prepared to navigate life’s challenges with confidence. Our community and culture
-                                are designed to support both academic success and strength of character. It's about each
-                                child growing as a person, contributing his or her unique talents and learning to thrive in
-                                a
-                                complex and exciting world.
-                            </p>
+                        <div class="mb-4">
+                            <section class=" <%= handler.isPresent(!Boolean(data.fold3[0].subtitle), 'u-line') %>">
+                                <h3>
+                                    <%= handler.safeView(data.fold3[0], 'subtitle') %>
+                                </h3>
+                            </section>
                         </div>
-                      
+
+                        <div>
+                            <%- md.render(String(handler.safeView(data.fold3[0],'text'))) -%>
+                        </div>
+
                     </div>
                     <div style="flex:2;" class="text-center mx-0 ml-md-4 mb-3">
-                        <img class="img-fluid shadow" src="bps-differnece/1 - Education like No Other.jpg" alt="">
+                        <img class="img-fluid shadow"
+                            src="<%= env + handler.mediaSelection(data.fold3[0].img, quality) %>"
+                            alt="<%= handler.safeView(data.fold3[0].img, 'alternativeText')%>">
 
                     </div>
 
                 </div>
+                <div class="text-justify f-18">
+                    <%- md.render(String(handler.safeView(data.fold3[0],'extra_text'))) -%>
+                </div>
             </div>
         </div>
-<!-- 2nd row -->
-      
+        <!-- 2nd row -->
+
         <div>
-<div class="mt-5 mb-3">
-   
-</div>
-           
-<div class="row my-4">
-    <div class="col-md-6 mb-2">
-        <img class="img-fluid shadow" src="bps-differnece/2 - World class Faculty.png" alt="">
-    </div>
-    <div class="col-md-6 text-muted text-justify">
-        <section class=" u-line">
-            <h3>World-Class Faculty.</h3>
-        </section>
-        <p class="my-5 f-18">
-            BPS attracts passionate, dedicated faculty from the National Capital Region and boasts
-            of one-on-one mentoring meaning our faculty know your children well and help guide
-            them to unfold their infinite potential. Meet BPS’ amazing teachers.
+            <div class="row my-4">
+                <div class="col-md-6 mb-2 order-2 order-md-0">
+                    <img class="img-fluid shadow" src="<%= env + handler.mediaSelection(data.fold3[1].img, quality) %>"
+                        alt="<%= handler.safeView(data.fold3[1].img, 'alternativeText')%>">
+                </div>
+                <div class="col-md-6 text-muted text-justify">
+                    <div class="mb-4">
+                        <section class="<%= handler.isPresent(!Boolean(data.fold3[1].subtitle), 'u-line') %>">
+                            <h3> <%= handler.safeView(data.fold3[1],'subtitle') %></h3>
+                        </section>
+                    </div>
 
-        </p>
 
-    </div>
+                    <div class="f-18">
+                        <%- md.render(String(handler.safeView(data.fold3[1],'text'))) -%>
+                    </div>
 
-</div>
+                </div>
 
+            </div>
+            <div class="text-justify f-18">
+                <%- md.render(String(handler.safeView(data.fold3[1],'extra_text'))) -%>
+            </div>
         </div>
 
         <div class="mt-5 mb-3">
             <div>
-             
                 <div class="d-flex flex-column flex-md-row">
-                
-
                     <div style="flex:3;" class="f-18">
-                        <section class=" u-line">
-                            <h3>Spectacular Educational Environment.
-        
-                            </h3>
-                           
-                        </section>
-                        <div class="text-justify f-18 my-5">
-                            <p>Our campus is a beautiful, natural, safe setting where students get to indulge their love
-                                of learning while building lifelong relationships with friends and mentors. From our
-                                expansive landscape, to our state-of-the-art auditorium and spacious athletic facilities,
-                                the 5-acre BPS campus is a living extension of the classroom.
-                            </p>
+                        <div class="mb-4">
+                            <section class="<%= handler.isPresent(!Boolean(data.fold3[2].subtitle), 'u-line') %>">
+                                <h3> <%= handler.safeView(data.fold3[2],'subtitle') %></h3>
+                            </section>
                         </div>
-                      
+
+                        <div class="text-justify f-18">
+                            <%- md.render(String(handler.safeView(data.fold3[2],'text'))) -%>
+
+                        </div>
+
                     </div>
                     <div style="flex:2;" class="text-center mx-0 ml-md-4 mb-3">
-                        <img class="img-fluid shadow" src="bps-differnece/3 - Spectacular Educational Environment.jpg" alt="">
+                        <img class="img-fluid shadow"
+                            src="<%= env + handler.mediaSelection(data.fold3[2].img, quality) %>"
+                            alt="<%= handler.safeView(data.fold3[2].img, 'alternativeText')%>">
 
                     </div>
 
                 </div>
+
+                <div class="text-justify f-18">
+                    <%- md.render(String(handler.safeView(data.fold3[2],'extra_text'))) -%>
+                </div>
             </div>
 
-           
+
         </div>
 
         <div>
-         
-            <div class="row my-4">
-                <div class="col-md-6 mb-2">
-                    <img class="img-fluid shadow" src="bps-differnece/4 - we are community family.JPG" alt="">
-                </div>
-                <div class="col-md-6 text-muted text-justify">
-                    <section class=" u-line">
-                        <h3>We are not just a Community, we are a Family!
+            <div class="my-4">
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <img class="img-fluid shadow"
+                            src="<%= env + handler.mediaSelection(data.fold3[3].img, quality) %>"
+                            alt="<%= handler.safeView(data.fold3[3].img, 'alternativeText')%>">
+                    </div>
+                    <div class="col-md-6 text-muted text-justify">
+                        <div class="mb-4">
+                            <section class="<%= handler.isPresent(!Boolean(data.fold3[3].subtitle), 'u-line') %>">
+                                <h3> <%= handler.safeView(data.fold3[3],'subtitle') %></h3>
 
-                        </h3>
-                    </section>
-                    <p class="my-5 f-18">
-                        When you enroll your child at Bharti Public School, Swasthya Vihar, you become part of
-                        our family. A family that boasts result-driven academics, all-star athletics, award-winning
-                        theater performances and community outreach. At BPS, your child will experience
-                        holistic, hands-on learning that sparks a lifetime of courage, conviction and excellence. It
-                        also ensures that our teachers and college advisers can play a strong mentorship role in
-                        the growth and development of your child.
-            
-                    </p>
-            
+
+                            </section>
+                        </div>
+
+                        <div class="text-justify f-18">
+                            <%- md.render(String(handler.safeView(data.fold3[3],'text'))) -%>
+
+                        </div>
+
+                    </div>
+
                 </div>
-            
+                <div class="text-justify f-18">
+                    <%- md.render(String(handler.safeView(data.fold3[3],'extra_text'))) -%>
+                </div>
             </div>
-         
-            <section class="my-4"> 
-                <p class="font-weight-bold text-center f-20">Remember when you step foot in BPS, you’re not entering a school, but a community!</p>
+
+
+            <section class="my-5">
+                <div class="font-weight-bold text-center f-20">
+                    <%- md.render(String(handler.safeView(data.lastFold,'sub_heading'))) -%>
+                </div >
+              
             </section>
         </div>
 
     </div>
 
-  
- 
 
-
-   
     </div>
 
     <%- include('shared/footer', {footer: common.footer}); %>

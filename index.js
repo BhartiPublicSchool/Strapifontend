@@ -160,6 +160,24 @@ app.get("/apply", async (req, res) => {
   }
 });
 
+app.get("/home", async (req, res) => {
+  try {
+    // const response = await axios.get("http://localhost:1337/apply-now");
+    // console.log(response.data, process.env.NODE_ENV);
+    console.log(env);
+    res.render("home", {
+      // data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.get("/tuition-fees", async (req, res) => {
   try {
     const response = await axios.get("http://localhost:1337/tuition-fees");

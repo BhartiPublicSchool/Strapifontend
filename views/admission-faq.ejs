@@ -82,7 +82,8 @@
             <div>
                 <div class="my-5">
                     <section class="u-line-center">
-                        <h3 class="text-center f-40">Explore Infinite possibilities
+                        <h3 class="text-center f-40">
+                            <%= data.folds[0].card_title %>
                         </h3>
                     </section>
                 </div>
@@ -92,252 +93,80 @@
 
 
                         <div style="flex:3;" class="text-justify f-18">
-                            <p>Welcome! We are delighted that you are
-                                interested in learning more about Bharti
-                                Public School and our application process.
-                                BPS is a co-educational, independent day
-                                school from Nursery to Class 12 located
-                                in East Delhi, India.
-
-                            </p>
-                            <p>Our mission as a dynamic, modern-day
-                                school is to challenge each student to
-                                achieve excellence in a nurturing, inclusive
-                                community. BPS’ teachers, parents, and
-                                administrators work together to inspire our
-                                students to be responsible, caring, well
-                                informed, ethical, prepared, and well
-                                balanced young adults.
-                            </p>
+                            <%- md.render(String(handler.safeView(data.folds,'card_text', 0))) -%> 
                         </div>
                         <div style="flex:2;" class="text-center mx-0 ml-md-4 mb-3">
-                            <img class="img-fluid" src="Admissions-FAQ/2 - Explore the Infinite Possibilities.PNG"
-                                alt="">
+                            <img class="img-fluid"
+                            src="<%= env + handler.mediaSelection(data.folds[0].card_img, quality) %>"
+                            alt="<%= handler.safeView(data.folds[0].card_img, 'alternativeText')%>">
 
                         </div>
 
                     </div>
                 </div>
                 <div class="text-justify f-18">
-                    <p>
-                        Prospective students and their parents often ask us questions to better
-                        understand the BPS experience. In an effort to help you decide if BPS is the right
-                        school for you, we’d like to share many of those questions and answers. If you
-                        have a specific question, please email us at admissions.sv@bps.edu.in or call
-                        the Admissions Office at 011-22502878/ 011-22512878.
-
-                    </p>
+                    <%- md.render(String(handler.safeView(data.folds,'card_extra', 0))) -%> 
                 </div>
             </div>
             <div  class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
-                <div class="my-2 text-center">
-                    <a  class="btn explore">Forms & Certificates</a>
-                </div>
-                <div class="my-2 text-center">
+                <% data.buttons.forEach(function(item, index){ %>
+                    <div class="my-2 text-center">
+                        <a href="<%= item.btn_href %>"  class="btn explore"> 
+                              <%= item.btn_name %></a>
+                    </div>
+                  
+
+                    <% }); %>
+               
+                <!-- <div class="my-2 text-center">
                     <a  class="btn explore">Apply to BPS!</a>
                 </div>
                 <div class="my-2 text-center">
                     <a  class="btn explore">Explore Campus</a>
-                </div>
+                </div> -->
                
               
             </div>
             <div>
                 <div class="my-5">
-                    <h4 style="font-size: 3rem;">Admissions FAQ</h4>
+                    <h4 style="font-size: 3rem;"><%= data.qa_title.title %></h4>
                 </div>
                 <div id="accordionExample">
-                    <div class="my-1" id="headingOne">
+                    <% data.FAQ.forEach(function(item, index){ %>
+                        <div class="my-1" id="heading<%= index%>">
 
-                        <a class="btn btn-block text-left custom-faq-font font-weight-bold p-3" type="button"
-                            data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                            aria-controls="collapseOne" onclick="myFunction.call(this)">
-                            <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3"
-                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                            </svg> Why choose Bharti Public School?
-                        </a>
-
-                    </div>
-
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-                        <div class="card-body">
-                            Every student at BPS can find his/her niche and his/her passion, whether it is
-                            through the traditional college preparatory courses offered, the various athletic
-                            opportunities, visual and performing arts events, or co-curricular activities.
-                            Students have
-                            a chance to get involved in the community and develop skills that help them to
-                            develop as strong, independent young adults. From student leadership to robotics,
-                            there are so many ways for students to become active members
-                            of the community.
-                        </div>
-                    </div>
-
-
-
-                    <div class="my-1" id="headingTwo">
-
-                        <button class="btn btn-block text-left collapsed custom-faq-font font-weight-bold p-3"
-                            type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                            aria-controls="collapseTwo" onclick="myFunction.call(this)">
-                            <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3"
-                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                            </svg>
-                            How will I see the campus and are applicants allowed to visit for the day?
-                        </button>
-
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
-                        <div class="card-body">
-                            Keeping in view the students’ safety, one can only visit the campus after the school
-                            hours with the permission of the management. You can also take a virtual tour of our
-                            ​campus here​!
-                        </div>
-                    </div>
-
-                    <div class="my-1" id="headingThree">
-
-                        <button class="btn btn-block text-left collapsed custom-faq-font font-weight-bold p-3"
-                            type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
-                            aria-controls="collapseThree" onclick="myFunction.call(this)">
-                            <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3"
-                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                            </svg>
-                            When are applications due?
-                        </button>
-
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
-                        <div class="card-body">
-                            Kindergarten: Applications are accepted as per the dates scheduled by the
-                            Directorate Of Education of Delhi. These admissions are based on a point system. ●
-                            Primary, Middle and Secondary: Applications are invited through mail
-                            (admissions.sv@bps.edu.in)
-                            in the month of March, subject to availability of seats. These admissions are based
-                            on the Entrance Test. Students scoring the highest marks, are selected and finally
-                            screened through interviews. ● For Class XI: Admissions
-                            to class XI are invited after the declaration of Class X CBSE Board Result.
-                            Provisional admissions are done on the basis of the Pre Board Mark sheet in the
-                            month of May; but are reviewed after the CBSE Result Declaration.
-                            Students must meet with the criteria adopted by the school stream wise. ○ Science
-                            stream: above 80% aggregate and 80% in Mathematics and Science each. ○ Commerce
-                            Stream: above 80% aggregate and 80% in Mathematics. ○ Humanities:
-                            above 75% aggregate and 75% in Mathematics, if opting for Economics and IP.
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-        <footer style="background-image: url(./bg_footer.jpg);
-        margin-top: 0.75rem;
-        background-size: cover;
-        background-position: center;">
-            <div class="footer-bg" >
+                            <a class="btn btn-block text-left custom-faq-font font-weight-bold p-3" type="button"
+                                data-toggle="collapse" data-target="#collapse<%= index%>" aria-expanded="true"
+                                aria-controls="collapseOne" onclick="myFunction.call(this)">
+                                <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                </svg>  <%= item.question %></a>
+                            </a>
     
-              
-                <div class="row mx-0">
-                    <div style="z-index: 1;" class="social-icons col-md-4">
-                        <h4 class="text-white text-center my-5">Stay Connected</h4>
-                        <div class="d-flex justify-content-center">
-                            <div>
-                                <a href="https://www.facebook.com/Bhartipublicschooldelhi/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="https://www.linkedin.com/school/bharti-public-school---india/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="https://www.linkedin.com/school/bharti-public-school---india/"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="https://www.instagram.com/bhartipublicschooldelhi/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+    
+                        <div id="collapse<%= index%>" class="collapse bg-light" aria-labelledby="heading<%= index%>">
+                            <div class="card-body">
+                                <%- md.render(String(item.answer)) -%> 
+                             
                             </div>
                         </div>
     
-                    </div>
-                    <div style="z-index: 1;" class="col-md-4 text-center pt-4">
-                        <div class=" p-3">
+                      
     
-                            <img src="./logo.png" alt="">
-    
-                        </div>
-                        <div class="footer-title my-5">
-                            <!-- <h6><b> Bharti Public School</b></h6>
-                            <h6>Swasthya Vihar</h6> -->
-                            <p>Near, Metro Station, Vikas Marg, Nirman Vihar, <br>Swasthya Vihar, New Delhi 110092.</p>
-    
-                        </div>
-                        <div class="d-flex justify-content-around  text-white mt-2">
-    
-                            <!-- <div class="footer-links"> -->
-                            <!-- <div class="d-flex "> -->
-                            <a style="min-width: 115px;" class=" btn btn-outline-light rounded-0" href="">Explore</a>
-                            <a style="min-width: 115px;" class="btn btn-outline-light rounded-0" href="">Apply</a>
-                            <a style="min-width: 115px;" class="btn btn-outline-light rounded-0" href="">Contact Us</a>
-                            <!-- </div> -->
-                            <!-- </div> -->
-                        </div>
-    
-                    </div>
-    
-                    <div style="z-index: 1;" class="acredition col-md-4 text-center">
-                        <h4 class="text-white my-5">Accreditation</h4>
-                        <div class="d-flex justify-content-center">
-                            <div style="width: 150px;">
-                                <img width="100%" src="./accreditation/cbse-logo-png-3-1.png" alt="">
-                            </div>
-                            <div style="width: 150px;">
-                                <img width="100%" src="./accreditation/Last Fold - Accreditation British council.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mx-0 mt-4">
-                    <div style="z-index: 1" class="w-100 pt-4 px-5 mx-0 ml-md-3 mr-md-5 d-flex flex-column flex-md-row justify-content-between">
-                        <div style="flex:2;">
-                            <ul style="list-style: none;" class="d-flex justify-content-around px-0">
-                                <li><a class="text-white p-2" href="#">Directory</a></li>
-                                <li style="border-right: 1px solid #fff;"></li>
-                                <li><a class="text-white p-2" href="#">Site Map</a></li>
-                                <li style="border-right: 1px solid #fff;"></li>
-                                <li><a class="text-white p-2" href="#">Careers</a></li>
-                              </ul>  
-                        </div>
-                      <div style="z-index: 1; flex: 5;" class="text-white mx-0">
-                        <p class="text-md-right text-center mr-md-4">© 2020 Bharti Public School</p>
-                      </div>
-    
-                      </div>
-                </div>
-                
-    
-               
-            </div>
-            <div class="mr-2 mb-2" style="display: inline;
-            position: absolute;
-            bottom: 0;
-            z-index: 1;
-            right: 0;">
-                <a  style=" cursor: pointer;"  onclick="gotoTop()">
-                    <div class="d-flex flex-column">
-                        <i class="fa fa-angle-double-up fa-2x text-white mx-3"></i>
-                        <span style="font-size: 10px;" class="text-white">Take me up</span>
-                    </div>
+                        <% }); %>
                   
-                </a>
-               
+
+
+                </div>
+
             </div>
-    
-    
-        </footer>
+
         </div>
+        </div>
+        <%- include('shared/footer', {footer: common.footer}); %>
         <script>
                function openNav() {
                 console.log("open sidenav");

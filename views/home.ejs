@@ -1,0 +1,502 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/commonStyle.css">
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+    <style>
+        .pic-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        figure {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            /*animation*/
+
+            animation: slideShow 24s linear infinite 0s;
+            -o-animation: slideShow 24s linear infinite 0s;
+            -moz-animation: slideShow 24s linear infinite 0s;
+            -webkit-animation: slideShow 24s linear infinite 0s;
+        }
+
+        figurecaption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #fff;
+        }
+
+        .pic-1 {
+            opacity: 1;
+            background-position: center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .pic-2 {
+            animation-delay: 6s;
+            -o-animation-delay: 6s;
+            -moz--animation-delay: 6s;
+            -webkit-animation-delay: 6s;
+            background-position: center center;
+            ;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .pic-3 {
+            animation-delay: 12s;
+            -o-animation-delay: 12s;
+            -moz--animation-delay: 12s;
+            -webkit-animation-delay: 12s;
+            background-position: center center;
+            ;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .pic-4 {
+            animation-delay: 18s;
+            -o-animation-delay: 18s;
+            -moz--animation-delay: 18s;
+            -webkit-animation-delay: 18s;
+            background-position: center center;
+            ;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        /* keyframes*/
+
+        @keyframes slideShow {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+                -ms-transform: scale(1);
+            }
+
+            5% {
+                opacity: 1
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            30% {
+                opacity: 0;
+                transform: scale(1.1);
+                -ms-transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1);
+                -ms-transformm: scale(1);
+            }
+        }
+
+        @-o-keyframes slideShow {
+            0% {
+                opacity: 0;
+                -o-transform: scale(1);
+            }
+
+            5% {
+                opacity: 1
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            30% {
+                opacity: 0;
+                -o-transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0;
+                -o-transformm: scale(1);
+            }
+        }
+
+        @-moz-keyframes slideShow {
+            0% {
+                opacity: 0;
+                -moz-transform: scale(1);
+            }
+
+            5% {
+                opacity: 1
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            30% {
+                opacity: 0;
+                -moz-transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0;
+                -moz-transformm: scale(1);
+            }
+        }
+
+        @-webkit-keyframes slideShow {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale(1);
+            }
+
+            5% {
+                opacity: 1
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            30% {
+                opacity: 0;
+                -webkit-transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0;
+                -webkit-transformm: scale(1);
+            }
+        }
+
+        .overlay {
+            /* position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px; */
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+
+        .group_btns .button a {
+            padding: 0.75em 1em;
+            text-decoration: none;
+            line-height: 39px;
+            transition: background 0.3s, color 0.3s;
+            position: relative;
+            display: block;
+            color: #fff;
+            font-size: 20px;
+            line-height: 31px;
+            max-height: 4rem;
+            text-transform: uppercase;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -ms-flex-align: center;
+            align-items: center;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .group_btns .button {
+            min-width: 14rem;
+        }
+
+        .group_btns .button a:hover,
+        .group_btns .button a:focus {
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .body-wrap {
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+        }
+
+        @media screen and (min-width: 768px) {
+            .body-wrap {
+                margin: 0.75rem;
+            }
+        }
+
+        /*  */
+        .form-contact ul,
+        ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .form_icon_svg {
+            position: absolute;
+            padding: 1.5rem 1rem;
+
+        }
+
+        .form-contact ul li input,
+        .form-contact ul li select {
+            width: 100%;
+            border: 1px solid #818181;
+            font-size: 16px;
+            height: 58px;
+            color: #818181;
+            padding: 18px 10px 14px 60px;
+            -webkit-appearance: none;
+        }
+
+        .form-contact ul li {
+            flex: 1;
+            min-width: 30%;
+            margin: 1rem 1rem;
+        }
+
+        .social-icons li {
+            padding: 1rem;
+        }
+
+        .social-icons li a {
+            color: #818181;
+        }
+
+        @media screen and (max-width: 576px) {
+            .form-contact ul li {
+                flex: 1;
+                min-width: -webkit-fit-content;
+                min-width: -moz-fit-content;
+                min-width: fit-content;
+                margin: 1rem 1rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body-wrap h-100">
+        <div class="pic-wrapper">
+            <figure
+                style="  background-image: url(http://cdn.morguefile.com/imageData/public/files/g/GaborfromHungary/06/p/74fea178af5c36b5303625ffeacd8454.jpg) "
+                class="pic-1"></figure>
+            <figure
+                style=" background-image: url(http://cdn.morguefile.com/imageData/public/files/k/Koan/06/p/ea989990a29bb73aa78db9f8322b5631.jpg) "
+                class="pic-2"></figure>
+            <figure
+                style=" background-image: url(http://cdn.morguefile.com/imageData/public/files/t/TSmythe/06/p/74820906fce25071550b74b6773a0e19.jpg) "
+                class="pic-3"></figure>
+            <figure
+                style=" background-image: url(http://cdn.morguefile.com/imageData/public/files/i/Isbiliani/05/p/8787b7ac34a8de4c4aad6fe8a5d7e925.jpg) "
+                class="pic-4"></figure>
+        </div>
+        <div class="pic-wrapper overlay">
+        </div>
+        <div class="pic-wrapper">
+            <div class="d-flex flex-column justify-content-around h-100">
+                <div class="header-brand text-center">
+                    <a href="/">
+                        <img width="160" height="100" alt="" src="./logo.png">
+                    </a>
+                </div>
+                <div class="my-5 text-center">
+                    <h3 style="
+                letter-spacing: 10px;" class="text-white f-30">Explore our campuses</h3>
+                </div>
+                <div class="row mx-0">
+                    <div class="col">
+                        <div class="group_btns font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
+                            <div>
+                                <div class="button pr-0 pr-md-2">
+                                    <a href="athletics.html" onmouseover="startvideo(1)"
+                                        onmouseout="stopvideo()">Swasthya Vihar
+                                    </a>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="button pl-0 pl-md-2">
+                                    <a href="creative-arts.html" onmouseover="startvideo(2)"
+                                        onmouseout="stopvideo()">Mayur Vihar </a>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="contain">
+        <div class="text-center">
+            <h4 class=" fadeInUp animate">Drop us your details for a
+                quick response.</h4>
+            <div class="my-5">
+                <h3 class="fadeInUp animate">Get In Touch</h3>
+            </div>
+
+            <div class="form-contact fadeInUp animate" id="GetInForm">
+                <ul style="list-style: none;" class="d-flex flex-wrap justify-content-between">
+                    <li class="d-flex mb-2">
+                        <input type="text" id="name" placeholder="Student Name" maxlength="35" autocomplete="off">
+
+                        <div class="form_icon_svg">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+
+                        </div>
+
+                    </li>
+
+                    <li class="d-flex mb-2">
+                        <input type="text" id="email" placeholder="Email" maxlength="35" autocomplete="off">
+                        <div class="form_icon_svg">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </div>
+                    </li>
+
+                    <li class="d-flex mb-2">
+                        <input type="text" id="phoneno" placeholder="Mobile" maxlength="10"
+                            onkeypress="return isNumberKey(event)" autocomplete="off">
+                        <div class="form_icon_svg p-3">
+                            <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
+                            <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
+                        </div>
+                    </li>
+
+                    <li class="d-flex mb-2">
+                        <input type="text" id="city" placeholder="City" class="input4" maxlength="35"
+                            autocomplete="off">
+                        <div class="form_icon_svg">
+                            <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+                        </div>
+                    </li>
+
+                    <li class="d-flex mb-2">
+                        <select id="sel1" class="">
+                            <option value="">Select School</option>
+                            <option value="PathwaysAravali">Pathways Aravali</option>
+                            <option value="PathwaysGurgaon">Pathways Gurgaon</option>
+                            <option value="PathwaysNoida">Pathways Noida</option>
+
+                        </select>
+
+                        <div class="form_icon_svg">
+                            <i class="fa fa-university fa-md" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    <li class="d-flex">
+                        <select id="ddlgrade" name="ddlgrade" class="">
+                            <option value="">Select Grade</option>
+                        </select>
+                        <div class="form_icon_svg">
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        </div>
+                        <input type="hidden" name="hdnuseripaddress" id="hdnuseripaddress" readonly="readonly">
+                    </li>
+
+                </ul>
+                <div id="loading-image"><button class="btn btn-outline-success rounded-0" type="button"
+                        id="btnSubmit">Submit</button></div>
+
+            </div>
+        </div>
+
+        <div class="social-icons my-5 d-flex justify-content-between">
+            <div>
+                <ul style="list-style: none;" class="d-flex justify-content-center flex-wrap">
+                    <li class="1">
+                        <a href=""><i class="fa fa-facebook"></i>Facebook</a>
+
+                    </li>
+                    <li class="6">
+                        <a href="" class="instagram"><i class="fa fa-instagram"></i>Instagram</a>
+
+                    </li>
+                    <li class="7">
+                        <a href="" class="linkedin"><i class="fa fa-linkedin"></i>Linkedin</a>
+
+                    </li>
+                    <li class="3">
+                        <a href="" class="youtube"><i class="fa fa-youtube-play"></i>Youtube</a>
+
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+            <div>
+                <ul style="list-style: none;" class="d-flex justify-content-center flex-wrap">
+                    <li class="1">
+                        <a href=""><i class="fa fa-facebook"></i>Facebook</a>
+
+                    </li>
+
+
+                    <li class="6">
+                        <a href="" class="instagram"><i class="fa fa-instagram"></i>Instagram</a>
+
+                    </li>
+                    <li class="7">
+                        <a href="" class="linkedin"><i class="fa fa-linkedin"></i>Linkedin</a>
+
+                    </li>
+                    <li class="3">
+                        <a href="" class="youtube"><i class="fa fa-youtube-play"></i>Youtube</a>
+
+                    </li>
+
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <%- include('shared/footer', {footer: common.footer}); %>
+</body>
+
+</html>
