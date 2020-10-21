@@ -59,12 +59,28 @@
 
 
 .parallex{
-    background-image: url("https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_5/v1534861867/chadwick/zultbsozyxen4vdgqfed/mandala-1_.jpg");
+    
     height: 400px; 
     width: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* @media screen and (max-width: 888px) {
+    .parallex{
+    
+        height: 500px; 
+        width: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+} */
+
+.parallax-container {
+    max-height: 390px;
+    overflow: hidden;
 }
 
 .custom-table {

@@ -38,6 +38,7 @@
 
         }
 
+
         @media screen and (max-width: 768px) {
             .jumbotron .overlay {
                 width: 100%;
@@ -57,6 +58,41 @@
         /* .body-wrap {
          
         } */
+        .table-wrapper table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            border: 0;
+        }
+
+        .table-wrapper thead td,
+        .table-wrapper thead th {
+            border-bottom-width: 2px;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table-wrapper td,
+        .table-wrapper th {
+            border: 1px solid #dee2e6;
+        }
+
+        .table-wrapper table td,
+        .table-wrapper table th {
+            padding: .75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+            width: 16.6%;
+            text-align: center;
+        }
+
+        .w-16 {
+            width: 16.6%;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -434,7 +470,7 @@
             <div class="overlay"></div>
             <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
        letter-spacing: 10px;">
-                Tuition Fees
+                <%= handler.safeView(data, 'page_title') %>
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
@@ -446,24 +482,15 @@
             <div>
                 <div class="my-5">
                     <section class="u-line-center">
-                        <h3 class="text-center f-40"> Invest in your child’s future
+                        <h3 class="text-center f-40">
+                            <%= data.fold2.title %>
                         </h3>
                     </section>
 
                 </div>
 
                 <div class="text-justify f-18">
-                    <p>
-                        Life at BPS is an investment. When you enroll your child at BPS, you become part of our family.
-                        A family that is result-driven, all-star athletics, award-winning theater performances and
-                        community outreach. At BPS, your child will experience holistic,
-                        hands-on learning that sparks a lifetime of courage, conviction and excellence.
-                    </p>
-                    <p>
-                        Joining this community will be the most worthy investment you’ll make for your child. At BPS,
-                        everything we do is designed to ensure that you see a greater return than you ever imagined — a
-                        child who culminates into a leader of the 21st Century!
-                    </p>
+                    <%- md.render(String(handler.safeView(data.fold2,'text'))) -%>
 
                 </div>
             </div>
@@ -472,16 +499,22 @@
         </div>
 
 
+        <div class="parallax-container">
+            <div style=" background-image: url('<%= env + handler.mediaSelection(data.parallax.parallax_img, quality) %>');"
+                id="parallax" class="parallex mcparallax d-flex justify-content-center align-items-center"
+                data-speed="4">
 
-        <div id="parallax" class="parallex mcparallax d-flex justify-content-center align-items-center" data-speed="5">
-            <div class="" style="width: 22rem;">
-                <h1 class="text-center text-white">Remember when you step foot in BPS, you’re not entering a school, but
-                    a community!</h1>
+                <div class="" style="width: 22rem;">
+                    <h1 class="text-center text-white">
+                        <%= handler.safeView(data.parallax, 'text') %>
+                    </h1>
+                </div>
+
+
+
             </div>
-
-
-
         </div>
+
 
 
         <div class="contain">
@@ -489,19 +522,7 @@
 
 
                 <div class="text-justify f-18">
-                    <p>
-                        The best education is one that constantly adds value and ventures outside of the classroom.
-                        That’s why our faculty is focused on preparing students, not just for this year’s tests, but for
-                        all of life’s tests. Our student-centered approach towards teaching
-                        creates a safe learning environment where students are encouraged to expand their knowledge and
-                        take calculated risks. As a result, they develop the confidence, perseverance and drive to
-                        succeed in the world.
-                    </p>
-                    <p>
-                        BPS students graduate having learned to leverage their academic passion, positively impact their
-                        community and empower themselves and others. As alumni, they go on to great success and
-                        fulfillment because they were taught to think, do and lead at BPS.
-                    </p>
+                    <%- md.render(String(handler.safeView(data.parallax,'extra_text'))) -%>
 
                 </div>
             </div>
@@ -510,13 +531,15 @@
                     <table class="table table-bordered mb-0 custom-table">
                         <thead>
                             <tr>
-                                <th class="text-center">Class-wise Tuition Fee Chart on monthly basis in Indian National
-                                    Rupee (INR):</th>
+                                <th class="text-center">
+                                    <%= handler.safeView(data.table, 'title') %>
+                                </th>
                             </tr>
                         </thead>
                     </table>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
+                    <div class="table-wrapper table-responsive">
+                        <%- md.render(String(handler.safeView(data.table,'text'))) -%>
+                        <!-- <table class="">
                             <thead>
                                 <tr>
                                     <th class="w-16">Class</th>
@@ -538,82 +561,62 @@
 
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> -->
                     </div>
                     <div class="card mb-4">
                         <div class="card-body custom-card">
-                            <h5 class="card-title">At the time of New Admission Only (One Time Payment):</h5>
-                            <p class="card-text">Admission Fee : Rs. 200/-</p>
-                            <p class="card-text">Activity Fee : Rs. 30,000/-</p>
+                            <h5 class="card-title"> <%= handler.safeView(data.oneTimePayment, 'title') %></h5>
+                            <%- md.render(String(handler.safeView(data.oneTimePayment,'text'))) -%>
+                            <!-- <p class="card-text">Admission Fee : Rs. 200/-</p>
+                            <p class="card-text">Activity Fee : Rs. 30,000/-</p> -->
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card custom-card">
                                 <div class="card-body">
-                                    <h3 class="card-title text-center">Payment Plan Options:</h3>
-                                    <p class="card-text">Option 1. Yearly Fee Payment</p>
-                                    <div class="card-text">
-                                        <p class="mb-1">Option 2. Yearly Fee Payment Quarterly Basis (Deadline: 15th of
-                                            the first month of the quarter.) </p>
-                                        <ul>
-                                            <li>Quarter 1 (January - March)</li>
-                                            <li>Quarter 2 (April - June)</li>
-                                            <li>Quarter 3 (July - September)</li>
-                                            <li>Quarter 4 (October - December)</li>
-                                        </ul>
-                                    </div>
-                                    <p class="card-text">
-                                        Option 3. Monthly Basis (Deadline: 10th of every month)
-                                    </p>
+                                    <h3 class="card-title text-center">
+                                        <%= handler.safeView(data.paymentPlan, 'title') %>
+                                    </h3>
+                                    <%- md.render(String(handler.safeView(data.paymentPlan,'text'))) -%>
                                 </div>
 
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="d-flex flex-column justify-content-center">
-                                <div class="py-3 py-md-0">
+                                <% data.buttons.forEach(function(item, index){ %>
+                                    <div class="my-2 text-center">
+                                        <a href="<%= item.btn_href %>"  class="btn explore w-100"> 
+                                              <%= item.btn_name %></a>
+                                    </div>
+                                  
+                
+                                    <% }); %>
+                                <!-- <div class="">
                                     <a href="" class="btn explore w-100">DOWNLOAD TUITION FEES FOR
                                         FY 2020-21</a>
-                                   
+
                                 </div>
-                                <div class="py-3 py-md-5" style="flex:1;">
-                                    <a  class="btn explore w-100">ADMISSION BROCHURE</a>
-                                </div>
-                              
-                                 
+                                <div class="">
+                                    <a class="btn explore w-100">ADMISSION BROCHURE</a>
+                                </div> -->
+
+
                             </div>
-                          
+
                         </div>
                     </div>
 
                     <div>
                         <section class="my-5">
-                            <h4 class="f-30"> Applying for Financial Aid
+                            <h4 class="f-30"> 
+                                <%= handler.safeView(data.lastFold, 'title') %>
                             </h4>
                         </section>
 
                         <div class="text-justify f-18">
-                            <p>We, at BPS believe that all children deserve an exceptional education, regardless of
-                                their socio-economic status. To make BPS accessible to the best and brightest students
-                                from all backgrounds, we offer tuition and financial assistance
-                                at each grade level. Our Financial Aid program is robust and we’re dedicated to
-                                extending opportunities for qualified students.
-                            </p>
-                            <p>
-                                We realize that this investment in your child's future, while worth the sacrifice, is
-                                challenging for many families. Our comprehensive financial aid program, along with
-                                flexible payment options, are ways we hope to make BPS education and experience
-                                accessible.
-                            </p>
-                            <p>
-                                Any student who intends to apply for Financial Aid can send us an e-mail at
-                                info.sv@bps.edu.in ​along with their formal request and supporting documentation laying
-                                out the specific reasons prior to the commencement of the upcoming session. Late
-                                application
-                                shall not be entertained, barring extraordinary circumstances wherein the student must
-                                obtain permission from the Chair.
-                            </p>
+                            <%- md.render(String(handler.safeView(data.lastFold,'text'))) -%>
 
                         </div>
                     </div>
@@ -625,7 +628,7 @@
             </div>
         </div>
 
-        
+
     </div>
 
     <%- include('shared/footer', {footer: common.footer}); %>
