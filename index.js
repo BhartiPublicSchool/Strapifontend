@@ -213,6 +213,39 @@ app.get("/a-rich-history", async (req, res) => {
   }
 });
 
+app.get("/forms-certificates", async (req, res) => {
+  try {
+    // const response = await axios.get("http://localhost:1337/a-rich-history");
+    // console.log(response.data, process.env.NODE_ENV);
+    res.render("forms-certificates", {
+      // data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+app.get("/common-page", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/common-page");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("common-page", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.get("/explore-campus/slides", async (req, res) => {
   try {
     const response = await axios.get("http://localhost:1337/explore-campus");

@@ -237,7 +237,7 @@ section span {
 }
 
 /* explore button home */
-a.explore {
+a.explore, button.button-explore {
   cursor: pointer;
   text-transform: uppercase;
   /* background: #363E47; */
@@ -258,7 +258,9 @@ a.explore {
 
 
 
-a.explore:hover {
+
+
+a.explore:hover, button.button-explore:hover{
   color: #fff;
   background: var(--blue);
   transform: scale(0.965);

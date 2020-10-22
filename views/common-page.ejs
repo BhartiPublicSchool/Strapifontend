@@ -1,0 +1,227 @@
+<%- include('shared/headermeta'); %>
+<script src="js/mcparallax.min.js"></script>
+<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+<link rel="stylesheet" href="css/commonStyle.css">
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/card-overlay.css">
+<link rel="stylesheet" href="css/fold4.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+    
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+    .carousel-indicators li {
+
+
+background-color: #595454;
+    }
+
+    .quote-inline p {
+        display: inline;
+    }
+
+    @media screen and (max-width: 768px) {
+        .jumbotron .overlay {
+            width: 100%;
+
+            top: 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+    <div class="body-wrap">
+        <div style="
+        background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>');
+        background-size: cover; 
+        background-position: center top;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+                <!-- Upper School -->
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <a href="lower-school.html" class="nav-link text-center p-1 m-1">Lower School</a>
+            <a href="middle-school.html" class="nav-link text-center p-1 m-1">Middle School</a>
+            <a href="upper-school.html" class="nav-link text-center p-1 m-1">Upper School</a>
+            <a href="student-resources.html" class="nav-link text-center p-1 m-1">Student Resources</a>
+        </nav>
+    </div>
+    <div class="contain">
+        <div class="m-2">
+            <div class="text-center my-5 u-line-center">
+                <h3 class="f-40">
+                    <%= data.fold2.title %>
+                </h3>
+            </div>
+            <div class="text-center">
+                <h3 class="half-underline pb-3 f-30">
+                    <%= data.fold2.text %>
+                </h3>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="contain">
+        <div class="row mx-0">
+          
+            <div class="col">
+                <div class="row my-4">
+                    <div class="col-md-6 f-18">
+                        <div class="text-muted text-justify">
+                            <%- md.render(data.fold3.card_text) -%>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="w-100" src="<%= env + handler.mediaSelection(data.fold3.card_img, quality) %>" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <% for(var i=0; i < data.fold4.length; i++) { %>
+                        <div class="col-md-4 px-3 my-4">
+                            <div class="img-container">
+                                <div class="card-overlay"
+                                    style="background-image: url('<%= env + handler.mediaSelection(data.fold4[i].img, quality) %>');">
+                                    <div class="pop-btn-text">
+                                        <section>
+                                            <h2> <%= data.fold4[i].title %> </h2>
+                                        </section>
+                                        <footer>
+                                            <div class="">
+                                                <%- md.render(data.fold4[i].text) -%>
+                                            </div>
+                                        </footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                </div> 
+               <div class="row">
+                <div id="carouselExampleCaptions" class="carousel slide text-white" data-ride="carousel" data-interval="7000">
+                    <ol class="carousel-indicators">
+                        <% for(var i=0; i < data.Carousel.length; i++) { %>
+                            <li data-target="#carouselExampleCaptions" 
+                                data-slide-to="<%= i %> "
+                                <% if (i == 0) { %>
+                                    class="active"
+                                <% } %>
+                            ></li>
+                        <% } %>
+                    </ol>
+                     
+                    <div class="carousel-inner">
+                        <% for(var i=0; i < data.Carousel.length; i++) { %>
+                            <div 
+                                <% if (i == 0) { %>
+                                    class= "carousel-item active"
+                                <% } else { %>
+                                    class= "carousel-item"
+                                <% } %>
+                            >
+                                <div class="row mt-4">
+            
+                                    <div class="card bg-light border-0  text-center text-dark">
+                                        <div class="">
+                                            <div class="d-flex justify-content-center my-3">
+                                                <div class="text-center">
+                                                    <img class="rounded-circle shadow" width="150" height="150" src="<%= env + handler.mediaSelection(data.Carousel[i].img, quality) %>" alt="">
+                                                    
+                                                </div>
+                                                <!-- <div class="py-4 pl-4">
+                                                    <p>Dr. Savita Arora <br><b>Principal</b> </p>
+                                                </div> -->
+                                            </div>
+                                
+                                        </div>
+                                        
+                                        <div class="card-body mx-auto w-75">
+                                            <h5 class="card-title py-0 quote-inline">  <span style="color: var(--green);" class="f-40">“</span><%- md.render(data.Carousel[i].text) -%><span style="color: var(--green);vertical-align: text-top;" class="f-40">” </span>
+                                            </h5>
+                                        </div>
+                                        <div class="card-body mx-auto">
+                                            <div class="card-title">
+                                                <%= data.Carousel[i].title %> 
+                                                <br>
+                                                <%= data.Carousel[i].subtitle %> 
+                                            </div>    
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        <% } %>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-5">
+        <div class="text-center">
+            <h3 class="half-underline pb-3 f-30">
+                <%- md.render(data.fold5.sub_heading) %> 
+            </h3>
+            
+        </div>
+    </div>
+               
+    <div  class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
+        <% for( let index = 0; index < data.buttons.length; index++ ) { %>
+            <a  class="btn explore my-2" href="<%= data.buttons[index].btn_href %> "> <%= data.buttons[index].btn_name %> </a>
+        <% } %>
+    </div>
+    
+  
+</div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+</body>
+
+</html>
