@@ -258,4 +258,23 @@ app.get("/explore-campus/slides", async (req, res) => {
 });
 
 
+app.get("/creative-arts", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/Creative-Arts");
+    // console.log(response.data, process.env.NODE_ENV);
+    // console.log(env);
+    res.render("creative-arts", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+
 app.listen(3000, () => console.log("app listening on port 3000!"));

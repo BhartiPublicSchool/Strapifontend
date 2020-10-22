@@ -1,0 +1,116 @@
+.card-overlay {
+    background-size: cover;
+    background-position: top center;
+    overflow: hidden;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    height: 380px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.card-overlay .pop-btn-text {
+    font-family: "Julius Sans One", sans-serif;
+    background: rgb(51, 52, 99, 0.92);
+}
+
+.card-overlay .pop-btn-text {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.card-overlay .pop-btn-text:before {
+    content: '';
+    background: rgb(51, 52, 99, 0.92);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, transparent), color-stop(50%, rgba(27, 39, 54, 0.8)));
+    background: linear-gradient(to right bottom, transparent 50%, rgb(51, 52, 99, 0.92) 50%);
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+
+    /* padding: 50px;
+transform: skew(0deg,-6deg);
+position: relative;
+z-index: 2;
+bottom: -2rem; */
+
+
+    /* content: '';
+    background: rgb(51, 52, 99, 0.92); */
+    /* background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, transparent), color-stop(50%, rgba(27, 39, 54, 0.8))); */
+    /* background: linear-gradient(to right bottom, transparent 50%, rgb(51, 52, 99, 0.92) 50%); */
+    /* position: absolute;
+    transform: skew(0deg,-3deg);
+    bottom: 100%;
+    left: 0;
+    top: -41px;
+    height: 57px;
+    width: 100%;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear; */
+}
+
+.card-overlay .pop-btn-text>.fsElementContent {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.card-overlay .pop-btn-text>.fsElementContent {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    height: auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 15px;
+}
+
+.card-overlay .pop-btn-text>footer {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    height: auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.img-container::after {
+    clear: both;
+    content: ' ';
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.card-overlay:hover .pop-btn-text,
+.card-overlay:hover .pop-btn-text>footer,
+.card-overlay.focused .pop-btn-text>.fsElementContent,
+.card-overlay.focused .pop-btn-text>footer {
+    max-height: 380px;
+}
+
+.card-overlay:hover .pop-btn-text>footer,
+.card-overlay.focused .pop-btn-text>.fsElementContent,
+.card-overlay.focused .pop-btn-text>footer {
+    opacity: 1;
+    -webkit-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}

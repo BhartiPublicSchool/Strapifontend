@@ -50,7 +50,7 @@ function safeView(params, prop, index = null) {
   if(typeof index !== 'number'){
     return params && params[prop] ? params[prop] : ""; 
   } else {
-    console.log(params && params[index] && params[index][prop] ? params[prop] : "");
+    console.log(params && params[index] && params[index][prop] ? params[prop] : "", prop);
     return params && params[index] && params[index][prop] ? params[index][prop] : ""; 
   } 
  
