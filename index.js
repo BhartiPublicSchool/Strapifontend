@@ -276,5 +276,42 @@ app.get("/creative-arts", async (req, res) => {
   }
 });
 
+app.get("/community-outreach", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/Community-Outreach");
+    // console.log(response.data, process.env.NODE_ENV);
+    // console.log(env);
+    res.render("community-outreach", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/outdoor-education", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/Outdoor-Education");
+    // console.log(response.data, process.env.NODE_ENV);
+    // console.log(env);
+    res.render("outdoor-education", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

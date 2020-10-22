@@ -89,7 +89,7 @@
                                 <% let length = data.fold2.card_img.length >= 3? 3: data.fold2.card_img.length
                                     for( let i = 0; i < length; i++ ) { %>
                                     <div class="col align-self-end 
-                                        <% if( i == 0) { %>
+                                        <% if( i == 1) { %>
                                             p-0 
                                         <% } %>">
                                         <img src="<%= env + handler.mediaSelection(data.fold2.card_img[i], quality) %>" style="width:100%">
@@ -181,10 +181,7 @@
             <% for( let index = 0; index < data.buttons.length; index++ ) { %>
                 <a  class="btn explore" href="<%= handler.safeView(data.buttons, 'btn_href', index) %> ">
                      <%= handler.safeView(data.buttons, 'btn_name', index) %> </a>
-            <% } %>
-            
-           
-          
+            <% } %>          
         </div>
 
      
