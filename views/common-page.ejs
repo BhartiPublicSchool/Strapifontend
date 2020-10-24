@@ -2,7 +2,6 @@
 <script src="js/mcparallax.min.js"></script>
 <link rel="stylesheet" type="text/css" href="slick/slick.css" />
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
-<link rel="stylesheet" href="css/commonStyle.css">
 <link rel="stylesheet" href="css/refined.css">
 <link rel="stylesheet" href="css/topnavbar.css">
 <link rel="stylesheet" href="css/card-overlay.css">
@@ -77,12 +76,12 @@ background-color: #595454;
         <div class="m-2">
             <div class="text-center my-5 u-line-center">
                 <h3 class="f-40">
-                    <%= handler.safeView(data.fold2, 'title')%>
+                    <%= data.fold2.title %>
                 </h3>
             </div>
             <div class="text-center">
                 <h3 class="half-underline pb-3 f-30">
-                    <%= handler.safeView(data.fold2, 'text') %>
+                    <%= data.fold2.text %>
                 </h3>
                 
             </div>
@@ -111,7 +110,7 @@ background-color: #595454;
                                     style="background-image: url('<%= env + handler.mediaSelection(data.fold4[i].img, quality) %>');">
                                     <div class="pop-btn-text">
                                         <section>
-                                            <h2> <%= handler.safeView(data.fold4[i], 'title')%> </h2>
+                                            <h2> <%= data.fold4[i].title %> </h2>
                                         </section>
                                         <footer>
                                             <div class="">
@@ -168,9 +167,9 @@ background-color: #595454;
                                         </div>
                                         <div class="card-body mx-auto">
                                             <div class="card-title">
-                                                <%=  handler.safeView(data.Carousel, 'title', i) %> 
+                                                <%= data.Carousel[i].title %> 
                                                 <br>
-                                                <%= handler.safeView(data.Carousel, 'subtitle', i)%> 
+                                                <%= data.Carousel[i].subtitle %> 
                                             </div>    
                                             <br>
                                         </div>
@@ -194,9 +193,7 @@ background-color: #595454;
                
     <div  class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
         <% for( let index = 0; index < data.buttons.length; index++ ) { %>
-            <a  class="btn explore my-2" 
-                href="<%= handler.safeView(data.buttons, 'btn_href', index) %> ">
-                 <%= handler.safeView(data.buttons, 'btn_name', index) %> </a>
+            <a  class="btn explore my-2" href="<%= data.buttons[index].btn_href %> "> <%= data.buttons[index].btn_name %> </a>
         <% } %>
     </div>
     
@@ -204,9 +201,9 @@ background-color: #595454;
 </div>
     <%- include('shared/footer', {footer: common.footer}); %>
     
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
 
     <script type="text/javascript">
         function myFunction() {

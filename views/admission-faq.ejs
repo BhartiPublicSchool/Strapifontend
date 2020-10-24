@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  
+
     <link rel="stylesheet" href="css/refined.css">
     <link rel="stylesheet" href="css/topnavbar.css">
     <link rel="stylesheet" href="css/dropdownhover.css">
@@ -34,7 +34,7 @@
             transform: translateX(200%);
         }
 
-        
+
 
         .jumbotron .overlay {
             position: absolute;
@@ -53,23 +53,33 @@
                 top: 0;
             }
         }
+
+        svg {
+            -webkit-transition: -webkit-transform 0.3s;
+            -moz-transition: -moz-transform 0.3s;
+            transition: transform 0.3s;
+        }
+
+        .qaAccordian.faq-vistited svg {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 
 <body>
-  
+
     <%- include('shared/sidebar', { Menu: common.header_menu }); %>
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
 
     <div class="body-wrap">
-        <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
     background-size: cover;    background-position: center;"
             class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
             <div class="overlay"></div>
             <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
        letter-spacing: 10px;">
-                 <%= data.page_title %>
+                <%= data.page_title %>
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
@@ -87,45 +97,45 @@
                         </h3>
                     </section>
                 </div>
-               
+
                 <div>
                     <div class="d-flex flex-column flex-md-row">
 
 
                         <div style="flex:3;" class="text-justify f-18">
-                            <%- md.render(String(handler.safeView(data.folds,'card_text', 0))) -%> 
+                            <%- md.render(String(handler.safeView(data.folds,'card_text', 0))) -%>
                         </div>
                         <div style="flex:2;" class="text-center mx-0 ml-md-4 mb-3">
                             <img class="img-fluid"
-                            src="<%= env + handler.mediaSelection(data.folds[0].card_img, quality) %>"
-                            alt="<%= handler.safeView(data.folds[0].card_img, 'alternativeText')%>">
+                                src="<%= env + handler.mediaSelection(data.folds[0].card_img, quality) %>"
+                                alt="<%= handler.safeView(data.folds[0].card_img, 'alternativeText')%>">
 
                         </div>
 
                     </div>
                 </div>
                 <div class="text-justify f-18">
-                    <%- md.render(String(handler.safeView(data.folds,'card_extra', 0))) -%> 
+                    <%- md.render(String(handler.safeView(data.folds,'card_extra', 0))) -%>
                 </div>
             </div>
-            <div  class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
+            <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
                 <% data.buttons.forEach(function(item, index){ %>
-                    <div class="my-2 text-center">
-                        <a href="<%= item.btn_href %>"  class="btn explore"> 
-                              <%= item.btn_name %></a>
-                    </div>
-                  
+                <div class="my-2 text-center">
+                    <a href="<%= item.btn_href %>" class="btn explore">
+                        <%= item.btn_name %></a>
+                </div>
 
-                    <% }); %>
-               
+
+                <% }); %>
+
                 <!-- <div class="my-2 text-center">
                     <a  class="btn explore">Apply to BPS!</a>
                 </div>
                 <div class="my-2 text-center">
                     <a  class="btn explore">Explore Campus</a>
                 </div> -->
-               
-              
+
+
             </div>
             <div>
                 <div class="my-5">
@@ -133,31 +143,42 @@
                 </div>
                 <div id="accordionExample">
                     <% data.FAQ.forEach(function(item, index){ %>
-                        <div class="my-1" id="heading<%= index%>">
+                    <div class="my-1" id="heading<%= index%>">
 
-                            <a class="btn btn-block text-left custom-faq-font font-weight-bold p-3" type="button"
-                                data-toggle="collapse" data-target="#collapse<%= index%>" aria-expanded="true"
-                                aria-controls="collapseOne" onclick="myFunction.call(this)">
-                                <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3"
+                        <a class="btn btn-block text-left qaAccordian custom-faq-font font-weight-bold p-3"
+                            type="button" data-toggle="collapse" data-target="#collapse<%= index%>" aria-expanded="true"
+                            aria-controls="collapseOne" onclick="myFunction.call(this)">
+                            <div class="d-flex">
+                                <span>
+                                    <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3"
                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                                </svg>  <%= item.question %></a>
-                            </a>
-    
-                        </div>
-    
-                        <div id="collapse<%= index%>" class="collapse bg-light" aria-labelledby="heading<%= index%>">
-                            <div class="card-body">
-                                <%- md.render(String(item.answer)) -%> 
-                             
+                                </svg>
+                                </span>
+                              
+                                <span>
+                                    <%= item.question %>
+                                </span>
                             </div>
+                           
+                            
+                            </a>
+                        </a>
+
+                    </div>
+
+                    <div id="collapse<%= index%>" class="collapse bg-light" aria-labelledby="heading<%= index%>">
+                        <div class="card-body">
+                            <%- md.render(String(item.answer)) -%>
+
                         </div>
-    
-                      
-    
-                        <% }); %>
-                  
+                    </div>
+
+
+
+                    <% }); %>
+
 
 
                 </div>
@@ -165,27 +186,27 @@
             </div>
 
         </div>
-        </div>
-        <%- include('shared/footer', {footer: common.footer}); %>
-        <script>
-               function openNav() {
-                console.log("open sidenav");
-                document.getElementById("mySidenav").style.width = "100%";
-            }
-            function gotoTop() {
-                window.scroll({
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+    <script>
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
                 behavior: 'smooth',
                 left: 0,
                 top: 0
-      });
-          
-            }
-    
-    
-            function closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
-            }
-        </script>
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
 
     <script type="text/javascript">
         function myFunction() {

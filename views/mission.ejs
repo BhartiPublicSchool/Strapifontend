@@ -1,23 +1,4 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/commonStyle.css">
+<%- include('shared/headermeta'); %>
     <link rel="stylesheet" href="css/refined.css">
     <link rel="stylesheet" href="css/topnavbar.css">
     <link rel="stylesheet" href="css/dropdownhover.css">
@@ -73,24 +54,24 @@
         }
 
         .bps-mission-container>.bps-mission-element:nth-child(1):before {
-            background-color: #d9f770;
+            background-color: #83b5d1;
         }
 
         .bps-mission-container>.bps-mission-element:nth-child(2):before {
-            background-color: #72caed;
+            background-color: #f9cb40;
             ;
         }
 
         .bps-mission-container>.bps-mission-element:nth-child(3):before {
-            background-color: #6785e7;
+            background-color: #726e97;
         }
 
         .bps-mission-container>.bps-mission-element:nth-child(4):before {
-            background-color: #69f09c;
+            background-color: #00b9a9;
         }
 
         .bps-mission-container>.bps-mission-element:nth-child(5):before {
-            background-color: #fa74d2;
+            background-color: #f4989c;
         }
 
         .bps-mission-container-2>.bps-mission-element:nth-child(1):before {
@@ -255,7 +236,7 @@
 
 
     <div class="body-wrap">
-        <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
             background-size: cover; background-position: center;"
             class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
             <div class="overlay"></div>
@@ -291,12 +272,12 @@
                 </h3>
             </section>
             <div class="d-flex flex-column flex-md-row">
-                <div style="flex:3;" class="text-justify">
+                <div style="flex:2;" class="text-justify">
                     <%- md.render(String(data.fold2[0].text)) -%>
                 </div>
-                <div style="flex:2;" class="mission-video-container text-center mx-0 ml-md-4 mb-3">
-                    <video width="100%" style="min-height: 260px" controls>
-                        <source src="<%= handler.urlStringSelection(data.fold2[0].video) %>">
+                <div style="flex:3;" class="mission-video-container text-center mx-0 ml-md-4 mb-3">
+                    <video width="100%" class="img-fluid shadow" autoplay muted loop>
+                        <source src="<%= env + handler.urlStringSelection(data.fold2[0].video) %>">
 
                         Your browser does not support the video tag.
                     </video>
@@ -317,7 +298,7 @@
                     style="background-image: url('<%= env + handler.mediaSelection(m.img, quality) %>');">
                     <header role="presentation">
                         <div class="title-center">
-                            <h4 class="bps-mission-title"><%= m.heading %></h4>
+                            <h4 class="bps-mission-title"><b><%= m.heading %></b></h4>
 
                         </div>
                     </header>

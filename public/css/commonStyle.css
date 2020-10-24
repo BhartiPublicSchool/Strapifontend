@@ -54,6 +54,9 @@ h6 {
 .f-julias-san {
   font-family: Julias-San;
 }
+.f-julias-san p{
+  font-family: Julias-San;
+}
 .f-sofia-pro, .f-sofia-pro p {
   font-family: sofiaPro !important;
   font-size: 20px;
@@ -221,7 +224,7 @@ section span {
   bottom: 0;
   text-align: center;
 }
-.u-line-center-white h4:before {
+.u-line-center-white h5:before {
   content: "";
   background:#fff;
   width: 80px;

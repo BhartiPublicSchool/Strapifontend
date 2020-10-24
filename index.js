@@ -12,7 +12,7 @@ var commons;
 md.use(markdownItAttrs);
 
 // md.use(classy);
-var env = process.env.NODE_ENV == "Development" ? "http://localhost:1337" : "";
+var env = process.env.NODE_ENV == "Development" ? "http://localhost:1337" : process.env.SERVER;
 app.set("view engine", "ejs");
 app.use(express.static("public", { index: false }));
 app.use(async (req, res, next) => {
@@ -213,6 +213,160 @@ app.get("/a-rich-history", async (req, res) => {
   }
 });
 
+app.get("/lower-school", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/lower-school");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("lower-school", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/middle-school", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/middle-school");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("middle-school", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/student-resources", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/student-resources");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("student-resources", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/upper-school", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/upper-school");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("upper-school", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/athletics", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/athletic");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("athletic", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/faculty", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/faculty");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("faculty", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/parent", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/parents");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("parent", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/student", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/student");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("student", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/alumni", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/alumni");
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("alumni", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+
 app.get("/forms-certificates", async (req, res) => {
   try {
     // const response = await axios.get("http://localhost:1337/a-rich-history");
@@ -256,7 +410,6 @@ app.get("/explore-campus/slides", async (req, res) => {
     console.error(error);
   }
 });
-
 
 app.get("/creative-arts", async (req, res) => {
   try {
@@ -312,6 +465,40 @@ app.get("/outdoor-education", async (req, res) => {
   }
 });
 
+app.get("/employment", async (req, res) => {
+  try {
+    const response = await axios.get("http://localhost:1337/employment");
+    // console.log(response.data, process.env.NODE_ENV);
+    // console.log(env);
+    res.render("employment", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
 
+app.get("/life-at-bps", async (req, res) => {
+  try {
+    // const response = await axios.get("http://localhost:1337/Outdoor-Education");
+    // console.log(response.data, process.env.NODE_ENV);
+    // console.log(env);
+    res.render("life-at-bps", {
+      // data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

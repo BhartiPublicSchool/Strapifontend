@@ -1,0 +1,382 @@
+<%- include('shared/headermeta'); %>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+    <script>  function slideOverlay() {
+            let overlay = document.getElementById('overlay');
+            overlay.classList.add('slideShowView');
+            overlay.classList.add('animate');
+
+        }
+
+        function showblocks(params) {
+            let blocks = document.getElementsByClassName('dropdown');
+            let element = document.getElementById('explore');
+            element.classList.add('animated');
+            element.classList.add('moveback');
+            for (const b of blocks) {
+                b.classList.add('animated');
+            }
+            console.log(blocks.length);
+
+        }
+
+        function closeSlideShow() {
+            let overlay = document.getElementById('overlay');
+            overlay.classList.remove('slideShowView');
+
+        }</script>
+   
+
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+
+
+    <style>
+        :root {
+            --grey: #363E47;
+            --blue: #28295d;
+            --green: #62a25d;
+            --yellow: rgb(255, 210, 29);
+            --orange: #df682d;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .header-design-2 {
+            box-shadow: 0 3px 12px 0 rgba(0, 0, 0, .08);
+            position: relative !important;
+            display: flex !important;
+            background: var(--blue) !important;
+            top: 0;
+            width: 100%;
+            height: 5rem;
+            z-index: 3;
+            /* transform: translateY(-100%); */
+            /* animation: sticky-slide-down .4s ease .25s forwards; */
+        }
+
+        .slick-next {
+            right: 40px;
+        }
+
+        .slick-prev {
+            left: 20px;
+            z-index: 1;
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            font-family: 'slick';
+            font-size: 40px;
+            line-height: 1;
+            opacity: .75;
+            color: #3F51B5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .slick-slide {
+            margin: 0 -65px;
+            width: 390px;
+            height: 390px;
+            transform-origin: 50% 50%;
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            box-shadow: 0 14px 26px 3px rgba(3, 3, 3, 0.2);
+            opacity: 0.5;
+            z-index: 0;
+            -webkit-transform: scale(0.6, 0.6);
+            transform: scale(0.6, 0.6);
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            height: auto;
+
+            /* transform: scale(0.5); */
+            /* transition: transform 0.5s; */
+        }
+
+        .slick-current {
+            position: relative;
+            z-index: 2;
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+            opacity: 1;
+        }
+
+        .slick-active {
+            z-index: 1;
+        }
+
+        .alumni-container {
+            position: relative;
+        }
+
+        .alumni img {
+            width: 390px;
+            /* position: relative;
+            display: block;
+            z-index: 1;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            -webkit-transition: opacity 0.2s linear, -webkit-transform 0.3s linear;
+            transition: opacity 0.2s linear, -webkit-transform 0.3s linear;
+            transition: opacity 0.2s linear, transform 0.3s linear;
+            transition: opacity 0.2s linear, transform 0.3s linear, -webkit-transform 0.3s linear;
+            -webkit-transition: opacity 0.2s linear, transform 0.3s linear; */
+
+        }
+
+        .alumni-container .prev-nav-alumni {
+            display: none;
+            z-index: 2;
+            left: 50%;
+            margin-left: -215px;
+        }
+
+        .alumni-container .next-nav-alumni {
+            display: none;
+            z-index: 2;
+            right: 50%;
+            margin-right: -215px;
+        }
+
+        .next-nav-alumni {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            box-shadow: 0 0 10px 4px rgba(3, 3, 3, 0.2);
+            margin-top: -20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+        }
+
+        .prev-nav-alumni:after {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 1px;
+            background: #000;
+            position: absolute;
+            top: 20px;
+            left: 12px;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+        }
+
+        .prev-nav-alumni:before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-top: 1px solid #000;
+            border-right: 1px solid #000;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            position: absolute;
+            top: 17px;
+            left: 13px;
+            -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+        }
+
+        .next-nav-alumni:after {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 1px;
+            background: #000;
+            position: absolute;
+            top: 20px;
+            right: 12px;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+        }
+
+        .next-nav-alumni:before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-top: 1px solid #000;
+            border-right: 1px solid #000;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            position: absolute;
+            top: 17px;
+            right: 13px;
+            -webkit-transform: rotate(45deg);
+        }
+
+
+        .prev-nav-alumni {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            box-shadow: 0 0 10px 4px rgba(3, 3, 3, 0.2);
+            margin-top: -20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+    <div class="">
+        <div style="background-image: url(./Apply-Now/1\ -\ title\ banner.png);
+        background-size: cover;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+           letter-spacing: 10px;">
+                Apply To BPS
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <a href="admission-faq.html" class="nav-link text-center p-1 m-1">Admissions FAQ!</a>
+            <a href="forms-and-certificates.html" class="nav-link text-center p-1 m-1">Forms & Certificates</a>
+            <a href="tuition-fees.html" class="nav-link text-center p-1 m-1">Tuition Fees</a>
+        </nav>
+    </div>
+
+    <div class="body-wrap">
+        <div class="my-5 text-center">
+            <div class="u-line-center">
+                <h3>
+                    Alumni Spotlight
+                </h3>
+            </div>
+        </div>
+
+        <div class="alumni-container my-5">
+            <div class="next-nav-alumni" title="Navigate Right" style="display: block;"></div>
+            <div class="prev-nav-alumni" title="Navigate Left" style="display: block;"></div>
+            <div class="alumni">
+
+                <div>
+                    <img class="img-fluid" src="./Arts/Dance.jpg">
+                </div>
+                <div>
+                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
+                </div>
+                <div>
+                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
+                </div>
+                <div>
+                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
+                </div>
+                <div>
+                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
+                </div>
+                <div>
+                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
+                </div>
+                <div>
+                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
+                </div>
+                <div>
+                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="jquery.rwdImageMaps.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script>
+        $('.alumni').slick({
+            centerMode: true,
+            // centerPadding: '60px',
+            prevArrow: $('.prev-nav-alumni'),
+            nextArrow: $('.next-nav-alumni'),
+            arrows: true,
+            slidesToShow: 5,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: true,
+                        centerMode: true,
+                        // centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+
+        // $('.alumni').slick({
+        //     dots: true,
+        //     infinite: false,
+        //     centerMode: true,
+        //     speed: 300,
+        //     slidesToShow: 5,
+        //     slidesToScroll: 1,
+        //     responsive: [
+        //         {
+        //             breakpoint: 1024,
+        //             settings: {
+        //                 slidesToShow: 3,
+        //                 slidesToScroll: 3,
+        //                 infinite: true,
+        //                 dots: true
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 600,
+        //             settings: {
+        //                 slidesToShow: 2,
+        //                 slidesToScroll: 2
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 480,
+        //             settings: {
+        //                 slidesToShow: 1,
+        //                 slidesToScroll: 1
+        //             }
+        //         }
+        //         // You can unslick at a given breakpoint now by adding:
+        //         // settings: "unslick"
+        //         // instead of a settings object
+        //     ]
+        // });
+
+
+    </script>
+
+
+</body>
+
+</html>

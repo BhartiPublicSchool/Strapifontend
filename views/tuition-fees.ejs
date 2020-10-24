@@ -1,99 +1,102 @@
-<!doctype html>
-<html lang="en">
+<%- include('shared/headermeta'); %>
+<link rel="stylesheet" href="css/refined.css">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/commonStyle.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/refined.css">
-    <script src="js/mcparallax.min.js"></script>
-    <link rel="stylesheet" href="css/topnavbar.css">
-    <link rel="stylesheet" href="css/dropdownhover.css">
-    <link rel="stylesheet" href="css/foldFooter.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Bharti Public School</title>
-    <style>
-        .header-underline h5:before {
-            content: '';
-            background: #56a0d3;
-            width: 57px;
-            height: 2px;
-            position: absolute;
-            bottom: 85px;
-            transform: translateX(200%);
+<title>Bharti Public School</title>
+<script>
+
+    $(document).ready(function () {
+        console.log(window.innerWidth);
+        if (window.innerWidth < 900) {
+            let pp = document.getElementById('parallax');
+            pp.classList.remove('mcparallax');
+            document.getElementById('parallax').removeAttribute('data-speed')
         }
+    })
 
+</script>
+<script src="js/mcparallax.min.js"></script>
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+
+
+    @media screen and (max-width: 768px) {
         .jumbotron .overlay {
-            position: absolute;
-            top: 0.75rem;
-            width: calc(100% - 1.5rem);
-            height: 550px;
-            background-color: rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+            width: 100%;
 
+            top: 0;
         }
+    }
 
 
-        @media screen and (max-width: 768px) {
-            .jumbotron .overlay {
-                width: 100%;
+    .header-brand {
+        position: absolute;
+        width: 10rem;
+        height: 6rem;
+        margin-top: 0.25rem;
+    }
 
-                top: 0;
-            }
-        }
-
-
-        .header-brand {
-            position: absolute;
-            width: 10rem;
-            height: 6rem;
-            margin-top: 0.25rem;
-        }
-
-        /* .body-wrap {
+    /* .body-wrap {
          
         } */
-        .table-wrapper table {
-            width: 100%;
-            margin-bottom: 1rem;
-            color: #212529;
-            border: 0;
-        }
+    .table-wrapper table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        border: 0;
+        margin-bottom: 0;
+    }
 
-        .table-wrapper thead td,
-        .table-wrapper thead th {
-            border-bottom-width: 2px;
-        }
+    .table-wrapper thead td,
+    .table-wrapper thead th {
+        border-bottom-width: 2px;
+    }
 
-        .table thead th {
-            vertical-align: bottom;
-            border-bottom: 2px solid #dee2e6;
-        }
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
 
-        .table-wrapper td,
-        .table-wrapper th {
-            border: 1px solid #dee2e6;
-        }
+    .table-wrapper td,
+    .table-wrapper th {
+        border: 1px solid #dee2e6;
+    }
 
-        .table-wrapper table td,
-        .table-wrapper table th {
-            padding: .75rem;
-            vertical-align: top;
-            border-top: 1px solid #dee2e6;
-            width: 16.6%;
-            text-align: center;
-        }
+    .table-wrapper table td,
+    .table-wrapper table th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+        width: 16.6%;
+        text-align: center;
+    }
 
-        .w-16 {
-            width: 16.6%;
-            text-align: center;
-        }
-    </style>
+    .w-16 {
+        width: 16.6%;
+        text-align: center;
+    }
+</style>
 </head>
 
 <body>
@@ -464,7 +467,7 @@
 
 
 
-        <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
     background-size: cover;"
             class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
             <div class="overlay"></div>
@@ -518,15 +521,12 @@
 
 
         <div class="contain">
-            <div>
-
-
+            <div class="my-3">
                 <div class="text-justify f-18">
                     <%- md.render(String(handler.safeView(data.parallax,'extra_text'))) -%>
-
                 </div>
             </div>
-            <div class="row f-18">
+            <div class="row f-18 my-5">
                 <div class="col">
                     <table class="table table-bordered mb-0 custom-table">
                         <thead>
@@ -537,38 +537,15 @@
                             </tr>
                         </thead>
                     </table>
-                    <div class="table-wrapper table-responsive">
+                    <div class="table-wrapper table-responsive shadow mb-2">
                         <%- md.render(String(handler.safeView(data.table,'text'))) -%>
-                        <!-- <table class="">
-                            <thead>
-                                <tr>
-                                    <th class="w-16">Class</th>
-                                    <th class="w-16">Annual Charges</th>
-                                    <th class="w-16">Tuition Fee</th>
-                                    <th class="w-16">Development Fee</th>
-                                    <th class="w-16">Digital Learning Fee</th>
-                                    <th class="w-16">Science and Practical Fee</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th class="text-center">Nursery</th>
-                                    <th class="text-center">400</th>
-                                    <th class="text-center">4000</th>
-                                    <th class="text-center">600</th>
-                                    <th class="text-center">150</th>
-                                    <th class="text-center">0</th>
 
-                                </tr>
-                            </tbody>
-                        </table> -->
                     </div>
                     <div class="card mb-4">
-                        <div class="card-body custom-card">
+                        <div class="card-body custom-card shadow">
                             <h5 class="card-title"> <%= handler.safeView(data.oneTimePayment, 'title') %></h5>
                             <%- md.render(String(handler.safeView(data.oneTimePayment,'text'))) -%>
-                            <!-- <p class="card-text">Admission Fee : Rs. 200/-</p>
-                            <p class="card-text">Activity Fee : Rs. 30,000/-</p> -->
+
                         </div>
                     </div>
                     <div class="row">
@@ -586,13 +563,13 @@
                         <div class="col-md-4">
                             <div class="d-flex flex-column justify-content-center">
                                 <% data.buttons.forEach(function(item, index){ %>
-                                    <div class="my-2 text-center">
-                                        <a href="<%= item.btn_href %>"  class="btn explore w-100"> 
-                                              <%= item.btn_name %></a>
-                                    </div>
-                                  
-                
-                                    <% }); %>
+                                <div class="my-2 text-center">
+                                    <a href="<%= item.btn_href %>" class="btn explore w-100">
+                                        <%= item.btn_name %></a>
+                                </div>
+
+
+                                <% }); %>
                                 <!-- <div class="">
                                     <a href="" class="btn explore w-100">DOWNLOAD TUITION FEES FOR
                                         FY 2020-21</a>
@@ -610,9 +587,12 @@
 
                     <div>
                         <section class="my-5">
-                            <h4 class="f-30"> 
-                                <%= handler.safeView(data.lastFold, 'title') %>
-                            </h4>
+                            <div class="u-line">
+                                <h3 class="f-30 ">
+                                    <%= handler.safeView(data.lastFold, 'title') %>
+                                </h3>
+                            </div>
+                          
                         </section>
 
                         <div class="text-justify f-18">
@@ -634,29 +614,7 @@
     <%- include('shared/footer', {footer: common.footer}); %>
 
 
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-
-
-        $(document).ready(function () {
-            console.log(window.innerWidth);
-            if (window.innerWidth < 768) {
-                document.getElementById('parallax').classList.remove('mcparallax');
-                document.getElementById('parallax').removeAttribute('data-speed')
-            }
-        }
-        )
-
+    <script>
         function openNav() {
             console.log("open sidenav");
             document.getElementById("mySidenav").style.width = "100%";
