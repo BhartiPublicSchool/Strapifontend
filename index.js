@@ -18,7 +18,7 @@ app.use(express.static("public", { index: false }));
 app.use(async (req, res, next) => {
 
   try {
-   commons = await axios.get("http://localhost:1337/shared");
+   commons = await axios.get(process.env.PROD_SERVER + "shared");
   } catch (error) {
     console.log("unable to get common data", error);
   }
@@ -37,7 +37,7 @@ app.use(async (req, res, next) => {
 // })
 app.get("/", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/home");
+    const response = await axios.get(process.env.PROD_SERVER + "home");
     console.log(commons.data);
     res.render("bps_home", {
       data: response.data,
@@ -54,7 +54,7 @@ app.get("/", async (req, res) => {
 
 app.get("/mission", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/mission");
+    const response = await axios.get(process.env.PROD_SERVER + "mission");
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("mission", {
@@ -72,7 +72,7 @@ app.get("/mission", async (req, res) => {
 
 app.get("/explore-campus", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/explore-campus");
+    const response = await axios.get(process.env.PROD_SERVER + "explore-campus");
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("explore-campus", {
@@ -90,7 +90,7 @@ app.get("/explore-campus", async (req, res) => {
 
 app.get("/the-bps-difference", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/the-bps-difference");
+    const response = await axios.get(process.env.PROD_SERVER + "the-bps-difference");
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("the-bps-difference", {
@@ -108,7 +108,7 @@ app.get("/the-bps-difference", async (req, res) => {
 
 app.get("/leadership", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/leadership");
+    const response = await axios.get(process.env.PROD_SERVER + "leadership");
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("leadership", {
@@ -126,7 +126,7 @@ app.get("/leadership", async (req, res) => {
 
 app.get("/admission-faq", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/admission-faq");
+    const response = await axios.get(process.env.PROD_SERVER + "admission-faq");
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("admission-faq", {
@@ -144,7 +144,7 @@ app.get("/admission-faq", async (req, res) => {
 
 app.get("/apply", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/apply-now");
+    const response = await axios.get(process.env.PROD_SERVER + "apply-now");
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("apply", {
@@ -162,7 +162,7 @@ app.get("/apply", async (req, res) => {
 
 app.get("/home", async (req, res) => {
   try {
-    // const response = await axios.get("http://localhost:1337/apply-now");
+    // const response = await axios.get(process.env.PROD_SERVER + "apply-now");
     // console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("home", {
@@ -180,7 +180,7 @@ app.get("/home", async (req, res) => {
 
 app.get("/tuition-fees", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/tuition-fees");
+    const response = await axios.get(process.env.PROD_SERVER + "tuition-fees");
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("tuition-fees", {
@@ -198,7 +198,7 @@ app.get("/tuition-fees", async (req, res) => {
 
 app.get("/a-rich-history", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/a-rich-history");
+    const response = await axios.get(process.env.PROD_SERVER + "a-rich-history");
     console.log(response.data, process.env.NODE_ENV);
     res.render("a-rich-history", {
       data: response.data,
@@ -215,7 +215,7 @@ app.get("/a-rich-history", async (req, res) => {
 
 app.get("/lower-school", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/lower-school");
+    const response = await axios.get(process.env.PROD_SERVER + "lower-school");
     console.log(response.data, process.env.NODE_ENV);
     res.render("lower-school", {
       data: response.data,
@@ -232,7 +232,7 @@ app.get("/lower-school", async (req, res) => {
 
 app.get("/middle-school", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/middle-school");
+    const response = await axios.get(process.env.PROD_SERVER + "middle-school");
     console.log(response.data, process.env.NODE_ENV);
     res.render("middle-school", {
       data: response.data,
@@ -249,7 +249,7 @@ app.get("/middle-school", async (req, res) => {
 
 app.get("/student-resources", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/student-resources");
+    const response = await axios.get(process.env.PROD_SERVER + "student-resources");
     console.log(response.data, process.env.NODE_ENV);
     res.render("student-resources", {
       data: response.data,
@@ -266,7 +266,7 @@ app.get("/student-resources", async (req, res) => {
 
 app.get("/upper-school", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/upper-school");
+    const response = await axios.get(process.env.PROD_SERVER + "upper-school");
     console.log(response.data, process.env.NODE_ENV);
     res.render("upper-school", {
       data: response.data,
@@ -283,7 +283,7 @@ app.get("/upper-school", async (req, res) => {
 
 app.get("/athletics", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/athletic");
+    const response = await axios.get(process.env.PROD_SERVER + "athletic");
     console.log(response.data, process.env.NODE_ENV);
     res.render("athletic", {
       data: response.data,
@@ -300,7 +300,7 @@ app.get("/athletics", async (req, res) => {
 
 app.get("/faculty", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/faculty");
+    const response = await axios.get(process.env.PROD_SERVER + "faculty");
     console.log(response.data, process.env.NODE_ENV);
     res.render("faculty", {
       data: response.data,
@@ -317,7 +317,7 @@ app.get("/faculty", async (req, res) => {
 
 app.get("/parent", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/parents");
+    const response = await axios.get(process.env.PROD_SERVER + "parents");
     console.log(response.data, process.env.NODE_ENV);
     res.render("parent", {
       data: response.data,
@@ -334,7 +334,7 @@ app.get("/parent", async (req, res) => {
 
 app.get("/student", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/student");
+    const response = await axios.get(process.env.PROD_SERVER + "student");
     console.log(response.data, process.env.NODE_ENV);
     res.render("student", {
       data: response.data,
@@ -351,7 +351,7 @@ app.get("/student", async (req, res) => {
 
 app.get("/alumni", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/alumni");
+    const response = await axios.get(process.env.PROD_SERVER + "alumni");
     console.log(response.data, process.env.NODE_ENV);
     res.render("alumni", {
       data: response.data,
@@ -369,7 +369,7 @@ app.get("/alumni", async (req, res) => {
 
 app.get("/forms-certificates", async (req, res) => {
   try {
-    // const response = await axios.get("http://localhost:1337/a-rich-history");
+    // const response = await axios.get(process.env.PROD_SERVER + "a-rich-history");
     // console.log(response.data, process.env.NODE_ENV);
     res.render("forms-certificates", {
       // data: response.data,
@@ -385,7 +385,7 @@ app.get("/forms-certificates", async (req, res) => {
 });
 app.get("/common-page", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/common-page");
+    const response = await axios.get(process.env.PROD_SERVER + "common-page");
     console.log(response.data, process.env.NODE_ENV);
     res.render("common-page", {
       data: response.data,
@@ -402,7 +402,7 @@ app.get("/common-page", async (req, res) => {
 
 app.get("/explore-campus/slides", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/explore-campus");
+    const response = await axios.get(process.env.PROD_SERVER + "explore-campus");
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.send(response.data.Legends);
@@ -413,7 +413,7 @@ app.get("/explore-campus/slides", async (req, res) => {
 
 app.get("/creative-arts", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/Creative-Arts");
+    const response = await axios.get(process.env.PROD_SERVER + "Creative-Arts");
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("creative-arts", {
@@ -431,7 +431,7 @@ app.get("/creative-arts", async (req, res) => {
 
 app.get("/community-outreach", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/Community-Outreach");
+    const response = await axios.get(process.env.PROD_SERVER + "Community-Outreach");
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("community-outreach", {
@@ -449,7 +449,7 @@ app.get("/community-outreach", async (req, res) => {
 
 app.get("/outdoor-education", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/Outdoor-Education");
+    const response = await axios.get(process.env.PROD_SERVER + "Outdoor-Education");
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("outdoor-education", {
@@ -467,7 +467,7 @@ app.get("/outdoor-education", async (req, res) => {
 
 app.get("/employment", async (req, res) => {
   try {
-    const response = await axios.get("http://localhost:1337/employment");
+    const response = await axios.get(process.env.PROD_SERVER + "employment");
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("employment", {
@@ -485,7 +485,7 @@ app.get("/employment", async (req, res) => {
 
 app.get("/life-at-bps", async (req, res) => {
   try {
-    // const response = await axios.get("http://localhost:1337/Outdoor-Education");
+    // const response = await axios.get(process.env.PROD_SERVER + "Outdoor-Education");
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("life-at-bps", {
