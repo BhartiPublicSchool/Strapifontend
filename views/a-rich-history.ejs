@@ -70,11 +70,15 @@
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-
-            <a href="/mission" class="nav-link text-center p-1 m-1">Our Mission</a>
-            <a href="/the-bps-difference" class="nav-link text-center p-1 m-1">The BPS Difference</a>
-            <a href="/leadership" class="nav-link text-center p-1 m-1">Leadership</a>
-            <a href="/explore-campus" class="nav-link text-center p-1 m-1">Explore Campus</a>
+            <% common.header_menu[0].submenu.forEach(function(item, index){ %>
+    
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 2 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+    
+    
+    
+            <% }); %>
         </nav>
         <div class="contain f-18">
             <div class="text-justify">

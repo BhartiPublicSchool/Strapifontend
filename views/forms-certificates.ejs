@@ -86,9 +86,12 @@
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <a href="" class="nav-link text-center p-1 m-1">Admissions FAQ!</a>
-            <a href="" class="nav-link text-center p-1 m-1">Application Process</a>
-            <a href="" class="nav-link text-center p-1 m-1">Explore Campus</a>
+            <% common.header_menu[1].submenu.forEach(function(item, index){ %>
+    
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 3 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
         </nav>
     </div>
     <div class="contain">
@@ -153,7 +156,7 @@
                         <div class="form-group " style="">
                             <label class="pl-2" for="class_division">Class/Division: </label>
                             <select name="class_division" id="class_division" class="form-control ">
-                                <option value="" selected="selected">Class/Division</option>
+                                <option value="" selected>Class/Division</option>
                                 <option value="currentStudent">10 </option>
                                 <option value="pastStudent">11</option>
                                 <option value="pastStudent">12</option>
@@ -164,15 +167,15 @@
 
                     <div class="form-group" style="">
                         <label class="pl-2" for="docType"> Document Type: </label>
-                        <select id="docType" name="docType" class="form-control ">
-                            <option value="0" selected="selected"> Select Document Type</option>
-                            <option value="1">Transfer Certificate </option>
-                            <option value="2">Character Certificate </option>
-                            <option value="3">Bonafide Certificate </option>
-                            <option value="4">Tuition Fee Certificate </option>
-                            <option value="5">Duplicate Marksheet </option>
+                        <select id="docType" name="docType" class="form-control">
+                            <option value="" selected="selected"> Select Document Type</option>
+                            <option value="transformCertificate">Transfer Certificate </option>
+                            <option value="characterCertificate">Character Certificate </option>
+                            <option value="bonafideCertificate">Bonafide Certificate </option>
+                            <option value="tuitionFeeCertificate">Tuition Fee Certificate </option>
+                            <option value="duplicateMarksheet">Duplicate Marksheet </option>
 
-                        </select><span class="help-block"></span></div>
+                        </select></div>
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <div class="form-group " style="">

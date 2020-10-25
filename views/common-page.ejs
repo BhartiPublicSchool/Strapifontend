@@ -19,7 +19,7 @@
         transform: translateX(200%);
     }
 
-    
+
 
     .jumbotron .overlay {
         position: absolute;
@@ -30,10 +30,11 @@
         background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
 
     }
+
     .carousel-indicators li {
 
 
-background-color: #595454;
+        background-color: #595454;
     }
 
     .quote-inline p {
@@ -49,6 +50,7 @@ background-color: #595454;
     }
 </style>
 </head>
+
 <body>
     <%- include('shared/sidebar', { Menu: common.header_menu }); %>
     <%- include('shared/header', { Menu: common.header_menu }); %>
@@ -66,10 +68,13 @@ background-color: #595454;
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <a href="lower-school.html" class="nav-link text-center p-1 m-1">Lower School</a>
-            <a href="middle-school.html" class="nav-link text-center p-1 m-1">Middle School</a>
-            <a href="upper-school.html" class="nav-link text-center p-1 m-1">Upper School</a>
-            <a href="student-resources.html" class="nav-link text-center p-1 m-1">Student Resources</a>
+            <a href="common-page" class="nav-link text-center p-1 m-1 active">Academics</a>
+            <% common.header_menu[2].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
         </nav>
     </div>
     <div class="contain">
@@ -83,14 +88,14 @@ background-color: #595454;
                 <h3 class="half-underline pb-3 f-30">
                     <%= data.fold2.text %>
                 </h3>
-                
+
             </div>
         </div>
     </div>
-    
+
     <div class="contain">
         <div class="row mx-0">
-          
+
             <div class="col">
                 <div class="row my-4">
                     <div class="col-md-6 f-18">
@@ -99,108 +104,107 @@ background-color: #595454;
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img class="w-100" src="<%= env + handler.mediaSelection(data.fold3.card_img, quality) %>" alt="">
+                        <img class="w-100" src="<%= env + handler.mediaSelection(data.fold3.card_img, quality) %>"
+                            alt="">
                     </div>
                 </div>
                 <div class="row">
                     <% for(var i=0; i < data.fold4.length; i++) { %>
-                        <div class="col-md-4 px-3 my-4">
-                            <div class="img-container">
-                                <div class="card-overlay"
-                                    style="background-image: url('<%= env + handler.mediaSelection(data.fold4[i].img, quality) %>');">
-                                    <div class="pop-btn-text">
-                                        <section>
-                                            <h2> <%= data.fold4[i].title %> </h2>
-                                        </section>
-                                        <footer>
-                                            <div class="">
-                                                <%- md.render(data.fold4[i].text) -%>
-                                            </div>
-                                        </footer>
-                                    </div>
+                    <div class="col-md-4 px-3 my-4">
+                        <div class="img-container">
+                            <div class="card-overlay"
+                                style="background-image: url('<%= env + handler.mediaSelection(data.fold4[i].img, quality) %>');">
+                                <div class="pop-btn-text">
+                                    <section>
+                                        <h4> <%= data.fold4[i].title %> </h4>
+                                    </section>
+                                    <footer>
+                                        <div class="">
+                                            <%- md.render(data.fold4[i].text) -%>
+                                        </div>
+                                    </footer>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <% } %>
-                </div> 
-               <div class="row">
-                <div id="carouselExampleCaptions" class="carousel slide text-white" data-ride="carousel" data-interval="7000">
-                    <ol class="carousel-indicators">
-                        <% for(var i=0; i < data.Carousel.length; i++) { %>
-                            <li data-target="#carouselExampleCaptions" 
-                                data-slide-to="<%= i %> "
-                                <% if (i == 0) { %>
-                                    class="active"
-                                <% } %>
-                            ></li>
-                        <% } %>
-                    </ol>
-                     
-                    <div class="carousel-inner">
-                        <% for(var i=0; i < data.Carousel.length; i++) { %>
-                            <div 
-                                <% if (i == 0) { %>
-                                    class= "carousel-item active"
-                                <% } else { %>
-                                    class= "carousel-item"
-                                <% } %>
-                            >
+                </div>
+                <div class="row">
+                    <div id="carouselExampleCaptions" class="carousel slide text-white" data-ride="carousel"
+                        data-interval="7000">
+                        <ol class="carousel-indicators">
+                            <% for(var i=0; i < data.Carousel.length; i++) { %>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="<%= i %> " <% if (i == 0) { %>
+                                class="active" <% } %>></li>
+                            <% } %>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <% for(var i=0; i < data.Carousel.length; i++) { %>
+                            <div <% if (i == 0) { %> class="carousel-item active" <% } else { %> class="carousel-item"
+                                <% } %>>
                                 <div class="row mt-4">
-            
+
                                     <div class="card bg-light border-0  text-center text-dark">
                                         <div class="">
                                             <div class="d-flex justify-content-center my-3">
                                                 <div class="text-center">
-                                                    <img class="rounded-circle shadow" width="150" height="150" src="<%= env + handler.mediaSelection(data.Carousel[i].img, quality) %>" alt="">
-                                                    
+                                                    <img class="rounded-circle shadow" width="150" height="150"
+                                                        src="<%= env + handler.mediaSelection(data.Carousel[i].img, quality) %>"
+                                                        alt="">
+
                                                 </div>
                                                 <!-- <div class="py-4 pl-4">
                                                     <p>Dr. Savita Arora <br><b>Principal</b> </p>
                                                 </div> -->
                                             </div>
-                                
+
                                         </div>
-                                        
+
                                         <div class="card-body mx-auto w-75">
-                                            <h5 class="card-title py-0 quote-inline">  <span style="color: var(--green);" class="f-40">“</span><%- md.render(data.Carousel[i].text) -%><span style="color: var(--green);vertical-align: text-top;" class="f-40">” </span>
+                                            <h5 class="card-title py-0 quote-inline"> <span style="color: var(--green);"
+                                                    class="f-40">“</span><%- md.render(data.Carousel[i].text) -%><span
+                                                    style="color: var(--green);vertical-align: text-top;" class="f-40">”
+                                                </span>
                                             </h5>
                                         </div>
                                         <div class="card-body mx-auto">
                                             <div class="card-title">
-                                                <%= data.Carousel[i].title %> 
+                                                <%= data.Carousel[i].title %>
                                                 <br>
-                                                <%= data.Carousel[i].subtitle %> 
-                                            </div>    
+                                                <%= data.Carousel[i].subtitle %>
+                                            </div>
                                             <br>
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
-                        <% } %>
-                    </div> 
+                            <% } %>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="my-5">
-        <div class="text-center">
-            <h3 class="half-underline pb-3 f-30">
-                <%- md.render(data.fold5.sub_heading) %> 
-            </h3>
-            
+        <div class="my-5">
+            <div class="text-center">
+                <h3 class="half-underline pb-3 f-30">
+                    <%- md.render(data.fold5.sub_heading) %>
+                </h3>
+
+            </div>
         </div>
+
+        <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
+            <% for( let index = 0; index < data.buttons.length; index++ ) { %>
+            <a class="btn explore my-2" href="<%= data.buttons[index].btn_href %> "> <%= data.buttons[index].btn_name %>
+            </a>
+            <% } %>
+        </div>
+
+
     </div>
-               
-    <div  class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
-        <% for( let index = 0; index < data.buttons.length; index++ ) { %>
-            <a  class="btn explore my-2" href="<%= data.buttons[index].btn_href %> "> <%= data.buttons[index].btn_name %> </a>
-        <% } %>
-    </div>
-    
-  
-</div>
     <%- include('shared/footer', {footer: common.footer}); %>
-    
+
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->

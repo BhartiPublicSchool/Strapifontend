@@ -208,15 +208,17 @@
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
     <div class="body-wrap">
-        <div class="container_box">
+        <div class="container_box" style=" background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>')">
             <video class="v__container" id="home_media" autoplay muted width="100%"
-                src="https://player.vimeo.com/external/206536059.sd.mp4?s=551efa45c0cdd2d1fb5349a3936bb7f4d7550f4c&profile_id=164&oauth2_token_id=57447761"></video>
+                src=" <%= handler.safeView(data.hoverVideos.videos, 'url', 0)  %>"></video>
 
 
             <div class="viewsBox d-flex">
                 <div class="my-5">
                     <h1 style="font-size: 7vw; line-height: 20px;
-                letter-spacing: 10px;" class="text-white">Life At BPS</h1>
+                letter-spacing: 10px;" class="text-white">
+                <%= handler.safeView(data, 'page_title') %> 
+            </h1>
                 </div>
                 <div class="row mx-0">
                     <div class="col">

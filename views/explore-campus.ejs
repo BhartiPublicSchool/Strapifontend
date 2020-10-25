@@ -89,6 +89,7 @@
 <link rel="stylesheet" href="css/dropdownhover.css">
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/foldFooter.css">
+<link rel="stylesheet" href="css/refined.css">
 
 <style>
     :root {
@@ -694,6 +695,7 @@
 
         </div>
     </div>
+ 
     <div id="searchBar" class="searchBar-overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeSearchBar()">&times;</a>
         <div class="searchBar-overlay-content">
@@ -991,6 +993,17 @@
         </div>
 
     </div>
+    <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+        <% common.header_menu[0].submenu.forEach(function(item, index){ %>
+
+        <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 1 ? "active" : "" %>">
+            <%= item.sub_menu_item %>
+        </a>
+
+
+
+        <% }); %>
+    </nav>
 
     <div class="body-wrap d-flex flex-column">
         <div class="d-block d-md-none wrapper">

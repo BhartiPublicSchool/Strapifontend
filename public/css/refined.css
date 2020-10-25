@@ -85,8 +85,8 @@
 
 .custom-table {
     color: white;
-    background: var(--blue);
-    /* background: #333e48; */
+    /* background: var(--blue); */
+    background: #333e48;
     border-color: grey;
 }
 .w-16{
@@ -95,8 +95,8 @@
 }
 
 .custom-card{
-    /* background: var(--blue); */
-    background-color:#433e96;
+    background: var(--blue);
+    /* background-color:#433e96; */
     color: white;
 }
 
@@ -113,6 +113,11 @@
     font-weight: bolder;
     border-bottom: 3px solid var(--blue);
   }
+
+  .nav-link.active {
+    font-weight: bolder;
+    border-bottom: 3px solid var(--blue);
+}
   
   .btn.focus, .btn:focus {
     outline: 0;

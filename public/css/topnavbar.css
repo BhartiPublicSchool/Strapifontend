@@ -252,3 +252,28 @@ transform: translateY(-10px);
     height: 4rem;
     margin-top: 0.25rem;
 }
+
+
+/* .searchBar-overlay-content {
+   trans
+} */
+#searchResults {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #searchResults li a {
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+  }
+  
+  #searchResults li a:hover:not(.header) {
+    background-color: #eee;
+  }

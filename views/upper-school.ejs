@@ -75,9 +75,13 @@
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <a href="lower-school.html" class="nav-link text-center p-1 m-1">Lower School</a>
-            <a href="middle-school.html" class="nav-link text-center p-1 m-1">Middle School</a>
-            <a href="student-resources.html" class="nav-link text-center p-1 m-1">Student Resources</a>
+            <a href="common-page" class="nav-link text-center p-1 m-1">Academics</a>
+            <% common.header_menu[2].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 2 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
         </nav>
     </div>
 
@@ -155,7 +159,7 @@
         <div class="parallax-container shadow">
             <div style=" background-image: url('<%= env + handler.mediaSelection(data.parallax.parallax_img, quality) %>');"
                 id="parallax" class="parallex mcparallax d-flex justify-content-center align-items-center"
-                data-speed="4">
+                data-speed="6">
                 <div class="" style="width: 22rem;">
                     <h1 class="text-center text-white">
                         <%= handler.safeView(data.parallax, 'text') %>

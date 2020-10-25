@@ -91,10 +91,12 @@
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <a href="creative-arts" class="nav-link text-center p-1 m-1">Creative Arts</a>
-            <a href="athletics" class="nav-link text-center p-1 m-1">Athletics</a>
-            <a href="life-at-bps.html" class="nav-link text-center p-1 m-1">Life At BPS</a>
-            <a href="community-outreach.html" class="nav-link text-center p-1 m-1">Community Outreach</a>
+            <% common.header_menu[3].submenu.forEach(function(item, index){ %>
+    
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 3 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
         </nav>
     </div>
 

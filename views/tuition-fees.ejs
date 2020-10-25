@@ -477,9 +477,15 @@
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <a href="" class="nav-link text-center p-1 m-1">Admissions FAQ!</a>
-            <a href="forms-and-certificates.html" class="nav-link text-center p-1 m-1">Forms & Certificates</a>
-            <a href="apply-now.html" class="nav-link text-center p-1 m-1">Apply Now!</a>
+            <% common.header_menu[1].submenu.forEach(function(item, index){ %>
+    
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 2 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+    
+    
+    
+            <% }); %>
         </nav>
         <div class="contain">
             <div>

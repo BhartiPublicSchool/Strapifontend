@@ -56,10 +56,13 @@
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <a href="lower-school.html" class="nav-link text-center p-1 m-1">Lower School</a>
-            <a href="middle-school.html" class="nav-link text-center p-1 m-1">Middle School</a>
-            <a href="upper-school.html" class="nav-link text-center p-1 m-1">Upper School</a>
-            <a href="common-page.html" class="nav-link text-center p-1 m-1">Academics</a>
+            <a href="common-page" class="nav-link text-center p-1 m-1">Academics</a>
+            <% common.header_menu[2].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 3 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
         </nav>
     </div>
   
@@ -80,32 +83,35 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 px-3 my-4">
-                            <div class="img-container">
-                                <div class="card-overlay"
-                                    style="background-image: url('<%= env + handler.mediaSelection(data.fold3[0].img, quality) %>');">
-                                    <div class="pop-btn-text">
-                                        <section>
-                                            <h2> <%= handler.safeView(data.fold3[0], 'title') %> </h2>
-                                        </section>
-                                        <footer>
-                                            <div class="">
-                                                <%- md.render(String(handler.safeView(data.fold3,'text', 0))) -%> 
-                    
-                                            </div>
-                                        </footer>
+                        <% data.fold3.forEach(element => { %>
+                            <div class="col-md-4 px-3 my-4">
+                                <div class="img-container">
+                                    <div class="card-overlay"
+                                        style="background-image: url('<%= env + handler.mediaSelection(element.img, quality) %>');">
+                                        <div class="pop-btn-text">
+                                            <section>
+                                                <h4> <%= handler.safeView(element, 'title') %> </h4>
+                                            </section>
+                                            <footer>
+                                                <div class="">
+                                                    <%- md.render(String(handler.safeView(element,'text'))) -%> 
+                        
+                                                </div>
+                                            </footer>
+                                        </div>
                                     </div>
                                 </div>
+                              
                             </div>
-                          
-                        </div>
-                        <div class="col-md-4 px-3 my-4">
+                        <% }) %>
+                      
+                        <!-- <div class="col-md-4 px-3 my-4">
                             <div class="img-container">
                                 <div class="card-overlay"
                                     style="background-image: url('<%= env + handler.mediaSelection(data.fold3[1].img, quality) %>');">
                                     <div class="pop-btn-text">
                                         <section>
-                                            <h2><%= handler.safeView(data.fold3, 'title', 1) %> </h2>
+                                            <h3><%= handler.safeView(data.fold3, 'title', 1) %> </h3>
                                         </section>
                                         <footer>
                                             <div class="">
@@ -136,7 +142,7 @@
                                 </div>
                             </div>
                            
-                        </div>
+                        </div> -->
                     </div> 
                     <div class="mt-5">
                         <div class="pb-4">
