@@ -510,4 +510,22 @@ app.get("/life-at-bps", async (req, res) => {
   }
 });
 
+app.get("/beyond-books", async (req, res) => {
+  try {
+    const response = await axios.get(`${ API_ENDPOINT}/beyond-books`);
+    // console.log(response.data, process.env.NODE_ENV);
+    // console.log(env);
+    res.render("beyond-books", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.listen(3000, () => console.log("app listening on port 3000!"));

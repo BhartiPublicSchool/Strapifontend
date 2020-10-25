@@ -78,22 +78,20 @@
         </nav>
     </div>
     <div class="contain">
-        <div class="m-2">
-            <div class="text-center my-5 u-line-center">
+        <div class="mx-2 mt-2">
+            <div class="text-center mt-4 mb-5 u-line-center">
                 <h3 class="f-40">
                     <%= data.fold2.title %>
                 </h3>
             </div>
             <div class="text-center">
-                <h3 class="half-underline pb-3 f-30">
+                <h3 class="half-underline f-30">
                     <%= data.fold2.text %>
                 </h3>
 
             </div>
         </div>
-    </div>
-
-    <div class="contain">
+   
         <div class="row mx-0">
 
             <div class="col">
@@ -119,7 +117,7 @@
                                         <h4> <%= data.fold4[i].title %> </h4>
                                     </section>
                                     <footer>
-                                        <div class="">
+                                        <div class="text-muted">
                                             <%- md.render(data.fold4[i].text) -%>
                                         </div>
                                     </footer>
@@ -161,14 +159,14 @@
 
                                         </div>
 
-                                        <div class="card-body mx-auto w-75">
-                                            <h5 class="card-title py-0 quote-inline"> <span style="color: var(--green);"
+                                        <div class="card-body mx-auto py-0 w-75">
+                                            <h5 class="card-title py-0 quote-inline f-julias-san font-weight-bold"> <span style="color: var(--green);"
                                                     class="f-40">“</span><%- md.render(data.Carousel[i].text) -%><span
                                                     style="color: var(--green);vertical-align: text-top;" class="f-40">”
                                                 </span>
                                             </h5>
                                         </div>
-                                        <div class="card-body mx-auto">
+                                        <div class="card-body pt-0 mx-auto">
                                             <div class="card-title">
                                                 <%= data.Carousel[i].title %>
                                                 <br>

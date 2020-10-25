@@ -123,7 +123,7 @@
                             </section>
                         </div>
 
-                        <div>
+                        <div class="text-muted">
                             <%- md.render(String(handler.safeView(data.fold3[0],'text'))) -%>
                         </div>
 
@@ -136,7 +136,7 @@
                     </div>
 
                 </div>
-                <div class="text-justify f-18">
+                <div class="text-justify text-muted f-18">
                     <%- md.render(String(handler.safeView(data.fold3[0],'extra_text'))) -%>
                 </div>
             </div>
@@ -149,7 +149,7 @@
                     <img class="img-fluid shadow" src="<%= env + handler.mediaSelection(data.fold3[1].img, quality) %>"
                         alt="<%= handler.safeView(data.fold3[1].img, 'alternativeText')%>">
                 </div>
-                <div class="col-md-6 text-muted text-justify">
+                <div class="col-md-6  text-justify">
                     <div class="mb-4">
                         <section class="<%= handler.isPresent(!Boolean(data.fold3[1].subtitle), 'u-line') %>">
                             <h3> <%= handler.safeView(data.fold3[1],'subtitle') %></h3>
@@ -157,14 +157,14 @@
                     </div>
 
 
-                    <div class="f-18">
+                    <div class="f-18 text-muted">
                         <%- md.render(String(handler.safeView(data.fold3[1],'text'))) -%>
                     </div>
 
                 </div>
 
             </div>
-            <div class="text-justify f-18">
+            <div class="text-justify text-muted f-18">
                 <%- md.render(String(handler.safeView(data.fold3[1],'extra_text'))) -%>
             </div>
         </div>
@@ -179,7 +179,7 @@
                             </section>
                         </div>
 
-                        <div class="text-justify f-18">
+                        <div class="text-justify text-muted f-18">
                             <%- md.render(String(handler.safeView(data.fold3[2],'text'))) -%>
 
                         </div>
@@ -194,7 +194,7 @@
 
                 </div>
 
-                <div class="text-justify f-18">
+                <div class="text-justify text-muted f-18">
                     <%- md.render(String(handler.safeView(data.fold3[2],'extra_text'))) -%>
                 </div>
             </div>
@@ -210,7 +210,7 @@
                             src="<%= env + handler.mediaSelection(data.fold3[3].img, quality) %>"
                             alt="<%= handler.safeView(data.fold3[3].img, 'alternativeText')%>">
                     </div>
-                    <div class="col-md-6 text-muted text-justify">
+                    <div class="col-md-6  text-justify">
                         <div class="mb-4">
                             <section class="<%= handler.isPresent(!Boolean(data.fold3[3].subtitle), 'u-line') %>">
                                 <h3> <%= handler.safeView(data.fold3[3],'subtitle') %></h3>
@@ -219,7 +219,7 @@
                             </section>
                         </div>
 
-                        <div class="text-justify f-18">
+                        <div class="text-justify text-muted f-18">
                             <%- md.render(String(handler.safeView(data.fold3[3],'text'))) -%>
 
                         </div>
@@ -227,7 +227,7 @@
                     </div>
 
                 </div>
-                <div class="text-justify f-18">
+                <div class="text-justify text-muted f-18">
                     <%- md.render(String(handler.safeView(data.fold3[3],'extra_text'))) -%>
                 </div>
             </div>

@@ -122,7 +122,10 @@
                             <%= handler.safeView(data.fold3, 'subtitle',0) %>
                         </h3>
                     </section>
-                    <%- md.render(String(handler.safeView(data.fold3,'text', 0))) -%>
+                    <div class="text-muted">
+                        <%- md.render(String(handler.safeView(data.fold3,'text', 0))) -%>
+                    </div>
+                 
 
                 </div>
                 <div style="flex:3;" class="text-center mx-0 ml-md-4 mb-3">
@@ -159,8 +162,8 @@
         <div class="parallax-container shadow">
             <div style=" background-image: url('<%= env + handler.mediaSelection(data.parallax.parallax_img, quality) %>');"
                 id="parallax" class="parallex mcparallax d-flex justify-content-center align-items-center"
-                data-speed="6">
-                <div class="" style="width: 22rem;">
+                data-speed="8">
+                <div class="" style="width: 25rem;">
                     <h1 class="text-center text-white">
                         <%= handler.safeView(data.parallax, 'text') %>
                     </h1>

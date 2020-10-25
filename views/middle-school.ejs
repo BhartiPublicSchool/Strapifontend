@@ -86,7 +86,7 @@
             <div class="d-flex flex-column flex-md-row">
 
 
-                <div style="flex:3;" class="text-justify f-18">
+                <div style="flex:3;" class="text-justify text-muted f-18">
                     <%- md.render(String(handler.safeView(data.fold3,'text'))) -%>
                 </div>
                 <div style="flex:2;" class="text-center mx-0 ml-md-4 mb-3">
@@ -102,9 +102,9 @@
         <div class="parallax-container">
             <div style=" background-image: url('<%= env + handler.mediaSelection(data.parallax.parallax_img, quality) %>');"
                 id="parallax" class="parallex mcparallax d-flex justify-content-center align-items-center"
-                data-speed="4">
+                data-speed="8">
 
-                <div class="" style="width: 22rem;">
+                <div class="" style="width: 27rem;">
                     <h1 class="text-center text-white">
                         <%= handler.safeView(data.parallax, 'text') %>
                     </h1>

@@ -766,7 +766,7 @@
         </picture>
 
         <div class="explore fadeOut" id="explore" style="position: absolute;
-           
+           top: 42%;
             width: 100%;
             z-index: 2;
             ">
@@ -779,11 +779,11 @@
                 <h3 style="color: white; font-size: 3vw; margin-bottom: 0;"> <%= handler.safeView(data, 'page_title') %>
                 </h3>
                 <!-- <p style="color: white;">Press this to visit</p> -->
-                <div class="f-18 text-white">
+                <div class="f-18 text-white f-julias-san mt-3">
                     <%- md.render(String(handler.safeView(data, 'page_subtitle'))) -%>
                 </div>
 
-                <div class="my-3">
+                <div class="">
                     <button type="button" onclick="showblocks()">Explore Campus</button>
                 </div>
             </div>

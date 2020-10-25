@@ -498,7 +498,7 @@
 
                 </div>
 
-                <div class="text-justify f-18">
+                <div class="text-justify text-muted f-18">
                     <%- md.render(String(handler.safeView(data.fold2,'text'))) -%>
 
                 </div>
@@ -511,9 +511,9 @@
         <div class="parallax-container">
             <div style=" background-image: url('<%= env + handler.mediaSelection(data.parallax.parallax_img, quality) %>');"
                 id="parallax" class="parallex mcparallax d-flex justify-content-center align-items-center"
-                data-speed="4">
+                data-speed="8">
 
-                <div class="" style="width: 22rem;">
+                <div class="" style="width: 25rem;">
                     <h1 class="text-center text-white">
                         <%= handler.safeView(data.parallax, 'text') %>
                     </h1>
@@ -528,7 +528,7 @@
 
         <div class="contain">
             <div class="my-3">
-                <div class="text-justify f-18">
+                <div class="text-justify text-muted f-18">
                     <%- md.render(String(handler.safeView(data.parallax,'extra_text'))) -%>
                 </div>
             </div>
@@ -601,7 +601,7 @@
                           
                         </section>
 
-                        <div class="text-justify f-18">
+                        <div class="text-justify text-muted f-18">
                             <%- md.render(String(handler.safeView(data.lastFold,'text'))) -%>
 
                         </div>
