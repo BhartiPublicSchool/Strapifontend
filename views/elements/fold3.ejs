@@ -8,9 +8,12 @@
             <div>
                 <p class="my-2">
                     <%- md.render(String(card.card_text)) -%>
+                    <% if (Boolean(handler.safeView(card.card_link, 'link_title'))) { %>
+                        <a style="border-radius:0;" href="<%= card.card_link.link_href %>"
+                            class="btn btn-outline-light my-2"> <%= card.card_link.link_title %></a>
+                    <% } %>
 
-                    <a type="button" style="border-radius:0;" href="<%= card.card_link.link_href %>"
-                        class="btn btn-outline-light my-2"> <%= card.card_link.link_title %></a>
+                    
 
             </div>
         </figcaption>

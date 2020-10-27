@@ -33,7 +33,7 @@ window.onscroll = function () {
   // Get the offset position of the navbar
   var videoContent = document.getElementById('top_fold');
   var header = document.getElementById("myHeader");
-  var sticky = videoContent.offsetHeight || 500;
+  var sticky = (videoContent && videoContent.offsetHeight) || 500;
 
   // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
   function stickyHeader() {

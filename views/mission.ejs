@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="css/dropdownhover.css">
 <link rel="stylesheet" href="css/foldFooter.css">
 <title>Bharti Public School</title>
+
 <style>
     .header-underline h5:before {
         content: '';
@@ -230,6 +231,52 @@
         font-weight: bolder;
         border-bottom: 3px solid var(--blue);
     }
+
+    .mission-play, .mission-pause {
+        border: 0;
+        background: none;
+        outline: 0;
+        margin: 0;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.15);
+        font-size: 0;
+        transition: all .3s ease-in-out;
+    }
+
+    .mission-play:before {
+        content: '\f04b';
+        font-size: 16px;
+        font-family: FontAwesome;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-40%, -50%);
+        -ms-transform: translate(-40%, -50%);
+        transform: translate(-40%, -50%);
+        transition: all .3s ease-in-out;
+    }
+    .mission-pause:before {
+        content: '\f04c';
+        font-size: 16px;
+        font-family: FontAwesome;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-40%, -50%);
+        -ms-transform: translate(-40%, -50%);
+        transform: translate(-40%, -50%);
+        transition: all .3s ease-in-out;
+    }
+
 </style>
 </head>
 
@@ -286,12 +333,18 @@
                     <%- md.render(String(data.fold2[0].text)) -%>
                 </div>
                 <div style="flex:3;" class="mission-video-container text-center mx-0 ml-md-4 mb-3">
-                    <video width="100%" class="img-fluid shadow" autoplay muted loop>
-                        <source src="<%= env + handler.urlStringSelection(data.fold2[0].video) %>">
+                    <div style="position: relative;">
 
-                        Your browser does not support the video tag.
-                    </video>
+                        <video onended="endedVideo()" id="mission-video" width="100%" class="img-fluid shadow">
+                            <source src="<%= env + handler.urlStringSelection(data.fold2[0].video) %>">
+
+                            Your browser does not support the video tag.
+                        </video>
+                        <button id="m_play" class="mission-play" onclick="playPause()">Play</button>
+                    </div>
+
                 </div>
+
 
             </div>
             <div class="text-muted">
@@ -339,6 +392,35 @@
     </div>
     <%- include('shared/footer', {footer: common.footer}); %>
     <script>
+        var myVideo = document.getElementById("mission-video");
+   function endedVideo() {
+    $("#m_play").addClass("mission-play");
+    $("#m_play").removeClass("mission-pause");
+   }
+   function playPause() {
+       if (myVideo.paused) {
+        myVideo.play();
+        if(!$("#m_play").hasClass("mission-play")) {
+            $("#m_play").removeClass("mission-pause");
+         
+        } else {
+            $("#m_play").removeClass("mission-play");
+            $("#m_play").addClass("mission-pause");
+        }
+     
+       }
+          
+       else {
+        myVideo.pause();
+        $("#m_play").addClass("mission-play");
+        $("#m_play").removeClass("mission-pause")
+       }
+          
+   }
+   </script>
+    <script>
+       
+
         function openNav() {
             console.log("open sidenav");
             document.getElementById("mySidenav").style.width = "100%";
