@@ -110,7 +110,7 @@
     }
 
     .slick-active {
-        z-index: 1;
+        /* z-index: 3; */
     }
 
     .alumni-container {
@@ -300,37 +300,22 @@
             <div class="next-nav-alumni" title="Navigate Right" style="display: block;"></div>
             <div class="prev-nav-alumni" title="Navigate Left" style="display: block;"></div>
             <div class="alumni">
+                <% data.gallery.forEach(element => { %>
                 <div class="alumni-gallery">
-                    <img class="img-fluid" src="./Arts/Dance.jpg">
-                    <div class="alumni-overlay">
-                        <h2>Hello world </h2>
-                        <p>Hello t this is </p>
+                    <img class="img-fluid" src="<%= env + handler.mediaSelection(element.img, quality)%>">
+                    <div class="alumni-overlay p-5">
+                        <h2>
+                            <%= handler.safeView(element, 'title') %>
+                        </h2>
+                        <div class="text-center">
+                            <%- md.render(String(element.text)) -%>
+                        </div>
+                      
                     </div>
                 </div>
-                <div>
-                    <img class="img-fluid" src="./Arts/Dance.jpg">
-                </div>
-                <div>
-                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
-                </div>
-                <div>
-                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
-                </div>
-                <div>
-                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
-                </div>
-                <div>
-                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
-                </div>
-                <div>
-                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
-                </div>
-                <div>
-                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
-                </div>
-                <div>
-                    <img class="img-fluid" src="./Academics/IMG_0189.JPG">
-                </div>
+                <% }) %>
+             
+              
             </div>
         </div>
 
@@ -347,7 +332,7 @@
     <script>
         $('.alumni').slick({
             centerMode: true,
-            // centerPadding: '60px',
+            centerPadding: '60px',
             prevArrow: $('.prev-nav-alumni'),
             nextArrow: $('.next-nav-alumni'),
             arrows: true,
@@ -356,19 +341,24 @@
                 {
                     breakpoint: 768,
                     settings: {
-                        arrows: false,
                         centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 3
+                        // centerPadding: '60px',
+                        prevArrow: $('.prev-nav-alumni'),
+                        nextArrow: $('.next-nav-alumni'),
+                        arrows: true,
+                        slidesToShow: 3,
                     }
                 },
                 {
                     breakpoint: 480,
                     settings: {
-                        arrows: true,
+                        // arrows: true,
+                        // prevArrow: $('.prev-nav-alumni'),
+                        // nextArrow: $('.next-nav-alumni'),
+                        dots:true,
                         centerMode: true,
-                        // centerPadding: '40px',
-                        slidesToShow: 1
+                        centerPadding: '40px',
+                        slidesToShow: 3
                     }
                 }
             ]

@@ -1,0 +1,609 @@
+<%- include('shared/headermeta'); %>
+    <title>Bharti Public School</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/fold2.css">
+    <link rel="stylesheet" href="css/fold3.css">
+    <link rel="stylesheet" href="css/fold4.css">
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/fold6.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script>
+    <style>
+        :root {
+            --grey: #363E47;
+            --blue: #28295d;
+            --green: #62a25d;
+            --yellow: rgb(255, 210, 29);
+            --orange: #df682d;
+        }
+
+        .header-brand {
+            position: absolute;
+            width: 9rem;
+            height: 7rem;
+            margin-top: 0.25rem;
+        }
+
+        .header-brand-sticky {
+            width: 9rem;
+            height: 4rem;
+            margin-top: 0.25rem;
+        }
+
+        .body-wrap {
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+            /* background: #ffffffa1; */
+            /* margin: 0.75rem; */
+        }
+
+        @media screen and (min-width: 768px) {
+            .body-wrap {
+                margin: 0.75rem;
+            }
+
+            .header-brand {
+                width: 10rem;
+                height: 6rem;
+            }
+
+            .header-title-text h1 {
+                /* padding-top: 1rem !important; */
+                font-size: 7vw !important;
+                /* font-size: 85px; */
+                height: 15rem;
+                line-height: 20px;
+                color: #fff;
+                letter-spacing: 10px;
+            }
+        }
+
+        .bpsHomeVideoContainer {
+            position: relative;
+            width: 100%;
+            max-height: 100vh;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+        .body-wrap .bpsHomeVideoContainer video {
+            object-fit: cover;
+            display: block;
+            min-height: 100vh;
+            /* //change */
+            min-width: 100%;
+            width: auto;
+            max-height: none;
+            max-width: none;
+            backface-visibility: hidden;
+            perspective: 1000;
+        }
+
+        .home-wrap-container {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            /* align-items: flex-end; */
+        }
+
+        .title-strip {
+            -webkit-animation-name: mymove;
+            animation-name: mymove
+        }
+
+        .header-title-text h1 {
+            font-size: 10vw;
+            padding-top: 10rem;
+        }
+
+        @keyframes mymove {
+            0% {
+                opacity: 0;
+                filter: blur(10px);
+                transform: scaleX(1.75);
+            }
+
+            100% {
+                opacity: 1;
+                filter: blur(0);
+                transform: scaleX(1);
+            }
+        }
+
+        button.explore {
+            cursor: pointer;
+            padding: 0.81429em 2.07143em;
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: 0.875em;
+            text-transform: uppercase;
+            background: #363E47;
+            border: 0;
+            box-shadow: inset 0 0 0 0.14286em transparent;
+            color: #fff;
+            font-weight: 700;
+            transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+        }
+
+        button.explore span::after {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -moz-transform-origin: left;
+            transform-origin: left;
+        }
+
+        button.explore:hover {
+            background: var(--blue);
+        }
+
+        .loading span {
+            width: 25px;
+            height: 25px;
+            margin: 0 5px;
+            background-coLor: #000;
+            border-radius: 50%;
+            display: inline-block;
+            animation-name: dots;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+
+        .loading :nth-child(2) {
+            background-coLor: #000;
+            animation-delay: 0.4s;
+        }
+
+
+
+
+        #box3 {
+            right: 0;
+            bottom: 1100px;
+            height: 40vw;
+            width: 60vw;
+            background: linear-gradient(-45deg, #f7f7f7 50%, transparent 50%);
+        }
+
+        #box2 {
+            left: 0;
+            top: 700px;
+            height: 80vw;
+            width: 60vw;
+            background: linear-gradient(45deg, #f7f7f7 50%, transparent 50%);
+        }
+
+        @media screen and (max-width:622px) {
+            #box2 {
+                top: 1300px;
+            }
+        }
+
+        figure._fold_3_overlay:hover .fixp {
+            transition: all 0.5s;
+            top: 20%;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+
+    <div class="body-wrap">
+
+        <div class="home-wrap-container align-items-lg-end align-items-center">
+            <div class="text-center">
+                <header class="header-title-text mb-5">
+                    <h1 class="text-white fadeInUp delay-2s animated fast">
+                        <%= handler.safeView(data, 'page_title') %>
+                    </h1>
+                    <!-- <div class="expore-btn  delay-3s animated">
+                        <button type="button" style="letter-spacing: 3px; box-shadow: inset 0 0 0 0.14286em transparent;" class="explore"><span> Explore Campus</span></button>
+                    </div> -->
+                    <!-- <div class="arrow mb-3 bounce">
+                        <a style="cursor: pointer;" onclick="gotoPos()">
+                            <img width="100%" src="./down.png" alt="">
+                        </a>
+                       
+                    </div> -->
+
+                </header>
+            </div>
+
+        </div>
+        <div id="_fold_1_media" class="_fold_1 bpsHomeVideoContainer delay-1s fadeIn animated">
+            <video loop autoplay id="home_media" width="100%" muted src="./bps_gC15GSHO.compressed.mp4"></video>
+            <div></div>
+        </div>
+        <!-- <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <a href="life-at-bps.html" class="nav-link text-center p-1 m-1">Life At BPS</a>
+            <a href="creative-arts.html" class="nav-link text-center p-1 m-1">Creative Arts</a>
+            <a href="community-outreach.html" class="nav-link text-center p-1 m-1">Community Outreach</a>
+            <a href="outdoor-education.html" class="nav-link text-center p-1 m-1">Outdoor Education</a>
+        </nav> -->
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[3].submenu.forEach(function(item, index){ %>
+    
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 0 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
+        </nav>
+        <div class="contain">
+            <div class="">
+                <div class="text-center my-5 u-line-center">
+                    <h3 class="f-40">
+                        <%= handler.safeView(data.fold2, 'title') %>
+
+                    </h3>
+                </div>
+                <div class=" my-5">
+                    <div class="text-center font-weight-bold f-julias-san f-20">
+                         <%- md.render(String(handler.safeView(data.fold2,'text'))) -%>
+                       
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="_fold_3">
+            <div class="d-flex flex-wrap">
+                <% data.fold3.forEach(function(card){ %>
+
+                    <%- include('elements/fold3', {card: card}); %>
+    
+                    <% }); %>
+
+            </div>
+            <!-- <div style="position: absolute; z-index: -1;" id="box3" data-scroll-speed="6"></div> -->
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="2000" class="_fold_4">
+            <section>
+                <header class="my-5" data-aos="fade-down">
+                    <h1 class="text-center pb-5">
+                        <%= handler.safeView(data.fold4, 'title') %>
+                       
+                    </h1>
+                </header>
+                <div class="statistics-slider">
+                    <% data.statistics_fold.forEach(function(card){ %>
+
+                        <%- include('elements/fold4', {card: card}); %>
+    
+                        <% }); %>
+
+
+                </div>
+            </section>
+
+        </div>
+
+        <div class="contain">
+            <div>
+                <div class="my-5  <%=handler.isPresent(!handler.safeView(data.last_fold, 'card_title',0), 'u-line-center') %>">
+                    <h3 class="text-center">
+                        <%=  handler.safeView(data.last_fold, 'card_title',0) %>
+                    </h3>
+                </div>
+                <div>
+                    <div class="d-flex flex-column flex-md-row">
+
+
+                        <div style="flex:5;" class="text-justify text-muted f-18">
+                            <%- md.render(String(handler.safeView(data.last_fold, 'card_text',0))) -%>
+                        </div>
+                        <div style="flex:4;" class="text-center mx-0 ml-md-4 mb-3">
+                            <img class="img-fluid shadow" 
+                            src="<%= env + handler.mediaSelection(handler.safeView(data.last_fold, 'card_img',0), quality) %>" 
+                            alt="<%= handler.safeView(handler.safeView(data.last_fold, 'card_img',0), 'alternativeText', 0)  %> ">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="my-5  <%=handler.isPresent(!handler.safeView(data.last_fold, 'card_title',1), 'u-line-center') %>">
+                    <h3 class="text-center">
+                        <%=  handler.safeView(data.last_fold, 'card_title',1) %>
+                    </h3>
+                </div>
+                <div class="row my-4">
+                    <div class="col-md-6 mb-2">
+                        <img class="w-100 img-fluid shadow" 
+                        src="<%= env + handler.mediaSelection(handler.safeView(data.last_fold, 'card_img',1), quality) %>" 
+                            alt="<%= handler.safeView(handler.safeView(data.last_fold, 'card_img',1), 'alternativeText', 0)  %> ">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-muted text-justify text-muted f-18">
+                            <%- md.render(String(handler.safeView(data.last_fold, 'card_text',1))) -%>
+                        </div>
+                      
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script>
+        // gsap.from(".dropdown-item", {
+        //     duration: 0.5,
+        //     scale: 0.5,
+        //     opacity: 0,
+        //     delay: 0.2,
+        //     stagger: 0.1,
+        //     ease: "elastic",
+        //     force3D: true
+        // });
+        (function () { a = { _b: 0, c: function () { this._b++; return this.b; } }; HTMLElement.prototype.pseudoStyle = function (d, e, f) { var g = "pseudoStyles"; var h = document.head || document.getElementsByTagName('head')[0]; var i = document.getElementById(g) || document.createElement('style'); i.id = g; var j = "pseudoStyle" + a.c(); this.className += " " + j; i.innerHTML += " ." + j + ":" + d + "{" + e + ":" + f + "}"; h.appendChild(i); return this; }; })();
+        gsap.set(".explore", {
+            scale: 0.1,
+            opacity: 0,
+            y: -60,
+        })
+        gsap.to(".explore", 1, {
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            ease: "power1.inOut",
+            delay: 1,
+        });
+    </script>
+    <script>
+        let scrollyArrow = document.getElementById('fold_2');
+        function gotoPos() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: scrollyArrow.offsetTop
+            });
+        }
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+
+
+        (function ($) {
+            $(document).ready(function () {
+                // var controller = new ScrollMagic.Controller();
+
+                // $("._fold_1").each(function() {
+                //     var tl = new TimelineMax();
+                //     var child = $(this).find("#home_media");
+                //     // var child1 = $(this).find("._fold_2");
+                //     tl.to(child, 0.1, {
+                //         height: 0,
+                //         ease: Linear.easeNone
+                //     });
+
+
+
+                //     var scene = new ScrollMagic.Scene({
+                //             triggerElement: this,
+                //             triggerHook: 0.01,
+                //             duration: "500%"
+                //         }).setTween(tl)
+                //         .addTo(controller);
+                // });
+
+
+
+
+
+                $('.statistics-slider').slick({
+                    effect: 'cube',
+                    cubeEffect: {
+                        slideShadows: false,
+                    },
+                    // dots: true,
+                    infinite: false,
+                    nextArrow: $('#Next'),
+                    speed: 300,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    }, {
+                        breakpoint: 600,
+                        settings: {
+                            dots: true,
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    }, {
+                        breakpoint: 480,
+                        settings: {
+                            dots: true,
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                        // You can unslick at a given breakpoint now by adding:
+                        // settings: "unslick"
+                        // instead of a settings object
+                    ]
+                });
+
+
+
+            });
+        })(jQuery);
+
+
+
+        // $('.overlay').addClass('overlay-blue');
+    </script>
+    <script>
+        $.fn.moveIt = function () {
+            var $window = $(window);
+            var instances = [];
+
+            $(this).each(function () {
+                instances.push(new moveItItem($(this)));
+            });
+
+            window.addEventListener('scroll', function () {
+                var scrollTop = $window.scrollTop();
+                instances.forEach(function (inst) {
+                    inst.update(scrollTop);
+                });
+            }, {
+                passive: true
+            });
+        }
+
+        var moveItItem = function (el) {
+            this.el = $(el);
+            this.speed = parseInt(this.el.attr('data-scroll-speed'));
+        };
+
+        moveItItem.prototype.update = function (scrollTop) {
+            this.el.css('transform', 'translateY(' + -(scrollTop / this.speed) + 'px)');
+        };
+
+        // Initialization
+        $(function () {
+            $('[data-scroll-speed]').moveIt();
+        });
+    </script>
+    <script>
+        // AOS.init();
+        // below listed default settings
+        AOS.init({
+            // Global settings:
+            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+            initClassName: 'aos-init', // class applied after initialization
+            animatedClassName: 'aos-animate', // class applied on animation
+            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+            offset: 120, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 500, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: true, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+        });
+        window.onscroll = function () {
+            myFunction()
+        };
+
+        // Get the header
+        var header = document.getElementById("myHeader");
+        var videoContent = document.getElementById('_fold_1_media')
+        console.log(window.pageYOffset);
+        // Get the offset position of the navbar
+        var sticky = videoContent.offsetHeight;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.remove("header-out");
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+                header.classList.add("header-out");
+            }
+        }
+    </script>
+ 
+
+
+</body>
+
+</html>

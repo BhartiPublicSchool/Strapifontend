@@ -1,16 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<%- include('shared/headermeta'); %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bharti Public School</title>
-    <link rel="icon" type="image/jpeg" href="/icon.jpeg" />
-    <link rel="stylesheet" href="css/commonStyle.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
@@ -26,14 +17,7 @@
     <link rel="stylesheet" href="css/foldFooter.css">
 
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script>
     <style>
@@ -221,7 +205,7 @@
 
 <body>
     <%- include('shared/sidebar', { Menu: common.header_menu }); %>
-    <%- include('shared/header', { common: common }); %>
+    <%- include('shared/header', { Menu: common }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
 
     <div class="body-wrap">

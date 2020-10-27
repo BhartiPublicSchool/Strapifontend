@@ -420,6 +420,17 @@ app.get("/explore-campus/slides", async (req, res) => {
   }
 });
 
+app.get("/search", async (req, res) => {
+  try {
+    const response = await axios.get(`${API_ENDPOINT}/searches`);
+    console.log(response.data, process.env.NODE_ENV);
+    console.log(env);
+    res.send(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.get("/creative-arts", async (req, res) => {
   try {
     const response = await axios.get(`${ API_ENDPOINT}/Creative-Arts`);
@@ -516,6 +527,24 @@ app.get("/beyond-books", async (req, res) => {
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("beyond-books", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/landing-page", async (req, res) => {
+  try {
+    const response = await axios.get(`${ API_ENDPOINT}/landing-page`);
+    // console.log(response.data, process.env.NODE_ENV);
+    // console.log(env);
+    res.render("landing-page", {
       data: response.data,
       common: commons.data,
       md,
