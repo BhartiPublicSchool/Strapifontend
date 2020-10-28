@@ -132,6 +132,33 @@
             -webkit-transition: opacity 0.2s linear, transform 0.3s linear; */
 
     }
+    .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+                width: 100%;
+
+                top: 0;
+            }
+        }
 
     .alumni-container .prev-nav-alumni {
         display: none;
@@ -267,16 +294,16 @@
     <%- include('shared/sidebar', { Menu: common.header_menu }); %>
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
-    <div class="">
-        <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>');
-        background-size: cover;"
-            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
-            <div class="overlay"></div>
-            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
-           letter-spacing: 10px;">
-                <%= handler.safeView(data, 'page_title') %>
-            </h1>
-        </div>
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+            background-size: cover;"
+                    class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+                    <div class="overlay"></div>
+                    <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+               letter-spacing: 10px;">
+                        <%= handler.safeView(data, 'page_title') %>
+                    </h1>
+                </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
             <% common.header_menu[4].submenu.forEach(function(item, index){ %>
 

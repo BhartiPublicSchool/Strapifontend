@@ -73,13 +73,13 @@
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
             <% common.header_menu[0].submenu.forEach(function(item, index){ %>
-    
+
             <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 3 ? "active" : "" %>">
                 <%= item.sub_menu_item %>
             </a>
-    
-    
-    
+
+
+
             <% }); %>
         </nav>
 
@@ -101,6 +101,8 @@
             </section>
         </div>
 
+        
+
         <div class="pt-5">
             <div class="mb-4">
                 <section class=" <%= handler.isPresent(!Boolean(data.fold3[0].title), 'u-line-center') %>">
@@ -114,7 +116,7 @@
             <div class="my-5">
 
                 <div class="d-flex flex-column flex-md-row">
-                    <div style="flex:3;" class="text-justify f-18">
+                    <div style="flex:1;" class="text-justify f-18">
                         <div class="mb-4">
                             <section class=" <%= handler.isPresent(!Boolean(data.fold3[0].subtitle), 'u-line') %>">
                                 <h3>
@@ -128,7 +130,7 @@
                         </div>
 
                     </div>
-                    <div style="flex:2;" class="text-center mx-0 ml-md-4 mb-3">
+                    <div style="flex:1;" class="text-center mx-0 ml-md-4 mb-3">
                         <img class="img-fluid shadow"
                             src="<%= env + handler.mediaSelection(data.fold3[0].img, quality) %>"
                             alt="<%= handler.safeView(data.fold3[0].img, 'alternativeText')%>">
@@ -172,7 +174,7 @@
         <div class="mt-5 mb-3">
             <div>
                 <div class="d-flex flex-column flex-md-row">
-                    <div style="flex:3;" class="f-18">
+                    <div style="flex:1;" class="f-18">
                         <div class="mb-4">
                             <section class="<%= handler.isPresent(!Boolean(data.fold3[2].subtitle), 'u-line') %>">
                                 <h3> <%= handler.safeView(data.fold3[2],'subtitle') %></h3>
@@ -185,7 +187,7 @@
                         </div>
 
                     </div>
-                    <div style="flex:2;" class="text-center mx-0 ml-md-4 mb-3">
+                    <div style="flex:1;" class="text-center mx-0 ml-md-4 mb-3">
                         <img class="img-fluid shadow"
                             src="<%= env + handler.mediaSelection(data.fold3[2].img, quality) %>"
                             alt="<%= handler.safeView(data.fold3[2].img, 'alternativeText')%>">
@@ -236,8 +238,8 @@
             <section class="my-5">
                 <div class="font-weight-bold text-center f-20">
                     <%- md.render(String(handler.safeView(data.lastFold,'sub_heading'))) -%>
-                </div >
-              
+                </div>
+
             </section>
         </div>
 

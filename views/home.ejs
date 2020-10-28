@@ -1,314 +1,297 @@
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<%- include('shared/headermeta'); %>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<style>
+    .pic-wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    figure {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        /*animation*/
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Bootstrap CSS -->
+        animation: slideShow 24s linear infinite 0s;
+        -o-animation: slideShow 24s linear infinite 0s;
+        -moz-animation: slideShow 24s linear infinite 0s;
+        -webkit-animation: slideShow 24s linear infinite 0s;
+    }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/commonStyle.css">
-    <link rel="stylesheet" href="css/refined.css">
-    <link rel="stylesheet" href="css/foldFooter.css">
-    <style>
-        .pic-wrapper {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
+    figurecaption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+    }
 
-        figure {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+    .pic-1 {
+        opacity: 1;
+        background-position: center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .pic-2 {
+        animation-delay: 6s;
+        -o-animation-delay: 6s;
+        -moz--animation-delay: 6s;
+        -webkit-animation-delay: 6s;
+        background-position: center center;
+        ;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .pic-3 {
+        animation-delay: 12s;
+        -o-animation-delay: 12s;
+        -moz--animation-delay: 12s;
+        -webkit-animation-delay: 12s;
+        background-position: center center;
+        ;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .pic-4 {
+        animation-delay: 18s;
+        -o-animation-delay: 18s;
+        -moz--animation-delay: 18s;
+        -webkit-animation-delay: 18s;
+        background-position: center center;
+        ;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    /* keyframes*/
+
+    @keyframes slideShow {
+        0% {
             opacity: 0;
-            /*animation*/
-
-            animation: slideShow 24s linear infinite 0s;
-            -o-animation: slideShow 24s linear infinite 0s;
-            -moz-animation: slideShow 24s linear infinite 0s;
-            -webkit-animation: slideShow 24s linear infinite 0s;
+            transform: scale(1);
+            -ms-transform: scale(1);
         }
 
-        figurecaption {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            color: #fff;
+        5% {
+            opacity: 1
         }
 
-        .pic-1 {
+        25% {
             opacity: 1;
-            background-position: center center;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
         }
 
-        .pic-2 {
-            animation-delay: 6s;
-            -o-animation-delay: 6s;
-            -moz--animation-delay: 6s;
-            -webkit-animation-delay: 6s;
-            background-position: center center;
-            ;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+        30% {
+            opacity: 0;
+            transform: scale(1.1);
+            -ms-transform: scale(1.1);
         }
 
-        .pic-3 {
-            animation-delay: 12s;
-            -o-animation-delay: 12s;
-            -moz--animation-delay: 12s;
-            -webkit-animation-delay: 12s;
-            background-position: center center;
-            ;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+        100% {
+            opacity: 0;
+            transform: scale(1);
+            -ms-transformm: scale(1);
+        }
+    }
+
+    @-o-keyframes slideShow {
+        0% {
+            opacity: 0;
+            -o-transform: scale(1);
         }
 
-        .pic-4 {
-            animation-delay: 18s;
-            -o-animation-delay: 18s;
-            -moz--animation-delay: 18s;
-            -webkit-animation-delay: 18s;
-            background-position: center center;
-            ;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+        5% {
+            opacity: 1
         }
 
-        /* keyframes*/
-
-        @keyframes slideShow {
-            0% {
-                opacity: 0;
-                transform: scale(1);
-                -ms-transform: scale(1);
-            }
-
-            5% {
-                opacity: 1
-            }
-
-            25% {
-                opacity: 1;
-            }
-
-            30% {
-                opacity: 0;
-                transform: scale(1.1);
-                -ms-transform: scale(1.1);
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(1);
-                -ms-transformm: scale(1);
-            }
+        25% {
+            opacity: 1;
         }
 
-        @-o-keyframes slideShow {
-            0% {
-                opacity: 0;
-                -o-transform: scale(1);
-            }
-
-            5% {
-                opacity: 1
-            }
-
-            25% {
-                opacity: 1;
-            }
-
-            30% {
-                opacity: 0;
-                -o-transform: scale(1.1);
-            }
-
-            100% {
-                opacity: 0;
-                -o-transformm: scale(1);
-            }
+        30% {
+            opacity: 0;
+            -o-transform: scale(1.1);
         }
 
-        @-moz-keyframes slideShow {
-            0% {
-                opacity: 0;
-                -moz-transform: scale(1);
-            }
+        100% {
+            opacity: 0;
+            -o-transformm: scale(1);
+        }
+    }
 
-            5% {
-                opacity: 1
-            }
-
-            25% {
-                opacity: 1;
-            }
-
-            30% {
-                opacity: 0;
-                -moz-transform: scale(1.1);
-            }
-
-            100% {
-                opacity: 0;
-                -moz-transformm: scale(1);
-            }
+    @-moz-keyframes slideShow {
+        0% {
+            opacity: 0;
+            -moz-transform: scale(1);
         }
 
-        @-webkit-keyframes slideShow {
-            0% {
-                opacity: 0;
-                -webkit-transform: scale(1);
-            }
-
-            5% {
-                opacity: 1
-            }
-
-            25% {
-                opacity: 1;
-            }
-
-            30% {
-                opacity: 0;
-                -webkit-transform: scale(1.1);
-            }
-
-            100% {
-                opacity: 0;
-                -webkit-transformm: scale(1);
-            }
+        5% {
+            opacity: 1
         }
 
-        .overlay {
-            /* position: absolute;
+        25% {
+            opacity: 1;
+        }
+
+        30% {
+            opacity: 0;
+            -moz-transform: scale(1.1);
+        }
+
+        100% {
+            opacity: 0;
+            -moz-transformm: scale(1);
+        }
+    }
+
+    @-webkit-keyframes slideShow {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+        }
+
+        5% {
+            opacity: 1
+        }
+
+        25% {
+            opacity: 1;
+        }
+
+        30% {
+            opacity: 0;
+            -webkit-transform: scale(1.1);
+        }
+
+        100% {
+            opacity: 0;
+            -webkit-transformm: scale(1);
+        }
+    }
+
+    .overlay {
+        /* position: absolute;
             top: 0.75rem;
             width: calc(100% - 1.5rem);
             height: 550px; */
-            background-color: rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
 
-        }
+    }
 
-        .group_btns .button a {
-            padding: 0.75em 1em;
-            text-decoration: none;
-            line-height: 39px;
-            transition: background 0.3s, color 0.3s;
-            position: relative;
-            display: block;
-            color: #fff;
-            font-size: 20px;
-            line-height: 31px;
-            max-height: 4rem;
-            text-transform: uppercase;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -ms-flex-align: center;
-            align-items: center;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
+    .group_btns .button a {
+        padding: 0.75em 1em;
+        text-decoration: none;
+        line-height: 39px;
+        transition: background 0.3s, color 0.3s;
+        position: relative;
+        display: block;
+        color: #fff;
+        font-size: 20px;
+        line-height: 31px;
+        max-height: 4rem;
+        text-transform: uppercase;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
 
-        .group_btns .button {
-            min-width: 14rem;
-        }
+    .group_btns .button {
+        min-width: 14rem;
+    }
 
-        .group_btns .button a:hover,
-        .group_btns .button a:focus {
-            color: #fff;
-            cursor: pointer;
-            text-decoration: none;
-            background: rgba(0, 0, 0, 0.2);
-        }
+    .group_btns .button a:hover,
+    .group_btns .button a:focus {
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        background: rgba(0, 0, 0, 0.2);
+    }
 
+    .body-wrap {
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+    }
+
+    @media screen and (min-width: 768px) {
         .body-wrap {
-            overflow: hidden;
-            position: relative;
-            margin: 0;
+            margin: 0.75rem;
         }
+    }
 
-        @media screen and (min-width: 768px) {
-            .body-wrap {
-                margin: 0.75rem;
-            }
-        }
+    /*  */
+    .form-contact ul,
+    ul {
+        margin: 0px;
+        padding: 0px;
+    }
 
-        /*  */
-        .form-contact ul,
-        ul {
-            margin: 0px;
-            padding: 0px;
-        }
+    .form_icon_svg {
+        position: absolute;
+        padding: 1.5rem 1rem;
 
-        .form_icon_svg {
-            position: absolute;
-            padding: 1.5rem 1rem;
+    }
 
-        }
+    .form-contact ul li input,
+    .form-contact ul li select {
+        width: 100%;
+        border: 1px solid #818181;
+        font-size: 16px;
+        height: 58px;
+        color: #818181;
+        padding: 18px 10px 14px 60px;
+        -webkit-appearance: none;
+    }
 
-        .form-contact ul li input,
-        .form-contact ul li select {
-            width: 100%;
-            border: 1px solid #818181;
-            font-size: 16px;
-            height: 58px;
-            color: #818181;
-            padding: 18px 10px 14px 60px;
-            -webkit-appearance: none;
-        }
+    .form-contact ul li {
+        flex: 1;
+        min-width: 30%;
+        margin: 1rem 1rem;
+    }
 
+    .social-icons li {
+        padding: 1rem;
+    }
+
+    .social-icons li a {
+        color: #818181;
+    }
+
+    @media screen and (max-width: 576px) {
         .form-contact ul li {
             flex: 1;
-            min-width: 30%;
+            min-width: -webkit-fit-content;
+            min-width: -moz-fit-content;
+            min-width: fit-content;
             margin: 1rem 1rem;
         }
 
-        .social-icons li {
-            padding: 1rem;
-        }
-
-        .social-icons li a {
-            color: #818181;
-        }
-
-        @media screen and (max-width: 576px) {
-            .form-contact ul li {
-                flex: 1;
-                min-width: -webkit-fit-content;
-                min-width: -moz-fit-content;
-                min-width: fit-content;
-                margin: 1rem 1rem;
-            }
-
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
@@ -497,7 +480,7 @@
 
 
     <%- include('shared/footer', {footer: common.footer}); %>
-   
+
 </body>
 
 </html>

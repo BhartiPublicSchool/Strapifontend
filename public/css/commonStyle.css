@@ -7,6 +7,10 @@
   --blue-transparent: rgba(40, 41, 93, 0.75);
 }
 
+#top_fold {
+  background-position: center center;
+}
+
 @font-face {
   font-family: Bebas;
   src: url("font/Bebas-Neue-Cyrillic.ttf");

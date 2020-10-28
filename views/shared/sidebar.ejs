@@ -47,24 +47,25 @@
                 </div>
 
                 <% Menu.forEach(function(menu){ %>
+                   
                     <div class="card">
                         <div class="card-header" id="headingTwo">
                             <h4 class="d-flex justify-content-between mb-0">
                                 <a href="<%= menu.menu_href %>" class="btn text-white">
                                     <%= menu.menu_item %>
                                 </a>
-                                <button class="btn text-white collapsed"  data-toggle="collapse" data-target="#<%= menu.menu_item %>" aria-expanded="false" aria-controls="<%= menu.menu_item %>">
+                                <button class="btn text-white collapsed"  data-toggle="collapse" data-target="#<%= String(menu.menu_item).replace(/\s/g, '') %>" aria-expanded="false" aria-controls="<%= menu.menu_item %>">
                             <i class="fa fa-chevron-down fa-xs"></i>
                           </button>
     
                             </h4>
                         </div>
-                        <div id="<%= menu.menu_item %>" class="collapse" aria-labelledby="<%= menu.menu_item %>" data-parent="#sideBarAccourdian">
+                        <div id="<%= String(menu.menu_item).replace(/\s/g, '') %>" class="collapse" aria-labelledby="<%= menu.menu_item %>" data-parent="#sideBarAccourdian">
                             <div class="card-body">
                                 <ul class="list-unstyled mx-3">
                                     <% menu.submenu.forEach(function(item, index){ %>
 
-                                      
+    
                                             <li> <a class="dropdown-item" href="<%= item.menu_link %>">  <%= item.sub_menu_item %></a></li>
                                               
                                           

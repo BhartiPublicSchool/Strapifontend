@@ -144,7 +144,7 @@
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
     <div class="body-wrap">
-        <div style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+        <div id="top_fold"  style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
     background-size: cover;"
             class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
             <div class="overlay"></div>
