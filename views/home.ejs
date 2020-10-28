@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/foldFooter.css">
 <style>
-      .error {
+    .error {
         border: 2px solid red !important;
     }
 
@@ -18,6 +18,7 @@
         display: block;
         background: #FBE9E7;
     }
+
     .pic-wrapper {
         position: absolute;
         width: 100%;
@@ -338,31 +339,30 @@
             <div class="d-flex flex-column justify-content-around h-100">
                 <div class="header-brand text-center">
                     <a href="/">
-                        <img width="160" height="100" alt="" 
-                        src="<%= env + handler.mediaSelection(data.logo, quality) %> ">
+                        <img width="160" height="100" alt=""
+                            src="<%= env + handler.mediaSelection(data.logo, quality) %> ">
                     </a>
                 </div>
                 <div class="my-5 text-center">
                     <h3 style="
                 letter-spacing: 10px;" class="text-white f-30">
-                 <%= data.page_title%>
-            </h3>
+                        <%= data.page_title%>
+                    </h3>
                 </div>
                 <div class="row mx-0">
                     <div class="col">
                         <div class="group_btns font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
                             <% data.home_buttons.forEach(element => { %>
-                                <div>
-                                    <div class="button pr-0 pr-md-2">
-                                        <a href="<%= element.btn_href%>" 
-                                         >
-                                         <%= element.btn_name%>
-                                        </a>
-                                    </div>
+                            <div>
+                                <div class="button pr-0 pr-md-2">
+                                    <a href="<%= element.btn_href%>">
+                                        <%= element.btn_name%>
+                                    </a>
                                 </div>
+                            </div>
                             <% }) %>
-                         
-                          
+
+
 
 
 
@@ -379,87 +379,87 @@
         <div class="text-center">
             <h4 class=" fadeInUp animate">
                 <%= data.form_title1%>
-               
+
             </h4>
             <div class="my-5">
                 <h3 class="fadeInUp animate">
                     <%= data.form_title2%>
-                  </h3>
+                </h3>
             </div>
-<form id="contactForm" name="contactForm">
-    <div class="form-contact fadeInUp animate" id="GetInForm">
-        <ul style="list-style: none;" class="d-flex flex-wrap justify-content-between">
-            <li class="d-flex flex-column mb-2">
-                <input type="text" id="studentName" name="studentName" placeholder="Student Name" maxlength="35" >
+            <form id="contactForm" name="contactForm">
+                <div class="form-contact fadeInUp animate" id="GetInForm">
+                    <ul style="list-style: none;" class="d-flex flex-wrap justify-content-between">
+                        <li class="d-flex flex-column mb-2">
+                            <input type="text" id="studentName" name="studentName" placeholder="Student Name"
+                                maxlength="35">
 
-                <div class="form_icon_svg">
-                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <div class="form_icon_svg">
+                                <i class="fa fa-user-o" aria-hidden="true"></i>
+
+                            </div>
+
+                        </li>
+
+                        <li class="d-flex flex-column mb-2">
+                            <input type="text" id="email" name="email" placeholder="Email" maxlength="35">
+                            <div class="form_icon_svg">
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            </div>
+                        </li>
+
+                        <li class="d-flex flex-column mb-2">
+                            <input type="number" id="phone" name="phone" placeholder="Mobile" maxlength="10">
+                            <div class="form_icon_svg p-3">
+                                <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
+                                <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
+                            </div>
+                        </li>
+
+                        <li class="d-flex flex-column mb-2">
+                            <input type="text" id="city" name="city" placeholder="City" class="input4" maxlength="35"
+                                autocomplete="off">
+                            <div class="form_icon_svg">
+                                <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+                            </div>
+                        </li>
+
+                        <li class="d-flex flex-column mb-2">
+                            <select id="school" name="school" class="">
+                                <option value="">Select School</option>
+                                <% data.select_school.forEach((element, index) => { %>
+                                <option value="<%= index %>">
+                                    <%= element.title%>
+                                </option>
+                                <% }) %>
+
+                            </select>
+
+                            <div class="form_icon_svg">
+                                <i class="fa fa-university fa-md" aria-hidden="true"></i>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-column">
+                            <select id="std" name="std" class="">
+                                <option value="">Select Grade</option>
+                                <% data.select_grade.forEach((element, index) => { %>
+                                <option value="<%= index %>">
+                                    <%= element.title%>
+                                </option>
+                                <% }) %>
+                            </select>
+                            <div class="form_icon_svg">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                            </div>
+
+                        </li>
+
+                    </ul>
+                    <div><button class="btn btn-outline-success rounded-0" type="submit" name='submit'
+                            id="submit">Submit</button></div>
 
                 </div>
+            </form>
 
-            </li>
-
-            <li class="d-flex flex-column mb-2">
-                <input type="text" id="email" name="email" placeholder="Email" maxlength="35" >
-                <div class="form_icon_svg">
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                </div>
-            </li>
-
-            <li class="d-flex flex-column mb-2">
-                <input type="number" id="phone" name="phone" placeholder="Mobile" maxlength="10"
-                 >
-                <div class="form_icon_svg p-3">
-                    <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
-                    <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
-                </div>
-            </li>
-
-            <li class="d-flex flex-column mb-2">
-                <input type="text" id="city" name="city" placeholder="City" class="input4" maxlength="35"
-                    autocomplete="off">
-                <div class="form_icon_svg">
-                    <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
-                </div>
-            </li>
-
-            <li class="d-flex flex-column mb-2">
-                <select id="school" name="school" class="">
-                    <option value="">Select School</option>
-                    <% data.select_school.forEach((element, index) => { %>
-                        <option value="<%= index %>">
-                            <%= element.title%>
-                        </option>
-                    <% }) %>
-
-                </select>
-
-                <div class="form_icon_svg">
-                    <i class="fa fa-university fa-md" aria-hidden="true"></i>
-                </div>
-            </li>
-            <li class="d-flex flex-column">
-                <select id="std" name="std" class="">
-                    <option value="">Select Grade</option>
-                    <% data.select_grade.forEach((element, index) => { %>
-                        <option value="<%= index %>">
-                            <%= element.title%>
-                        </option>
-                    <% }) %>
-                </select>
-                <div class="form_icon_svg">
-                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                </div>
-               
-            </li>
-
-        </ul>
-        <div ><button class="btn btn-outline-success rounded-0" type="submit" name='submit'
-                id="submit">Submit</button></div>
-
-    </div>
-</form>
-           
 
         </div>
 
@@ -518,8 +518,8 @@
 
 
     <%- include('shared/footer', {footer: common.footer}); %>
-<script>
-       $(function () {
+    <script>
+        $(function () {
             // Initialize form validation on the registration form.
             // It has the name attribute "registration"
             $("form[name='contactForm']").validate({
@@ -535,7 +535,7 @@
                     {
                         required: true,
                     },
-                   
+
                     std: {
                         required: true,
                     },
@@ -563,22 +563,22 @@
                     let data = {
                         sName: $('#studentName').val(),
                         city: $('#city').val(),
-                    
-                       
+
+
                         std: $('#std').find(":selected").text(),
                         email: $('#email').val(),
                         school: $('#school').find(":selected").val(),
-                      
+
                         phone: $('#phone').val(),
-                       
+
                     }
                     console.log("form", data);
                     // form.submit();
                 }
             });
         });
-   
-</script>
+
+    </script>
 </body>
 
 </html>
