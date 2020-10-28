@@ -1,0 +1,26 @@
+<div class="my-5">
+    <div
+        class="text-center my-5 <%= handler.isPresent(!handler.safeView(object, 'card_title'), 'u-line-center') %>">
+        <h3 class="f-40">
+            <%=  handler.safeView(object, 'card_title') %>
+        </h3>
+    </div>
+    <div class="row my-4">
+        <div class="col-md-6 mb-2  order-2 order-md-0">
+            <img class="w-100 shadow"
+                src="<%= env + handler.mediaSelection(handler.safeView(object, 'card_img'), quality) %>"
+                alt="<%= handler.safeView(handler.safeView(object, 'card_img'), 'alternativeText', 0)  %> ">
+        </div>
+        <div class="col-md-6">
+            <div class="text-muted text-justify f-18">
+                <%- md.render(String(handler.safeView(object, 'card_text'))) -%>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="text-muted">
+        <%- md.render(String(handler.safeView(object, 'card_extra'))) -%>
+    </div>
+
+</div>
