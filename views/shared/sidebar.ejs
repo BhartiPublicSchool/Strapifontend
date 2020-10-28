@@ -25,7 +25,7 @@
                     <div class="card-header" id="headingOne">
                         <h4 class="d-flex justify-content-between mb-0">
                             <button class="btn text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        QuickLinks
+                                <%= handler.safeView(common.dropdownHover, 'menu_title') %>
                       </button>
                             <button class="btn text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <i class="fa fa-chevron-down fa-xs"></i>
@@ -37,10 +37,11 @@
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#sideBarAccourdian">
                         <div class="card-body">
                             <ul class="list-unstyled mx-3">
-                                <li> <a class="dropdown-item" href="#">Forms & Certificates</a></li>
-                                <li> <a class="dropdown-item" href="#">BPS Bulletin</a></li>
-                                <li> <a class="dropdown-item" href="#">Admission Handbook</a></li>
-                                <li> <a class="dropdown-item" href="#">Employment</a></li>
+                                <% common.dropdownHover.q_links.forEach((element, index) => { %>
+                                    <li> <a class="dropdown-item" <% if (index ==1) { %> target="_blank" <% } %>
+                                            href="<%= handler.safeView(element, "link_href") %> ">
+                                            <%= handler.safeView(element, 'link_title') %> </a></li>
+                                    <% }) %>
                             </ul>
                         </div>
                     </div>
