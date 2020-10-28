@@ -1,0 +1,41 @@
+<div id="accordionExample">
+    <% qa.forEach(function(item, index){ %>
+    <div class="my-1" id="heading<%= index%>">
+
+        <a class="btn btn-block text-left qaAccordian custom-faq-font font-weight-bold p-3"
+            type="button" data-toggle="collapse" data-target="#collapse<%= index%>" aria-expanded="true"
+            aria-controls="collapseOne" onclick="myFunction.call(this)">
+            <div class="d-flex">
+                <span>
+                    <svg width="0.875em" height="0.875em" viewBox="0 0 16 16" class="bi bi-chevron-down mr-3"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                </svg>
+                </span>
+              
+                <span>
+                    <%= item.question %>
+                </span>
+            </div>
+           
+            
+            </a>
+        </a>
+
+    </div>
+
+    <div id="collapse<%= index%>" class="collapse bg-light" aria-labelledby="heading<%= index%>">
+        <div class="card-body">
+            <%- md.render(String(item.answer)) -%>
+
+        </div>
+    </div>
+
+
+
+    <% }); %>
+
+
+
+</div>

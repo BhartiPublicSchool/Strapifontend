@@ -141,9 +141,15 @@
             <div class="my-5">
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="faculty" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="">
-                            <%- md.render(handler.safeView(data, 'faculty_tab')) -%>
-                        </div>
+                        <% if (data.faculty_tab && data.faculty_tab.trim().length === 0) { %>
+                         
+                       
+                        <% } else { %>
+                            <div class="">
+                                <%- md.render(handler.safeView(data, 'faculty_tab')) -%>
+                            </div>
+                            <% }  %>
+                     
                     </div>
 
                     <div class="tab-pane fade " id="staff" role="tabpanel" aria-labelledby="nav-home-tab">

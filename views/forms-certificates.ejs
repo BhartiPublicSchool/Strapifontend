@@ -1,74 +1,57 @@
 <!doctype html>
-<html lang="en">
+<%- include('shared/headermeta'); %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+    integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    }
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="css/commonStyle.css">
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="css/refined.css">
-    <link rel="stylesheet" href="css/topnavbar.css">
-    <link rel="stylesheet" href="css/dropdownhover.css">
-    <link rel="stylesheet" href="css/foldFooter.css">
-    <title>Bharti Public School</title>
-    <style>
-        .header-underline h5:before {
-            content: '';
-            background: #56a0d3;
-            width: 57px;
-            height: 2px;
-            position: absolute;
-            bottom: 85px;
-            transform: translateX(200%);
-        }
-
+    @media screen and (max-width: 768px) {
         .jumbotron .overlay {
-            position: absolute;
-            top: 0.75rem;
-            width: calc(100% - 1.5rem);
-            height: 550px;
-            background-color: rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+            width: 100%;
 
+            top: 0;
         }
+    }
 
-        @media screen and (max-width: 768px) {
-            .jumbotron .overlay {
-                width: 100%;
+    .error {
+        border: 2px solid red;
+    }
 
-                top: 0;
-            }
-        }
+    label.error {
+        border: none;
+        padding: 0.5rem;
+        display: block;
+        background: #FBE9E7;
+    }
 
-        .error {
-            border: 2px solid red;
-        }
-
-        label.error {
-            border: none;
-            padding: 0.5rem;
-            display: block;
-            background: #FBE9E7;
-        }
-
-        .class_division,
-        .passing_year {
-            display: none;
-        }
-    </style>
+    .class_division,
+    .passing_year {
+        display: none;
+    }
+</style>
 </head>
 
 <body>
@@ -87,7 +70,7 @@
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
             <% common.header_menu[1].submenu.forEach(function(item, index){ %>
-    
+
             <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 3 ? "active" : "" %>">
                 <%= item.sub_menu_item %>
             </a>
@@ -253,20 +236,12 @@
                 <!-- <button class="btn btn-primary px-4" style="background: #1B2736;">DOWNLOAD ADMISSIONS BROCHURE</button> -->
                 <div class="card custom-card">
                     <div class="card-body">
-                        <h3 class="card-title text-cEnter">FORMS & CERTIFICATES:</h3>
+                        <h3 class="card-title text-cEnter">   <%= handler.safeView(data.instructions, 'title') -%>:</h3>
 
                         <div class="card-text">
-                            <ul>
-
-                                <li>Select the form or certificate as needed by the student</li>
-                                <li>All fields mentioned are mandatory and should be entered correctly</li>
-                                <li> After submission, a school representative will get in touch with you for further
-                                    steps </li>
-                                <li>In case of queries, you may reach us via phone on 011-22512878 or email us at
-                                    preeti.sharma@bps.edu.in</li>
-
-                            </ul>
+                            <%- md.render(String(handler.safeView(data.instructions, 'text'))) -%>
                         </div>
+                     
 
                     </div>
 
@@ -282,15 +257,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+
 
     <script type="text/javascript">
         function openNav() {
@@ -325,19 +292,6 @@
             }
         }
     </script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
-        integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
-        crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         function myFunction() {

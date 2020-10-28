@@ -1,5 +1,6 @@
 <!doctype html>
 <%- include('shared/headermeta'); %>
+
 <link rel="stylesheet" href="css/refined.css">
 <link rel="stylesheet" href="css/topnavbar.css">
 
@@ -51,7 +52,7 @@
             <div class="overlay"></div>
             <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
        letter-spacing: 10px;">
-                Contact US
+                <%= handler.safeView(data, 'page_title')%>
 
             </h1>
         </div>
@@ -70,25 +71,14 @@
 
 
                 <div style="flex:2;" class="text-center f-18">
-                    <h4><b>Bharti Public School</b></h4>
-                    <p>
-                        Near, Metro Station, Vikas Marg, Nirman Vihar, Swasthya Vihar, New Delhi 110092.
-                        Phone: ​011-22512878/011-22502878
-                    </p>
-                    <p>
-                        For further inquiries, e-mail us: <br> Admissions: ​admissions.sv@bps.edu.in<br> General:
-                        ​info.sv@bps.edu.in
-                        <br> Media: ​media.sv@bps.edu.in <br> Admin/IT: ​tech.sv@bps.edu.in<br> Employment:
-                        ​careers.sv@bps.edu.in
-                    </p>
-
+                    <%- md.render(handler.safeView(data, 'contact_details')) -%>
 
                 </div>
                 <div style="flex:3; order: 1;" class="text-center mx-0 ml-md-4 mb-3">
                     <div class="col my-2 my-md-0">
                         <div class="d-flex flex-column justify-content-center h-100">
 
-                            <img src="bps-life/Screen Shot 2020-08-10 at 11.00.06 PM.png" style="width:100%">
+                            <img src="<%= env + handler.mediaSelection(data.map, quality)%>" style="width:100%">
 
 
 
@@ -105,149 +95,19 @@
 
         <div class="contain">
             <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
-                <div class="my-2 text-center">
-                    <a href="student-resource.html" class="btn explore">Faculty Directory </a>
-                </div>
-                <div class="my-2 text-center">
-                    <a href="apply-now.html" class="btn explore"> Employment </a>
-                </div>
-
-
+                <% for( let index = 0; index < data.buttons.length; index++ ) { %>
+                <a class="btn explore" href="<%= handler.safeView(data.buttons, 'btn_href', index) %> ">
+                    <%= handler.safeView(data.buttons, 'btn_name', index) %> </a>
+                <% } %>
             </div>
         </div>
 
 
 
-        <!-- <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
-            <div class="my-2 text-center">
-                <a class="btn explore">Forms & Certificates</a>
-            </div>
-            <div class="my-2 text-center">
-                <a class="btn explore">Apply to BPS!</a>
-            </div>
-            <div class="my-2 text-center">
-                <a class="btn explore">Explore Campus</a>
-            </div>
-
-
-        </div> -->
-
-
 
     </div>
-    <div class="body-wrap">
 
-        <footer style="background-image: url(./bg_footer.jpg);
-        background-size: cover;
-        background-position: center;">
-            <div class="footer-bg">
-
-
-                <div class="row mx-0">
-                    <div style="z-index: 1;" class="social-icons col-md-4">
-                        <h4 class="text-white text-center my-5">Stay Connected</h4>
-                        <div class="d-flex justify-content-center">
-                            <div>
-                                <a href="https://www.facebook.com/Bhartipublicschooldelhi/"><i class="fa fa-facebook"
-                                        aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="https://www.linkedin.com/school/bharti-public-school---india/"><i
-                                        class="fa fa-linkedin" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="https://www.linkedin.com/school/bharti-public-school---india/"><i
-                                        class="fa fa-youtube" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="https://www.instagram.com/bhartipublicschooldelhi/"><i class="fa fa-instagram"
-                                        aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div style="z-index: 1;" class="col-md-4 text-center pt-4">
-                        <div class=" p-3">
-
-                            <img src="./logo.png" alt="">
-
-                        </div>
-                        <div class="footer-title my-5">
-                            <!-- <h6><b> Bharti Public School</b></h6>
-                            <h6>Swasthya Vihar</h6> -->
-                            <p>Near, Metro Station, Vikas Marg, Nirman Vihar, <br>Swasthya Vihar, New Delhi 110092.</p>
-
-                        </div>
-                        <div class="d-flex justify-content-around  text-white mt-2">
-
-                            <!-- <div class="footer-links"> -->
-                            <!-- <div class="d-flex "> -->
-                            <a style="min-width: 115px;" class=" btn btn-outline-light rounded-0" href="">Explore</a>
-                            <a style="min-width: 115px;" class="btn btn-outline-light rounded-0" href="">Apply</a>
-                            <a style="min-width: 115px;" class="btn btn-outline-light rounded-0" href="">Contact Us</a>
-                            <!-- </div> -->
-                            <!-- </div> -->
-                        </div>
-
-                    </div>
-
-                    <div style="z-index: 1;" class="acredition col-md-4 text-center">
-                        <h4 class="text-white my-5">Accreditation</h4>
-                        <div class="d-flex justify-content-center">
-                            <div style="width: 150px;">
-                                <img width="100%" src="./accreditation/cbse-logo-png-3-1.png" alt="">
-                            </div>
-                            <div style="width: 150px;">
-                                <img width="100%" src="./accreditation/Last Fold - Accreditation British council.png"
-                                    alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mx-0 mt-4">
-                    <div style="z-index: 1"
-                        class="w-100 pt-4 px-5 mx-0 ml-md-3 mr-md-5 d-flex flex-column flex-md-row justify-content-between">
-                        <div style="flex:2;">
-                            <ul style="list-style: none;" class="d-flex justify-content-around px-0">
-                                <li><a class="text-white p-2" href="#">Directory</a></li>
-                                <li style="border-right: 1px solid #fff;"></li>
-                                <li><a class="text-white p-2" href="#">Site Map</a></li>
-                                <li style="border-right: 1px solid #fff;"></li>
-                                <li><a class="text-white p-2" href="#">Careers</a></li>
-                            </ul>
-                        </div>
-                        <div style="z-index: 1; flex: 5;" class="text-white mx-0">
-                            <p class="text-md-right text-center mr-md-4">© 2020 Bharti Public School</p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-            </div>
-            <div class="mr-2 mb-2" style="display: inline;
-            position: absolute;
-            bottom: 0;
-            z-index: 1;
-            right: 0;">
-                <a style=" cursor: pointer;" onclick="gotoTop()">
-                    <div class="d-flex flex-column">
-                        <i class="fa fa-angle-double-up fa-2x text-white mx-3"></i>
-                        <span style="font-size: 10px;" class="text-white">Take me up</span>
-                    </div>
-
-                </a>
-
-            </div>
-
-
-        </footer>
-    </div>
-
-    <script>
-
-    </script>
+    <%- include('shared/footer', {footer: common.footer}); %>
 </body>
 
 </html>

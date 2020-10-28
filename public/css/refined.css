@@ -85,8 +85,8 @@
 
 .custom-table {
     color: white;
-    /* background: var(--blue); */
-    background: #333e48;
+    background: var(--blue);
+    /* background: #333e48; */
     border-color: grey;
 }
 .w-16{
@@ -123,6 +123,17 @@
     outline: 0;
     box-shadow: 0 0 0 0.1rem rgb(46 48 51 / 84%);
   }
+
+  
+  svg {
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.qaAccordian.faq-vistited svg {
+    transform: rotate(180deg);
+}
 
 
 

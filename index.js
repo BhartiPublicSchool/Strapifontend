@@ -395,10 +395,10 @@ app.get("/alumni", async (req, res) => {
 
 app.get("/forms-certificates", async (req, res) => {
   try {
-    // const response = await axios.get(`${ API_ENDPOINT}/a-rich-history");
+    const response = await axios.get(`${ API_ENDPOINT}/heading-And-text`);
     // console.log(response.data, process.env.NODE_ENV);
     res.render("forms-certificates", {
-      // data: response.data,
+      data: response.data,
       common: commons.data,
       md,
       env,

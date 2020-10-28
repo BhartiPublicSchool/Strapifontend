@@ -110,7 +110,8 @@
                     <h4 style="font-size: 3rem;">Admissions FAQ</h4>
                 </div> -->
                 <div>
-                    <div id="accordionExample">
+                    <%- include('elements/accordian', {qa: data.applySteps}); %>
+                    <!-- <div id="accordionExample">
                         <% data.applySteps.forEach(function(item, index){ %>
                         <div class="my-1" id="heading<%= index%>">
 
@@ -136,7 +137,7 @@
 
 
                         <% }); %>
-                    </div>
+                    </div> -->
                 </div>
                 <section class="text-center my-5">
                     <a href="<%= data.link.link_href %>" style="text-decoration: none;" class="btn font-blue-on-hover">
