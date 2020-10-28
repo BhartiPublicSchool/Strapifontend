@@ -170,11 +170,11 @@ app.get("/apply", async (req, res) => {
 
 app.get("/home", async (req, res) => {
   try {
-    // const response = await axios.get(`${ API_ENDPOINT}/apply-now");
+    const response = await axios.get(`${ API_ENDPOINT}/landing-page`);
     // console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("home", {
-      // data: response.data,
+      data: response.data,
       common: commons.data,
       md,
       env,

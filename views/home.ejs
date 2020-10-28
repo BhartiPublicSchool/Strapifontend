@@ -1,9 +1,23 @@
 <html lang="en">
 
 <%- include('shared/headermeta'); %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+    integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
+    crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/foldFooter.css">
 <style>
+      .error {
+        border: 2px solid red !important;
+    }
+
+    label.error {
+        border: none !important;
+        padding: 0.5rem;
+        display: block;
+        background: #FBE9E7;
+    }
     .pic-wrapper {
         position: absolute;
         width: 100%;
@@ -291,16 +305,24 @@
         }
 
     }
+
+    #home_media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 </style>
 </head>
 
 <body>
     <div class="body-wrap h-100">
         <div class="pic-wrapper">
-            <figure
-                style="  background-image: url(http://cdn.morguefile.com/imageData/public/files/g/GaborfromHungary/06/p/74fea178af5c36b5303625ffeacd8454.jpg) "
-                class="pic-1"></figure>
-            <figure
+
+            <div class="fadeIn animated">
+                <video loop autoplay id="home_media" width="100%" muted
+                    src="<%= env + handler.safeView(data.page_bg, 'url') %>"></video>
+            </div>
+            <!--   <figure
                 style=" background-image: url(http://cdn.morguefile.com/imageData/public/files/k/Koan/06/p/ea989990a29bb73aa78db9f8322b5631.jpg) "
                 class="pic-2"></figure>
             <figure
@@ -308,7 +330,7 @@
                 class="pic-3"></figure>
             <figure
                 style=" background-image: url(http://cdn.morguefile.com/imageData/public/files/i/Isbiliani/05/p/8787b7ac34a8de4c4aad6fe8a5d7e925.jpg) "
-                class="pic-4"></figure>
+                class="pic-4"></figure> -->
         </div>
         <div class="pic-wrapper overlay">
         </div>
@@ -316,29 +338,31 @@
             <div class="d-flex flex-column justify-content-around h-100">
                 <div class="header-brand text-center">
                     <a href="/">
-                        <img width="160" height="100" alt="" src="./logo.png">
+                        <img width="160" height="100" alt="" 
+                        src="./logo.png">
                     </a>
                 </div>
                 <div class="my-5 text-center">
                     <h3 style="
-                letter-spacing: 10px;" class="text-white f-30">Explore our campuses</h3>
+                letter-spacing: 10px;" class="text-white f-30">
+                 <%= data.page_title%>
+            </h3>
                 </div>
                 <div class="row mx-0">
                     <div class="col">
                         <div class="group_btns font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
-                            <div>
-                                <div class="button pr-0 pr-md-2">
-                                    <a href="athletics.html" onmouseover="startvideo(1)"
-                                        onmouseout="stopvideo()">Swasthya Vihar
-                                    </a>
+                            <% data.home_buttons.forEach(element => { %>
+                                <div>
+                                    <div class="button pr-0 pr-md-2">
+                                        <a href="<%= element.btn_href%>" 
+                                         >
+                                         <%= element.btn_name%>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div class="button pl-0 pl-md-2">
-                                    <a href="creative-arts.html" onmouseover="startvideo(2)"
-                                        onmouseout="stopvideo()">Mayur Vihar </a>
-                                </div>
-                            </div>
+                            <% }) %>
+                         
+                          
 
 
 
@@ -353,76 +377,90 @@
 
     <div class="contain">
         <div class="text-center">
-            <h4 class=" fadeInUp animate">Drop us your details for a
-                quick response.</h4>
+            <h4 class=" fadeInUp animate">
+                <%= data.form_title1%>
+               
+            </h4>
             <div class="my-5">
-                <h3 class="fadeInUp animate">Get In Touch</h3>
+                <h3 class="fadeInUp animate">
+                    <%= data.form_title2%>
+                  </h3>
             </div>
+<form id="contactForm" name="contactForm">
+    <div class="form-contact fadeInUp animate" id="GetInForm">
+        <ul style="list-style: none;" class="d-flex flex-wrap justify-content-between">
+            <li class="d-flex flex-column mb-2">
+                <input type="text" id="studentName" name="studentName" placeholder="Student Name" maxlength="35" >
 
-            <div class="form-contact fadeInUp animate" id="GetInForm">
-                <ul style="list-style: none;" class="d-flex flex-wrap justify-content-between">
-                    <li class="d-flex mb-2">
-                        <input type="text" id="name" placeholder="Student Name" maxlength="35" autocomplete="off">
+                <div class="form_icon_svg">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
 
-                        <div class="form_icon_svg">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                </div>
 
-                        </div>
+            </li>
 
-                    </li>
+            <li class="d-flex flex-column mb-2">
+                <input type="text" id="email" name="email" placeholder="Email" maxlength="35" >
+                <div class="form_icon_svg">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                </div>
+            </li>
 
-                    <li class="d-flex mb-2">
-                        <input type="text" id="email" placeholder="Email" maxlength="35" autocomplete="off">
-                        <div class="form_icon_svg">
-                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        </div>
-                    </li>
+            <li class="d-flex flex-column mb-2">
+                <input type="number" id="phone" name="phone" placeholder="Mobile" maxlength="10"
+                 >
+                <div class="form_icon_svg p-3">
+                    <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
+                    <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
+                </div>
+            </li>
 
-                    <li class="d-flex mb-2">
-                        <input type="text" id="phoneno" placeholder="Mobile" maxlength="10"
-                            onkeypress="return isNumberKey(event)" autocomplete="off">
-                        <div class="form_icon_svg p-3">
-                            <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
-                            <!-- <i class="fa fa-phone" aria-hidden="true"></i> -->
-                        </div>
-                    </li>
+            <li class="d-flex flex-column mb-2">
+                <input type="text" id="city" name="city" placeholder="City" class="input4" maxlength="35"
+                    autocomplete="off">
+                <div class="form_icon_svg">
+                    <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+                </div>
+            </li>
 
-                    <li class="d-flex mb-2">
-                        <input type="text" id="city" placeholder="City" class="input4" maxlength="35"
-                            autocomplete="off">
-                        <div class="form_icon_svg">
-                            <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
-                        </div>
-                    </li>
+            <li class="d-flex flex-column mb-2">
+                <select id="school" name="school" class="">
+                    <option value="">Select School</option>
+                    <% data.select_school.forEach((element, index) => { %>
+                        <option value="<%= index %>">
+                            <%= element.title%>
+                        </option>
+                    <% }) %>
 
-                    <li class="d-flex mb-2">
-                        <select id="sel1" class="">
-                            <option value="">Select School</option>
-                            <option value="PathwaysAravali">Pathways Aravali</option>
-                            <option value="PathwaysGurgaon">Pathways Gurgaon</option>
-                            <option value="PathwaysNoida">Pathways Noida</option>
+                </select>
 
-                        </select>
+                <div class="form_icon_svg">
+                    <i class="fa fa-university fa-md" aria-hidden="true"></i>
+                </div>
+            </li>
+            <li class="d-flex flex-column">
+                <select id="std" name="std" class="">
+                    <option value="">Select Grade</option>
+                    <% data.select_grade.forEach((element, index) => { %>
+                        <option value="<%= index %>">
+                            <%= element.title%>
+                        </option>
+                    <% }) %>
+                </select>
+                <div class="form_icon_svg">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                </div>
+               
+            </li>
 
-                        <div class="form_icon_svg">
-                            <i class="fa fa-university fa-md" aria-hidden="true"></i>
-                        </div>
-                    </li>
-                    <li class="d-flex">
-                        <select id="ddlgrade" name="ddlgrade" class="">
-                            <option value="">Select Grade</option>
-                        </select>
-                        <div class="form_icon_svg">
-                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                        </div>
-                        <input type="hidden" name="hdnuseripaddress" id="hdnuseripaddress" readonly="readonly">
-                    </li>
+        </ul>
+        <div ><button class="btn btn-outline-success rounded-0" type="submit" name='submit'
+                id="submit">Submit</button></div>
 
-                </ul>
-                <div id="loading-image"><button class="btn btn-outline-success rounded-0" type="button"
-                        id="btnSubmit">Submit</button></div>
+    </div>
+</form>
+           
 
-            </div>
         </div>
 
         <div class="social-icons my-5 d-flex justify-content-between">
@@ -480,7 +518,67 @@
 
 
     <%- include('shared/footer', {footer: common.footer}); %>
+<script>
+       $(function () {
+            // Initialize form validation on the registration form.
+            // It has the name attribute "registration"
+            $("form[name='contactForm']").validate({
 
+                // Specify validation rules
+                rules: {
+                    // The key name on the left side is the name attribute
+                    // of an input field. Validation rules are defined
+                    // on the right side
+                    studentName: "required",
+                    city: "required",
+                    school:
+                    {
+                        required: true,
+                    },
+                   
+                    std: {
+                        required: true,
+                    },
+
+                    phone: "required",
+
+                    email: {
+                        required: true,
+                        // Specify that email should be validated
+                        // by the built-in "email" rule
+                        email: true
+                    },
+
+                },
+                // Specify validation error messages
+                messages: {
+                    studentName: "Please Enter your student Name",
+                    phone: "Please Enter your Mobile Number",
+
+                    email: "Please Enter a valid email address"
+                },
+                // Make sure the form is submitted to the destination defined
+                // in the "action" attribute of the form when valid
+                submitHandler: function (form) {
+                    let data = {
+                        sName: $('#studentName').val(),
+                        city: $('#city').val(),
+                    
+                       
+                        std: $('#std').find(":selected").text(),
+                        email: $('#email').val(),
+                        school: $('#school').find(":selected").val(),
+                      
+                        phone: $('#phone').val(),
+                       
+                    }
+                    console.log("form", data);
+                    // form.submit();
+                }
+            });
+        });
+   
+</script>
 </body>
 
 </html>

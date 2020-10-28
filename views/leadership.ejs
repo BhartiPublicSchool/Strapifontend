@@ -1,218 +1,97 @@
-
 <!doctype html>
-<html lang="en">
+<%- include('shared/headermeta'); %>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<title>Bharti Public School</title>
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
 
-      <!-- jQuery library -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
 
-      <!-- Popper JS -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  
-      <!-- Latest compiled JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/commonStyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  
-    <link rel="stylesheet" href="css/refined.css">
-    <link rel="stylesheet" href="css/topnavbar.css">
-    <link rel="stylesheet" href="css/dropdownhover.css">
-    <link rel="stylesheet" href="css/foldFooter.css">
-    <title>Bharti Public School</title>
-    <style>
-        
-        .header-underline h5:before {
-            content: '';
-            background: #56a0d3;
-            width: 57px;
-            height: 2px;
-            position: absolute;
-            bottom: 85px;
-            transform: translateX(200%);
-        }
-        
+    }
+
+    @media screen and (max-width: 768px) {
         .jumbotron .overlay {
-            position: absolute;
-            top: 0.75rem;
-            width: calc(100% - 1.5rem);
-            height: 550px;
-            background-color: rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
-
-        }
-        
-        @media screen and (max-width: 768px) {
-            .jumbotron .overlay {
             width: 100%;
-           
+
             top: 0;
-            }
         }
-    </style>
+    }
+</style>
 </head>
 
 <body>
     <%- include('shared/sidebar', { Menu: common.header_menu }); %>
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
-<div class="body-wrap">
-    <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
-    background-size: cover;" class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
-       <div class="overlay"></div>
-       <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
        letter-spacing: 10px;">
-           <%= data.page_title %>
-        </h1>
+                <%= data.page_title %>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[0].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 4 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+
+
+
+            <% }); %>
+        </nav>
     </div>
-    <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-        <% common.header_menu[0].submenu.forEach(function(item, index){ %>
-
-        <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 4 ? "active" : "" %>">
-            <%= item.sub_menu_item %>
-        </a>
-
-
-
-        <% }); %>
-    </nav>
-</div>
     <div class="contain">
-        <div>
-            <section class="my-5 u-line">
-                <h2 class="font-weight-bold">
-                    <%= data.Leaders[0].title %>
-                </h2>
-                <h3 > <%= data.Leaders[0].subtitle %></h3>
-            </section>
-            <div class="d-flex flex-column flex-md-row">
-                <div class="text-justify text-muted f-18">
-                    <%- md.render(String(handler.safeView(data.Leaders,'text', 0))) -%>  
-                </div>
-                <div class="text-center mx-0 ml-md-4 mb-3">
-                    <img class="shadow" style="min-width: 250px;" width="280" height="320"
-                    src="<%= env + handler.mediaSelection(data.Leaders[0].img, quality) %>"
-                    alt="<%= handler.safeView(data.Leaders[0].img, 'alternativeText')%>">
-                </div>
-
-            </div>
-            <div class="text-justify text-muted f-18">
-                <%- md.render(String(handler.safeView(data.Leaders,'extra_text',0))) -%> 
-            </div>
-           
-
-        </div>
-
-        <div>
-            <section class="my-5 u-line">
-                <h2 class="font-weight-bold">
-                    <%= data.Leaders[1].title %>
-                </h2>
-                <h3 > <%= data.Leaders[1].subtitle %></h3>
-            </section>
-            <div class="d-flex flex-column flex-md-row ">
-              
-               
-                <div class="text-justify text-muted f-18">
-                    <%- md.render(String(handler.safeView(data.Leaders,'text', 1))) -%> </div>
-                <div class="text-center mx-0 ml-md-4 mb-3">
-                    <img class="shadow" style="min-width: 250px;" width="280" height="320"
-                    src="<%= env + handler.mediaSelection(data.Leaders[1].img, quality) %>"
-                    alt="<%= handler.safeView(data.Leaders[1].img, 'alternativeText')%>">
-                </div>
-
-            </div>
-            <div class="text-justify text-muted f-18">
-                <%- md.render(String(handler.safeView(data.Leaders,'extra_text',1))) -%> 
-            </div>
-           
-
-        </div>
-
-        <div>
-            <section class="my-5 u-line">
-                <h2 class="font-weight-bold">
-                    <%= data.Leaders[2].title %>
-                </h2>
-                <h3 > <%= data.Leaders[2].subtitle %></h3>
-            </section>
-            <div class="d-flex flex-column flex-md-row ">
-              
-               
-                <div class="text-justify text-muted f-18">
-                    <%- md.render(String(handler.safeView(data.Leaders,'text', 2))) -%> 
-                    </div>
-                <div class="text-center mx-0 ml-md-4 mb-3">
-                    <img class="shadow" style="min-width: 250px;" width="280" height="320" 
-                    src="<%= env + handler.mediaSelection(data.Leaders[2].img, quality) %>"
-                    alt="<%= handler.safeView(data.Leaders[2].img, 'alternativeText')%>">
-                </div>
-
-            </div>
-            <div class="text-justify text-muted f-18">
-              
-                <%- md.render(String(handler.safeView(data.Leaders,'extra_text', 2))) -%> 
-            </div>
-           
-
-        </div>
-
-        <div>
-            <section class="my-5 u-line">
-                <h2 class="font-weight-bold">
-                    <%= data.Leaders[3].title %>
-                </h2>
-                <h3 > <%= data.Leaders[3].subtitle %></h3>
-            </section>
-            <div class="d-flex flex-column justify-content-between flex-md-row ">
-              
-               
-                <div class="text-justify text-muted f-18">
-                    <%- md.render(String(handler.safeView(data.Leaders,'text', 3))) -%>  </div>
-                <div class="text-center mx-0 ml-md-4 mb-3">
-                    <img class="shadow" style="min-width: 250px;" width="280" height="320"  
-                    src="<%= env + handler.mediaSelection(data.Leaders[3].img, quality) %>"
-                    alt="<%= handler.safeView(data.Leaders[3].img, 'alternativeText')%>">
-                </div>
-
-            </div>
-            <div class="text-justify text-muted f-18">
-               
-                <%- md.render(String(handler.safeView(data.Leaders,'extra_text', 3))) -%> 
-            </div>
-           
-
-        </div>
+        <% data.Leaders.forEach(element => { %>
+        <%- include('elements/leader', { leader: element }); %>
+        <% }) %>
 
     </div>
 
     <%- include('shared/footer', {footer: common.footer}); %>
-     
+
     <script>
         function openNav() {
-         console.log("open sidenav");
-         document.getElementById("mySidenav").style.width = "100%";
-     }
-     function gotoTop() {
-         window.scroll({
-         behavior: 'smooth',
-         left: 0,
-         top: 0
-});
-   
-     }
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
 
 
-     function closeNav() {
-         document.getElementById("mySidenav").style.width = "0";
-     }
- </script>
-   
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
 </body>
 
 </html>
