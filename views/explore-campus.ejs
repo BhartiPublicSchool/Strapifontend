@@ -1,4 +1,5 @@
 <%- include('shared/headermeta'); %>
+
 <script src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script>
 <script>
     function mediaSelection(params, mediaQuality = "medium") {
@@ -645,11 +646,31 @@
 
     /*  */
 </style>
+
 </head>
 
 <body>
     <%- include('shared/sidebar', { Menu: common.header_menu }); %>
-
+    <div id="searchBar" class="searchBar-overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSearchBar()">&times;</a>
+        <div class="searchBar-overlay-content">
+            <div class="searchbox">
+                <div class="input-group mb-3">
+                    <input id="searchbarInput" type="text" class="form-control" placeholder="Search here..."
+                        aria-label="Search here..." aria-describedby="basic-addon2">
+                    <div class="input-group-append bg-light rounded-right ">
+                        <i class="btn fa fa-search fa-2x "></i>
+                    </div>
+                </div>
+                <ul id="searchResults">
+    
+                </ul>
+            </div>
+    
+        </div>
+    
+    </div>
+   
     <div id="myHeader" style="position: absolute; background: transparent; z-index: 3;"
         class="header-design-2 w-100 px-3">
         <div class="header-brand-sticky pl-3 pt-1">
@@ -1046,13 +1067,12 @@
         </div>
 
     </div>
-    <%- include('shared/footer', {footer: common.footer}); %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+    <%- include('shared/footer', {footer: common.footer}); %>
+ 
     <script src="js/jquery.rwdImageMaps.min.js"></script>
+   
     <script>
         var slides = [];
         $(document).ready(function (e) {
@@ -1067,7 +1087,7 @@
 
     </script>
 
-
+<script src="js/searchbar.js"></script>
 </body>
 
 </html>
