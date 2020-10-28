@@ -1,22 +1,22 @@
 require("./common");
 const express = require("express");
 const axios = require("axios");
-const handler = require('./handle');
+const handler = require("./handle");
 const app = express();
 var commons;
 // var classy = require("markdown-it-classy"),
- var MarkdownIt = require("markdown-it"),
+var MarkdownIt = require("markdown-it"),
   md = new MarkdownIt();
-  const markdownItAttrs = require('markdown-it-attrs');
+const markdownItAttrs = require("markdown-it-attrs");
 
 md.use(markdownItAttrs);
 
 // md.use(classy);
 // var API_ENDPOINT = "";
 // if(process.env.NODE_ENV != "PROD") {
-  API_ENDPOINT = "http://206.189.133.72:81";
-  env= API_ENDPOINT;
-  // env = "http://localhost:1337";
+API_ENDPOINT = "http://206.189.133.72:81";
+env = API_ENDPOINT;
+// env = "http://localhost:1337";
 // } else {
 //   API_ENDPOINT = "http://localhost:1337";
 //   env = "";
@@ -25,14 +25,13 @@ md.use(markdownItAttrs);
 app.set("view engine", "ejs");
 app.use(express.static("public", { index: false }));
 app.use(async (req, res, next) => {
-
   try {
-   commons = await axios.get(`${API_ENDPOINT}/shared`);
+    commons = await axios.get(`${API_ENDPOINT}/shared`);
   } catch (error) {
     console.log("unable to get common data", error);
   }
   next();
-})
+});
 
 // app.get('/uploads/*', async(req, res) => {
 //     try {
@@ -46,15 +45,15 @@ app.use(async (req, res, next) => {
 // })
 app.get("/", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/home`);
+    const response = await axios.get(`${API_ENDPOINT}/home`);
     console.log(commons.data);
     res.render("bps_home", {
       data: response.data,
       md: md,
       common: commons.data,
       env: env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -63,7 +62,7 @@ app.get("/", async (req, res) => {
 
 app.get("/mission", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/mission`);
+    const response = await axios.get(`${API_ENDPOINT}/mission`);
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("mission", {
@@ -71,8 +70,8 @@ app.get("/mission", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -81,7 +80,7 @@ app.get("/mission", async (req, res) => {
 
 app.get("/explore-campus", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/explore-campus`);
+    const response = await axios.get(`${API_ENDPOINT}/explore-campus`);
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("explore-campus", {
@@ -89,8 +88,8 @@ app.get("/explore-campus", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -99,7 +98,7 @@ app.get("/explore-campus", async (req, res) => {
 
 app.get("/the-bps-difference", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/the-bps-difference`);
+    const response = await axios.get(`${API_ENDPOINT}/the-bps-difference`);
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("the-bps-difference", {
@@ -107,8 +106,8 @@ app.get("/the-bps-difference", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -117,7 +116,7 @@ app.get("/the-bps-difference", async (req, res) => {
 
 app.get("/leadership", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/leadership`);
+    const response = await axios.get(`${API_ENDPOINT}/leadership`);
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("leadership", {
@@ -125,8 +124,8 @@ app.get("/leadership", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -135,7 +134,7 @@ app.get("/leadership", async (req, res) => {
 
 app.get("/admission-faq", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/admission-faq`);
+    const response = await axios.get(`${API_ENDPOINT}/admission-faq`);
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("admission-faq", {
@@ -143,8 +142,8 @@ app.get("/admission-faq", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -153,7 +152,7 @@ app.get("/admission-faq", async (req, res) => {
 
 app.get("/apply", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/apply-now`);
+    const response = await axios.get(`${API_ENDPOINT}/apply-now`);
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("apply", {
@@ -161,8 +160,8 @@ app.get("/apply", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -179,8 +178,8 @@ app.get("/home", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -189,7 +188,7 @@ app.get("/home", async (req, res) => {
 
 app.get("/tuition-fees", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/tuition-fees`);
+    const response = await axios.get(`${API_ENDPOINT}/tuition-fees`);
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("tuition-fees", {
@@ -197,8 +196,8 @@ app.get("/tuition-fees", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -207,15 +206,15 @@ app.get("/tuition-fees", async (req, res) => {
 
 app.get("/a-rich-history", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/a-rich-history`);
+    const response = await axios.get(`${API_ENDPOINT}/a-rich-history`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("a-rich-history", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -224,15 +223,15 @@ app.get("/a-rich-history", async (req, res) => {
 
 app.get("/lower-school", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/lower-school`);
+    const response = await axios.get(`${API_ENDPOINT}/lower-school`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("lower-school", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -241,15 +240,15 @@ app.get("/lower-school", async (req, res) => {
 
 app.get("/middle-school", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/middle-school`);
+    const response = await axios.get(`${API_ENDPOINT}/middle-school`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("middle-school", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -258,15 +257,15 @@ app.get("/middle-school", async (req, res) => {
 
 app.get("/student-resources", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/student-resources`);
+    const response = await axios.get(`${API_ENDPOINT}/student-resources`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("student-resources", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -275,15 +274,15 @@ app.get("/student-resources", async (req, res) => {
 
 app.get("/upper-school", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/upper-school`);
+    const response = await axios.get(`${API_ENDPOINT}/upper-school`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("upper-school", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -292,15 +291,15 @@ app.get("/upper-school", async (req, res) => {
 
 app.get("/athletics", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/athletic`);
+    const response = await axios.get(`${API_ENDPOINT}/athletic`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("athletic", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -309,15 +308,15 @@ app.get("/athletics", async (req, res) => {
 
 app.get("/faculty", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/faculty`);
+    const response = await axios.get(`${API_ENDPOINT}/faculty`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("faculty", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -326,15 +325,15 @@ app.get("/faculty", async (req, res) => {
 
 app.get("/contact", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/contact`);
+    const response = await axios.get(`${API_ENDPOINT}/contact`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("contact", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -343,15 +342,15 @@ app.get("/contact", async (req, res) => {
 
 app.get("/parent", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/parents`);
+    const response = await axios.get(`${API_ENDPOINT}/parents`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("parent", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -360,15 +359,15 @@ app.get("/parent", async (req, res) => {
 
 app.get("/student", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/student`);
+    const response = await axios.get(`${API_ENDPOINT}/student`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("student", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -377,33 +376,32 @@ app.get("/student", async (req, res) => {
 
 app.get("/alumni", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/alumni`);
+    const response = await axios.get(`${API_ENDPOINT}/alumni`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("alumni", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
   }
 });
 
-
 app.get("/forms-certificates", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/heading-And-text`);
+    const response = await axios.get(`${API_ENDPOINT}/heading-And-text`);
     // console.log(response.data, process.env.NODE_ENV);
     res.render("forms-certificates", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -411,15 +409,15 @@ app.get("/forms-certificates", async (req, res) => {
 });
 app.get("/common-page", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/common-page`);
+    const response = await axios.get(`${API_ENDPOINT}/common-page`);
     console.log(response.data, process.env.NODE_ENV);
     res.render("common-page", {
       data: response.data,
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -428,10 +426,25 @@ app.get("/common-page", async (req, res) => {
 
 app.get("/explore-campus/slides", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/explore-campus`);
+    const response = await axios.get(`${API_ENDPOINT}/explore-campus`);
     console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.send(response.data.Legends);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/news-announcement/modals", async (req, res) => {
+  try {
+    const response = await axios.get(`${API_ENDPOINT}/home`);
+    console.log(response.data, process.env.NODE_ENV);
+    console.log(env);
+    let modals = [];
+    response.data.NewsAndAnnouncement.forEach((element) => {
+      modals.push(element.modal);
+    });
+    res.send(modals);
   } catch (error) {
     console.error(error);
   }
@@ -450,7 +463,7 @@ app.get("/search", async (req, res) => {
 
 app.get("/creative-arts", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/Creative-Arts`);
+    const response = await axios.get(`${API_ENDPOINT}/Creative-Arts`);
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("creative-arts", {
@@ -458,8 +471,8 @@ app.get("/creative-arts", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -468,7 +481,7 @@ app.get("/creative-arts", async (req, res) => {
 
 app.get("/community-outreach", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/Community-Outreach`);
+    const response = await axios.get(`${API_ENDPOINT}/Community-Outreach`);
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("community-outreach", {
@@ -476,8 +489,8 @@ app.get("/community-outreach", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -486,7 +499,7 @@ app.get("/community-outreach", async (req, res) => {
 
 app.get("/outdoor-education", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/Outdoor-Education`);
+    const response = await axios.get(`${API_ENDPOINT}/Outdoor-Education`);
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("outdoor-education", {
@@ -494,8 +507,8 @@ app.get("/outdoor-education", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -512,8 +525,8 @@ app.get("/employment", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -522,7 +535,7 @@ app.get("/employment", async (req, res) => {
 
 app.get("/life-at-bps", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/life-at-bps`);
+    const response = await axios.get(`${API_ENDPOINT}/life-at-bps`);
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("life-at-bps", {
@@ -530,8 +543,8 @@ app.get("/life-at-bps", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -540,7 +553,7 @@ app.get("/life-at-bps", async (req, res) => {
 
 app.get("/beyond-books", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/beyond-books`);
+    const response = await axios.get(`${API_ENDPOINT}/beyond-books`);
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("beyond-books", {
@@ -548,8 +561,8 @@ app.get("/beyond-books", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);
@@ -558,7 +571,7 @@ app.get("/beyond-books", async (req, res) => {
 
 app.get("/landing-page", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/landing-page`);
+    const response = await axios.get(`${API_ENDPOINT}/landing-page`);
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
     res.render("landing-page", {
@@ -566,8 +579,8 @@ app.get("/landing-page", async (req, res) => {
       common: commons.data,
       md,
       env,
-      handler : handler,
-      quality : "large"
+      handler: handler,
+      quality: "large",
     });
   } catch (error) {
     console.error(error);

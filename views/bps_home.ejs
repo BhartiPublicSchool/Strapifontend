@@ -1,137 +1,137 @@
 <!DOCTYPE html>
 <%- include('shared/headermeta'); %>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/topnavbar.css">
-    <link rel="stylesheet" href="css/dropdownhover.css">
-    <link rel="stylesheet" href="css/fold2.css">
-    <link rel="stylesheet" href="css/fold3.css">
-    <link rel="stylesheet" href="css/fold4.css">
-    <link rel="stylesheet" href="css/fold5.css">
-    <link rel="stylesheet" href="css/fold6.css">
-    <link rel="stylesheet" href="css/foldFooter.css">
+<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/fold2.css">
+<link rel="stylesheet" href="css/fold3.css">
+<link rel="stylesheet" href="css/fold4.css">
+<link rel="stylesheet" href="css/fold5.css">
+<link rel="stylesheet" href="css/fold6.css">
+<link rel="stylesheet" href="css/foldFooter.css">
 
 
 
-    <script type="text/javascript" src="slick/slick.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script>
-    <style>
-        :root {
-            --grey: #363E47;
-            --blue: #28295d;
-            --green: #62a25d;
-            --yellow: rgb(255, 210, 29);
-            --orange: #df682d;
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated"></script>
+<style>
+    :root {
+        --grey: #363E47;
+        --blue: #28295d;
+        --green: #62a25d;
+        --yellow: rgb(255, 210, 29);
+        --orange: #df682d;
+    }
+
+    .header-brand {
+        position: absolute;
+        width: 9rem;
+        height: 7rem;
+        margin-top: 0.25rem;
+    }
+
+    .header-brand-sticky {
+        width: 9rem;
+        height: 4rem;
+        margin-top: 0.25rem;
+    }
+
+    .body-wrap {
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+    }
+
+    @media screen and (max-width: 520px) {
+        .body-wrap .bpsHomeVideoContainer video {
+            object-fit: contain;
+            transform: scaleX(0.3) scaleY(0.8) translateX(-123%) translateY(-15%);
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .body-wrap {
+            margin: 0.75rem;
         }
 
         .header-brand {
-            position: absolute;
-            width: 9rem;
-            height: 7rem;
-            margin-top: 0.25rem;
-        }
-
-        .header-brand-sticky {
-            width: 9rem;
-            height: 4rem;
-            margin-top: 0.25rem;
-        }
-
-        .body-wrap {
-            overflow: hidden;
-            position: relative;
-            margin: 0;
-        }
-
-        @media screen and (max-width: 520px) {
-            .body-wrap .bpsHomeVideoContainer video {
-                object-fit: contain;
-                transform: scaleX(0.3) scaleY(0.8) translateX(-123%) translateY(-15%);
-            }
-        }
-
-        @media screen and (min-width: 768px) {
-            .body-wrap {
-                margin: 0.75rem;
-            }
-
-            .header-brand {
-                width: 10rem;
-                height: 6rem;
-            }
-
-            .header-title-text h1 {
-                /* padding-top: 1rem !important; */
-                font-size: 7vw !important;
-                /* font-size: 85px; */
-                height: 15rem;
-                line-height: 20px;
-                color: #fff;
-                letter-spacing: 10px;
-            }
-        }
-
-        .bpsHomeVideoContainer {
-            position: relative;
-            width: 100%;
-            max-height: 100vh;
-            overflow: hidden;
-            object-fit: cover;
-        }
-
-        .body-wrap .bpsHomeVideoContainer video {
-            object-fit: cover;
-            display: block;
-            min-height: 100vh;
-            /* //change */
-            min-width: 100%;
-            width: auto;
-            max-height: none;
-            max-width: none;
-            backface-visibility: hidden;
-            perspective: 1000;
-        }
-
-        .home-wrap-container {
-            position: absolute;
-            z-index: 1;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            /* align-items: flex-end; */
-        }
-
-        .title-strip {
-            -webkit-animation-name: mymove;
-            animation-name: mymove
+            width: 10rem;
+            height: 6rem;
         }
 
         .header-title-text h1 {
-            font-size: 10vw;
-            padding-top: 10rem;
+            /* padding-top: 1rem !important; */
+            font-size: 7vw !important;
+            /* font-size: 85px; */
+            height: 15rem;
+            line-height: 20px;
+            color: #fff;
+            letter-spacing: 10px;
+        }
+    }
+
+    .bpsHomeVideoContainer {
+        position: relative;
+        width: 100%;
+        max-height: 100vh;
+        overflow: hidden;
+        object-fit: cover;
+    }
+
+    .body-wrap .bpsHomeVideoContainer video {
+        object-fit: cover;
+        display: block;
+        min-height: 100vh;
+        /* //change */
+        min-width: 100%;
+        width: auto;
+        max-height: none;
+        max-width: none;
+        backface-visibility: hidden;
+        perspective: 1000;
+    }
+
+    .home-wrap-container {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        /* align-items: flex-end; */
+    }
+
+    .title-strip {
+        -webkit-animation-name: mymove;
+        animation-name: mymove
+    }
+
+    .header-title-text h1 {
+        font-size: 10vw;
+        padding-top: 10rem;
+    }
+
+    @keyframes mymove {
+        0% {
+            opacity: 0;
+            filter: blur(10px);
+            transform: scaleX(1.75);
         }
 
-        @keyframes mymove {
-            0% {
-                opacity: 0;
-                filter: blur(10px);
-                transform: scaleX(1.75);
-            }
-
-            100% {
-                opacity: 1;
-                filter: blur(0);
-                transform: scaleX(1);
-            }
+        100% {
+            opacity: 1;
+            filter: blur(0);
+            transform: scaleX(1);
         }
+    }
 
-        /* button.explore {
+    /* button.explore {
             cursor: pointer;
             padding: 0.81429em 2.07143em;
             font-family: "Roboto Condensed", sans-serif;
@@ -145,7 +145,7 @@
             transition: background 0.3s, box-shadow 0.3s, color 0.3s;
         } */
 
-        /* button.explore span::after {
+    /* button.explore span::after {
             position: absolute;
             left: 0;
             width: 100%;
@@ -158,49 +158,49 @@
             background: var(--blue);
         } */
 
-        .loading span {
-            width: 25px;
-            height: 25px;
-            margin: 0 5px;
-            background-coLor: #000;
-            border-radius: 50%;
-            display: inline-block;
-            animation-name: dots;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
-        }
+    .loading span {
+        width: 25px;
+        height: 25px;
+        margin: 0 5px;
+        background-coLor: #000;
+        border-radius: 50%;
+        display: inline-block;
+        animation-name: dots;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
 
-        .loading :nth-child(2) {
-            background-coLor: #000;
-            animation-delay: 0.4s;
-        }
-
-
+    .loading :nth-child(2) {
+        background-coLor: #000;
+        animation-delay: 0.4s;
+    }
 
 
-        #box3 {
-            right: 0;
-            bottom: 1100px;
-            height: 40vw;
-            width: 60vw;
-            background: linear-gradient(-45deg, #f7f7f7 50%, transparent 50%);
-        }
 
+
+    #box3 {
+        right: 0;
+        bottom: 1100px;
+        height: 40vw;
+        width: 60vw;
+        background: linear-gradient(-45deg, #f7f7f7 50%, transparent 50%);
+    }
+
+    #box2 {
+        left: 0;
+        top: 700px;
+        height: 80vw;
+        width: 60vw;
+        background: linear-gradient(45deg, #f7f7f7 50%, transparent 50%);
+    }
+
+    @media screen and (max-width:622px) {
         #box2 {
-            left: 0;
-            top: 700px;
-            height: 80vw;
-            width: 60vw;
-            background: linear-gradient(45deg, #f7f7f7 50%, transparent 50%);
+            top: 1300px;
         }
-
-        @media screen and (max-width:622px) {
-            #box2 {
-                top: 1300px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
@@ -285,9 +285,9 @@
             </header>
             <div style="width: 99%;" class="d-flex mx-auto news-annuncement">
 
-                <% data.NewsAndAnnouncement.forEach(function(card){ %>
+                <% data.NewsAndAnnouncement.forEach(function(card, index){ %>
 
-                <%- include('elements/newsAnnouncement', {card: card}); %>
+                <%- include('elements/newsAnnouncement', {card: card, index: index}); %>
 
                 <% }); %>
 
@@ -375,19 +375,17 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="modalLabel"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <div>
-                            <img src="" alt="">
-                        </div>
+                    <div id="modal_body" class="modal-body">
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                     </div>
                 </div>
             </div>
@@ -771,7 +769,73 @@
 
         });
     </script>
+    <script>
+        function mediaSelection(params, mediaQuality = "medium") {
+            if (Array.isArray(params)) {
+                console.log("array");
+                params = params[0];
+            }
+            let mediaURL = "";
+            if (params && params.formats) {
+                switch (mediaQuality) {
+                    case "large":
+                        if (params.formats.large) {
+                            mediaURL = params.formats.large.url;
+                            break;
+                        }
+                    case "medium":
+                        if (params.formats.medium) {
+                            mediaURL = params.formats.medium.url;
+                            break;
+                        }
+                    case "small":
+                        if (params.formats.small) {
+                            mediaURL = params.formats.small.url;
+                            break;
+                        }
+                    case "thumbnail":
+                        if (params.formats.thumbnail) {
+                            mediaURL = params.formats.thumbnail.url;
+                            break;
+                        }
+                }
+            }
+            return mediaURL;
+        }
+        function prepareModal(params) {
+            var modal_body = $("#modal_body").empty();
 
+            console.log("modal open", modals[Number(params.id)]);
+            let current_modal = modals[Number(params.id)];
+            $("#modalLabel").empty().append(`<b>${current_modal.title}</b>`);
+            modal_body.append(`<div class="d-flex flex-column w-100">
+            <div class="d-flex">
+                <div style="flex:1;"> <img style="max-height: 350px;
+    width: 100%;
+    object-fit: cover;" class="fadeIn d-block rounded img-fluid" src="${mediaSelection(current_modal.img)}" alt="">
+                             </div>
+                         
+                             
+                </div>
+          
+                           <div class="py-3">
+                                <h5>${current_modal.title}</h5>
+                                <p>${current_modal.text}</p>
+                            </div>
+                        </div>`);
+        }
+        var modals = [];
+        $(document).ready(function (e) {
+            $.ajax({
+                url: '/news-announcement/modals', success: function (result) {
+                    modals = result;
+                    console.log(result);
+                }
+            });
+            // $('#exampleModal').modal('show');
+        });
+
+    </script>
 
 </body>
 
