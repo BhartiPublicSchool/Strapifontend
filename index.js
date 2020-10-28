@@ -324,6 +324,23 @@ app.get("/faculty", async (req, res) => {
   }
 });
 
+app.get("/contact", async (req, res) => {
+  try {
+    const response = await axios.get(`${ API_ENDPOINT}/contact`);
+    console.log(response.data, process.env.NODE_ENV);
+    res.render("contact", {
+      data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler : handler,
+      quality : "large"
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.get("/parent", async (req, res) => {
   try {
     const response = await axios.get(`${ API_ENDPOINT}/parents`);

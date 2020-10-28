@@ -185,139 +185,11 @@
         </div>
     </div>
     <div class="body-wrap">
-        <div class="row mx-0">
-            <div class="col-md-3 col-lg-3 px-0">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
-                    <div class="carousel-inner">
-                        <% handler.getSlides(data.parent_testimonial, 0).forEach((element, index) => { %>
-                        <div class="carousel-item  <% if (index == 0) { %>
-                                active
-                            <% } %>">
-                            <img class="w-100" src="<%= env + handler.mediaSelection(element.img, quality) %>" alt="First slide">
-                        </div>
-                        <% }) %>
-
-                        <!-- <div class="carousel-item">
-                            <img class="w-100" src="./Leadership/Copy of rajesh sir 3_white back.jpg"
-                                alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100" src="./Leadership/Copy of rajesh sir 3_white back.jpg" alt="Third slide">
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div id="ddd" class="carousel" data-ride="carousel slide carousel-fade" data-interval="false">
-                    <div class="carousel-inner">
-                        <% handler.getSlides(data.parent_testimonial, 0).forEach((element, index) => { %>
-                        <div class="carousel-item <% if (index == 0) { %>
-                                active
-                            <% } %> ">
-                            <div class="mt-3 mt-md-0">
-                                <div class="u-line">
-                                    <h6 class="text-blue"><b>Parent Testimonials</b></h6>
-                                </div>
-                                <div class="my-4">
-                                    <h3>   <%=  handler.safeView(element, 'title') %></h3>
-                                    <p>   <%=  handler.safeView(element, 'text') %></p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <% }) %>
-
-                        <!-- <div class="carousel-item">
-                            <div class="mt-3 mt-md-0">
-                                <div class="u-line">
-                                    <h6 class="text-blue"><b>Parent Testimonials</b></h6>
-                                </div>
-                                <div class="my-4">
-                                    <h3>title</h3>
-                                    <p>second slide</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="carousel-item">
-                            <div class="mt-3 mt-md-0">
-                                <div class="u-line">
-                                    <h6 class="text-blue"><b>Parent Testimonials</b></h6>
-                                </div>
-                                <div class="my-4">
-                                    <h3>title</h3>
-                                    <p>second slide</p>
-                                </div>
-
-                            </div>
-
-                        </div> -->
-                    </div>
-                </div>
-                <div class="controls mt-3 mt-md-0">
-                    <a href="#" class="btn-previous "><i class="fa fa-chevron-left rounded-circle btn btn-light"
-                            aria-hidden="true"></i></a>
-                    <a href="#" class="btn-next"><i class="fa fa-chevron-right rounded-circle btn btn-light"
-                            aria-hidden="true"></i></a>
-                </div>
-
-
-            </div>
-            <div class="col-md-3 col-lg-3 px-0 d-none d-md-block">
-                <div id="ddd" class="carousel slide" data-ride="carousel" data-interval="false">
-                    <div class="carousel-inner">
-                        <% handler.getSlides(data.parent_testimonial, 1).forEach((element, index) => { %>
-                        <div class="carousel-item  <% if (index == 0) { %>
-                                active
-                            <% } %>">
-                            <img class="w-100" src="<%= env + handler.mediaSelection(element.img, quality) %>" alt="First slide">
-                        </div>
-                        <% }) %>
-                        <!-- <div class="carousel-item active">
-                            <img class="w-100" src="./Leadership/Copy of rajesh sir 3_white back.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100" src="./Leadership/Copy of rajesh sir 3_white back.jpg"
-                                alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100" src="./Leadership/Copy of rajesh sir 3_white back.jpg" alt="Third slide">
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 px-0 d-none d-lg-block">
-                <div id="ddd" class="carousel slide" data-ride="carousel" data-interval="false">
-                    <div class="carousel-inner">
-                        <% handler.getSlides(data.parent_testimonial, 2).forEach((element, index) => { %>
-                        <div class="carousel-item  <% if (index == 0) { %>
-                                active
-                            <% } %>">
-                            <img class="w-100" src="<%= env + handler.mediaSelection(element.img, quality) %>" alt="First slide">
-                        </div>
-                        <% }) %>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
+        <%- include('elements/carousel', {carausel_data : data.parent_testimonial ,data_title: "Parent Testimonials"}); %>
     </div>
 
 
     <%- include('shared/footer', {footer: common.footer}); %>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
     <script>
         $('.btn-next').on('click', function (e) {
             e.preventDefault()
@@ -361,17 +233,6 @@
             }
         }
     </script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-
     <script type="text/javascript">
         function myFunction() {
             console.log(this);

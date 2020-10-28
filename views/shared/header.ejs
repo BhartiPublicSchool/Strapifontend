@@ -13,8 +13,9 @@
                         &nbsp;</p>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <ul class="list-unstyled mx-3">
-                            <% common.dropdownHover.q_links.forEach(element => { %>
-                            <li> <a class="dropdown-item" href="<%= handler.safeView(element, "link_href") %>">
+                            <% common.dropdownHover.q_links.forEach((element, index) => { %>
+                            <li> <a class="dropdown-item" <% if (index ==1) { %> target="_blank" <% } %>
+                                    href="<%= handler.safeView(element, "link_href") %> ">
                                     <%= handler.safeView(element, 'link_title') %> </a></li>
                             <% }) %>
                         </ul>
@@ -22,7 +23,7 @@
                 </li>
 
                 <% common.quickMenu.links.forEach(element => { %>
-                <li class="top-nav-bar-item"><a class="dropdown-item"
+                <li class="top-nav-bar-item"><a class="dropdown-item" target="_blank"
                         href="<%= handler.safeView(element, "menu_link") %>">
                         <%= handler.safeView(element, 'sub_menu_item') %></a> </li>
                 <% }) %>
