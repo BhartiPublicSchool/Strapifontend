@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= handler.safeView(data.meta, 'title') %> </title>
+    <title><%= handler.safeView(data.meta, 'title') || handler.safeView(data.Meta, 'title') %> </title>%> </title>
+    
+
     <% if (common.header_script) { %>
     <%- common.header_script %>
     <% } %>
