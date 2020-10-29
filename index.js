@@ -407,7 +407,7 @@ app.get("/forms-certificates", async (req, res) => {
     console.error(error);
   }
 });
-app.get("/common-page", async (req, res) => {
+app.get("/academics", async (req, res) => {
   try {
     const response = await axios.get(`${API_ENDPOINT}/common-page`);
     console.log(response.data, process.env.NODE_ENV);
