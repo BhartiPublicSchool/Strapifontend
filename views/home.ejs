@@ -316,7 +316,16 @@
 </head>
 
 <body>
-    <div class="body-wrap h-100">
+    <div style="max-height: 4.15rem;" class="w-100 shadow">
+        <div class="header-brand text-center py-1">
+            <a href="/">
+                <img style="max-height: 3.575rem;" class="img-fluid" height="100" alt=""
+                    src="<%= env + handler.mediaSelection(data.logo, quality) %> ">
+            </a>
+        </div>
+    </div>
+
+    <div style="height: calc(100% - 4rem);" class="body-wrap mt-0">
         <div class="pic-wrapper">
 
             <div class="fadeIn animated">
@@ -337,12 +346,7 @@
         </div>
         <div class="pic-wrapper">
             <div class="d-flex flex-column justify-content-around h-100">
-                <div class="header-brand text-center">
-                    <a href="/">
-                        <img width="160" height="100" alt=""
-                            src="<%= env + handler.mediaSelection(data.logo, quality) %> ">
-                    </a>
-                </div>
+
                 <div class="my-5 text-center">
                     <h3 style="
                 letter-spacing: 10px;" class="text-white f-30">
@@ -374,6 +378,27 @@
         </div>
     </div>
 
+    <div class="bg-light w-100">
+        <div class="d-flex justify-content-center flex-column flex-md-row w-80">
+            <div>
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div>
+
+                </div>
+
+            </div>
+            <div>
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="contain">
         <div class="text-center">

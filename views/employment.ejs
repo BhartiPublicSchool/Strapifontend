@@ -53,15 +53,15 @@
                 <%= handler.safeView(data, 'page_title') %>
 
             </h1>
-        </div>
-        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <% common.header_menu[5].submenu.forEach(function(item, index){ %>
+    </div>
+    <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+        <% common.header_menu[5].submenu.forEach(function(item, index){ %>
 
-            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 0 ? "active" : "" %>">
-                <%= item.sub_menu_item %>
-            </a>
-            <% }); %>
-        </nav>
+        <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 0 ? "active" : "" %>">
+            <%= item.sub_menu_item %>
+        </a>
+        <% }); %>
+    </nav>
     </div>
 
     <div class="contain">
@@ -143,41 +143,48 @@
             <div class="my-5">
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="faculty" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <% if (data.faculty_tab && data.faculty_tab.trim().length === 0) { %>
-                         
-                       
+                        <% if (data.faculty_openings && data.faculty_openings.length > 0) { %>
+                      
+                        <div class="">
+                            <ul class="list-group list-group-flush">
+                             
+                                <% data.faculty_openings.forEach(element => { %>
+                                <li class="list-group-item">
+                                    <a class="text-muted" target="_blank" href="<%= env + handler.safeView(element.background, 'url') %>"><i class="fa fa-file-text mr-2"
+                                            aria-hidden="true"></i><%= element.title %> </a></li>
+                                            <% }) %>
+                            </ul>
+                        </div>
+                      
+
                         <% } else { %>
-                            <div class="">
-                                <%- md.render(handler.safeView(data, 'faculty_tab')) -%>
-                            </div>
-                            <% }  %>
-                     
+                        <div class="">
+                            <%- md.render(handler.safeView(data, 'faculty_tab')) -%>
+                        </div>
+                        <% }  %>
+
                     </div>
 
                     <div class="tab-pane fade " id="staff" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <a class="text-muted" href=""><i class="fa fa-file-text mr-2"
-                                            aria-hidden="true"></i>Cras justo odio</a></li>
-                                <li class="list-group-item">
-                                    <a class="text-muted" href=""><i class="fa fa-file-text mr-2"
-                                            aria-hidden="true"></i>Cras justo odio</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="text-muted" href=""><i class="fa fa-file-text mr-2"
-                                            aria-hidden="true"></i>Cras justo odio</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="text-muted" href=""><i class="fa fa-file-text mr-2"
-                                            aria-hidden="true"></i>Cras justo odio</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="text-muted" href=""><i class="fa fa-file-text mr-2"
-                                            aria-hidden="true"></i>Cras justo odio</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <% if (data.staff_openings && data.staff_openings.length > 0) { %>
+                      
+                            <div class="">
+                                <ul class="list-group list-group-flush">
+                                 
+                                    <% data.staff_openings.forEach(element => { %>
+                                    <li class="list-group-item">
+                                        <a class="text-muted" target="_blank" href="<%= env + handler.safeView(element.background, 'url') %>"><i class="fa fa-file-text mr-2"
+                                                aria-hidden="true"></i><%= element.title %> </a></li>
+                                                <% }) %>
+                                </ul>
+                            </div>
+                          
+    
+                            <% } else { %>
+                            <div class="">
+                                <%- md.render(handler.safeView(data, 'staff_tab')) -%>
+                            </div>
+                            <% }  %>
                     </div>
                 </div>
 

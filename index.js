@@ -43,7 +43,7 @@ app.use(async (req, res, next) => {
 //         console.error(error);
 //     }
 // })
-app.get("/", async (req, res) => {
+app.get("/home", async (req, res) => {
   try {
     const response = await axios.get(`${API_ENDPOINT}/home`);
     console.log(commons.data);
@@ -168,7 +168,7 @@ app.get("/apply", async (req, res) => {
   }
 });
 
-app.get("/home", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const response = await axios.get(`${ API_ENDPOINT}/landing-page`);
     // console.log(response.data, process.env.NODE_ENV);
