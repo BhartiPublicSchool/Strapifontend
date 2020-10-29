@@ -15,7 +15,11 @@
                         <ul class="list-unstyled mx-3">
                             <% common.dropdownHover.q_links.forEach((element, index) => { %>
                             <li> <a class="dropdown-item" <% if (index ==1) { %> target="_blank" <% } %>
+                                <% if (index == 1) { %>
+                                    href="<%=env + handler.safeView(common.admission_handbook.background, "url") %> ">
+                                <% } else { %>
                                     href="<%= handler.safeView(element, "link_href") %> ">
+                                    <% } %>
                                     <%= handler.safeView(element, 'link_title') %> </a></li>
                             <% }) %>
                         </ul>

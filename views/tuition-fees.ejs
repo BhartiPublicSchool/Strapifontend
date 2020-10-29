@@ -256,22 +256,23 @@
                 </div>
 
             </div>
+            <div data-aos="fade-up" data-aos-duration="2000" class="_fold_4 py-0">
+                <section>
+                    <header class="" data-aos="fade-down">
+                        <h1 class="text-center pb-5">
+                            <%= data.statistics_title.title %>
+                        </h1>
+                    </header>
+                    <div class="statistics-slider">
+                        <% data.statatistics.forEach(element => { %>
+                        <%- include('elements/fold4', {card: element}); %>
+                        <% }) %>
+                    </div>
+                </section>
+    
+            </div>
         </div>
-        <div data-aos="fade-up" data-aos-duration="2000" class="_fold_4">
-            <section>
-                <header class="" data-aos="fade-down">
-                    <h1 class="text-center pb-5">
-                        <%= data.statistics_title.title %>
-                    </h1>
-                </header>
-                <div class="statistics-slider">
-                    <% data.statatistics.forEach(element => { %>
-                    <%- include('elements/fold4', {card: element}); %>
-                    <% }) %>
-                </div>
-            </section>
-
-        </div>
+      
 
 
 
