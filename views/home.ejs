@@ -206,8 +206,8 @@
             top: 0.75rem;
             width: calc(100% - 1.5rem);
             height: 550px; */
-        background-color: rgba(0, 0, 0, 0.1);
-        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+        /* background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%); */
 
     }
 
@@ -218,7 +218,9 @@
         transition: background 0.3s, color 0.3s;
         position: relative;
         display: block;
-        color: #fff;
+        /* color: #fff; */
+        color: #000;
+        border: 1px solid #000;
         font-size: 20px;
         line-height: 31px;
         max-height: 4rem;
@@ -231,11 +233,12 @@
         align-items: center;
         height: 100%;
         background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        /* border: 1px solid rgba(255, 255, 255, 0.5); */
     }
 
     .group_btns .button {
-        min-width: 14rem;
+        min-width: 16rem;
+
     }
 
     .group_btns .button a:hover,
@@ -243,7 +246,7 @@
         color: #fff;
         cursor: pointer;
         text-decoration: none;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.753);
     }
 
     .body-wrap {
@@ -312,6 +315,26 @@
         height: 100%;
         object-fit: cover;
     }
+
+    .social-icons a {
+        padding: 1rem;
+        border-radius: 50%;
+        margin: 0 0.5rem;
+        width: 50px;
+        text-decoration: none;
+        transition: background .3s, color .3s;
+        position: relative;
+        display: block;
+        color: #fff;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background: #343434;
+        border: 1px solid rgba(27, 27, 27, 0.5);
+    }
 </style>
 </head>
 
@@ -325,7 +348,7 @@
         </div>
     </div>
 
-    <div style="height: calc(100% - 4rem);" class="body-wrap mt-0">
+    <div style="height: calc(100% - 4rem);" class="body-wrap shadow my-0">
         <div class="pic-wrapper">
 
             <div class="fadeIn animated">
@@ -347,15 +370,15 @@
         <div class="pic-wrapper">
             <div class="d-flex flex-column justify-content-around h-100">
 
-                <div class="my-5 text-center">
+                <!-- <div class="my-5 text-center">
                     <h3 style="
                 letter-spacing: 10px;" class="text-white f-30">
-                        <%= data.page_title%>
+                      
                     </h3>
-                </div>
+                </div> -->
                 <div class="row mx-0">
                     <div class="col">
-                        <div class="group_btns font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
+                        <!-- <div class="group_btns font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
                             <% data.home_buttons.forEach(element => { %>
                             <div>
                                 <div class="button pr-0 pr-md-2">
@@ -370,7 +393,7 @@
 
 
 
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
@@ -378,35 +401,105 @@
         </div>
     </div>
 
-    <div class="bg-light w-100">
-        <div class="d-flex justify-content-center flex-column flex-md-row w-80">
-            <div>
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div>
-
-                </div>
-
+    <div class="bg-light shadow-sm w-100">
+        <div class="contain">
+            <div class="my-5">
+                <section class="text-center">
+                    <h3>
+                        <%= data.page_title%>
+                    </h3>
+                </section>
             </div>
-            <div>
+            <div class="d-flex justify-content-center flex-column flex-md-row w-80">
                 <div>
-                    <img src="" alt="">
+                    <div class="text-center">
+                        <img class="img-fluid shadow" style="max-width: 60%;"
+                            src="<%= env + handler.mediaSelection(data.img1, quality) %>" alt="">
+                    </div>
+                    <div class="my-5">
+                        <div class="group_btns font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
+                            <div>
+                                <div class="button pr-0 pr-md-2">
+                                    <a href="<%= data.home_buttons[0].btn_href%>">
+                                        <%= data.home_buttons[0].btn_name%>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="z-index: 1;" class="social-icons my-4">
+                        <div class="d-flex justify-content-center">
+                            <div class="text-dark">
+                                <a class="fb" href="https://www.facebook.com/Bhartipublicschooldelhi/"><i
+                                        class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a class="ln" href="https://www.linkedin.com/school/bharti-public-school---india/"><i
+                                        class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a class="yt" href="https://www.youtube.com/c/BhartiPublicSchoolSwasthyaVihar"><i
+                                        class="fa fa-youtube" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a class="in" href="https://www.instagram.com/bhartipublicschooldelhi/"><i
+                                        class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
                 <div>
+                    <div class="text-center">
+                        <img class="img-fluid shadow" style="max-width: 60%;"
+                            src="<%= env + handler.mediaSelection(data.img2, quality) %>" alt="">
+                    </div>
+                    <div class="my-5">
+                        <div class="group_btns font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
+                            <div>
+                                <div class="button pr-0 pr-md-2">
+                                    <a href="<%= data.home_buttons[1].btn_href%>">
+                                        <%= data.home_buttons[1].btn_name%>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="z-index: 1;" class="social-icons">
+                        <div class="d-flex justify-content-center">
+                            <div class="text-dark">
+                                <a class="fb" href="https://www.facebook.com/Bhartipublicschooldelhi/"><i
+                                        class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a class="ln" href="https://www.linkedin.com/school/bharti-public-school---india/"><i
+                                        class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a class="yt" href="https://www.youtube.com/c/BhartiPublicSchoolSwasthyaVihar"><i
+                                        class="fa fa-youtube" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a class="in" href="https://www.instagram.com/bhartipublicschooldelhi/"><i
+                                        class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="contain">
-        <div class="text-center">
+        <div class="text-center my-4">
             <h4 class=" fadeInUp animate">
                 <%= data.form_title1%>
 
             </h4>
-            <div class="my-5">
+            <div class="my-4">
                 <h3 class="fadeInUp animate">
                     <%= data.form_title2%>
                 </h3>
@@ -488,61 +581,21 @@
 
         </div>
 
-        <div class="social-icons my-5 d-flex justify-content-between">
-            <div>
-                <ul style="list-style: none;" class="d-flex justify-content-center flex-wrap">
-                    <li class="1">
-                        <a href=""><i class="fa fa-facebook"></i>Facebook</a>
 
-                    </li>
-                    <li class="6">
-                        <a href="" class="instagram"><i class="fa fa-instagram"></i>Instagram</a>
+    </div>
 
-                    </li>
-                    <li class="7">
-                        <a href="" class="linkedin"><i class="fa fa-linkedin"></i>Linkedin</a>
-
-                    </li>
-                    <li class="3">
-                        <a href="" class="youtube"><i class="fa fa-youtube-play"></i>Youtube</a>
-
-                    </li>
-
-
-
-
-                </ul>
+    <div  class="bg-light w-100 px-3 py-5">
+        <div style="overflow: auto;" class="d-flex align-items-center flex-column flex-md-row">
+            <% data.footer_icons.forEach(element => { %>
+            <div class="align-self-center mx-3">
+                <img class="img-fluid" style="max-height:200" src="<%= env + handler.mediaSelection(element, quality) %>" alt="<%= element.alternativeText %> ">
             </div>
-            <div>
-                <ul style="list-style: none;" class="d-flex justify-content-center flex-wrap">
-                    <li class="1">
-                        <a href=""><i class="fa fa-facebook"></i>Facebook</a>
-
-                    </li>
-
-
-                    <li class="6">
-                        <a href="" class="instagram"><i class="fa fa-instagram"></i>Instagram</a>
-
-                    </li>
-                    <li class="7">
-                        <a href="" class="linkedin"><i class="fa fa-linkedin"></i>Linkedin</a>
-
-                    </li>
-                    <li class="3">
-                        <a href="" class="youtube"><i class="fa fa-youtube-play"></i>Youtube</a>
-
-                    </li>
-
-
-                </ul>
-            </div>
-
+            <% }) %>
         </div>
+    </div>
     </div>
 
 
-    <%- include('shared/footer', {footer: common.footer}); %>
     <script>
         $(function () {
             // Initialize form validation on the registration form.
