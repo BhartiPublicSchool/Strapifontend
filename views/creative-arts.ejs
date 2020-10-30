@@ -176,11 +176,16 @@
             </div>
         </div>
 
-        <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
-            <% for( let index = 0; index < data.buttons.length; index++ ) { %>
-            <a class="btn explore" href="<%= handler.safeView(data.buttons, 'btn_href', index) %> ">
-                <%= handler.safeView(data.buttons, 'btn_name', index) %> </a>
-            <% } %>
+        <div class="d-flex flex-column flex-md-row justify-content-around">
+            <% data.buttons.forEach(function(item, index){ %>
+            <div class="my-2 text-center">
+                <a href="<%= item.btn_href %>" class="btn explore w-100">
+                    <%= item.btn_name %></a>
+            </div>
+
+
+            <% }); %>
+
         </div>
 
 

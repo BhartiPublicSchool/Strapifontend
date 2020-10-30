@@ -2,6 +2,8 @@ require("./common");
 const express = require("express");
 const axios = require("axios");
 const handler = require("./handle");
+const mailer = require('./mailService');
+const bodyParser = require("body-parser");
 const app = express();
 var commons;
 // var classy = require("markdown-it-classy"),
@@ -10,6 +12,7 @@ var MarkdownIt = require("markdown-it"),
 const markdownItAttrs = require("markdown-it-attrs");
 
 md.use(markdownItAttrs);
+app.use(bodyParser.json());
 
 // md.use(classy);
 // var API_ENDPOINT = "";
@@ -254,6 +257,8 @@ app.get("/middle-school", async (req, res) => {
     console.error(error);
   }
 });
+
+app.post("/api/contact", mailer.contact);
 
 app.get("/student-resources", async (req, res) => {
   try {
