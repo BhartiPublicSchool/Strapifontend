@@ -1,6 +1,6 @@
 <!doctype html>
 <%- include('shared/headermeta'); %>
-<%=  %> 
+<%=  %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
     integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
     crossorigin="anonymous"></script>
@@ -60,13 +60,13 @@
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
     <div class="body-wrap">
-        <div id="top_fold" style="background-image: url(./FormsCertificates/1\ -\ title\ banner.png);
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
     background-size: cover;"
             class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
             <div class="overlay"></div>
             <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
        letter-spacing: 10px;">
-
+                <%= handler.safeView(data, 'page_title')%>
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
@@ -116,8 +116,7 @@
 
                             <div class="form-group " style="">
                                 <label class="pl-2" for="studentType">Student type: </label>
-                                <select name="studentType" id="studentType" 
-                                    class="form-control ">
+                                <select name="studentType" id="studentType" class="form-control ">
                                     <option value="" selected="selected">Student Type</option>
                                     <option value="currentStudent">Current Student </option>
                                     <option value="pastStudent">Past Student </option>
@@ -237,12 +236,12 @@
                 <!-- <button class="btn btn-primary px-4" style="background: #1B2736;">DOWNLOAD ADMISSIONS BROCHURE</button> -->
                 <div class="card custom-card">
                     <div class="card-body">
-                        <h3 class="card-title text-cEnter">   <%= handler.safeView(data.instructions, 'title') -%>:</h3>
+                        <h3 class="card-title text-cEnter"> <%= handler.safeView(data.instructions, 'title') -%>:</h3>
 
                         <div class="card-text">
                             <%- md.render(String(handler.safeView(data.instructions, 'text'))) -%>
                         </div>
-                     
+
 
                     </div>
 
