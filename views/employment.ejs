@@ -57,7 +57,7 @@
     <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
         <% common.header_menu[5].submenu.forEach(function(item, index){ %>
 
-        <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 0 ? "active" : "" %>">
+        <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 1 ? "active" : "" %>">
             <%= item.sub_menu_item %>
         </a>
         <% }); %>
