@@ -17,7 +17,7 @@
         bottom: 85px;
         transform: translateX(200%);
     }
-    
+
     .jumbotron .overlay {
         position: absolute;
         top: 0.75rem;
@@ -26,13 +26,16 @@
         background-color: rgba(0, 0, 0, 0.1);
         background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
     }
-    .hover-z-change:hover{
+
+    .hover-z-change:hover {
         z-index: 1;
         transform: scale(1.2);
     }
-    .hover-z-change{
-     transition: all ease-in 0.3s;
+
+    .hover-z-change {
+        transition: all ease-in 0.3s;
     }
+
     @media screen and (max-width: 768px) {
         .jumbotron .overlay {
             width: 100%;
@@ -47,150 +50,147 @@
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }) %>
 
-<div class="body-wrap">
-    <div id="top_fold"  style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>');
-background-size: cover; background-position: top center;"
-        class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
-        <div class="overlay"></div>
-        <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
-   letter-spacing: 10px;">
-            <%= handler.safeView(data, 'page_title') %> 
-        </h1>
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+            background-size: cover;"
+                    class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+                    <div class="overlay"></div>
+                    <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+               letter-spacing: 7px;">
+                        <%= handler.safeView(data, 'page_title') %>
+                    </h1>
+                </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[3].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 2 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
+        </nav>
     </div>
-    <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-        <% common.header_menu[3].submenu.forEach(function(item, index){ %>
 
-        <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 2 ? "active" : "" %>">
-            <%= item.sub_menu_item %>
-        </a>
-        <% }); %>
-    </nav>
-</div>
-
-<div class="contain">
-    <div class="my-5">
-        <section class="my-5">
-            <div class="u-line-center">
-                <h3 class="text-center f-40">
-                    <%= handler.safeView(data.fold2[0], 'card_title') %> 
-                </h3>
-            </div>
-
-        </section>
-        <div class="d-flex flex-column flex-md-row">
-
-
-            <div style="flex:6;" class="text-justify text-muted f-18">
-                <%- md.render(data.fold2[0].card_text) -%>
-
-            </div>
-            <div style="flex:5; order: 1;" class="text-center mx-0 ml-md-4 mb-3">
-                <div class="col my-2 my-md-0">
-                    <div class="d-flex flex-column justify-content-center h-100">
-                        <div class="row justify-content-center">
-                            <% let length = data.fold2[0].card_img.length >= 3? 3: data.fold2[0].card_img.length;
-                                    for( let i = 0; i < length; i++ ) { %>
-                                    <div class="col align-self-end 
-                                        <% if( i == 1) { %>
-                                            p-0 
-                                        <% } %>">
-                                        <img src="<%= env + handler.mediaSelection(data.fold2[0].card_img[i], quality) %>" 
-                                        style="width:100%">
-                                    </div>
-                                <% } %>
-                        </div>
-                        <div class="row m-1 justify-content-center">
-                            <% for( let i = 3; i < data.fold2[0].card_img.length; i++ ) { %>
-                                    <div class="col ">
-                                        <img src="<%= env + handler.mediaSelection(data.fold2[0].card_img[i], quality) %>" 
-                                        style="width:100%">
-                                    </div>
-                                <% } %>
-                        </div>
-                    </div>
+    <div class="contain">
+        <div class="my-5">
+            <section class="my-5">
+                <div class="u-line-center">
+                    <h3 class="text-center f-40">
+                        <%= handler.safeView(data.fold2[0], 'card_title') %>
+                    </h3>
                 </div>
 
-            </div>
-
-        </div>
-       
-    </div>
-    <div class="row my-5">
-        <div class="col-md-6 mb-2">
-            <img class="w-100" src="<%= env + handler.mediaSelection(data.fold2[1].card_img, quality)%>" alt="">
-        </div>
-        <div class="col-md-6">
-            
-            <div class="text-muted text-justify f-18">
-                <%= handler.safeView(data.fold2[1], 'card_text') %> 
-            </div>
-
-        </div>
-
-    </div>
-    <div class="row mx-0">
-        <div class="my-3">
-            <p class="text-justify f-18">
-                <%= handler.safeView(data.fold2[1], 'card_extra') %> 
-            </p>
-        </div>
-    </div>
-    <div>
-        <div class="my-5 u-line-center">
-            <h3 class="text-center">
-                <%= handler.safeView(data.fold2[2], 'card_title') %> 
-            </h3>
-        </div>
-        <div>
+            </section>
             <div class="d-flex flex-column flex-md-row">
 
 
-                <div style="flex:5;" class="text-justify f-18">
-                    <%= handler.safeView(data.fold2[2], 'card_text') %>       
-                </div>
-                <div style="flex:4;    min-height: 300px;" class="text-center mx-0 ml-md-4 mb-3">
+                <div style="flex:6;" class="text-justify text-muted f-18">
+                    <%- md.render(data.fold2[0].card_text) -%>
 
-                     <div class="col my-2 my-md-0">
-                    <div class="d-flex flex-column justify-content-center h-100">
-                       
-                        <div class="d-flex">
-                            <div class="shadow hover-z-change" style="position:absolute; top: 0;max-width: 300px; transition: all .5s;">
-                        <img width="100%" src="<%= env + handler.mediaSelection(data.fold2[2].card_img[0], quality)%>" alt="">
+                </div>
+                <div style="flex:5; order: 1;" class="text-center mx-0 ml-md-4 mb-3">
+                    <div class="col my-2 my-md-0">
+                        <div class="d-flex flex-column justify-content-center h-100">
+                            <div class="row justify-content-center">
+                                <% let length = data.fold2[0].card_img.length >= 3? 3: data.fold2[0].card_img.length;
+                                    for( let i = 0; i < length; i++ ) { %>
+                                <div class="col align-self-end 
+                                        <% if( i == 1) { %>
+                                            p-0 
+                                        <% } %>">
+                                    <img src="<%= env + handler.mediaSelection(data.fold2[0].card_img[i], quality) %>"
+                                        style="width:100%">
+                                </div>
+                                <% } %>
                             </div>
-                            <div class="shadow hover-z-change" style="top: 6rem;transition: all .5s;
-                            max-width: 300px;
-                            position: absolute;
-                            right: 1rem;">
-                                <img width="100%" src="<%= env + handler.mediaSelection(data.fold2[2].card_img[1], quality)%>" alt="">
+                            <div class="row m-1 justify-content-center">
+                                <% for( let i = 3; i < data.fold2[0].card_img.length; i++ ) { %>
+                                <div class="col ">
+                                    <img src="<%= env + handler.mediaSelection(data.fold2[0].card_img[i], quality) %>"
+                                        style="width:100%">
+                                </div>
+                                <% } %>
                             </div>
-                        </div>
                         </div>
                     </div>
-                </div>
 
                 </div>
 
             </div>
-    </div>
-    <section class="my-4">
-        <div class="font-weight-bold text-muted text-center f-20">
-            <%- md.render(handler.safeView(data.last_fold4, 'sub_heading')) -%>
+
         </div>
-    </section>
+        <div class="row my-5">
+            <div class="col-md-6 mb-2">
+                <img class="w-100" src="<%= env + handler.mediaSelection(data.fold2[1].card_img, quality)%>" alt="">
+            </div>
+            <div class="col-md-6">
+
+                <div class="text-muted text-justify f-18">
+                    <%= handler.safeView(data.fold2[1], 'card_text') %>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row mx-0">
+            <div class="my-3">
+                <p class="text-justify f-18">
+                    <%= handler.safeView(data.fold2[1], 'card_extra') %>
+                </p>
+            </div>
+        </div>
+        <div>
+            <div class="my-5 u-line-center">
+                <h3 class="text-center">
+                    <%= handler.safeView(data.fold2[2], 'card_title') %>
+                </h3>
+            </div>
+            <div>
+                <div class="d-flex flex-column flex-md-row">
+
+
+                    <div style="flex:5;" class="text-justify f-18">
+                        <%= handler.safeView(data.fold2[2], 'card_text') %>
+                    </div>
+                    <div style="flex:4;    min-height: 300px;" class="text-center mx-0 ml-md-4 mb-3">
+
+                        <div class="col my-2 my-md-0">
+                            <div class="d-flex flex-column justify-content-center h-100">
+
+                                <div class="d-flex">
+                                    <div class="shadow hover-z-change"
+                                        style="position:absolute; top: 0;max-width: 300px; transition: all .5s;">
+                                        <img width="100%"
+                                            src="<%= env + handler.mediaSelection(data.fold2[2].card_img[0], quality)%>"
+                                            alt="">
+                                    </div>
+                                    <div class="shadow hover-z-change" style="top: 6rem;transition: all .5s;
+                            max-width: 300px;
+                            position: absolute;
+                            right: 1rem;">
+                                        <img width="100%"
+                                            src="<%= env + handler.mediaSelection(data.fold2[2].card_img[1], quality)%>"
+                                            alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <section class="my-4">
+            <div class="font-weight-bold text-muted text-center f-20">
+                <%- md.render(handler.safeView(data.last_fold4, 'sub_heading')) -%>
+            </div>
+        </section>
     </div>
-</div>
-<%- include('shared/footer', {footer: common.footer}); %>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-<script>
-</script>
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+  
+    <script>
+    </script>
 </body>
 
 </html>

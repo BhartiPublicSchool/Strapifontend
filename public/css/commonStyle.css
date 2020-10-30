@@ -11,6 +11,10 @@
   background-position: center center;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 @font-face {
   font-family: Bebas;
   src: url("font/Bebas-Neue-Cyrillic.ttf");
