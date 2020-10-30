@@ -37,7 +37,7 @@
     function getSlideTemplate(params, index = "") {
         return `<div class="carousel-item ${Number(index) == 0 ? 'active' : ''}">
                             <img class="fadeIn d-block rounded img-fluid" src="${mediaSelection(params.slide_img)}" alt="First slide">
-                            <div class="carousel-caption"
+                            <div class="d-none d-md-block carousel-caption py-0"
                                 style="background-color: var(--blue-transparent);">
                                 <h5>${params.slide_title}</h5>
                                 <p>${params.slide_text}</p>
@@ -50,6 +50,8 @@
 
     }
     function slideOverlay(index) {
+        index -= 1;
+        console.log(index);
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         var results = $("#inner");
@@ -1058,7 +1060,7 @@
             <ol class="d-flex flex-wrap justify-content-center">
                 <% data.Legends.forEach(function(m, index){ %>
                 <li class="legend-item"> <a style="cursor: pointer;" class="text-decoration-none text-dark"
-                        onclick="slideOverlay(Number('<%= index%>'))"> <%= m.legend_title %></a></li>
+                        onclick="slideOverlay(Number('<%= index%>') + 1)"> <%= m.legend_title %></a></li>
                 <% }); %>
 
 
