@@ -562,6 +562,25 @@
         /* flex: 1; */
     }
 
+    @media screen and (max-width: 500px) {
+        .control-next {
+            position: absolute;
+            height: 100%;
+            width: 10rem;
+            top: 0;
+            right: -2rem !important;
+        }
+
+        .control-prev {
+            position: absolute;
+            height: 100%;
+            width: 10rem;
+            top: 0;
+            left: -2rem !important;
+        }
+    }
+    
+
     .control-next {
         position: absolute;
         height: 100%;
@@ -665,14 +684,14 @@
                     </div>
                 </div>
                 <ul id="searchResults">
-    
+
                 </ul>
             </div>
-    
+
         </div>
-    
+
     </div>
-   
+
     <div id="myHeader" style="position: absolute; background: transparent; z-index: 3;"
         class="header-design-2 w-100 px-3">
         <div class="header-brand-sticky pl-3 pt-1">
@@ -718,7 +737,7 @@
 
         </div>
     </div>
- 
+
     <div id="searchBar" class="searchBar-overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeSearchBar()">&times;</a>
         <div class="searchBar-overlay-content">
@@ -1070,11 +1089,11 @@
 
     </div>
 
-  
+
     <%- include('shared/footer', {footer: common.footer}); %>
- 
+
     <script src="js/jquery.rwdImageMaps.min.js"></script>
-   
+
     <script>
         var slides = [];
         $(document).ready(function (e) {
@@ -1089,7 +1108,7 @@
 
     </script>
 
-<script src="js/searchbar.js"></script>
+    <script src="js/searchbar.js"></script>
 </body>
 
 </html>
