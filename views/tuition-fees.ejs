@@ -16,11 +16,11 @@
 
     $(document).ready(function () {
         console.log(window.innerWidth);
-        // if (window.innerWidth < 900) {
-        //     let pp = document.getElementById('parallax');
-        //     pp.classList.remove('mcparallax');
-        //     document.getElementById('parallax').removeAttribute('data-speed')
-        // }
+        if (window.innerWidth < 900) {
+            let pp = document.getElementById('parallax');
+            pp.classList.remove('mcparallax');
+            document.getElementById('parallax').removeAttribute('data-speed')
+        }
     })
 
 </script>
