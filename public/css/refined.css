@@ -14,6 +14,12 @@
     max-width: 45.25rem;
     margin: 0 auto;
 }
+
+#qa_accordion pre{
+    white-space: normal;
+    text-align: justify;
+}
+
 .custom-button{
     background: #2A72A2;
 }
