@@ -209,7 +209,7 @@
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
     <div class="body-wrap">
         <div class="container_box" style=" background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>')">
-            <video class="v__container" id="home_media" autoplay muted width="100%"
+            <video class="v__container" id="home_media" playsinline autoplay muted width="100%"
                 src=" <%= handler.safeView(data.hoverVideos.videos, 'url', 0)  %>"></video>
 
 

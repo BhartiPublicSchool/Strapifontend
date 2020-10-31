@@ -1,7 +1,7 @@
 <div style="position: absolute; background: transparent; z-index: 3;" class="d-flex w-100 px-3">
     <div class="header-brand pl-4 pt-3">
-        <a href="/">
-            <img width="140" height="90" alt="" src="./logo.png">
+        <a href="/home">
+            <img width="140" height="90" alt="" src="<%= env + handler.safeView(common.logo, 'url') %>">
         </a>
     </div>
     <div class=" d-flex flex-column w-100">
