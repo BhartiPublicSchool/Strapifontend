@@ -208,7 +208,7 @@ figure._fold_3_overlay img {
 
 figure._fold_3_overlay {
     position: relative;
-    min-height: 400px;
+    max-height: 400px;
     margin: 0;
     height: 100%;
     z-index: 1;
