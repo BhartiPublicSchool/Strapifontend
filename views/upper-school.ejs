@@ -115,7 +115,7 @@
             <div class="d-flex flex-column flex-md-row">
 
 
-                <div style="flex:4;" class="text-justify f-18">
+                <div style="flex:1;" class="text-justify f-18">
                     <section class="mb-3 u-line">
                         <h3>
                             <%= handler.safeView(data.fold3, 'subtitle',0) %>
@@ -127,7 +127,7 @@
                  
 
                 </div>
-                <div style="flex:3;" class="text-center mx-0 ml-md-4 mb-3">
+                <div style="flex:1;" class="text-center mx-0 ml-md-4 mb-3">
                     <img class="img-fluid shadow" src='<%= env + handler.mediaSelection(data.fold3[0].img, quality) %>' alt="">
 
                 </div>
@@ -140,7 +140,7 @@
 
 
         <div class="row my-4">
-            <div class="col-md-6 mb-2">
+            <div class="col-md-6 mb-2 order-2 order-md-0">
                 <img class="w-100 shadow" src='<%= env + handler.mediaSelection(data.fold3[1].img, quality) %>' alt="">
             </div>
             <div class="col-md-6">
