@@ -716,6 +716,45 @@
                         updateFilling($(this), dotComponent['fillingLine'], timelineTotWidth);
                         // updateVisibleContent($(this), dotComponent['eventsContent']);
                     });
+                    // On swipe event
+                    $('.richHistory').on('swipe', function (event, slick, direction) {
+                        console.log(direction);
+                        switch (direction) {
+                            case 'left':
+                            console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                        let e = document.getElementById(`${(Number($('a.selected')[0].id) + 1) % parseInt('<%=data.StoryTimeline.length %>')}`);
+                        console.log(e.offsetLeft);
+                        scrollValue = e.offsetLeft;
+                        if (scrollValue < 300) {
+                            $('.dots-container').animate({ scrollLeft: "0px" }, 500);
+                        } else if (scrollValue >= 300 && scrollValue < 500) {
+                            $('.dots-container').animate({ scrollLeft: "200px" }, 500);
+                        } else if (scrollValue >= 500 && scrollValue < 700) {
+                            $('.dots-container').animate({ scrollLeft: "400px" }, 500);
+                        } else if (scrollValue >= 700 && scrollValue < 900) {
+                            $('.dots-container').animate({ scrollLeft: "600px" }, 500);
+                        } else {
+                            $('.dots-container').animate({ scrollLeft: scrollValue }, 500);
+                        }
+
+                        // $('events').animate({'scrollLeft': e.offsetLeft}, 500); 
+
+                        e.click();
+
+                                break;
+                        
+                            case 'right':
+                            console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                        let number = Number($('a.selected')[0].id) - 1;
+                        if (number < 0) {
+                            number = parseInt('<%=data.StoryTimeline.length %>') - 1;
+                        }
+                        document.getElementById(`${number % 10}`).click();
+                                break;
+                        }
+                        // left
+                    });
+
 
                     $('.timeline-next').on('click', (event) => {
                         console.log(document.getElementById(`${$('a.selected')[0].id}`));
