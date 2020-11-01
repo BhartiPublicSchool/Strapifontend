@@ -72,11 +72,101 @@
         line-height: 1;
         opacity: 0.90;
         /* color: #3F51B5; */
-      
+
         color: #fff;
         box-shadow: 0 0 0 rgb(0 0 0 / 23%);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+
+    .next-nav-alumni {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 1;
+        width: 40px;
+        margin: 1rem;
+        height: 40px;
+        background: #fff;
+        box-shadow: 0 0 10px 4px rgba(3, 3, 3, 0.2);
+        margin-top: -20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .prev-nav-alumni:after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 1px;
+        background: #000;
+        position: absolute;
+        top: 20px;
+        left: 12px;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .prev-nav-alumni:before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid #000;
+        border-right: 1px solid #000;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        position: absolute;
+        top: 17px;
+        left: 13px;
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+    }
+
+    .next-nav-alumni:after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 1px;
+        background: #000;
+        position: absolute;
+        top: 20px;
+        right: 12px;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .next-nav-alumni:before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid #000;
+        border-right: 1px solid #000;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        position: absolute;
+        top: 17px;
+        right: 13px;
+        -webkit-transform: rotate(45deg);
+    }
+
+
+    .prev-nav-alumni {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 40px;
+        z-index: 1;
+        margin: 1rem;
+        height: 40px;
+        background: #fff;
+        box-shadow: 0 0 10px 4px rgba(3, 3, 3, 0.2);
+        margin-top: -20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
     }
 </style>
 </head>
@@ -86,7 +176,7 @@
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }) %>
     <div class="body-wrap">
-        <div id="top_fold"  style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>');
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>');
     background-size: cover; background-position: center;"
             class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
             <div class="overlay"></div>
@@ -266,20 +356,27 @@
                 <h3 class="f-40"><%= handler.safeView(data, "gallery_title") %></h3>
             </div>
         </div>
+       
 
-        <div class="gallery d-flex w-100">
+        <div style="position: relative;">
+            <div class="next-nav-alumni" title="Navigate Right" style="display: block;"></div>
+        <div class="prev-nav-alumni" title="Navigate Left" style="display: block;"></div>
 
-            <% for( let index = 0; index < data.gallery_imgs.length; index++ ) { %>
+            <div class="gallery d-flex w-100">
+                <% for( let index = 0; index < data.gallery_imgs.length; index++ ) { %>
 
-            <div style="max-height: 450px; width: 600px;" class="d-flex">
-                <img style="object-fit: contain; flex: 1;" class="rounded img-fluid"
-                    src="<%= env + handler.mediaSelection(data.gallery_imgs[index], quality) %>" alt="">
-                <div>
-                    <h3>
-                    </h3>
+                <div style="max-height: 450px; width: 600px;" class="d-flex">
+                    <img style="object-fit: contain; flex: 1;" class="rounded img-fluid"
+                        src="<%= env + handler.mediaSelection(data.gallery_imgs[index], quality) %>" alt="">
+                    <div>
+                        <h3>
+                        </h3>
+                    </div>
                 </div>
-            </div>
+           
             <% } %>
+
+        </div>
 
         </div>
 
@@ -289,6 +386,8 @@
     <script>
         $('.gallery').slick({
             // dots: true,
+            prevArrow: $('.prev-nav-alumni'),
+            nextArrow: $('.next-nav-alumni'),
             infinite: true,
             speed: 300,
             arrows: true,

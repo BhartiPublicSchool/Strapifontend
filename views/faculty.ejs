@@ -53,7 +53,7 @@
         text-align: center;
     }
 
-    .overlay {
+    .f_overlay {
         position: absolute;
         bottom: 0;
         background: var(--blue);
@@ -74,7 +74,7 @@
         opacity: 0;
     }
 
-    .faculty-card:hover .overlay {
+    .faculty-card:hover .f_overlay {
         opacity: 1;
     }
 
@@ -89,13 +89,13 @@
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
     <div class="body-wrap">
-        <div id="top_fold"  style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
-    background-size: cover;"
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>');
+    background-size: cover; background-position: center top;"
             class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
             <div class="overlay"></div>
             <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
        letter-spacing: 10px;">
-                <%= handler.safeView(data, 'page_title') %>
+                <%= handler.safeView(data, 'page_title')%>
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">

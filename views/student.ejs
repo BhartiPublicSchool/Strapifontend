@@ -54,7 +54,7 @@
             text-align: center;
         }
 
-        .overlay {
+        .f_overlay {
             position: absolute;
             bottom: 0;
             background: var(--blue);
@@ -178,7 +178,7 @@
                         <%- md.render(String(handler.safeView(data.fold2, 'card_text',0))) -%>
                     </div>
                     <div style="flex:4;" class="text-center mx-0 ml-md-4 mb-3">
-                        <img class="img-fluid"
+                        <img class="img-fluid shadow"
                         src="<%= env + handler.mediaSelection(handler.safeView(data.fold2, 'card_img',0), quality) %>"
                         alt="<%= handler.safeView(handler.safeView(data.fold2, 'card_img',0), 'alternativeText', 0)  %> ">
 
@@ -199,7 +199,7 @@
             </div>
             <div class="row my-4">
                 <div class="col-md-6 mb-2">
-                    <img class="w-100" 
+                    <img class="w-100 shadow" 
                     src="<%= env + handler.mediaSelection(handler.safeView(data.fold2, 'card_img',1), quality) %>"
                     alt="<%= handler.safeView(handler.safeView(data.fold2, 'card_img',1), 'alternativeText', 0)  %> ">
                 </div>

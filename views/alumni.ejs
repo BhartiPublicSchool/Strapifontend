@@ -118,7 +118,8 @@
     }
 
     .alumni img {
-        width: 390px;
+        object-fit: contain;
+        /* width: 390px; */
         /* position: relative;
             display: block;
             z-index: 1;
@@ -132,33 +133,50 @@
             -webkit-transition: opacity 0.2s linear, transform 0.3s linear; */
 
     }
+
     .header-underline h5:before {
-            content: '';
-            background: #56a0d3;
-            width: 57px;
-            height: 2px;
-            position: absolute;
-            bottom: 85px;
-            transform: translateX(200%);
-        }
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
 
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+
+    @media screen and (max-width: 768px) {
         .jumbotron .overlay {
-            position: absolute;
-            top: 0.75rem;
-            width: calc(100% - 1.5rem);
-            height: 550px;
-            background-color: rgba(0, 0, 0, 0.1);
-            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+            width: 100%;
 
+            top: 0;
+        }
+    }
+
+    @media screen and (max-width: 460px) {
+        .alumni-container .prev-nav-alumni {
+            display: none;
+            z-index: 2;
+            left: 50%;
+            margin-left: -170px !important;
         }
 
-        @media screen and (max-width: 768px) {
-            .jumbotron .overlay {
-                width: 100%;
-
-                top: 0;
-            }
+        .alumni-container .next-nav-alumni {
+            display: none;
+            z-index: 2;
+            right: 50%;
+            margin-right: -170px !important;
         }
+    }
 
     .alumni-container .prev-nav-alumni {
         display: none;
@@ -178,6 +196,7 @@
         position: absolute;
         top: 50%;
         right: 0;
+        margin: 1rem;
         width: 40px;
         height: 40px;
         background: #fff;
@@ -250,6 +269,7 @@
         position: absolute;
         top: 50%;
         left: 0;
+        margin: 1rem;
         width: 40px;
         height: 40px;
         background: #fff;
@@ -262,6 +282,8 @@
 
     .alumni-gallery {
         position: relative;
+        /* min-width: 200px; */
+        /* min-height: 290px; */
     }
 
     .alumni-gallery::after {
@@ -297,13 +319,13 @@
     <div class="body-wrap">
         <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
             background-size: cover;"
-                    class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
-                    <div class="overlay"></div>
-                    <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
                letter-spacing: 10px;">
-                        <%= handler.safeView(data, 'page_title') %>
-                    </h1>
-                </div>
+                <%= handler.safeView(data, 'page_title') %>
+            </h1>
+        </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
             <% common.header_menu[4].submenu.forEach(function(item, index){ %>
 
@@ -315,8 +337,8 @@
     </div>
     <div class="contain">
         <div class="">
-            <div class=" my-5 u-line">
-                <h3 class="f-40">
+            <div class=" my-5 u-line-center">
+                <h3 class="f-40 text-center">
                     <%=  handler.safeView(data.fold_2, 'card_title') %>
                 </h3>
             </div>
@@ -350,12 +372,13 @@
             <div class="prev-nav-alumni" title="Navigate Left" style="display: block;"></div>
             <div class="alumni">
                 <% data.gallery.forEach(element => { %>
-                <div class="alumni-gallery">
-                    <img class="img-fluid" src="<%= env + handler.mediaSelection(element.img, quality)%>">
-                    <div class="alumni-overlay p-5">
-                        <h2>
+                <div class="alumni-gallery d-flex justify-content-center align-items-center">
+                    <img class="img-fluid align-self-center"
+                        src="<%= env + handler.mediaSelection(element.img, quality)%>">
+                    <div class="alumni-overlay p-1">
+                        <h6 class="text-center">
                             <%= handler.safeView(element, 'title') %>
-                        </h2>
+                        </h6>
                         <div class="text-center">
                             <%- md.render(String(element.text)) -%>
                         </div>
@@ -391,7 +414,7 @@
                     breakpoint: 768,
                     settings: {
                         centerMode: true,
-                        // centerPadding: '60px',
+                        centerPadding: '60px',
                         prevArrow: $('.prev-nav-alumni'),
                         nextArrow: $('.next-nav-alumni'),
                         arrows: true,

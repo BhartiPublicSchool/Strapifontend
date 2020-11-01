@@ -89,7 +89,7 @@
                                         <% if( i == 1) { %>
                                             p-0 
                                         <% } %>">
-                                    <img src="<%= env + handler.mediaSelection(data.fold2.card_img[i], quality) %>"
+                                    <img class="shadow" src="<%= env + handler.mediaSelection(data.fold2.card_img[i], quality) %>"
                                         style="width:100%">
                                 </div>
                                 <% } %>
@@ -98,7 +98,7 @@
                             <div class="row m-1 justify-content-center">
                                 <% for( let i = 3; i < data.fold2.card_img.length; i++ ) { %>
                                 <div class="col ">
-                                    <img src="<%= env + handler.mediaSelection(data.fold2.card_img[i], quality) %>"
+                                    <img class="shadow" src="<%= env + handler.mediaSelection(data.fold2.card_img[i], quality) %>"
                                         style="width:100%">
                                 </div>
                                 <% } %>
@@ -139,7 +139,7 @@
 
         <div class="row my-5">
             <div class="col-md-6 mb-2">
-                <img class="w-100" src="<%= env + handler.mediaSelection(data.fold4.card_img, quality)%>" alt="">
+                <img class="w-100 shadow" src="<%= env + handler.mediaSelection(data.fold4.card_img, quality)%>" alt="">
             </div>
             <div class="col-md-6">
                 <div class="u-line">
@@ -156,7 +156,7 @@
             <div class="">
                 <div class="d-flex justify-content-center my-5">
                     <div class="text-center">
-                        <img class="rounded-circle" width="100" height="100"
+                        <img class="rounded-circle shadow" width="100" height="100"
                             src="<%= env + handler.mediaSelection(data.fold5.img, quality)%>" alt="">
                     </div>
                     <div class="py-4 pl-4">
