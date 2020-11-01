@@ -367,6 +367,41 @@
 
         width: 40px;
     }
+
+    .double-arrow-icon {
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .bounce-up {
+        animation: bounce-up 2s infinite;
+    }
+
+    @keyframes bounce-up {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+            -webkit-transform: translateY(0);
+        }
+
+        40% {
+            transform: translateY(-20px);
+            -webkit-transform: translateY(-20px);
+        }
+
+        60% {
+            transform: translateY(-10px);
+            -webkit-transform: translateY(-10px);
+        }
+    }
 </style>
 </head>
 
@@ -386,6 +421,14 @@
             <div class="fadeIn animated">
                 <video loop autoplay playsinline id="home_media" width="100%" muted
                     src="<%= env + handler.safeView(data.page_bg, 'url') %>"></video>
+            </div>
+            <div class="double-arrow-icon py-4 ">
+                <div class="bounce-up">
+                    <a style="cursor: pointer;" onclick="gotoPos()">
+                        <i class="fa fa-angle-double-down text-white fa-3x"></i>
+                    </a>
+                </div>
+
             </div>
             <!--   <figure
                 style=" background-image: url(http://cdn.morguefile.com/imageData/public/files/k/Koan/06/p/ea989990a29bb73aa78db9f8322b5631.jpg) "
@@ -433,7 +476,7 @@
         </div>
     </div>
 
-    <div class="bg-light shadow-sm w-100">
+    <div id="fold_2" class="bg-light shadow-sm w-100">
         <div class="contain">
             <div class="my-5">
                 <section class="text-center">
@@ -628,7 +671,8 @@
     </div>
 
     <div class="bg-light w-100 px-3 py-5">
-        <div style="overflow: auto;" class="d-flex align-items-center flex-wrap justify-content-center flex-column flex-md-row">
+        <div style="overflow: auto;"
+            class="d-flex align-items-center flex-wrap justify-content-center flex-column flex-md-row">
             <% data.footer_icons.forEach(element => { %>
             <div class="align-self-center m-4">
                 <img class="img-fluid" style="max-height:107px"
@@ -645,6 +689,15 @@
 
 
     <script>
+         let scrollyArrow = document.getElementById('fold_2');
+        function gotoPos() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: scrollyArrow.offsetTop
+            });
+        }
+
         $(function () {
             // Initialize form validation on the registration form.
             // It has the name attribute "registration"
