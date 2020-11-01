@@ -723,12 +723,15 @@
                         console.log(e.offsetLeft);
                         scrollValue = e.offsetLeft;
                         if (scrollValue < 300) {
-                            $('.dots-container').animate({ scrollLeft: "50px" }, 500);
-                        } else if (scrollValue >= 300 && scrollValue < 600) {
-                            $('.dots-container').animate({ scrollLeft: "150px" }, 500);
-                            // $('.dots-container').scrollLeft(150);
-                        } else if (scrollValue >= 600 && scrollValue < 900) {
-                            $('.dots-container').animate({ scrollLeft: "500px" }, 500);
+                            $('.dots-container').animate({ scrollLeft: "0px" }, 500);
+                        } else if (scrollValue >= 300 && scrollValue < 500) {
+                            $('.dots-container').animate({ scrollLeft: "200px" }, 500);
+                        } else if (scrollValue >= 500 && scrollValue < 700) {
+                            $('.dots-container').animate({ scrollLeft: "400px" }, 500);
+                        } else if (scrollValue >= 700 && scrollValue < 900) {
+                            $('.dots-container').animate({ scrollLeft: "600px" }, 500);
+                        } else {
+                            $('.dots-container').animate({ scrollLeft: scrollValue }, 500);
                         }
 
                         // $('events').animate({'scrollLeft': e.offsetLeft}, 500); 
