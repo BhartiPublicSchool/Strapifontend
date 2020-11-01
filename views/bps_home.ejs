@@ -302,7 +302,7 @@
             <section class="slick-timeline-dots">
                 <div class="timeline">
                     <div class="dots-container">
-                        <div class="events">
+                        <div id="events" class="events">
                             <ol style="list-style: none;">
                                 <% data.StoryTimeline.forEach(function(card, index){ %>
                                 <% if (index != 0) { %>
@@ -719,7 +719,22 @@
 
                     $('.timeline-next').on('click', (event) => {
                         console.log(document.getElementById(`${$('a.selected')[0].id}`));
-                        document.getElementById(`${(Number($('a.selected')[0].id) + 1) % parseInt('<%=data.StoryTimeline.length %>')}`).click();
+                        let e = document.getElementById(`${(Number($('a.selected')[0].id) + 1) % parseInt('<%=data.StoryTimeline.length %>')}`);
+                        console.log(e.offsetLeft);
+                        scrollValue = e.offsetLeft;
+                        if (scrollValue < 300) {
+                            $('.dots-container').animate({ scrollLeft: "50px" }, 500);
+                        } else if (scrollValue >= 300 && scrollValue < 600) {
+                            $('.dots-container').animate({ scrollLeft: "150px" }, 500);
+                            // $('.dots-container').scrollLeft(150);
+                        } else if (scrollValue >= 600 && scrollValue < 900) {
+                            $('.dots-container').animate({ scrollLeft: "500px" }, 500);
+                        }
+
+                        // $('events').animate({'scrollLeft': e.offsetLeft}, 500); 
+
+                        e.click();
+
                         // console.log($('a.selected')[0].id);
                     })
                     $('.timeline-prev').on('click', (event) => {
