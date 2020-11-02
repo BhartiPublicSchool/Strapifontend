@@ -816,7 +816,9 @@
                 align-items: center;
                 flex-direction: column;
                 -webkit-animation-name: fadeIn;
-                animation-name: fadeIn
+                -moz-animation-name:fadeIn;
+                -ms-animation-name: fadeIn;
+                animation-name: fadeIn;
                 ">
                 <h3 style="color: white; font-size: 3vw; margin-bottom: 0;"> <%= handler.safeView(data, 'page_title') %>
                 </h3>

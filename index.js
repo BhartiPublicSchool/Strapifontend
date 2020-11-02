@@ -10,6 +10,8 @@ var commons;
 var MarkdownIt = require("markdown-it"),
   md = new MarkdownIt();
 const markdownItAttrs = require("markdown-it-attrs");
+const underline = require('markdown-it-underline');
+md.use(underline);
 
 md.use(markdownItAttrs);
 app.use(bodyParser.json());

@@ -1,70 +1,82 @@
 <%- include('shared/headermeta'); %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
-    <link rel="stylesheet" href="css/refined.css">
-    <link rel="stylesheet" href="css/topnavbar.css">
-    <link rel="stylesheet" href="css/dropdownhover.css">
-    <link rel="stylesheet" href="css/foldFooter.css">
-    <script>
-        
-       
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<script>
 
-        function stopvideo(params) {
-            let vElement = document.getElementById("home_media");
-            vElement.pause();
-            anime({
-                targets: "#home_media",
-                opacity: {
-                    value: 0,
-                    duration: 500
-                },
-                easing: "easeInOutSine"
-            });
+
+
+    function stopvideo(params) {
+        let vElement = document.getElementById("home_media");
+        vElement.pause();
+        anime({
+            targets: "#home_media",
+            opacity: {
+                value: 0,
+                duration: 500
+            },
+            easing: "easeInOutSine"
+        });
+    }
+
+    function startvideo(params) {
+        let vElement = document.getElementById("home_media");
+        console.log(params);
+
+        anime({
+            targets: "#home_media",
+            opacity: {
+                value: 1,
+                duration: 500
+            },
+            // delay: 1000,
+            // direction: 'reverse',
+            easing: "easeInOutSine"
+        });
+        switch (params) {
+            case 1:
+                vElement.setAttribute(
+                    "src",
+                    "<%=env + handler.safeView(data.hoverVideos.videos, 'url', 1); %>"
+                );
+                break;
+            case 2:
+                vElement.setAttribute(
+                    "src",
+                    "<%=env + handler.safeView(data.hoverVideos.videos, 'url', 2); %>"
+                );
+                break;
+            case 3:
+                vElement.setAttribute(
+                    "src",
+                    "<%=env + handler.safeView(data.hoverVideos.videos, 'url', 3); %>"
+                );
+                break;
+            case 4:
+                vElement.setAttribute(
+                    "src",
+                    "<%=env + handler.safeView(data.hoverVideos.videos, 'url', 4); %>"
+                );
+                break;
+
+            default:
+                vElement.setAttribute(
+                    "src",
+                    "<%=env + handler.safeView(data.hoverVideos.videos, 'url', 0); %>"
+                );
+                break;
         }
+    }
 
-        function startvideo(params) {
-            let vElement = document.getElementById("home_media");
-            console.log(params);
+</script>
+<style>
+    body {
+        margin: 0;
+    }
 
-            anime({
-                targets: "#home_media",
-                opacity: {
-                    value: 1,
-                    duration: 500
-                },
-                // delay: 1000,
-                // direction: 'reverse',
-                easing: "easeInOutSine"
-            });
-            switch (params) {
-                case 2:
-                    vElement.setAttribute(
-                        "src",
-                        "https://player.vimeo.com/external/328465444.sd.mp4?s=f9ccb1200a449bdf2dd10d99e96f0603a24e24d3&profile_id=164&oauth2_token_id=57447761"
-                    );
-                    break;
-                case 3:
-                    vElement.setAttribute(
-                        "src",
-                        "https://player.vimeo.com/external/293348158.sd.mp4?s=3f9bf052fab34e94fd4f87e891d7594d539f2dcc&profile_id=164&oauth2_token_id=57447761"
-                    );
-                    break;
-
-                default:
-                    vElement.setAttribute(
-                        "src",
-                        "https://player.vimeo.com/external/206536059.sd.mp4?s=551efa45c0cdd2d1fb5349a3936bb7f4d7550f4c&profile_id=164&oauth2_token_id=57447761"
-                    );
-                    break;
-            }
-        }
-
-    </script>
-    <style>
-        body {
-            margin: 0;
-        }
-
-        /* .container_box {
+    /* .container_box {
     position: relative;
   width: 100%;
   height: 100%;
@@ -85,121 +97,121 @@
     background-color: rgba(0, 0, 0, 0.432);
 } */
 
-        /*
+    /*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v7.0.29,
 * Autoprefixer: v9.7.6
 * Browsers: last 4 version
 */
 
-        .container_box {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-image: url("./bps-life/OK-IMG_6601.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            max-height: 100vh;
+    .container_box {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-image: url("./bps-life/OK-IMG_6601.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        max-height: 100vh;
+    }
+
+    .container_box::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.432);
+    }
+
+    .viewsBox {
+        position: absolute;
+        top: 0;
+        width: 99%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        flex-basis: 80%;
+    }
+
+    .group_btns {
+        display: flex;
+    }
+
+
+
+    .button {
+        min-width: 300px;
+    }
+
+    @media screen and (min-width: 768px) {
+        .group_btns .button a {
+            font-size: 25px !important;
+            padding: 1em 2em !important;
         }
-
-        .container_box::after {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.432);
-        }
-
-        .viewsBox {
-            position: absolute;
-            top: 0;
-            width: 99%;
-            height: 100%;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            flex-basis: 80%;
-        }
-
-        .group_btns {
-            display: flex;
-        }
-
-
 
         .button {
-            min-width: 300px;
+            min-width: 450px;
         }
+    }
 
-        @media screen and (min-width: 768px) {
-            .group_btns .button a {
-                font-size: 25px !important;
-                padding: 1em 2em !important;
-            }
+    .group_btns .button a {
+        padding: 0.75em 1em;
+        text-decoration: none;
+        line-height: 39px;
+        transition: background 0.3s, color 0.3s;
+        position: relative;
+        display: block;
+        color: #fff;
+        font-size: 20px;
+        max-height: 4rem;
+        line-height: 31px;
+        text-transform: uppercase;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
 
-            .button {
-                min-width: 450px;
-            }
-        }
+    .group_btns .button a:hover,
+    .group_btns .button a:focus {
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        background: rgba(0, 0, 0, 0.2);
+    }
 
-        .group_btns .button a {
-            padding: 0.75em 1em;
-            text-decoration: none;
-            line-height: 39px;
-            transition: background 0.3s, color 0.3s;
-            position: relative;
-            display: block;
-            color: #fff;
-            font-size: 20px;
-            max-height: 4rem;
-            line-height: 31px;
-            text-transform: uppercase;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -ms-flex-align: center;
-            align-items: center;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
+    .v__container {
+        height: 100vh;
+        -o-object-fit: cover;
+        object-fit: cover;
+        display: block;
+        min-height: 100vh;
+        max-height: none;
+        max-width: none;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        background-position: center center;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
 
-        .group_btns .button a:hover,
-        .group_btns .button a:focus {
-            color: #fff;
-            cursor: pointer;
-            text-decoration: none;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .v__container {
-            height: 100vh;
-            -o-object-fit: cover;
-            object-fit: cover;
-            display: block;
-            min-height: 100vh;
-            max-height: none;
-            max-width: none;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            background-position: center center;
-            background-size: cover;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-        .body-wrap {
-            position: relative;
-        }
-    </style>
+    .body-wrap {
+        position: relative;
+    }
+</style>
 </head>
 
 <body>
@@ -208,17 +220,18 @@
     <%- include('shared/header', { Menu: common.header_menu }); %>
     <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
     <div class="body-wrap">
-        <div class="container_box" style=" background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>')">
+        <div class="container_box"
+            style=" background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality)%>')">
             <video class="v__container" id="home_media" playsinline autoplay muted width="100%"
-                src=" <%= handler.safeView(data.hoverVideos.videos, 'url', 0)  %>"></video>
+                src=" <%=env + handler.safeView(data.hoverVideos.videos, 'url', 0)  %>"></video>
 
 
             <div class="viewsBox d-flex">
                 <div class="my-5">
                     <h1 style="font-size: 7vw; line-height: 20px;
                 letter-spacing: 10px;" class="text-white">
-                <%= handler.safeView(data, 'page_title') %> 
-            </h1>
+                        <%= handler.safeView(data, 'page_title') %>
+                    </h1>
                 </div>
                 <div class="row mx-0">
                     <div class="col">
@@ -228,8 +241,8 @@
                                 </a>
                             </div>
                             <div class="button">
-                                <a href="creative-arts" onmouseover="startvideo(2)"
-                                    onmouseout="stopvideo()">Creative Arts</a>
+                                <a href="creative-arts" onmouseover="startvideo(2)" onmouseout="stopvideo()">Creative
+                                    Arts</a>
                             </div>
 
 
@@ -241,12 +254,12 @@
                     <div class="col">
                         <div class="group_btns d-flex justify-content-center flex-wrap">
                             <div class="button">
-                                <a href="outdoor-education" onmouseover="startvideo(1)"
-                                    onmouseout="stopvideo()">Outdoor Education </a>
+                                <a href="outdoor-education" onmouseover="startvideo(3)" onmouseout="stopvideo()">Outdoor
+                                    Education </a>
                             </div>
 
                             <div class="button">
-                                <a href="community-outreach" onmouseover="startvideo(3)"
+                                <a href="community-outreach" onmouseover="startvideo(4)"
                                     onmouseout="stopvideo()">Community Outreach</a>
                             </div>
                         </div>
@@ -257,13 +270,13 @@
 
             </div>
         </div>
-        
+
 
     </div>
     <div class="mt-2">
         <%- include('shared/footer', {footer: common.footer}); %>
     </div>
- 
+
 </body>
 
 </html>

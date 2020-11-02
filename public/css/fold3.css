@@ -30,7 +30,7 @@
     }
     ._feature_box {
         flex-basis: 33.33%;
-        min-height: 490px;
+        min-height: 400px;
         /* background-color: cadetblue; */
     }
 }

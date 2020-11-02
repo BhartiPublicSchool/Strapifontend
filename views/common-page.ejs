@@ -68,7 +68,7 @@
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <a href="common-page" class="nav-link text-center p-1 m-1 active">Academics</a>
+            <a href="academics" class="nav-link text-center p-1 m-1 active">Academics</a>
             <% common.header_menu[2].submenu.forEach(function(item, index){ %>
 
             <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1">
@@ -161,7 +161,7 @@
 
                                         <div class="card-body mx-auto py-0 w-75">
                                             <h5 class="card-title py-0 quote-inline f-julias-san font-weight-bold"> <span style="color: var(--green);"
-                                                    class="f-40">“</span><%- md.render(data.Carousel[i].text) -%><span
+                                                    class="f-40">“</span><%- md.render(handler.safeView(data.Carousel, 'text', i)) -%><span
                                                     style="color: var(--green);vertical-align: text-top;" class="f-40">”
                                                 </span>
                                             </h5>

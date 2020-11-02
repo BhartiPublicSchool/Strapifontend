@@ -74,7 +74,7 @@
             </h1>
         </div>
         <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
-            <a href="common-page" class="nav-link text-center p-1 m-1">Academics</a>
+            <a href="academics" class="nav-link text-center p-1 m-1">Academics</a>
             <% common.header_menu[2].submenu.forEach(function(item, index){ %>
 
             <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 2 ? "active" : "" %>">
@@ -158,10 +158,10 @@
 
     </div>
     <div class="body-wrap">
-        <div class="parallax-container shadow">
+        <div class="parallax-container">
             <div style=" background-image: url('<%= env + handler.mediaSelection(data.parallax.parallax_img, quality) %>');"
                 id="parallax" class="parallex mcparallax d-flex justify-content-center align-items-center"
-                data-speed="2">
+                data-speed="4">
                 <div class="" style="width: 25rem;">
                     <h1 class="text-center text-white">
                         <%= handler.safeView(data.parallax, 'text') %>

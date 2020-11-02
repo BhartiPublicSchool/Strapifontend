@@ -232,8 +232,10 @@
 
         </div>
         <div id="_fold_1_media" class="_fold_1 bpsHomeVideoContainer delay-1s fadeIn animated">
-            <video loop autoplay playsinline id="home_media" width="100%" muted
-                src="<%= env + handler.safeView(data.homeVideo.titleVideo, 'url') %>"></video>
+            <video loop autoplay playsinline id="home_media" poster="poster.jpg" width="100%" muted
+                src="<%= env + handler.safeView(data.homeVideo.titleVideo, 'url') %>">
+            
+            </video>
             <div></div>
         </div>
 
@@ -273,7 +275,9 @@
 
         </div>
         <section class="_fold_6"
-            style=" background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>');">
+            style="background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>');
+            background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>');">
             <header class="mt-5 mb-4 py-3">
                 <div class="u-line-center-white pt-4">
                     <h3 class="text-center text-white f-40">
@@ -321,30 +325,7 @@
                     </div>
                 </div>
             </section>
-            <!-- <section class="slick-timeline-dots">
-                <div class="timeline">
-                    <div class="dots-container">
-                        <div class="events">
-                            <ol style="list-style: none;">
 
-                                <li><a id="0" href="#0" data-date="16/01/2014" class="selected">1980</a></li>
-                                <li><a id="1" href="#0" data-date="28/02/2014">1981</a></li>
-                                <li><a id="2" href="#0" data-date="20/04/2014">1995</a></li>
-                                <li><a id="3" href="#0" data-date="20/05/2014">1998</a></li>
-                                <li><a id="4" href="#0" data-date="09/07/2014">2004</a></li>
-                                <li><a id="5" href="#0" data-date="30/08/2014">2005</a></li>
-                                <li><a id="6" href="#0" data-date="15/09/2014">2009</a></li>
-                                <li><a id="7" href="#0" data-date="01/11/2014">2013</a></li>
-                                <li><a id="8" href="#0" data-date="10/12/2014">2019</a></li>
-                                <li><a id="9" href="#0" data-date="19/01/2015">2020</a></li>
-
-                            </ol>
-
-                            <span class="filling-line" aria-hidden="true"></span>
-                        </div>
-                    </div> 
-                </div>
-            </section> -->
 
 
             <div id="richHistory" class="d-flex richHistory">
@@ -391,6 +372,28 @@
             </div>
         </div>
 
+        <!-- Startup Modal -->
+        <div class="modal fade" id="startupModal" tabindex="-1" role="dialog" aria-labelledby="startupModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="modal_body" class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Starteup modal -->
 
 
     </div>
@@ -407,6 +410,8 @@
 
     </script>
     <script>
+        var showModal = '<%= common.startup_modal.showModal %>';
+        console.log(showModal);
         // gsap.from(".dropdown-item", {
         //     duration: 0.5,
         //     scale: 0.5,
@@ -511,13 +516,15 @@
                 let spans = filler.find('span');
 
                 filler.on('click', 'span', function (event) {
-                    console.log("xxyyzz", event.target.id);
+                    // console.log("xxyyzz", event.target.id);
                     event.preventDefault();
                     spans.removeClass('selected');
                     $(this).addClass('selected');
                     // updateOlderEvents($(this));
 
                     updateFilling(filling_element, Number(event.target.id));
+
+
                     // updateVisibleContent($(this), dotComponent['eventsContent']);
                 });
 
@@ -721,35 +728,52 @@
                         console.log(direction);
                         switch (direction) {
                             case 'left':
-                            console.log(document.getElementById(`${$('a.selected')[0].id}`));
-                        let e = document.getElementById(`${(Number($('a.selected')[0].id) + 1) % parseInt('<%=data.StoryTimeline.length %>')}`);
-                        console.log(e.offsetLeft);
-                        scrollValue = e.offsetLeft;
-                        if (scrollValue < 300) {
-                            $('.dots-container').animate({ scrollLeft: "0px" }, 500);
-                        } else if (scrollValue >= 300 && scrollValue < 500) {
-                            $('.dots-container').animate({ scrollLeft: "200px" }, 500);
-                        } else if (scrollValue >= 500 && scrollValue < 700) {
-                            $('.dots-container').animate({ scrollLeft: "400px" }, 500);
-                        } else if (scrollValue >= 700 && scrollValue < 900) {
-                            $('.dots-container').animate({ scrollLeft: "600px" }, 500);
-                        } else {
-                            $('.dots-container').animate({ scrollLeft: scrollValue }, 500);
-                        }
+                                console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                                let e = document.getElementById(`${(Number($('a.selected')[0].id) + 1) % parseInt('<%=data.StoryTimeline.length %>')}`);
+                                console.log(e.offsetLeft);
+                                scrollValue = e.offsetLeft;
+                                if (scrollValue < 300) {
+                                    $('.dots-container').animate({ scrollLeft: "0px" }, 500);
+                                } else if (scrollValue >= 300 && scrollValue < 500) {
+                                    $('.dots-container').animate({ scrollLeft: "200px" }, 500);
+                                } else if (scrollValue >= 500 && scrollValue < 700) {
+                                    $('.dots-container').animate({ scrollLeft: "400px" }, 500);
+                                } else if (scrollValue >= 700 && scrollValue < 900) {
+                                    $('.dots-container').animate({ scrollLeft: "600px" }, 500);
+                                } else {
+                                    $('.dots-container').animate({ scrollLeft: scrollValue }, 500);
+                                }
 
-                        // $('events').animate({'scrollLeft': e.offsetLeft}, 500); 
+                                // $('events').animate({'scrollLeft': e.offsetLeft}, 500); 
 
-                        e.click();
+                                e.click();
 
                                 break;
-                        
+
                             case 'right':
-                            console.log(document.getElementById(`${$('a.selected')[0].id}`));
-                        let number = Number($('a.selected')[0].id) - 1;
-                        if (number < 0) {
-                            number = parseInt('<%=data.StoryTimeline.length %>') - 1;
-                        }
-                        document.getElementById(`${number % 10}`).click();
+                                console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                                let number = Number($('a.selected')[0].id) - 1;
+                                if (number < 0) {
+                                    number = parseInt('<%=data.StoryTimeline.length %>') - 1;
+                                }
+                                let ed = document.getElementById(`${number % 10}`);
+                                scrollValue = ed.offsetLeft;
+
+                                if (scrollValue < 300) {
+                                    $('.dots-container').animate({ scrollLeft: "0px" }, 500);
+                                } else if (scrollValue >= 300 && scrollValue < 500) {
+                                    $('.dots-container').animate({ scrollLeft: "200px" }, 500);
+                                } else if (scrollValue >= 500 && scrollValue < 700) {
+                                    $('.dots-container').animate({ scrollLeft: "400px" }, 500);
+                                } else if (scrollValue >= 700 && scrollValue < 900) {
+                                    $('.dots-container').animate({ scrollLeft: "600px" }, 500);
+                                } else {
+                                    $('.dots-container').animate({ scrollLeft: scrollValue }, 500);
+                                }
+
+                                // $('events').animate({'scrollLeft': e.offsetLeft}, 500); 
+
+                                ed.click();
                                 break;
                         }
                         // left
@@ -775,7 +799,7 @@
 
                         // $('events').animate({'scrollLeft': e.offsetLeft}, 500); 
 
-                        e.click();
+                        e.click()
 
                         // console.log($('a.selected')[0].id);
                     })
@@ -785,7 +809,25 @@
                         if (number < 0) {
                             number = parseInt('<%=data.StoryTimeline.length %>') - 1;
                         }
-                        document.getElementById(`${number % 10}`).click();
+                        let e = document.getElementById(`${number % 10}`);
+                        scrollValue = e.offsetLeft;
+
+                        if (scrollValue < 300) {
+                            $('.dots-container').animate({ scrollLeft: "0px" }, 500);
+                        } else if (scrollValue >= 300 && scrollValue < 500) {
+                            $('.dots-container').animate({ scrollLeft: "200px" }, 500);
+                        } else if (scrollValue >= 500 && scrollValue < 700) {
+                            $('.dots-container').animate({ scrollLeft: "400px" }, 500);
+                        } else if (scrollValue >= 700 && scrollValue < 900) {
+                            $('.dots-container').animate({ scrollLeft: "600px" }, 500);
+                        } else {
+                            $('.dots-container').animate({ scrollLeft: scrollValue }, 500);
+                        }
+
+                        // $('events').animate({'scrollLeft': e.offsetLeft}, 500); 
+
+                        e.click();
+
 
                     })
 
