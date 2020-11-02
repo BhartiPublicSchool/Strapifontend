@@ -419,7 +419,7 @@
         <div class="pic-wrapper">
 
             <div class="fadeIn animated">
-                <video loop autoplay playsinline id="home_media" width="100%" muted
+                <video loop autoplay playsinline id="home_media" width="100%" muted poster="<%= env + handler.mediaSelection(handler.safeView(data,'video_poster'), 'small') %>"
                     src="<%= env + handler.safeView(data.page_bg, 'url') %>"></video>
             </div>
             <div class="double-arrow-icon py-4 ">

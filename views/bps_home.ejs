@@ -232,7 +232,7 @@
 
         </div>
         <div id="_fold_1_media" class="_fold_1 bpsHomeVideoContainer delay-1s fadeIn animated">
-            <video loop autoplay playsinline id="home_media" poster="poster.jpg" width="100%" muted
+            <video loop autoplay playsinline id="home_media" poster="<%= env + handler.mediaSelection(handler.safeView(data,'video_poster'), 'small') %>" width="100%" muted
                 src="<%= env + handler.safeView(data.homeVideo.titleVideo, 'url') %>">
             
             </video>
