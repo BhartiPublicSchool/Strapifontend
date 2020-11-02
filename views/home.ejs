@@ -8,6 +8,13 @@
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/foldFooter.css">
 <style>
+    :root {
+        --grey: #363E47;
+        --blue: #28295d;
+        --green: #62a25d;
+        --yellow: rgb(255, 210, 29);
+        --orange: #df682d;
+    }
     .error {
         border: 2px solid red !important;
     }
@@ -241,13 +248,7 @@
 
     }
 
-    .group_btns .button a:hover,
-    .group_btns .button a:focus {
-        color: #fff;
-        cursor: pointer;
-        text-decoration: none;
-        background: rgba(0, 0, 0, 0.753);
-    }
+
 
     .body-wrap {
         overflow: hidden;
@@ -495,10 +496,10 @@
 
                     </div>
                     <div class="my-5">
-                        <div class="group_btns font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
+                        <div class=" font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
                             <div>
                                 <div class="">
-                                    <a style="min-width: 200px;" class="btn btn-outline-success rounded-0 px-3 py-2"
+                                    <a style="min-width: 200px;" class="btn explore px-3 py-2"
                                         href="<%= data.home_buttons[0].btn_href%>">
                                         <%= data.home_buttons[0].btn_name%>
                                     </a>
@@ -509,19 +510,19 @@
                     <div style="z-index: 1;" class="social-icons my-4">
                         <div class="d-flex justify-content-center">
                             <div class="text-dark">
-                                <a class="fb" href="https://www.facebook.com/Bhartipublicschooldelhi/"><i
+                                <a class="fb" href="<%= handler.safeView(data, 'fb_link1') %>"><i
                                         class="fa fa-facebook" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="ln" href="https://www.linkedin.com/school/bharti-public-school---india/"><i
+                                <a class="ln" href="<%= handler.safeView(data, 'ln_link1') %>"><i
                                         class="fa fa-linkedin" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="yt" href="https://www.youtube.com/c/BhartiPublicSchoolSwasthyaVihar"><i
+                                <a class="yt" href="<%= handler.safeView(data, 'yt_link1') %>"><i
                                         class="fa fa-youtube" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="in" href="https://www.instagram.com/bhartipublicschooldelhi/"><i
+                                <a class="in" href="<%= handler.safeView(data, 'in_link1') %>"><i
                                         class="fa fa-instagram" aria-hidden="true"></i></a>
                             </div>
                         </div>
@@ -540,7 +541,7 @@
                         <div class="group_btns font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
                             <div>
                                 <div class=" pr-0 pr-md-2">
-                                    <a style="min-width: 200px;" class="btn btn-outline-success rounded-0 px-3 py-2"
+                                    <a style="min-width: 200px;" class="btn explore px-3 py-2"
                                         href="<%= data.home_buttons[1].btn_href%>">
                                         <%= data.home_buttons[1].btn_name%>
                                     </a>
@@ -551,19 +552,19 @@
                     <div style="z-index: 1;" class="social-icons">
                         <div class="d-flex justify-content-center">
                             <div class="text-dark">
-                                <a class="fb" href="https://www.facebook.com/Bhartipublicschooldelhi/"><i
+                                <a class="fb" href="<%= handler.safeView(data, 'fb_link2') %>"><i
                                         class="fa fa-facebook" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="ln" href="https://www.linkedin.com/school/bharti-public-school---india/"><i
+                                <a class="ln" href="<%= handler.safeView(data, 'ln_link2') %>"><i
                                         class="fa fa-linkedin" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="yt" href="https://www.youtube.com/c/BhartiPublicSchoolSwasthyaVihar"><i
+                                <a class="yt" href="<%= handler.safeView(data, 'yt_link2') %>"><i
                                         class="fa fa-youtube" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="in" href="https://www.instagram.com/bhartipublicschooldelhi/"><i
+                                <a class="in" href="<%= handler.safeView(data, 'in_link2') %>"><i
                                         class="fa fa-instagram" aria-hidden="true"></i></a>
                             </div>
                         </div>

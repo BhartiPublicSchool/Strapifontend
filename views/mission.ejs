@@ -275,6 +275,16 @@
         transform: translate(-40%, -50%);
         transition: all .3s ease-in-out;
     }
+    .responsive-height {
+        height: 190px;
+    }
+   
+
+    @media screen and (min-width: 550px) {
+        .responsive-height {
+        height: 330px;
+    }
+    }
 
 </style>
 </head>
@@ -339,7 +349,7 @@
 
                             Your browser does not support the video tag.
                         </video> -->
-                        <iframe style="border: 0;height: 390px;" id="mission-video" width="100%" height="100%" src="<%= handler.safeView(data, 'vimeo_link') %>" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        <iframe class="responsive-height" style="border: 0;" id="mission-video" width="100%" height="100%" src="<%= handler.safeView(data, 'vimeo_link') %>" allow="autoplay; fullscreen" allowfullscreen></iframe>
                         <!-- <button id="m_play" class="mission-play" onclick="playPause()">Play</button> -->
                     </div>
 
