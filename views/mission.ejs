@@ -334,12 +334,13 @@
                 <div style="flex:3;" class="mission-video-container text-center mx-0 ml-md-4 mb-3">
                     <div style="position: relative;">
 
-                        <video onended="endedVideo()" id="mission-video" width="100%" class="img-fluid shadow">
+                        <!-- <video onended="endedVideo()" id="mission-video" width="100%" class="img-fluid shadow">
                             <source src="<%= env + handler.urlStringSelection(data.fold2[0].video) %>">
 
                             Your browser does not support the video tag.
-                        </video>
-                        <button id="m_play" class="mission-play" onclick="playPause()">Play</button>
+                        </video> -->
+                        <iframe style="border: 0;" id="mission-video" width="100%" height="100%" src="<%= handler.safeView(data, 'vimeo_link') %>" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        <!-- <button id="m_play" class="mission-play" onclick="playPause()">Play</button> -->
                     </div>
 
                 </div>
