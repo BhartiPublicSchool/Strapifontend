@@ -660,9 +660,14 @@
         background: #14a5df;
         ;
     }
+    @media screen and (max-width: 560px){
+        .tiles:hover {
+        height: 15rem !important;
+    }
+    }
 
     .tiles:hover {
-        height: 9rem;
+        height: 12.5rem;
     }
 
     /*  */
@@ -1054,10 +1059,10 @@
             <% data.Legends.forEach(function(m, index){ %>
             <div class="tiles">
                 <header>
-                    <h4 class="tileTitle m-3">
+                    <h5 class="tileTitle m-3 pt-2">
                         <%= m.legend_title %></li>
 
-                    </h4>
+                    </h5>
                 </header>
                 <section class="px-3">
                     <%- md.render(String(m.legend_text)) -%>
