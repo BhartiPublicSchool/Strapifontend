@@ -403,7 +403,7 @@ app.get("/alumni/modals", async (req, res) => {
   try {
     const response = await axios.get(`${API_ENDPOINT}/alumni`);
     // console.log(response.data, process.env.NODE_ENV);
-    res.send(response.data.gallery);
+    res.send(response.data.alumni_gallery);
   } catch (error) {
     console.error(error);
   }

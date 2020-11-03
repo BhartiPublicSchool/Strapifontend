@@ -113,3 +113,12 @@ function sendMail(params) {
     });
   });
 }
+
+
+function getSVMails(params) {
+    
+}
+
+function getMVMails(params) {
+    
+}
