@@ -367,11 +367,12 @@
             <div class="next-nav-alumni" title="Navigate Right" style="display: block;"></div>
             <div class="prev-nav-alumni" title="Navigate Left" style="display: block;"></div>
             <div class="alumni">
-                <% data.gallery.forEach(element => { %>
+                <% data.gallery.forEach((element) => { %>
                 <div class="alumni-gallery d-flex justify-content-center align-items-center">
-                    <img class="img-fluid align-self-center"
+                    <a style="cursor: pointer;" id="<%= element.id %>"  onclick="showAlumniModal(this)">
+                        <img class="img-fluid align-self-center"
                         src="<%= env + handler.mediaSelection(element.img, quality)%>">
-                    <div class="alumni-overlay d-flex flex-column justify-content-center justify-content-md-end align-items-center p-1">
+                    <div class="alumni-overlay d-flex flex-column  justify-content-end align-items-center p-1">
                         <h6 class="text-center">
                             <%= handler.safeView(element, 'title') %>
                         </h6>
@@ -380,6 +381,8 @@
                         </div>
 
                     </div>
+                    </a>
+                  
                 </div>
                
                 <% }) %>
@@ -432,6 +435,10 @@
                 }
             ]
         });
+
+        function showAlumniModal(x) {
+console.log('hello', x.id);
+        }
 
         // $('.alumni').slick({
         //     dots: true,

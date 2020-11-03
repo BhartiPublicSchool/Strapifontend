@@ -11,6 +11,12 @@
   background-position: center center;
 }
 
+blockquote {
+  font-family: Julias-San;
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .underline {
   text-decoration: underline;
 }
