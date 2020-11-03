@@ -204,9 +204,10 @@
             top: 1300px;
         }
     }
+
     .modal-backdrop.show {
-    opacity: 0.6;
-}
+        opacity: 0.6;
+    }
 </style>
 </head>
 
@@ -242,7 +243,7 @@
             <video loop autoplay playsinline id="home_media"
                 poster="<%= env + handler.mediaSelection(handler.safeView(data,'video_poster'), 'small') %>"
                 width="100%" muted
-                 src="https://bps.nyc3.cdn.digitaloceanspaces.com/bps_g_C15_GSHO_compressed_d624cc4f5d.mp4">
+                src="https://bps.nyc3.cdn.digitaloceanspaces.com/bps_g_C15_GSHO_compressed_d624cc4f5d.mp4">
 
             </video>
             <div></div>
@@ -391,7 +392,8 @@
                         <h5 class="modal-title" id="modalLabel">
                             <%= handler.safeView(common.startup_modal, 'modal_title') %>
                         </h5>
-                        <button type="button" style="font-size: 2.1rem;" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" style="font-size: 2.1rem;" class="close" data-dismiss="modal"
+                            aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -401,11 +403,13 @@
                                 <%- md.render(String(handler.safeView(common.startup_modal, 'modal_body'))) -%>
                             </div>
                             <div class="d-flex">
-                                <div style="flex:1;"> <img style="max-height: 300px;width: 100%;object-fit: cover;" class="fadeIn d-block rounded img-fluid"
-                                    src="<%= env + handler.mediaSelection(handler.safeView(common.startup_modal, 'modal_img'), 'small') %>" alt="">
+                                <div style="flex:1;"> <img style="max-height: 300px;width: 100%;object-fit: cover;"
+                                        class="fadeIn d-block rounded img-fluid"
+                                        src="<%= env + handler.mediaSelection(handler.safeView(common.startup_modal, 'modal_img'), 'small') %>"
+                                        alt="">
                                 </div>
                             </div>
-                            <div  class="text-justify py-3">
+                            <div class="text-justify py-3">
                                 <%- md.render(String(handler.safeView(common.startup_modal, 'modal_text'))) -%>
                             </div>
                         </div>
@@ -415,13 +419,14 @@
                                 <a href="<%= item.btn_href %>" class="btn explore">
                                     <%= item.btn_name %></a>
                             </div>
-            
-            
+
+
                             <% }); %>
-            
-            
+
+
                         </div>
-<a style="cursor: pointer;" class="btn-link float-right my-3" onclick="savePreferrence()">Don't show this again</a>
+                        <a style="cursor: pointer;" class="btn-link float-right my-3" onclick="savePreferrence()">Don't
+                            show this again</a>
                     </div>
                     <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -453,10 +458,10 @@
             sessionStorage.setItem('statupModalPreferrence', true);
             $('#startupModal').modal('hide');
         }
-       
-    //    sessionStorage.clear();
+
+        //    sessionStorage.clear();
         let statupModalPreferrence = sessionStorage.getItem('statupModalPreferrence');
-     
+
         if (showModal === 'true' && statupModalPreferrence === null) {
             $('#startupModal').modal('show');
         }

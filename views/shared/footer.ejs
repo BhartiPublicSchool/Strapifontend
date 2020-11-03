@@ -9,19 +9,19 @@
                     <h4 class="text-white text-center my-5">Stay Connected</h4>
                     <div class="d-flex justify-content-center">
                         <div>
-                            <a class="fb" href="https://www.facebook.com/Bhartipublicschooldelhi/"><i
+                            <a class="fb" href="<%= common.fb_link %>"><i
                                     class="fa fa-facebook" aria-hidden="true"></i></a>
                         </div>
                         <div>
-                            <a class="ln" href="https://www.linkedin.com/school/bharti-public-school---india/"><i
+                            <a class="ln" href="<%= common.ln_link %>"><i
                                     class="fa fa-linkedin" aria-hidden="true"></i></a>
                         </div>
                         <div>
-                            <a class="yt" href="https://www.youtube.com/c/BhartiPublicSchoolSwasthyaVihar"><i
+                            <a class="yt" href="<%= common.yt_link %>"><i
                                     class="fa fa-youtube" aria-hidden="true"></i></a>
                         </div>
                         <div>
-                            <a class="in" href="https://www.instagram.com/bhartipublicschooldelhi/"><i
+                            <a class="in" href="<%= common.in_link %>"><i
                                     class="fa fa-instagram" aria-hidden="true"></i></a>
                         </div>
                     </div>
@@ -61,10 +61,10 @@
                     <h4 class="text-white my-5">Accreditation</h4>
                     <div class="d-flex justify-content-center">
                         <div style="width: 150px;">
-                            <img width="100%" src="./accreditation/cbse-logo-png-3-1.png" alt="">
+                            <img width="100%" src="<%= env + handler.mediaSelection(common.accreditation[0], quality) %>" alt="">
                         </div>
                         <div style="width: 150px;">
-                            <img width="100%" src="./accreditation/Last Fold - Accreditation British council.png"
+                            <img width="100%" src="<%= env + handler.mediaSelection(common.accreditation[1], quality) %>"
                                 alt="">
                         </div>
                     </div>
@@ -75,11 +75,18 @@
                     class="w-100 pt-4 px-5 mx-0 ml-md-3 mr-md-5 d-flex flex-column flex-md-row justify-content-between">
                     <div style="flex:2;">
                         <ul style="list-style: none;" class="d-flex justify-content-around px-0">
-                            <li><a class="text-white p-2" href="faculty">Directory</a></li>
+                            <% common.footer_links.forEach((element, index) => { %>
+                                <li><a class="text-white p-2" href="<%= element.btn_href %>">  <%= element.btn_name %> </a></li>
+                                <% if (index != common.footer_links.length-1 ) { %>
+                                    <li style="border-right: 1px solid #fff;"></li>
+                                <% } %>
+                               
+                            <% }) %>
+                            <!-- <li><a class="text-white p-2" href="faculty">Directory</a></li>
                             <li style="border-right: 1px solid #fff;"></li>
                             <li><a class="text-white p-2" href="#">Site Map</a></li>
                             <li style="border-right: 1px solid #fff;"></li>
-                            <li><a class="text-white p-2" href="employment">Careers</a></li>
+                            <li><a class="text-white p-2" href="employment">Careers</a></li> -->
                         </ul>
                     </div>
                     <div style="z-index: 1; flex: 5;" class="text-white mx-0">
