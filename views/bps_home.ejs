@@ -42,6 +42,10 @@
         margin-top: 0.25rem;
     }
 
+    body {
+        padding-right: 0 !important;
+    }
+
     .body-wrap {
         overflow: hidden;
         position: relative;
@@ -232,9 +236,10 @@
 
         </div>
         <div id="_fold_1_media" class="_fold_1 bpsHomeVideoContainer delay-1s fadeIn animated">
-            <video loop autoplay playsinline id="home_media" poster="<%= env + handler.mediaSelection(handler.safeView(data,'video_poster'), 'small') %>" width="100%" muted
-                src="<%= env + handler.safeView(data.homeVideo.titleVideo, 'url') %>">
-            
+            <video loop autoplay playsinline id="home_media"
+                poster="<%= env + handler.mediaSelection(handler.safeView(data,'video_poster'), 'small') %>"
+                width="100%" muted src="<%= env + handler.safeView(data.homeVideo.titleVideo, 'url') %>">
+
             </video>
             <div></div>
         </div>
@@ -274,8 +279,7 @@
             </section>
 
         </div>
-        <section class="_fold_6"
-            style="background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>');
+        <section class="_fold_6" style="background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>');
             background-image: linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>');
             background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>');
             background: linear-gradient(rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.53)), url('<%= env + handler.mediaSelection(data.newsAnnouncement_title_with_bg.background, quality) %>') no-repeat center;
@@ -377,19 +381,46 @@
         <!-- Startup Modal -->
         <div class="modal fade" id="startupModal" tabindex="-1" role="dialog" aria-labelledby="startupModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalLabel"></h5>
+                        <h5 class="modal-title" id="modalLabel">
+                            <%= handler.safeView(common.startup_modal, 'modal_title') %>
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div id="modal_body" class="modal-body">
+                        <div class="d-flex flex-column w-100">
+                            <div class="text-justify pb-2">
+                                <%- md.render(String(handler.safeView(common.startup_modal, 'modal_body'))) -%>
+                            </div>
+                            <div class="d-flex">
+                                <div style="flex:1;"> <img style="max-height: 300px;width: 100%;object-fit: cover;" class="fadeIn d-block rounded img-fluid"
+                                    src="<%= env + handler.mediaSelection(handler.safeView(common.startup_modal, 'modal_img'), 'small') %>" alt="">
+                                </div>
+                            </div>
+                            <div  class="text-justify py-3">
+                                <%- md.render(String(handler.safeView(common.startup_modal, 'modal_text'))) -%>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
+                            <% common.startup_modal.buttons.forEach(function(item, index){ %>
+                            <div class="my-2 text-center">
+                                <a href="<%= item.btn_href %>" class="btn explore">
+                                    <%= item.btn_name %></a>
+                            </div>
+            
+            
+                            <% }); %>
+            
+            
+                        </div>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
                         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                     </div>
                 </div>
@@ -414,6 +445,9 @@
     <script>
         var showModal = '<%= common.startup_modal.showModal %>';
         console.log(showModal);
+        if (showModal === 'true') {
+            $('#startupModal').modal('show');
+        }
         // gsap.from(".dropdown-item", {
         //     duration: 0.5,
         //     scale: 0.5,

@@ -15,6 +15,7 @@
         --yellow: rgb(255, 210, 29);
         --orange: #df682d;
     }
+
     .error {
         border: 2px solid red !important;
     }
@@ -420,7 +421,8 @@
         <div class="pic-wrapper">
 
             <div class="fadeIn animated">
-                <video loop autoplay playsinline id="home_media" width="100%" muted poster="<%= env + handler.mediaSelection(handler.safeView(data,'video_poster'), 'small') %>"
+                <video loop autoplay playsinline id="home_media" width="100%" muted
+                    poster="<%= env + handler.mediaSelection(handler.safeView(data,'video_poster'), 'small') %>"
                     src="<%= env + handler.safeView(data.page_bg, 'url') %>"></video>
             </div>
             <div class="double-arrow-icon py-4 ">
@@ -510,16 +512,16 @@
                     <div style="z-index: 1;" class="social-icons my-4">
                         <div class="d-flex justify-content-center">
                             <div class="text-dark">
-                                <a class="fb" href="<%= handler.safeView(data, 'fb_link1') %>"><i
-                                        class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a class="fb" href="<%= handler.safeView(data, 'fb_link1') %>"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="ln" href="<%= handler.safeView(data, 'ln_link1') %>"><i
-                                        class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <a class="ln" href="<%= handler.safeView(data, 'ln_link1') %>"><i class="fa fa-linkedin"
+                                        aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="yt" href="<%= handler.safeView(data, 'yt_link1') %>"><i
-                                        class="fa fa-youtube" aria-hidden="true"></i></a>
+                                <a class="yt" href="<%= handler.safeView(data, 'yt_link1') %>"><i class="fa fa-youtube"
+                                        aria-hidden="true"></i></a>
                             </div>
                             <div>
                                 <a class="in" href="<%= handler.safeView(data, 'in_link1') %>"><i
@@ -552,16 +554,16 @@
                     <div style="z-index: 1;" class="social-icons">
                         <div class="d-flex justify-content-center">
                             <div class="text-dark">
-                                <a class="fb" href="<%= handler.safeView(data, 'fb_link2') %>"><i
-                                        class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a class="fb" href="<%= handler.safeView(data, 'fb_link2') %>"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="ln" href="<%= handler.safeView(data, 'ln_link2') %>"><i
-                                        class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                <a class="ln" href="<%= handler.safeView(data, 'ln_link2') %>"><i class="fa fa-linkedin"
+                                        aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a class="yt" href="<%= handler.safeView(data, 'yt_link2') %>"><i
-                                        class="fa fa-youtube" aria-hidden="true"></i></a>
+                                <a class="yt" href="<%= handler.safeView(data, 'yt_link2') %>"><i class="fa fa-youtube"
+                                        aria-hidden="true"></i></a>
                             </div>
                             <div>
                                 <a class="in" href="<%= handler.safeView(data, 'in_link2') %>"><i
@@ -628,7 +630,7 @@
                             <select id="school" name="school" class="">
                                 <option value="">Select School</option>
                                 <% data.select_school.forEach((element, index) => { %>
-                                <option value="<%= index %>">
+                                <option value="<%= element.title %>">
                                     <%= element.title%>
                                 </option>
                                 <% }) %>
@@ -643,7 +645,7 @@
                             <select id="std" name="std" class="">
                                 <option value="">Select Grade</option>
                                 <% data.select_grade.forEach((element, index) => { %>
-                                <option value="<%= index %>">
+                                <option value="<%= element.title %>">
                                     <%= element.title%>
                                 </option>
                                 <% }) %>
@@ -660,7 +662,12 @@
                             placeholder="Enter your message here.."></textarea>
                     </div>
                     <div><button class="btn btn-outline-success rounded-0" type="submit" name='submit'
-                            id="submit">Submit</button></div>
+                            id="submit">Submit</button>
+                        
+                            <input id="resetForm" style="display: none;" type="button" 
+                            value="reset() outside form" 
+                            onclick="contactForm.reset();" /> 
+                        </div>
 
                 </div>
             </form>
@@ -672,8 +679,7 @@
     </div>
 
     <div class="bg-light w-100 px-3 py-5">
-        <div style="overflow: auto;"
-            class="d-flex align-items-center flex-wrap justify-content-center flex-md-row">
+        <div style="overflow: auto;" class="d-flex align-items-center flex-wrap justify-content-center flex-md-row">
             <% data.footer_icons.forEach(element => { %>
             <div style="flex-basis: 15%;" class="align-self-center m-4">
                 <img class="img-fluid" style="max-height:107px"
@@ -690,7 +696,7 @@
 
 
     <script>
-         let scrollyArrow = document.getElementById('fold_2');
+        let scrollyArrow = document.getElementById('fold_2');
         function gotoPos() {
             window.scroll({
                 behavior: 'smooth',
@@ -740,25 +746,62 @@
                 // Make sure the form is submitted to the destination defined
                 // in the "action" attribute of the form when valid
                 submitHandler: function (form) {
-                    let data = {
+                    let data1 = {
                         sName: $('#studentName').val(),
                         city: $('#city').val(),
                         message: $('#message').val(),
 
-                        std: $('#std').find(":selected").text(),
+                        std: $('#std').find(":selected").val(),
                         email: $('#email').val(),
                         school: $('#school').find(":selected").val(),
 
                         phone: $('#phone').val(),
+                        formType: "contact"
 
                     }
-                    console.log("form", data);
+
+                    Swal.fire({
+                        title: 'Please Wait',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        background: '#fff',
+                        showConfirmButton: false,
+                        onOpen: () => {
+                            Swal.showLoading();
+                            $.post("/api/contact",
+                                data1,
+                                function (data, status) {
+                                    // alert("Data: " + data.msg + "\nStatus: " + status);
+                                    if (data && data.success) {
+                                        Swal.fire({
+                                            title: data.msg,
+                                            icon: 'success',
+                                            showConfirmButton: true,
+
+                                        }).then(() => {
+                                            $('#resetForm').click();
+                                        })
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Error!',
+                                            text: data.msg,
+                                            icon: 'error',
+                                            showConfirmButton: true,
+                                        })
+                                    }
+
+                                });
+                        }
+                    })
+
+                    // console.log("form", data1);
                     // form.submit();
                 }
             });
         });
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>

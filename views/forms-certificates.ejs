@@ -116,7 +116,7 @@
 
                             <div class="form-group " style="">
                                 <label class="pl-2" for="studentType">Student type: </label>
-                                <select name="studentType" id="studentType" class="form-control ">
+                                <select onchange="handleChange()" name="studentType" id="studentType" class="form-control ">
                                     <option value="" selected="selected">Student Type</option>
                                     <option value="currentStudent">Current Student </option>
                                     <option value="pastStudent">Past Student </option>
@@ -212,6 +212,8 @@
                         </div><span class="help-block"></span>
                     </div>
                     <button type="submit" name='submit' class="btn  button-explore w-100">Submit</button>
+                    <input id="resetForm" style="display: none;" type="button" value="reset() outside form"
+                        onclick="downloadCertForm.reset();" />
                 </form>
                 <!-- <div class="card custom-card">
                         <div class="card-body">
@@ -403,7 +405,7 @@
                 // Make sure the form is submitted to the destination defined
                 // in the "action" attribute of the form when valid
                 submitHandler: function (form) {
-                    let data = {
+                    let data1 = {
                         sName: $('#studentName').val(),
                         fatherName: $('#fatherName').val(),
                         motherName: $('#motherName').val(),
@@ -415,13 +417,52 @@
                         docType: $('#docType').find(":selected").text(),
                         phone: $('#phone').val(),
                         cbseRollNo: $('#cbseRollNo').val(),
+                        formType: 'certificate'
                     }
-                    console.log("form", data);
+                    // console.log("form", 1data);
+
+                    Swal.fire({
+                        title: 'Please Wait',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        background: '#fff',
+                        showConfirmButton: false,
+                        onOpen: () => {
+                            Swal.showLoading();
+                            $.post("/api/contact",
+                                data1,
+                                function (data, status) {
+                                    // alert("Data: " + data.msg + "\nStatus: " + status);
+                                    if (data && data.success) {
+                                        Swal.fire({
+                                            title: data.msg,
+                                            icon: 'success',
+                                            showConfirmButton: true,
+
+                                        }).then(() => {
+                                            $('#resetForm').click();
+                                        })
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Error!',
+                                            text: data.msg,
+                                            icon: 'error',
+                                            showConfirmButton: true,
+                                        })
+                                    }
+
+                                });
+                        }
+                    })
+
+
+
                     // form.submit();
                 }
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>

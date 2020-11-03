@@ -14,6 +14,7 @@ const underline = require('markdown-it-underline');
 md.use(underline);
 
 md.use(markdownItAttrs);
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
 
 // md.use(classy);
