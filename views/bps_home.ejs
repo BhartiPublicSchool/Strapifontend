@@ -204,6 +204,9 @@
             top: 1300px;
         }
     }
+    .modal-backdrop.show {
+    opacity: 0.6;
+}
 </style>
 </head>
 
@@ -418,7 +421,7 @@
             
             
                         </div>
-
+<a style="cursor: pointer;" class="btn-link float-right my-3" onclick="savePreferrence()">Don't show this again</a>
                     </div>
                     <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -446,7 +449,15 @@
     <script>
         var showModal = '<%= common.startup_modal.showModal %>';
         console.log(showModal);
-        if (showModal === 'true') {
+        function savePreferrence(params) {
+            sessionStorage.setItem('statupModalPreferrence', true);
+            $('#startupModal').modal('hide');
+        }
+       
+    //    sessionStorage.clear();
+        let statupModalPreferrence = sessionStorage.getItem('statupModalPreferrence');
+     
+        if (showModal === 'true' && statupModalPreferrence === null) {
             $('#startupModal').modal('show');
         }
         // gsap.from(".dropdown-item", {

@@ -369,22 +369,23 @@
             <div class="alumni">
                 <% data.gallery.forEach((element) => { %>
                 <div class="alumni-gallery d-flex justify-content-center align-items-center">
-                    <a style="cursor: pointer;" id="<%= element.id %>"  onclick="showAlumniModal(this)">
+                    <!-- <a style="cursor: pointer;" id="<%= element.id %>" onclick="showAlumniModal(this)"> -->
                         <img class="img-fluid align-self-center"
-                        src="<%= env + handler.mediaSelection(element.img, quality)%>">
-                    <div class="alumni-overlay d-flex flex-column  justify-content-end align-items-center p-1">
-                        <h6 class="text-center">
-                            <%= handler.safeView(element, 'title') %>
-                        </h6>
-                        <div class="text-center">
-                            <%- md.render(String(element.text)) -%>
-                        </div>
+                            src="<%= env + handler.mediaSelection(element.img, quality)%>">
+                        <div class="alumni-overlay d-flex flex-column  justify-content-end align-items-center p-1">
+                            <h6 class="text-center">
+                                <%= handler.safeView(element, 'title') %>
+                            </h6>
+                            <div class="text-center">
+                                <a style="cursor: pointer;" class="f-julias-san f-14 dropdown-item"  id="<%= element.id %>" onclick="showAlumniModal(this)">Read More</a>
+                                <!-- <%- md.render(String(element.text)) -%> -->
+                            </div>
 
-                    </div>
-                    </a>
-                  
+                        </div>
+                    <!-- </a> -->
+
                 </div>
-               
+
                 <% }) %>
 
 
@@ -402,11 +403,20 @@
 
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script>
+        var modals = [];
+        var md;
+        $(document).ready(function (e) {
+             md = window.markdownit();
+            $.ajax({
+                url: '/alumni/modals', success: function (result) {
+                    modals = result;
+                    console.log(result);
+                }
+            });
+            // $('#exampleModal').modal('show');
+        });
 
-        var alumniModals = '<%- JSON.stringify(data.gallery) %>';
-    
-        console.log("alumniu");
-        console.log(alumniModals[0]);
+
         $('.alumni').slick({
             centerMode: true,
             centerPadding: '60px',
@@ -442,7 +452,21 @@
         });
 
         function showAlumniModal(x) {
-console.log('hello', x.id);
+            let alumniData = modals.filter(m => m.id === Number(x.id))[0];
+            console.log('hello',);
+            Swal.fire({
+                title: '',
+                text: 'Modal with a custom image.',
+                html: `<div class="mb-3">
+                    <img class="img-fluid shadow rounded" src="http://206.189.133.72${alumniData.img.url}">
+                    </div>
+                  <h5 class="text-center">
+                               ${alumniData.title}
+                            </h5>
+                            <div class="text-center ">
+                              ${md.render(alumniData.text)}
+                            </div>`,
+            })
         }
 
         // $('.alumni').slick({
@@ -463,8 +487,7 @@ console.log('hello', x.id);
         //             }
         //         },
         //         {
-        //             breakpoint: 600,
-        //             settings: {
+        //             breakpoint: 600,        //             settings: {
         //                 slidesToShow: 2,
         //                 slidesToScroll: 2
         //             }
@@ -485,7 +508,8 @@ console.log('hello', x.id);
 
     </script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js" integrity="sha512-7VN0JcGJWL+i8LXzTvbROqUSPzZIu8Fp6GWpkVwtHwrgWwY8CrbZgyHA2YpNhAASQNrYqGYoI2HusCqV+S2xnQ==" crossorigin="anonymous"></script>
 </body>
 
 </html>

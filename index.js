@@ -2,7 +2,7 @@ require("./common");
 const express = require("express");
 const axios = require("axios");
 const handler = require("./handle");
-const mailer = require('./mailService');
+const mailer = require("./mailService");
 const bodyParser = require("body-parser");
 const app = express();
 var commons;
@@ -10,11 +10,11 @@ var commons;
 var MarkdownIt = require("markdown-it"),
   md = new MarkdownIt();
 const markdownItAttrs = require("markdown-it-attrs");
-const underline = require('markdown-it-underline');
+const underline = require("markdown-it-underline");
 md.use(underline);
 
 md.use(markdownItAttrs);
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // md.use(classy);
@@ -176,7 +176,7 @@ app.get("/apply", async (req, res) => {
 
 app.get("/", async (req, res) => {
   try {
-    const response = await axios.get(`${ API_ENDPOINT}/landing-page`);
+    const response = await axios.get(`${API_ENDPOINT}/landing-page`);
     // console.log(response.data, process.env.NODE_ENV);
     console.log(env);
     res.render("home", {
@@ -394,6 +394,16 @@ app.get("/alumni", async (req, res) => {
       handler: handler,
       quality: "large",
     });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.get("/alumni/modals", async (req, res) => {
+  try {
+    const response = await axios.get(`${API_ENDPOINT}/alumni`);
+    // console.log(response.data, process.env.NODE_ENV);
+    res.send(response.data.gallery);
   } catch (error) {
     console.error(error);
   }
