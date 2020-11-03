@@ -402,6 +402,11 @@
 
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script>
+
+        var alumniModals = '<%- JSON.stringify(data.gallery) %>';
+    
+        console.log("alumniu");
+        console.log(alumniModals[0]);
         $('.alumni').slick({
             centerMode: true,
             centerPadding: '60px',
