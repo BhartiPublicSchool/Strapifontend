@@ -84,6 +84,24 @@ app.get("/mission", async (req, res) => {
   }
 });
 
+app.get("/site-map", async (req, res) => {
+  try {
+    // const response = await axios.get(`${API_ENDPOINT}/mission`);
+    // console.log(response.data, process.env.NODE_ENV);
+    // console.log(env);
+    res.render("mission", {
+      // data: response.data,
+      common: commons.data,
+      md,
+      env,
+      handler: handler,
+      quality: "large",
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.get("/explore-campus", async (req, res) => {
   try {
     const response = await axios.get(`${API_ENDPOINT}/explore-campus`);
