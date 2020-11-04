@@ -21,7 +21,10 @@ exports.contact = async (req, res) => {
   let student = req.body;
   var message = "";
   //   var message = JSON.stringify(req.body);
+  var emailReceiverList = [];
+
   if (student.formType === "contact") {
+    const response = await axios.get(`${API_ENDPOINT}/email-recipients`);
     message = ` Student Name :  ${student.sName}
                 City :      ${student.city}
                 Email :    ${student.email}
@@ -29,7 +32,19 @@ exports.contact = async (req, res) => {
                 school :   ${student.school}
                 Grade :    ${student.std}
                 message:   ${student.message}`;
+
+                // Get the list 
+                if (student.school == "BPS, Swasthya Vihar") {
+                  console.log("bpssv");
+                  emailReceiverList = response.data.filter(s => s.email.includes("sv"));
+                  // console.log("send to ::::",mails[0].email);
+                } else {
+                  emailReceiverList = response.data.filter(s => s.email.includes("mv"));
+                  console.log("mv bps");
+                }
+                console.log(student.school);
   } else {
+    const response = await axios.get(`${API_ENDPOINT}/email-forms`);
     message = ` Student Name :  ${student.sName}
                 fatherName:     ${student.fatherName},
                 motherName:     ${student.motherName},
@@ -43,15 +58,14 @@ exports.contact = async (req, res) => {
                 cbseRollNo:     ${student.cbseRollNo},
                 formType:       Forms & Certificate
     `;
+    emailReceiverList = response.data;
+    // console.log(emailReceiverList);
   }
 
   try {
     firstSuccess = false;
     let result = [];
-    const response = await axios.get(`${API_ENDPOINT}/email-recipients`);
-    // console.log(".......", response.data, "...........");
-
-    response.data.forEach(async (element, index) => {
+    emailReceiverList.forEach(async (element, index) => {
       if ("email" in element) {
         console.log("____", element.email);
         var mailOptions = {
@@ -66,8 +80,10 @@ exports.contact = async (req, res) => {
             if (temp) {
               firstSuccess = true;
             }
+          }else {
+            result.push(sendMail(mailOptions));
           }
-          result.push(sendMail(mailOptions));
+       
         } catch (error) {
           console.log(`Error Sending Mail to  ${element.email} ::  ${error}`);
         }
@@ -115,10 +131,11 @@ function sendMail(params) {
 }
 
 
-function getSVMails(params) {
-    
-}
+// async function getSVMails(params) {
+//   const response = await axios.get(`${API_ENDPOINT}/email-recipients`);
+// }
 
-function getMVMails(params) {
+// async function getMVMails(params) {
+//   const response = await axios.get(`${API_ENDPOINT}/email-forms`);
     
-}
+// }
