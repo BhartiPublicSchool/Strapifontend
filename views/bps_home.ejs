@@ -243,7 +243,7 @@
             <video loop autoplay playsinline id="home_media"
                 poster="<%= env + handler.mediaSelection(handler.safeView(data,'video_poster'), 'small') %>"
                 width="100%" muted
-                src="https://bps.nyc3.cdn.digitaloceanspaces.com/bps_g_C15_GSHO_compressed_d624cc4f5d.mp4">
+                src="<%= env + handler.safeView(data.homeVideo.titleVideo, 'url') %>">
 
             </video>
             <div></div>
