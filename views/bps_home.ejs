@@ -522,6 +522,7 @@
 
         (function ($) {
             $(document).ready(function () {
+                md = window.markdownit();
                 var timelineLength = parseInt('<%=data.StoryTimeline.length %>');
                 let timeLine = [];
                 '<% data.StoryTimeline.forEach(function(card){ %>'
@@ -968,7 +969,7 @@
                              </div>      </div>
                            <div class="py-3">
                                 <h5>${current_modal.title}</h5>
-                                <p>${current_modal.text}</p>
+                                <p>${md.render(String(current_modal.text))}</p>
                             </div>
                         </div>`);
         }
@@ -984,6 +985,9 @@
         });
 
     </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js"
+     integrity="sha512-7VN0JcGJWL+i8LXzTvbROqUSPzZIu8Fp6GWpkVwtHwrgWwY8CrbZgyHA2YpNhAASQNrYqGYoI2HusCqV+S2xnQ=="
+     crossorigin="anonymous"></script>
 
 </body>
 

@@ -214,7 +214,9 @@
                             <div class="d-flex flex-column justify-content-center">
                                 <% data.buttons.forEach(function(item, index){ %>
                                 <div class="my-2 text-center">
-                                    <a href="<%= item.btn_href %>" class="btn explore w-100">
+                                    <a <% if (String(item.btn_href).includes('uploads')) { %>
+                                        target="_blank"
+                                    <% } %>  href="<%= item.btn_href %>" class="btn explore w-100">
                                         <%= item.btn_name %></a>
                                 </div>
 
