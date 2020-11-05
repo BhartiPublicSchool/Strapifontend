@@ -1,0 +1,355 @@
+<!doctype html>
+<%- include('shared/headermeta'); %>
+<%=  %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+    integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .jumbotron .overlay {
+            width: 100%;
+
+            top: 0;
+        }
+    }
+
+    .error {
+        border: 2px solid red;
+    }
+
+    label.error {
+        border: none;
+        padding: 0.5rem;
+        display: block;
+        background: #FBE9E7;
+    }
+
+    .class_division,
+    .passing_year {
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= env + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 7px;">
+                <!-- <%= handler.safeView(data, 'page_title')%> -->
+            </h1>
+        </div>
+
+    </div>
+    <div class="contain">
+        <div class="my-5">
+            <section class="my-5">
+                <div class="u-line-center">
+                    <h3 class="text-center f-40">
+                        Site Map
+                    </h3>
+                </div>
+
+            </section>
+        </div>
+        <div class="mt-3">
+            <ul class="list-unstyled ml-4">
+                <li class="top-nav-bar-item ">
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <ul class="list-unstyled mx-3">
+                            <% common.dropdownHover.q_links.forEach((element, index) => { %>
+                            <li> <a class="dropdown-item text-dark"
+                                    <% if (String(element.link_href).includes('uploads') || index > 3) { %>
+                                    target="_blank" <% } %> href="  <%= handler.safeView(element, 'link_href') %>">
+
+                                    <%= handler.safeView(element, 'link_title') %> </a></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </li>
+                <% common.quickMenu.links.forEach(element => { %>
+                <li class="top-nav-bar-item"><a class="dropdown-item text-dark" target="_blank"
+                        href="<%= handler.safeView(element, "menu_link") %>">
+                        <%= handler.safeView(element, 'sub_menu_item') %></a> </li>
+                <% }) %>
+
+
+            </ul>
+            <div class="row">
+                <div class="col">
+                    <ul class="list-unstyled">
+                        <% common.header_menu.forEach(element => { %>
+                        <li>
+                            <a href=" <%= element.menu_href %>" class="dropdown-item text-dark">
+                                <%= element.menu_item %>
+                            </a>
+                        </li>
+                        <li>
+                            <ul class="list-unstyled ml-4">
+                                <% element.submenu.forEach(function(item, index){ %>
+                                <li class="">
+                                    <a class="dropdown-item text-dark" href="<%= item.menu_link %>">
+                                        <%= item.sub_menu_item %>
+                                    </a>
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ml-4">
+            <% data.pages.forEach(element => { %>
+                <a href="<%= element.btn_href %>" class="dropdown-item text-dark">
+                    <%= element.btn_name %>
+                </a>
+            <% }) %>
+        </div>
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        var isPastStudent;
+        function handleChange() {
+
+            let selectedValue = $('#studentType').find(":selected").val()
+            if (selectedValue === "currentStudent") {
+                $('.class_division').show();
+                $('.passing_year').hide();
+                $('#currentStudent').rules('add', 'required');
+                $('#passing_year').rules('remove', 'required');
+                isPastStudent = false;
+            } else if (selectedValue === "pastStudent") {
+                $('.class_division').hide();
+                $('.passing_year').show();
+                isPastStudent = true;
+                $('#passing_year').rules('add', 'required');
+                $('#currentStudent').rules('remove', 'required');
+            } else {
+                $('.passing_year').hide();
+                $('.class_division').hide();
+                $('#currentStudent').rules('remove', 'required');
+                $('#passing_year').rules('remove', 'required');
+            }
+        }
+        $(function () {
+            // Initialize form validation on the registration form.
+            // It has the name attribute "registration"
+            $("form[name='downloadCertForm']").validate({
+
+                // Specify validation rules
+                rules: {
+                    // The key name on the left side is the name attribute
+                    // of an input field. Validation rules are defined
+                    // on the right side
+                    studentName: "required",
+                    fatherName: "required",
+                    motherName: "required",
+                    fatherName: "required",
+                    docType: {
+                        required: true
+                    },
+                    aadharNumber: {
+                        required: true,
+                        minlength: 16,
+                        maxlength: 16,
+                    },
+                    studentType:
+                    {
+                        required: true,
+                    },
+                    // passing_year: {
+                    //     required: true,
+                    //     studentType: {
+                    //         depends: function (element) {
+                    //             return isPastStudent;
+                    //         }
+                    //     }
+                    // },
+                    class_division: {
+                        required: true,
+                        // studentType: {
+                        //     depends: function (element) {
+                        //         return !isPastStudent;
+                        //     }
+                        // }
+                    },
+
+                    phone: "required",
+
+                    email: {
+                        required: true,
+                        // Specify that email should be validated
+                        // by the built-in "email" rule
+                        email: true
+                    },
+
+                },
+                // Specify validation error messages
+                messages: {
+                    studentName: "Please Enter your student Name",
+                    fatherName: "Please Enter your Fathers's Name",
+                    motherName: "Please Enter your mother's name",
+                    aadharNumber: {
+                        required: "Please provide your Aadhar Number",
+                        minlength: "Please Enter 16 digit Aadhar number"
+                    },
+                    phone: "Please Enter your Mobile Number",
+
+                    email: "Please Enter a valid email address"
+                },
+                // Make sure the form is submitted to the destination defined
+                // in the "action" attribute of the form when valid
+                submitHandler: function (form) {
+                    let data1 = {
+                        sName: $('#studentName').val(),
+                        fatherName: $('#fatherName').val(),
+                        motherName: $('#motherName').val(),
+                        aadharNumber: $('#aadharNumber').val(),
+                        studentType: $('#studentType').find(":selected").text(),
+                        email: $('#email').val(),
+                        class_division: $('#class_division').find(":selected").val(),
+                        passingYear: $('#passing_year').val(),
+                        docType: $('#docType').find(":selected").text(),
+                        phone: $('#phone').val(),
+                        cbseRollNo: $('#cbseRollNo').val(),
+                        formType: 'certificate'
+                    }
+                    // console.log("form", 1data);
+
+                    Swal.fire({
+                        title: 'Please Wait',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        background: '#fff',
+                        showConfirmButton: false,
+                        onOpen: () => {
+                            Swal.showLoading();
+                            $.post("/api/contact",
+                                data1,
+                                function (data, status) {
+                                    // alert("Data: " + data.msg + "\nStatus: " + status);
+                                    if (data && data.success) {
+                                        Swal.fire({
+                                            title: data.msg,
+                                            icon: 'success',
+                                            showConfirmButton: true,
+
+                                        }).then(() => {
+                                            $('#resetForm').click();
+                                        })
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Error!',
+                                            text: data.msg,
+                                            icon: 'error',
+                                            showConfirmButton: true,
+                                        })
+                                    }
+
+                                });
+                        }
+                    })
+
+
+
+                    // form.submit();
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+
+</html>
