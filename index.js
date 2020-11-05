@@ -86,11 +86,11 @@ app.get("/mission", async (req, res) => {
 
 app.get("/site-map", async (req, res) => {
   try {
-    // const response = await axios.get(`${API_ENDPOINT}/mission`);
+    const response = await axios.get(`${API_ENDPOINT}/site-map`);
     // console.log(response.data, process.env.NODE_ENV);
     // console.log(env);
-    res.render("mission", {
-      // data: response.data,
+    res.render("site-map", {
+      data: response.data,
       common: commons.data,
       md,
       env,

@@ -5,7 +5,7 @@ $(document).ready(function (e) {
     url: "/search",
     success: function (result) {
       searchData = result;
-      console.log(result);
+      // console.log(result);
     },
   });
 });
@@ -35,7 +35,7 @@ let filteredSearchResult = function (event) {
   }
 
   if (filtered_keywords && filtered_keywords.length > 3) {
-    render_lists(filtered_keywords.key.slice(0, 3));
+    render_lists(filtered_keywords.slice(0, 5));
   } else {
     render_lists(filtered_keywords);
   }
