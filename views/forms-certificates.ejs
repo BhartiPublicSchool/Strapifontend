@@ -140,9 +140,11 @@
                             <label class="pl-2" for="class_division">Class/Division: </label>
                             <select name="class_division" id="class_division" class="form-control ">
                                 <option value="" selected>Class/Division *</option>
-                                <option value="currentStudent">10 </option>
-                                <option value="pastStudent">11</option>
-                                <option value="pastStudent">12</option>
+                                <% data.grade_selection.forEach((element, index) => { %>
+                                    <option value="<%= element.title %>">
+                                        <%= element.title%>
+                                    </option>
+                                    <% }) %>
 
                             </select><span class="help-block"></span></div>
                     </div>

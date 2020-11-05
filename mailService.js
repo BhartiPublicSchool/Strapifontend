@@ -33,16 +33,16 @@ exports.contact = async (req, res) => {
                 Grade :    ${student.std}
                 message:   ${student.message}`;
 
-                // Get the list 
-                if (student.school == "BPS, Swasthya Vihar") {
-                  console.log("bpssv");
-                  emailReceiverList = response.data.filter(s => s.email.includes("sv"));
-                  // console.log("send to ::::",mails[0].email);
-                } else {
-                  emailReceiverList = response.data.filter(s => s.email.includes("mv"));
-                  console.log("mv bps");
-                }
-                console.log(student.school);
+    // Get the list
+    if (student.school == "BPS, Swasthya Vihar") {
+      console.log("bpssv");
+      emailReceiverList = response.data.filter((s) => s.email.includes("sv"));
+      // console.log("send to ::::",mails[0].email);
+    } else {
+      emailReceiverList = response.data.filter((s) => s.email.includes("mv"));
+      console.log("mv bps");
+    }
+    console.log(student.school);
   } else {
     const response = await axios.get(`${API_ENDPOINT}/email-forms`);
     message = ` Student Name :  ${student.sName}
@@ -77,13 +77,17 @@ exports.contact = async (req, res) => {
         try {
           if (index == 0) {
             let temp = await sendMail(mailOptions);
+            result.push(temp);
             if (temp) {
               firstSuccess = true;
+              res.send({
+                success: true,
+                msg: "Thanks For contacting us. we will contact you soon.",
+              });
             }
-          }else {
+          } else {
             result.push(sendMail(mailOptions));
           }
-       
         } catch (error) {
           console.log(`Error Sending Mail to  ${element.email} ::  ${error}`);
         }
@@ -92,23 +96,28 @@ exports.contact = async (req, res) => {
     Promise.all(result)
       .then((r) => {
         if (r && r[0]) {
-          res.send({
-            success: true,
-            msg: "Thanks For contacting us. we will contact you soon.",
-          });
+          try {
+            res.send({
+              success: true,
+              msg: "Thanks For contacting us. we will contact you soon.",
+            });
+          } catch (error) {}
         }
       })
       .catch((error) => {
-        if (firstSuccess) {
-          res.send({
-            success: true,
-            msg: "Thanks For contacting us. we will contact you soon.",
-          });
-        } else {
-          res.send({
-            success: false,
-            msg: "Unable to submit, Please Try Again.",
-          });
+        try {
+        } catch (error) {
+          if (firstSuccess) {
+            res.send({
+              success: true,
+              msg: "Thanks For contacting us. we will contact you soon.",
+            });
+          } else {
+            res.send({
+              success: false,
+              msg: "Unable to submit, Please Try Again.",
+            });
+          }
         }
       });
   } catch (error) {
@@ -130,12 +139,11 @@ function sendMail(params) {
   });
 }
 
-
 // async function getSVMails(params) {
 //   const response = await axios.get(`${API_ENDPOINT}/email-recipients`);
 // }
 
 // async function getMVMails(params) {
 //   const response = await axios.get(`${API_ENDPOINT}/email-forms`);
-    
+
 // }
