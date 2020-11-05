@@ -1,6 +1,7 @@
 require("./common");
 const express = require("express");
 const axios = require("axios");
+const path = require('path');
 const handler = require("./handle");
 const mailer = require("./mailService");
 const bodyParser = require("body-parser");
@@ -621,6 +622,22 @@ app.get("/landing-page", async (req, res) => {
   } catch (error) {
     console.error(error);
   }
+});
+
+app.get('*', function(req, res){
+  console.log(__dirname);
+  var options = { 
+    root: path.join(__dirname, 'public') 
+}; 
+  
+var fileName = 'not-found.html'; 
+  res.status(404).sendFile(fileName, options, function (err) { 
+    if (err) { 
+       console.log(err);
+    } else { 
+        console.log('Sent:', fileName); 
+    } 
+}); 
 });
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

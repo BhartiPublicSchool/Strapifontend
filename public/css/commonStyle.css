@@ -6,6 +6,10 @@
   --orange: #df682d;
   --blue-transparent: rgba(40, 41, 93, 0.75);
 }
+.bg-bps {
+  background-color: #28295d;
+  color: #fff;
+}
 
 #top_fold {
   background-position: center center;
