@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 // md.use(classy);
 // var API_ENDPOINT = "";
 // if(process.env.NODE_ENV != "PROD") {
-API_ENDPOINT = "http://206.189.133.72:81";
+API_ENDPOINT = "http://localhost:1337";
 env = API_ENDPOINT;
 // env = "http://localhost:1337";
 // } else {
