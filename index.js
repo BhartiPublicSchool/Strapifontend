@@ -22,13 +22,13 @@ app.use(bodyParser.json());
 // var API_ENDPOINT = "";
 // if(process.env.NODE_ENV != "PROD") {
 API_ENDPOINT = "http://localhost:1337";
-env = API_ENDPOINT;
+// env = API_ENDPOINT;
 // env = "http://localhost:1337";
 // } else {
 //   API_ENDPOINT = "http://localhost:1337";
 //   env = "";
 // }
-// var env = process.env.NODE_ENV == "Development" ? `${API_ENDPOINT}` : "";
+var env = process.env.NODE_ENV == "Development" ? `${API_ENDPOINT}` : "";
 app.set("view engine", "ejs");
 app.use(express.static("public", { index: false }));
 app.use(async (req, res, next) => {
