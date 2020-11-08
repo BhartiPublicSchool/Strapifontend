@@ -274,54 +274,60 @@
 
         </div>
 
-        <div class="row pb-5">
-            <div class="col-md-6 mb-2 px-0 px-md-2">
-                <div class="col my-2 my-md-0" style="min-height: 200px;">
-                    <div class="d-flex flex-column justify-content-center">
-                        <div class="d-flex d-md-none">
-                            <div style="flex:1;" class="text-center mx-0 ml-md-4 mb-3">
-                                <img class="img-fluid shadow" width="100%"
-                                    src="<%= env + handler.mediaSelection(data.fold3[1].card_img[0], quality) %>"
-                                    alt="">
+        <div class="mb-5">
+            <div class="row">
+                <div class="col-md-6 mb-2 px-0 px-md-2 order-2 order-md-0">
+                    <div class="col my-2 my-md-0" style="min-height: 200px;">
+                        <div class="d-flex flex-column justify-content-center">
+                            <div class="d-flex d-md-none">
+                                <div style="flex:1;" class="text-center mx-0 ml-md-4 mb-3">
+                                    <img class="img-fluid shadow" width="100%"
+                                        src="<%= env + handler.mediaSelection(data.fold3[1].card_img[0], quality) %>"
+                                        alt="">
+
+                                </div>
 
                             </div>
-
-                        </div>
-                        <div class="d-none d-md-flex">
-                            <div class="shadow hover-z-change" style="position: absolute;
-    top: 0;max-height: 500px; max-width: 300px; transition: all .5s;">
-                                <img width="100%"
-                                    src="<%= env + handler.mediaSelection(data.fold3[1].card_img[0], quality) %>"
-                                    alt="">
-                            </div>
-                            <div class="shadow hover-z-change" style="top: 6rem;transition: all .5s;
+                            <div class="d-none d-md-flex">
+                                <div class="shadow hover-z-change" style="position: absolute;
+                                    top: 0;max-height: 500px; max-width: 300px; transition: all .5s;">
+                                    <img width="100%"
+                                        src="<%= env + handler.mediaSelection(data.fold3[1].card_img[0], quality) %>"
+                                        alt="">
+                                </div>
+                                <div class="shadow hover-z-change" style="top: 6rem;transition: all .5s;
                         max-width: 300px;
                         position: absolute;
                         right: 1rem;">
-                                <img width="100%"
-                                    src="<%= env + handler.mediaSelection(data.fold3[1].card_img[1], quality) %>"
-                                    alt="">
+                                    <img width="100%"
+                                        src="<%= env + handler.mediaSelection(data.fold3[1].card_img[1], quality) %>"
+                                        alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 pt-md-0 mt-md-0">
-                <div class="mt-5  mt-md-0">
-                    <div class="u-line">
-                        <h3>
-                            <%= handler.safeView(data.fold3[0], 'card_title') %>
-                        </h3>
+                <div class="col-md-6 pt-md-0 mt-md-0">
+                    <div class="mt-5  mt-md-0">
+                        <div class="u-line">
+                            <h3>
+                                <%= handler.safeView(data.fold3, 'card_title', 1) %>
+                            </h3>
+                        </div>
+                        <div class="text-muted my-4 text-justify f-18">
+                            <%- md.render(handler.safeView(data.fold3 , 'card_text', 1)) -%>
+                        </div>
                     </div>
-                    <div class="text-muted my-4 text-justify f-18">
-                        <%- md.render(data.fold3[0].card_text) -%>
-                    </div>
+
+
                 </div>
-
-
+            </div>
+            <div class="mt-0 mt-md-5">
+                <div class="text-justify text-muted f-18 pt-2">
+                    <%- md.render( handler.safeView(data.fold3 , 'card_extra', 1)) -%>
+                </div>
             </div>
         </div>
-
 
         <div class="">
             <div class="d-flex justify-content-center mt-3 mb-3">
