@@ -967,11 +967,16 @@
     width: 100%;
     object-fit: cover;" class="fadeIn d-block rounded img-fluid" src="${mediaSelection(current_modal.img)}" alt="">
                              </div>      </div>
-                           <div class="py-3">
+                           <div class="py-3 modal-text-md">
                                 <h5>${current_modal.title}</h5>
                                 <p>${md.render(String(current_modal.text))}</p>
                             </div>
                         </div>`);
+
+                        var modals_text_md = $('.modal-text-md');
+                        var aas = modals_text_md.find('a');
+                        aas.attr("target", "_black");
+                        
         }
         var modals = [];
         $(document).ready(function (e) {
