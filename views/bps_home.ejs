@@ -42,8 +42,13 @@
         margin-top: 0.25rem;
     }
 
-    body {
-        padding-right: 0 !important;
+    body.modal-open {
+        padding-right: 1.05rem !important;
+    }
+
+    body.modal-open .transp-header,
+    .modal-open #myHeader {
+        padding-right: 2rem !important;
     }
 
     .body-wrap {
@@ -242,8 +247,7 @@
         <div id="_fold_1_media" class="_fold_1 bpsHomeVideoContainer delay-1s fadeIn animated">
             <video loop autoplay playsinline id="home_media"
                 poster="<%= env + handler.mediaSelection(handler.safeView(data,'video_poster'), 'small') %>"
-                width="100%" muted
-                src="<%= env + handler.safeView(data.homeVideo.titleVideo, 'url') %>">
+                width="100%" muted src="<%= env + handler.safeView(data.homeVideo.titleVideo, 'url') %>">
 
             </video>
             <div></div>
@@ -973,10 +977,10 @@
                             </div>
                         </div>`);
 
-                        var modals_text_md = $('.modal-text-md');
-                        var aas = modals_text_md.find('a');
-                        aas.attr("target", "_black");
-                        
+            var modals_text_md = $('.modal-text-md');
+            var aas = modals_text_md.find('a');
+            aas.attr("target", "_black");
+
         }
         var modals = [];
         $(document).ready(function (e) {
@@ -990,9 +994,9 @@
         });
 
     </script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js"
-     integrity="sha512-7VN0JcGJWL+i8LXzTvbROqUSPzZIu8Fp6GWpkVwtHwrgWwY8CrbZgyHA2YpNhAASQNrYqGYoI2HusCqV+S2xnQ=="
-     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js"
+        integrity="sha512-7VN0JcGJWL+i8LXzTvbROqUSPzZIu8Fp6GWpkVwtHwrgWwY8CrbZgyHA2YpNhAASQNrYqGYoI2HusCqV+S2xnQ=="
+        crossorigin="anonymous"></script>
 
 </body>
 
