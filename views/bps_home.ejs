@@ -457,7 +457,7 @@
     </script>
     <script>
         var showModal = '<%= common.startup_modal.showModal %>';
-        console.log(showModal);
+        // console.log(showModal);
         function savePreferrence(params) {
             sessionStorage.setItem('statupModalPreferrence', true);
             $('#startupModal').modal('hide');
@@ -725,7 +725,7 @@
         // Get the header
         var header = document.getElementById("myHeader");
         var videoContent = document.getElementById('_fold_1_media')
-        console.log(window.pageYOffset);
+        // console.log(window.pageYOffset);
         // Get the offset position of the navbar
         var sticky = videoContent.offsetHeight;
 
@@ -783,12 +783,12 @@
                     });
                     // On swipe event
                     $('.richHistory').on('swipe', function (event, slick, direction) {
-                        console.log(direction);
+                        // console.log(direction);
                         switch (direction) {
                             case 'left':
-                                console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                                // console.log(document.getElementById(`${$('a.selected')[0].id}`));
                                 let e = document.getElementById(`${(Number($('a.selected')[0].id) + 1) % parseInt('<%=data.StoryTimeline.length %>')}`);
-                                console.log(e.offsetLeft);
+                                // console.log(e.offsetLeft);
                                 scrollValue = e.offsetLeft;
                                 if (scrollValue < 300) {
                                     $('.dots-container').animate({ scrollLeft: "0px" }, 500);
@@ -809,7 +809,7 @@
                                 break;
 
                             case 'right':
-                                console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                                // console.log(document.getElementById(`${$('a.selected')[0].id}`));
                                 let number = Number($('a.selected')[0].id) - 1;
                                 if (number < 0) {
                                     number = parseInt('<%=data.StoryTimeline.length %>') - 1;
@@ -839,9 +839,9 @@
 
 
                     $('.timeline-next').on('click', (event) => {
-                        console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                        // console.log(document.getElementById(`${$('a.selected')[0].id}`));
                         let e = document.getElementById(`${(Number($('a.selected')[0].id) + 1) % parseInt('<%=data.StoryTimeline.length %>')}`);
-                        console.log(e.offsetLeft);
+                        // console.log(e.offsetLeft);
                         scrollValue = e.offsetLeft;
                         if (scrollValue < 300) {
                             $('.dots-container').animate({ scrollLeft: "0px" }, 500);
@@ -862,7 +862,7 @@
                         // console.log($('a.selected')[0].id);
                     })
                     $('.timeline-prev').on('click', (event) => {
-                        console.log(document.getElementById(`${$('a.selected')[0].id}`));
+                        // console.log(document.getElementById(`${$('a.selected')[0].id}`));
                         let number = Number($('a.selected')[0].id) - 1;
                         if (number < 0) {
                             number = parseInt('<%=data.StoryTimeline.length %>') - 1;
@@ -910,7 +910,7 @@
                 let totalWidth = (dotComponent['timelineDates'].length + 1) * width;
                 dotComponent['eventsWrapper'].css('width', totalWidth + 'px');
                 updateFilling(dotComponent['timelineEvents'].eq(0), dotComponent['fillingLine'], totalWidth);
-                console.log(dotComponent['timelineDates'].length);
+                // console.log(dotComponent['timelineDates'].length);
                 return totalWidth;
             }
 
@@ -929,7 +929,7 @@
     <script>
         function mediaSelection(params, mediaQuality = "medium") {
             if (Array.isArray(params)) {
-                console.log("array");
+                // console.log("array");
                 params = params[0];
             }
             let mediaURL = "";
@@ -962,7 +962,7 @@
         function prepareModal(params) {
             var modal_body = $("#modal_body").empty();
 
-            console.log("modal open", modals[Number(params.id)]);
+            // console.log("modal open", modals[Number(params.id)]);
             let current_modal = modals[Number(params.id)];
             $("#modalLabel").empty().append(`<b>${current_modal.title}</b>`);
             modal_body.append(`<div class="d-flex flex-column w-100">
@@ -987,7 +987,6 @@
             $.ajax({
                 url: '/news-announcement/modals', success: function (result) {
                     modals = result;
-                    console.log(result);
                 }
             });
             // $('#exampleModal').modal('show');
