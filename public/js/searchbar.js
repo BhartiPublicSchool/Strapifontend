@@ -1,4 +1,13 @@
-var searchData = ["BPS", "careers", "academy", "faculty", "teacher", "employment", "job openings", "pride"];
+var searchData = [
+  "BPS",
+  "careers",
+  "academy",
+  "faculty",
+  "teacher",
+  "employment",
+  "job openings",
+  "pride",
+];
 
 $(document).ready(function (e) {
   $.ajax({
@@ -11,12 +20,24 @@ $(document).ready(function (e) {
 });
 ul = document.getElementById("searchResults");
 
+// No result div
+$("#noResult").css("display", "none");
+
 let render_lists = function (lists) {
-  let li = "";
-  for (index in lists) {
-    li += `<li class="bg-light"><div><a href="${lists[index].page}">` + lists[index].keyword + `</a><p>${lists[index].description}</p></div></li>`;
+  $("#noResult").css("display", "none");
+  if (lists.length > 0) {
+    let li = "";
+    for (index in lists) {
+      li +=
+        `<li class="bg-light"><div><a href="${lists[index].page}">` +
+        lists[index].keyword +
+        `</a><p>${lists[index].description}</p></div></li>`;
+    }
+    ul.innerHTML = li;
+  } else {
+    ul.innerHTML = "";
+    $("#noResult").css("display", "block");
   }
-  ul.innerHTML = li;
 };
 
 // lets filters it
