@@ -460,7 +460,7 @@
                             <% data.home_buttons.forEach(element => { %>
                             <div>
                                 <div class="btn btn-outline-success">
-                                    <a href="<%= element.btn_href%>">
+                                    <a target="_blank" href="<%= element.btn_href%>">
                                         <%= element.btn_name%>
                                     </a>
                                 </div>
@@ -491,7 +491,7 @@
             <div class="d-flex justify-content-center flex-column flex-md-row w-80">
                 <div class="school-container">
                     <div style="overflow: hidden;" class="text-center school">
-                        <a href="<%= data.home_buttons[0].btn_href%>">
+                        <a target="_blank" href="<%= data.home_buttons[0].btn_href%>">
                             <img class="img-fluid shadow" style="max-width: 70%;"
                                 src="<%= env + handler.mediaSelection(data.img1, quality) %>" alt="">
                         </a>
@@ -501,7 +501,7 @@
                         <div class=" font-weight-bold f-julias-san d-flex justify-content-center flex-wrap">
                             <div>
                                 <div class="">
-                                    <a style="min-width: 200px;" class="btn explore px-3 py-2"
+                                    <a target="_blank" style="min-width: 200px;" class="btn explore px-3 py-2"
                                         href="<%= data.home_buttons[0].btn_href%>">
                                         <%= data.home_buttons[0].btn_name%>
                                     </a>
