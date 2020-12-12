@@ -476,7 +476,7 @@ font-size: 0.75rem;
                                ${alumniData.title}
                             </h4>
                             <h5>
-                                ${alumniData.subtitle}</h5>
+                                ${alumniData.subtitle ? alumniData.subtitle : '' }</h5>
                             <div class="text-justify modal-text-md">
                               ${md.render(String(alumniData.text))}
                             </div>`,
