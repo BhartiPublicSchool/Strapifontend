@@ -195,7 +195,9 @@
 
         <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
             <% for( let index = 0; index < data.buttons.length; index++ ) { %>
-            <a class="btn explore my-2" href="<%= data.buttons[index].btn_href %> "> <%= data.buttons[index].btn_name %>
+            <a class="btn explore my-2" href="<%= data.buttons[index].btn_href %>" <% if (data.buttons.length > 2 && index == 1) { %>
+                target="_blank"
+               <% } %>> <%= data.buttons[index].btn_name %>
             </a>
             <% } %>
         </div>
