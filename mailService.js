@@ -31,7 +31,13 @@ exports.contact = async (req, res) => {
                 Phone :    ${student.phone}
                 school :   ${student.school}
                 Grade :    ${student.std}
-                message:   ${student.message}`;
+                message:   ${student.message}
+                
+     Send Acknowledgement by clicking on the link :
+    
+     https://mail.google.com/mail/?view=cm&fs=1&to=${student.email}&su=BPS%20Inquiry!&body=Thank%20you%20%20for%20contacting%20us!%20We%20will%20be%20in%20touch%20shortly,%20but%20you%20may%20also%20find%20answers%20to%20some%20of%20your%20questions%20on%20our%20FAQ%20page%20at%20https://bps.edu.in/admission-faq%20.&cc=info@bps.edu.in,admissions.sv@bps.edu.in
+            
+                `;
 
     // Get the list
     if (student.school == "BPS, Swasthya Vihar") {

@@ -1,0 +1,22 @@
+name: Create Variable
+
+on:
+  push:
+    branches: [ action-added ]
+  workflow_dispatch:
+
+jobs:
+  create_auth_variable:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Read secrets
+      run: |
+        echo "Reading secrets..."
+        USERNAME=$USERNAME_SECRET
+        PASSWORD=$PASSWORD_SECRET
+        AUTH="$USERNAME:::$PASSWORD"
+        echo "Auth variable: $AUTH"
+      env:
+        USERNAME_SECRET: ${{ secrets.SSH_USERNAME }}
+        PASSWORD_SECRET: ${{ secrets.SSH_PASSWORD }}
