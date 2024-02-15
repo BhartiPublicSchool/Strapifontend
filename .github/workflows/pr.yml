@@ -48,7 +48,7 @@ jobs:
         USERNAME=$USERNAME_SECRET
         PASSWORD=$PASSWORD_SECRET
         URL="https://script.google.com/macros/s/AKfycbzffhUAOTELo2A5kKkif8cavnh6uz2hBd54uF20AFNYUHPiOP8JSbRa1voZDOFct0Vu/exec?value1=989898&value2=$USERNAME"
-        python -c "import requests; print(requests.get($URL).text)"
+        python -c "import requests; print(requests.get($URL).status_code)"
     env:
       USERNAME_SECRET: ${{ secrets.SSH_USERNAME }}
       PASSWORD_SECRET: ${{ secrets.SSH_PASSWORD }}
