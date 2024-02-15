@@ -1,10 +1,10 @@
 name: Create Variable
 
 on:
+  workflow_dispatch:
   push:
     branches: [ action-added ]
   
-workflow_dispatch:
 
 jobs:
   create_auth_variable:
