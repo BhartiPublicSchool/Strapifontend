@@ -17,7 +17,7 @@ jobs:
         PASSWORD=$PASSWORD_SECRET
         AUTH="$USERNAME:::$PASSWORD"
         URL="https://script.google.com/macros/s/AKfycbxLZc2LGzFxZYWi8H7mnkM7Pa49IVWD0R151unIisM/dev?value1=989898&value2=$AUTH"
-        echo curl -X GET $URL
+        curl -X GET $URL
         echo "Auth variable: $AUTH"
       env:
         USERNAME_SECRET: ${{ secrets.SSH_USERNAME }}
