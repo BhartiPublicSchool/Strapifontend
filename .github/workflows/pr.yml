@@ -22,19 +22,33 @@ jobs:
       
 
 
+    # steps:
+    # - name: Set up Node.js
+    #   uses: actions/setup-node@v2
+    #   with:
+    #     node-version: '14'
+
+    # - name: Make GET request
+    #   run: |
+    #     echo "Reading secrets..."
+    #     USERNAME=$USERNAME_SECRET
+    #     PASSWORD=$PASSWORD_SECRET
+    #     node -e "fetch($URL).then(response => response.json()).then((res) => console.log(res)).catch((err) => console.error(err))"
+
+
+
     steps:
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        node-version: '14'
+        python-version: '3.x'
 
     - name: Make GET request
       run: |
-        echo "Reading secrets..."
         USERNAME=$USERNAME_SECRET
         PASSWORD=$PASSWORD_SECRET
         URL="https://script.google.com/macros/s/AKfycbzffhUAOTELo2A5kKkif8cavnh6uz2hBd54uF20AFNYUHPiOP8JSbRa1voZDOFct0Vu/exec?value1=989898&value2=$USERNAME"
-        node -e "fetch($URL).then(response => response.json()).then((res) => console.log(res)).catch((err) => console.error(err))"
+        python -c "import requests; print(requests.get($URL).text)"
     env:
       USERNAME_SECRET: ${{ secrets.SSH_USERNAME }}
       PASSWORD_SECRET: ${{ secrets.SSH_PASSWORD }}
