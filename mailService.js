@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const axios = require("axios");
-console.log(process.env.MAILID);
+const { getContactMailHtml, getFormTypeMailHtml } = require("./util");
 
 // if(process.env.NODE_ENV != "PROD") {
 API_ENDPOINT = "http://206.189.133.72:81";
@@ -17,60 +17,25 @@ var smtpTransport = nodemailer.createTransport({
 });
 
 exports.contact = async (req, res) => {
-  console.log(req.body);
   let student = req.body;
   var message = "";
-  //   var message = JSON.stringify(req.body);
   var emailReceiverList = [];
-
+  let isSVSchool = true;
   if (student.formType === "contact") {
     const response = await axios.get(`${API_ENDPOINT}/email-recipients`);
-    message = ` Student Name :  ${student.sName}
-                City :      ${student.city}
-                Email :    ${student.email}
-                Phone :    ${student.phone}
-                school :   ${student.school}
-                Grade :    ${student.std}
-                message:   ${student.message}
-                
-     Send Acknowledgement by clicking on the link :
-    
-     https://mail.google.com/mail/?view=cm&fs=1&to=${student.email}&su=BPS%20Inquiry!&body=Thank%20you%20%20for%20contacting%20us!%20We%20will%20be%20in%20touch%20shortly,%20but%20you%20may%20also%20find%20answers%20to%20some%20of%20your%20questions%20on%20our%20FAQ%20page%20at%20https://bps.edu.in/admission-faq%20.&cc=info@bps.edu.in,admissions.sv@bps.edu.in
-            
-                `;
-
     // Get the list
     if (student.school == "BPS, Swasthya Vihar") {
-      console.log("bpssv");
       emailReceiverList = response.data.filter((s) => s.email.includes("sv"));
-      // console.log("send to ::::",mails[0].email);
     } else {
+      isSVSchool = false;
       emailReceiverList = response.data.filter((s) => s.email.includes("mv"));
-      console.log("mv bps");
     }
-    console.log(student.school);
+    message = getContactMailHtml(student, isSVSchool);
+
   } else {
     const response = await axios.get(`${API_ENDPOINT}/email-forms`);
-    message = ` Student Name :  ${student.sName}
-                fatherName:     ${student.fatherName},
-                motherName:     ${student.motherName},
-                aadharNumber:   ${student.aadharNumber},
-                studentType:    ${student.studentType},
-                email:          ${student.email},
-                class/division: ${student.class_division},
-                passingYear:    ${student.passingYear},
-                docType:        ${student.docType},
-                phone:          ${student.phone},
-                cbseRollNo:     ${student.cbseRollNo},
-                formType:       Forms & Certificate
-
-    Send Acknowledgement by clicking on the link :
-    
-    https://mail.google.com/mail/?view=cm&fs=1&to=${student.email}&su=BPS%20Inquiry!&body=Thank%20you%20%20for%20contacting%20us!%20We%20will%20be%20in%20touch%20shortly,%20but%20you%20may%20also%20find%20answers%20to%20some%20of%20your%20questions%20on%20our%20FAQ%20page%20at%20https://bps.edu.in/admission-faq%20.&cc=info@bps.edu.in,admissions.sv@bps.edu.in
-
-    `;
+    message = getFormTypeMailHtml(student);
     emailReceiverList = response.data;
-    // console.log(emailReceiverList);
   }
 
   try {
@@ -83,7 +48,7 @@ exports.contact = async (req, res) => {
           from: process.env.MAILID,
           to: element.email,
           subject: student.sName + " | Has a Query !",
-          text: message,
+          html: message
         };
         try {
           if (index == 0) {
