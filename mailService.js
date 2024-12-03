@@ -22,6 +22,12 @@ exports.contact = async (req, res) => {
   var emailReceiverList = [];
   let isSVSchool = true;
   if (student.formType === "contact") {
+    if(!student.sName || !student.email || !student.message ||!student.phone) {
+      return res.status(400).send({
+        success: false,
+        msg: "invalid input provided.",
+      });
+    }
     const response = await axios.get(`${API_ENDPOINT}/email-recipients`);
     // Get the list
     if (student.school == "BPS, Swasthya Vihar") {
@@ -33,6 +39,12 @@ exports.contact = async (req, res) => {
     message = getContactMailHtml(student, isSVSchool);
 
   } else {
+    if(!student.email || !student.phone || !student.aadharNumber || !student.docType) {
+      return res.status(400).send({
+        success: false,
+        msg: "invalid input provided.",
+      });
+    }
     const response = await axios.get(`${API_ENDPOINT}/email-forms`);
     message = getFormTypeMailHtml(student);
     emailReceiverList = response.data;
