@@ -3,7 +3,7 @@
   height: 220px;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  object-fit: cover;
+  object-fit: fill;
   object-position: top center;
 }
 
