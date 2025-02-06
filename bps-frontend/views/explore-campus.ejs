@@ -810,9 +810,9 @@
         style="position: relative;object-fit: cover; object-position: center; width: 100%; overflow: hidden;">
         <div class="overlay-img"></div>
         <picture>
-            <source media="(max-width:768px)" srcset='<%= env + handler.mediaSelection(data.page_bg_sm, quality) %>''>
+            <source media="(max-width:768px)" srcset='<%= cmsBaseUrl + handler.mediaSelection(data.page_bg_sm, quality) %>''>
             <!-- <source media="(min-width:465px)" srcset="img_white_flower.jpg"> -->
-            <img class="campus-map-image" src=' <%= env + handler.mediaSelection(data.page_bg, quality) %>'
+            <img class="campus-map-image" src=' <%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality) %>'
                 alt="college campus" usemap="#campus" width="100%">
         </picture>
 

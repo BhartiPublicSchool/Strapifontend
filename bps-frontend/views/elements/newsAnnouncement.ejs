@@ -1,0 +1,16 @@
+<div style="cursor: pointer;" class="news-track shadow" id="<%= index %> " onclick="prepareModal(this)" data-toggle="modal" data-target="#exampleModal">
+    <div class="news-image">
+       
+        <img width="100%" height="100%" src="<%= cmsBaseUrl + handler.mediaSelection(card.news_img, quality) %>" alt="<%= card.new_title %> Image">
+      
+
+    </div>
+    <div class="news-content">
+        <h5 class="news-title"> <%= card.new_title %>
+        </h5>
+        <div class="news-text">
+            <%- md.render(String(card.news_text)) -%>
+          
+        </div>
+    </div>
+</div>

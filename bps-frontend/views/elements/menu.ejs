@@ -1,0 +1,65 @@
+<li>
+    <div class="dropdown">
+        <a href=" <%= menu.menu_href %>" class="dropbtn dropdown-item">
+            <%= menu.menu_item %>
+        </a>
+        <div class="dropdown-content p-5">
+            <div class="row">
+                <div class="col">
+
+                    <img width="300" src="<%= cmsBaseUrl + handler.mediaSelection(menu.menu_hover_image, 'small') %>" alt=" <%= menu.menu_item %> Menu Image">
+
+                </div>
+
+                <div class="col">
+
+
+                  
+                        <%- md.render(String(menu.menu_hover_description)) -%>
+                 
+
+                </div>
+                <div class="col">
+                    <ul class="list-group list-group-flush">
+
+                        <% menu.submenu.forEach(function(item, index){ %>
+
+                        <% if(index <= 2){ %>
+                        <li class="list-group-item">
+                            <a href="<%= item.menu_link %>">
+                                <%= item.sub_menu_item %>
+                            </a>
+                        </li>
+                        <% } %>
+
+                        <% }); %>
+
+                    </ul>
+                </div>
+                <% if(menu.submenu.length > 3){ %>
+                <div class="col">
+                    <ul class="list-group list-group-flush">
+
+                        <% menu.submenu.forEach(function(item, index){ %>
+
+                        <% if(index > 2){ %>
+                        <li class="list-group-item">
+                            <a href="<%= item.menu_link %>">
+                                <%= item.sub_menu_item %>
+                            </a>
+                        </li>
+                        <% } %>
+
+                        <% }); %>
+
+                    </ul>
+                </div>
+                <% } %>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</li>

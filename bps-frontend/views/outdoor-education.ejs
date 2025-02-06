@@ -1,0 +1,417 @@
+<%- include('shared/headermeta'); %>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="js/mcparallax.min.js"></script>
+<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+
+<link rel="stylesheet" href="css/card-overlay.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<title>I am ejs</title>
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+    .quote-inline p {
+        display: inline;
+    }
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+    }
+
+    .hover-z-change:hover {
+        z-index: 1;
+        transform: scale(1.2);
+    }
+
+    .hover-z-change {
+        transition: all ease-in 0.3s;
+    }
+
+    @media screen and (max-width: 768px) {
+        .jumbotron .overlay {
+            width: 100%;
+            top: 0;
+        }
+    }
+
+    .slick-list {
+        width: 100%;
+    }
+
+    .slick-next {
+        right: 60px;
+        box-shadow: 20px 14px 12px 11px rgba(9, 9, 9, .42);
+    }
+
+    .slick-prev {
+        left: 20px;
+        z-index: 1;
+        box-shadow: 20px 14px 12px 11px rgba(9, 9, 9, .42);
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-family: 'slick';
+        font-size: 60px;
+        line-height: 1;
+        opacity: 0.90;
+        /* color: #3F51B5; */
+
+        color: #fff;
+        box-shadow: 0 0 0 rgb(0 0 0 / 23%);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .next-nav-alumni {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 1;
+        width: 40px;
+        margin: 1rem;
+        height: 40px;
+        background: #fff;
+        box-shadow: 0 0 10px 4px rgba(3, 3, 3, 0.2);
+        margin-top: -20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .prev-nav-alumni:after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 1px;
+        background: #000;
+        position: absolute;
+        top: 20px;
+        left: 12px;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .prev-nav-alumni:before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid #000;
+        border-right: 1px solid #000;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        position: absolute;
+        top: 17px;
+        left: 13px;
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+    }
+
+    .next-nav-alumni:after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 1px;
+        background: #000;
+        position: absolute;
+        top: 20px;
+        right: 12px;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .next-nav-alumni:before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid #000;
+        border-right: 1px solid #000;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        position: absolute;
+        top: 17px;
+        right: 13px;
+        -webkit-transform: rotate(45deg);
+    }
+
+
+    .prev-nav-alumni {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 40px;
+        z-index: 1;
+        margin: 1rem;
+        height: 40px;
+        background: #fff;
+        box-shadow: 0 0 10px 4px rgba(3, 3, 3, 0.2);
+        margin-top: -20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+</style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }) %>
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality)%>');
+    background-size: cover; background-position: center;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 8px;">
+                <%= handler.safeView(data, 'page_title') %>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[3].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 3 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
+        </nav>
+    </div>
+
+    <div class="contain">
+        <div class="my-5">
+            <section class="my-5">
+                <div class="u-line-center">
+                    <h3 class="text-center f-40">
+                        <%= handler.safeView(data.fold2, 'title') %>
+                    </h3>
+                </div>
+
+            </section>
+            <section class=" f-20 my-5">
+                <div class="text-center"><b>
+                        <%- md.render(data.fold2.text) -%>
+                    </b></div>
+            </section>
+            <div>
+                <div class="mt-5 mb-4">
+                    <div class="u-line">
+                        <h3>
+                            <%= handler.safeView(data.fold3[0], 'card_title') %>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column flex-md-row">
+
+
+                    <div style="flex:6;" class="text-justify text-muted f-18">
+                        <%- md.render(data.fold3[0].card_text) -%>
+
+                    </div>
+                    <div style="flex:5; order: 1;" class="text-center mx-0 ml-md-4 mb-3">
+                        <div class="col my-2 my-md-0">
+                            <div class="d-flex flex-column justify-content-center">
+                                <div class="row justify-content-center">
+                                    <% let length = data.fold3[0].card_img.length >= 3? 3: data.fold3[0].card_img.length;
+                                    for( let i = 0; i < length; i++ ) { %>
+                                    <div class="hover-z-change col align-self-end 
+                                        <% if( i == 0 || i ==2) { %>
+                                            p-0 
+                                        <% } %>">
+                                        <img src="<%= cmsBaseUrl + handler.mediaSelection(data.fold3[0].card_img[i], quality) %>"
+                                            style="width:100%">
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <div class="row m-1 justify-content-center">
+                                    <% for( let i = 3; i < data.fold3[0].card_img.length; i++ ) { %>
+                                    <div class="col hover-z-change">
+                                        <img src="<%= cmsBaseUrl + handler.mediaSelection(data.fold3[0].card_img[i], quality) %>"
+                                            style="width:100%">
+                                    </div>
+                                    <% } %>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="text-justify text-muted f-18">
+                <%- md.render(data.fold3[0].card_extra) -%>
+            </div>
+            <!-- <div>
+                <div>
+                    <h3>
+                        <%= handler.safeView(data.fold3[0], 'card_title') %> 
+                    </h3>
+                </div>
+                <div class="text-muted text-justify f-18">
+                    <%- md.render(data.fold3[0].card_text) -%>
+                </div> 
+            </div> -->
+
+        </div>
+
+        <div class="mb-5">
+            <div class="row">
+                <div class="col-md-6 mb-2 px-0 px-md-2 order-2 order-md-0">
+                    <div class="col my-2 my-md-0" style="min-height: 200px;">
+                        <div class="d-flex flex-column justify-content-center">
+                            <div class="d-flex d-md-none">
+                                <div style="flex:1;" class="text-center mx-0 ml-md-4 mb-3">
+                                    <img class="img-fluid shadow" width="100%"
+                                        src="<%= cmsBaseUrl + handler.mediaSelection(data.fold3[1].card_img[0], quality) %>"
+                                        alt="">
+
+                                </div>
+
+                            </div>
+                            <div class="d-none d-md-flex">
+                                <div class="shadow hover-z-change" style="position: absolute;
+                                    top: 0;max-height: 500px; max-width: 300px; transition: all .5s;">
+                                    <img width="100%"
+                                        src="<%= cmsBaseUrl + handler.mediaSelection(data.fold3[1].card_img[0], quality) %>"
+                                        alt="">
+                                </div>
+                                <div class="shadow hover-z-change" style="top: 6rem;transition: all .5s;
+                        max-width: 300px;
+                        position: absolute;
+                        right: 1rem;">
+                                    <img width="100%"
+                                        src="<%= cmsBaseUrl + handler.mediaSelection(data.fold3[1].card_img[1], quality) %>"
+                                        alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 pt-md-0 mt-md-0">
+                    <div class="mt-5  mt-md-0">
+                        <div class="u-line">
+                            <h3>
+                                <%= handler.safeView(data.fold3, 'card_title', 1) %>
+                            </h3>
+                        </div>
+                        <div class="text-muted my-4 text-justify f-18">
+                            <%- md.render(handler.safeView(data.fold3 , 'card_text', 1)) -%>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="mt-0 mt-md-5">
+                <div class="text-justify text-muted f-18 pt-2">
+                    <%- md.render( handler.safeView(data.fold3 , 'card_extra', 1)) -%>
+                </div>
+            </div>
+        </div>
+
+        <div class="">
+            <div class="d-flex justify-content-center mt-3 mb-3">
+                <div class="text-center">
+                    <img class="rounded-circle" width="100" height="100"
+                        src="<%= cmsBaseUrl + handler.mediaSelection(data.quote_by.img, quality) %>" alt="">
+                </div>
+                <div class="py-4 pl-4">
+                    <p> <%= handler.safeView(data.quote_by, 'title') %> <br>
+                        <b> <%= handler.safeView(data.quote_by, 'text') %></b> </p>
+                </div>
+            </div>
+            <div class=" f-20 pb-5 mx-0 mx-md-5">
+                <h3 class="f-julias-san font-weight-bold text-center f-20 quote-inline" style="line-height: 2rem;">
+                    <span style="color: var(--green);"
+                        class="f-40">“</span><%- md.render(data.fold4.sub_heading) -%><span
+                        style="color: var(--green);vertical-align: text-top;" class="f-40">” </span>
+                </h3>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
+
+
+            <% for( let index = 0; index < data.buttons.length; index++ ) { %>
+            <div class="my-2 text-center">
+                <a class="btn explore" href="<%= handler.safeView(data.buttons, 'btn_href', index) %> ">
+                    <%= handler.safeView(data.buttons, 'btn_name', index) %> </a>
+            </div>
+            <% } %>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="body-wrap">
+        <div class="my-5">
+            <div class="text-center u-line-center">
+                <h3 class="f-40"><%= handler.safeView(data, "gallery_title") %></h3>
+            </div>
+        </div>
+
+
+        <div style="position: relative;">
+            <div class="next-nav-alumni" title="Navigate Right" style="display: block;"></div>
+            <div class="prev-nav-alumni" title="Navigate Left" style="display: block;"></div>
+
+            <div class="gallery d-flex w-100">
+                <% for( let index = 0; index < data.gallery_imgs.length; index++ ) { %>
+
+                <div style="max-height: 450px; width: 600px;" class="d-flex">
+                    <img style="object-fit: contain; flex: 1;" class="rounded img-fluid"
+                        src="<%= cmsBaseUrl + handler.mediaSelection(data.gallery_imgs[index], quality) %>" alt="">
+                    <div>
+                        <h3>
+                        </h3>
+                    </div>
+                </div>
+
+                <% } %>
+
+            </div>
+
+        </div>
+
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+
+    <script>
+        $('.gallery').slick({
+            // dots: true,
+            prevArrow: $('.prev-nav-alumni'),
+            nextArrow: $('.next-nav-alumni'),
+            infinite: true,
+            speed: 300,
+            arrows: true,
+            slidesToShow: 1,
+            centerMode: true,
+            variableWidth: true
+        });
+    </script>
+
+
+</body>
+
+</html>

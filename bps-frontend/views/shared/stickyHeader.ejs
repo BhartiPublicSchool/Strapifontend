@@ -1,0 +1,41 @@
+<div id="myHeader" style="position: absolute; background: transparent; z-index: 3;" class="d-none w-100 px-3">
+    <div class="header-brand-sticky pl-3 pt-1">
+        <a href="/home">
+            <picture>
+                <!-- <source media="(min-width:768px)" srcset="./logo.png"> -->
+                <!-- <source media="(min-width:465px)" srcset="img_white_flower.jpg"> -->
+                <img width="100%" height="100%" alt="" src="<%= cmsBaseUrl + handler.safeView(common.logo, 'url') %>">
+        </picture>
+    </a>
+    </div>
+    <div class=" d-flex flex-column w-100">
+      
+        <div class="header-container mt-3">
+            <div class="d-flex justify-content-end">
+
+                <div class="header-column">
+                    <nav class="navbar navbar-expand-lg p-0">
+
+                        <div class="collapse navbar-collapse" id="navbarText">
+
+                            <ul class="navbar-nav d-hover mr-auto">
+                                <% Menu.forEach(function(m){ %>
+
+                                    <%- include('../elements/menu', {menu: m}); %>
+
+                                        <% }); %>
+                            </ul>
+                          
+                        </div>
+                       <a class="navbar-toggler d-block d-lg-none p-0 py-2" onclick="openSearchBar()"><i class="btn fa fa-search text-white"></i></a>
+                        <!-- <a style="vertical-align: bottom;" class="navbar-toggler d-block d-lg-none mx-2 py-2" href="/search"><i class="fa fa-search text-white"></i></a> -->
+                        <button class="navbar-toggler d-block d-lg-none" onclick="openNav()">
+                            <i class="fa fa-bars text-white"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

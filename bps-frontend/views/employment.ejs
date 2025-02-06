@@ -1,0 +1,217 @@
+<%- include('shared/headermeta'); %>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+
+<link rel="stylesheet" href="css/card-overlay.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .jumbotron .overlay {
+            width: 100%;
+
+            top: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }) %>
+    <div class="body-wrap mb-0">
+        <di id="top_fold" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality)%>');
+    background-size: cover; background-position: center top;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+                <%= handler.safeView(data, 'page_title') %>
+
+            </h1>
+    </div>
+    <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+        <% common.header_menu[5].submenu.forEach(function(item, index){ %>
+
+        <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 1 ? "active" : "" %>">
+            <%= item.sub_menu_item %>
+        </a>
+        <% }); %>
+    </nav>
+    </div>
+
+    <div class="contain">
+        <div class="my-5">
+            <section class="my-5">
+                <div class="u-line-center">
+                    <h3 class="text-center f-40">
+                        <%=  handler.safeView(data.fold2, 'card_title') %>
+                    </h3>
+                </div>
+
+            </section>
+            <div class="d-flex flex-column flex-md-row">
+
+
+                <div style="flex:6;" class="text-justify text-muted f-18">
+                    <%- md.render(String(handler.safeView(data.fold2, 'card_text'))) -%>
+
+                </div>
+                <div style="flex:5; order: 1;" class="text-center mx-0 ml-md-4 mb-3">
+                    <div class="col my-2 my-md-0">
+                        <div class="d-flex flex-column justify-content-center">
+
+                            <img src="<%= cmsBaseUrl + handler.mediaSelection(data.fold2.card_img[0], quality) %>"
+                                alt="<%= handler.safeView(handler.safeView(data.fold2, 'card_img',0), 'alternativeText', 0)  %>"
+                                style="width:100%">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="my-3">
+            <div class="text-justify text-muted f-18">
+                <%- md.render(String(handler.safeView(data.fold2, 'card_extra'))) -%>
+            </div>
+        </div>
+
+        <div class="row">
+            <% for(var i=0; i < data.fold3.length; i++) { %>
+            <div class="col-md-4 px-3 my-4">
+                <div class="img-container">
+                    <div class="card-overlay"
+                        style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.fold3[i].img, quality) %>');">
+                        <div class="pop-btn-text">
+                            <section>
+                                <h4> <%= handler.safeView(data.fold3, 'title', i) %> </h4>
+                            </section>
+                            <footer>
+                                <div class="">
+                                    <%- md.render(handler.safeView(data.fold3, 'text', i)) -%>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <div>
+            <div class="my-3">
+                <h2 style="letter-spacing: 4px;" class="text-blue">
+                    <%=  handler.safeView(data.jobs_heading, 'title') %>
+                </h2>
+            </div>
+            <ul class="nav faculty-tabs">
+
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#faculty" role="tab"
+                        aria-controls="home" aria-selected="true">Faculty</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#staff" role="tab" aria-controls="home"
+                        aria-selected="true">Support Staff</a>
+                </li>
+            </ul>
+
+            <div class="my-5">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="faculty" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <% if (data.faculty_openings && data.faculty_openings.length > 0) { %>
+                      
+                        <div class="">
+                            <ul class="list-group list-group-flush">
+                             
+                                <% data.faculty_openings.forEach(element => { %>
+                                <li class="list-group-item">
+                                    <a class="text-muted" target="_blank" href="<%= cmsBaseUrl + handler.safeView(element.background, 'url') %>"><i class="fa fa-file-text mr-2"
+                                            aria-hidden="true"></i><%= element.title %> </a></li>
+                                            <% }) %>
+                            </ul>
+                        </div>
+                      
+
+                        <% } else { %>
+                        <div class="">
+                            <%- md.render(handler.safeView(data, 'faculty_tab')) -%>
+                        </div>
+                        <% }  %>
+
+                    </div>
+
+                    <div class="tab-pane fade " id="staff" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <% if (data.staff_openings && data.staff_openings.length > 0) { %>
+                      
+                            <div class="">
+                                <ul class="list-group list-group-flush">
+                                 
+                                    <% data.staff_openings.forEach(element => { %>
+                                    <li class="list-group-item">
+                                        <a class="text-muted" target="_blank" href="<%= cmsBaseUrl + handler.safeView(element.background, 'url') %>"><i class="fa fa-file-text mr-2"
+                                                aria-hidden="true"></i><%= element.title %> </a></li>
+                                                <% }) %>
+                                </ul>
+                            </div>
+                          
+    
+                            <% } else { %>
+                            <div class="">
+                                <%- md.render(handler.safeView(data, 'staff_tab')) -%>
+                            </div>
+                            <% }  %>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
+            <div class="my-2 text-center">
+                <a class="btn explore">Forms & Certificates</a>
+            </div>
+            <div class="my-2 text-center">
+                <a class="btn explore">Apply to BPS!</a>
+            </div>
+            <div class="my-2 text-center">
+                <a class="btn explore">Explore Campus</a>
+            </div>
+
+
+        </div> -->
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

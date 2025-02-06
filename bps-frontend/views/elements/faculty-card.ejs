@@ -1,0 +1,29 @@
+<div class="f_card col-12 col-sm-6 col-md-4 col-lg-3 my-4">
+    <div class="faculty-card">
+        <img width="100%" 
+        src="<%= cmsBaseUrl + handler.mediaSelection( handler.safeView(element, 'img'), quality) %>" 
+        alt="<%= handler.safeView(handler.safeView(element, 'img'), 'alternativeText')  %> "
+            class="shadow">
+        <div class="faculty-overlay-1">
+            <%=  handler.safeView(element, 'name') %>
+        </div>
+        <div class="f_overlay">
+            <div class="d-flex flex-column justify-content-center py-3 my-2">
+                <div class="my-3">
+                    <div class=" <% if (handler.safeView(element, 'name')) { %>
+                        u-line-center-white
+                    <% } %>">
+                        <h5>
+                            <%=  handler.safeView(element, 'name') %>
+                        </h5>
+                    </div>
+                </div>
+                <div  class="text-center f-responsive">
+                   
+                    <%- md.render(handler.safeView(element, 'description')) -%>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

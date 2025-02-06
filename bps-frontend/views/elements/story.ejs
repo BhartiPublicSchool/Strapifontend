@@ -1,0 +1,18 @@
+<div class="history-track">
+    <div class="d-flex  flex-column flex-md-row">
+        <div class="slide-image">
+            <img width="100%" height="100%" src="<%= cmsBaseUrl + handler.mediaSelection(card.timeline_img, quality) %>"
+                alt="<%= card.timeline_title %> Image">
+
+        </div>
+        <div class="history-content">
+            <h5 class="slide-title"> <%= card.timeline_title %>
+            </h5>
+            <div class="slide-text">
+                <%- md.render(String(card.timeline_text)) -%>
+
+            </div>
+        </div>
+    </div>
+
+</div>

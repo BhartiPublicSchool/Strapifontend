@@ -1,0 +1,24 @@
+<div>
+    <section class="my-5 u-line">
+        <h2 class="font-weight-bold">
+            <%= leader.title %>
+        </h2>
+        <h3> <%= leader.subtitle %></h3>
+    </section>
+    <div class="d-flex flex-column flex-md-row">
+        <div class="text-justify text-muted f-18">
+            <%- md.render(String(handler.safeView(leader,'text'))) -%>
+        </div>
+        <div class="text-center mx-0 ml-md-4 mb-3">
+            <img class="shadow" style="min-width: 250px;" width="280" height="320"
+                src="<%= cmsBaseUrl + handler.mediaSelection(leader.img, quality) %>"
+                alt="<%= handler.safeView(leader.img, 'alternativeText')%>">
+        </div>
+
+    </div>
+    <div class="text-justify text-muted f-18">
+        <%- md.render(String(handler.safeView(leader,'extra_text'))) -%>
+    </div>
+
+
+</div>

@@ -1,0 +1,470 @@
+<!doctype html>
+<%- include('shared/headermeta'); %>
+<%=  %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+    integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .jumbotron .overlay {
+            width: 100%;
+
+            top: 0;
+        }
+    }
+
+    .error {
+        border: 2px solid red;
+    }
+
+    label.error {
+        border: none;
+        padding: 0.5rem;
+        display: block;
+        background: #FBE9E7;
+    }
+
+    .class_division,
+    .passing_year {
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 7px;">
+                <%= handler.safeView(data, 'page_title')%>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[1].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 3 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
+        </nav>
+    </div>
+    <div class="contain">
+
+        <div class="row my-2">
+            <div class="col-md-8 order-1 order-md-0">
+                <!-- <div class="card custom-card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">FORMS & CERTIFICATES:</h3>
+                       
+                        <div class="card-text">
+                            <ul>
+                                <li>Marksheets</li>
+                                <li>Duplicate Copies</li>
+                                <li>Transfer Certificate</li>
+                                <li>Transcript Request Form</li>
+                                <li>Merit List/ CBSE Results</li>
+                            </ul>
+                        </div>
+                       
+                    </div>
+
+                </div> -->
+
+                <form id="downloadCertForm" name="downloadCertForm">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="form-group" style="">
+                                <div class="input text">
+                                    <label class="pl-2" for="studentName">Student's Name </label>
+                                    <input type="text" name="studentName" id="studentName" autocomplete="off"
+                                        class="form-control" maxlength="255" minlength="1"
+                                        placeholder="Student’s Full Name *" value=""></div><span
+                                    class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+
+                            <div class="form-group " style="">
+                                <label class="pl-2" for="studentType">Student type: </label>
+                                <select onchange="handleChange()" name="studentType" id="studentType" class="form-control ">
+                                    <option value="" selected="selected">Student Type</option>
+                                    <option value="currentStudent">Current Student </option>
+                                    <option value="pastStudent">Past Student </option>
+
+                                </select><span class="help-block"></span></div>
+                        </div>
+                    </div>
+                    <div class="passing_year">
+
+                        <div class="form-group" style="">
+                            <div class="input text">
+                                <label class="pl-2" for="passing_year">Passing Year: </label>
+                                <input type="number" name="passing_year" id="passing_year" autocomplete="off"
+                                    class="form-control" maxlength="4" minlength="2" placeholder="Passing Year YYYY *"
+                                    value=""></div>
+                        </div>
+                    </div>
+                    <div class="class_division">
+
+                        <div class="form-group " style="">
+                            <label class="pl-2" for="class_division">Class/Division: </label>
+                            <select name="class_division" id="class_division" class="form-control ">
+                                <option value="" selected>Class/Division *</option>
+                                <% data.grade_selection.forEach((element, index) => { %>
+                                    <option value="<%= element.title %>">
+                                        <%= element.title%>
+                                    </option>
+                                    <% }) %>
+
+                            </select><span class="help-block"></span></div>
+                    </div>
+
+
+                    <div class="form-group" style="">
+                        <label class="pl-2" for="docType"> Document Type: </label>
+                        <select id="docType" name="docType" class="form-control">
+                            <option value="" selected="selected"> Select Document Type </option>
+                            <option value="transformCertificate">Transfer Certificate </option>
+                            <option value="characterCertificate">Character Certificate </option>
+                            <option value="bonafideCertificate">Bonafide Certificate </option>
+                            <option value="tuitionFeeCertificate">Tuition Fee Certificate </option>
+                            <option value="duplicateMarksheet">Duplicate Marksheet </option>
+
+                        </select></div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="form-group " style="">
+
+                                <div class="input text">
+                                    <label class="pl-2" for="fatherName">Father's Name: </label><input type="text"
+                                        name="fatherName" id="fatherName" autocomplete="off" maxlength="50"
+                                        class="form-control widget_input" data-type="text" placeholder="Father’s Name *"
+                                        value=""></div><span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-group " style="">
+                                <div class="input text">
+                                    <label class="pl-2" for="motherName">Mother's Name: </label>
+                                    <input type="text" name="motherName" id="motherName" autocomplete="off"
+                                        maxlength="50" class="form-control widget_input" data-type="text"
+                                        placeholder="Mother’s Name *" value=""></div><span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group " style="">
+                        <div class="input text">
+                            <label class="pl-2" for="aadharNumber">Aadhar Number: </label>
+                            <input type="number" name="aadharNumber" id="aadharNumber" autocomplete="off" maxlength="50"
+                                class="form-control widget_input" data-type="text" placeholder="Aadhar No *" value="">
+                        </div><span class="help-block"></span>
+                    </div>
+                    <div class="form-group " style="">
+                        <div class="input text">
+                            <label class="pl-2" for="motherName">CBSE Roll No: <span
+                                    class="text-muted px-3"><small>(optional)</small></span> </label><input
+                                type="number" name="cbseRollNo" id="cbseRollNo" autocomplete="off" maxlength="50"
+                                class="form-control widget_input" data-type="text" placeholder="CBSE Roll No" value="">
+                        </div><span class="help-block"></span>
+                    </div>
+                    <div class="form-group " style="">
+                        <div class="input text">
+                            <label class="pl-2" for="phone">Mobile No: </label>
+                            <input type="number" name="phone" id="phone" autocomplete="off" maxlength="50"
+                                class="form-control widget_input" data-type="text" placeholder="Mobile No *" value="">
+                        </div><span class="help-block"></span>
+                    </div>
+                    <div class="form-group " style="">
+                        <div class="input text">
+                            <label class="pl-2" for="email">E mail: </label>
+                            <input type="text" name="email" id="email" autocomplete="off" maxlength="50"
+                                class="form-control widget_input" data-type="text" placeholder="Email ID *" value="">
+                        </div><span class="help-block"></span>
+                    </div>
+                    <button type="submit" name='submit' class="btn  button-explore w-100">Submit</button>
+                    <input id="resetForm" style="display: none;" type="button" value="reset() outside form"
+                        onclick="downloadCertForm.reset();" />
+                </form>
+                <!-- <div class="card custom-card">
+                        <div class="card-body">
+                            <h3 class="card-title text-cEnter">FORMS & CERTIFICATES:</h3>
+                           
+                            <div class="card-text">
+                                <ul>
+                                    <li>Marksheets</li>
+                                    <li>Duplicate Copies</li>
+                                    <li>Transfer Certificate</li>
+                                    <li>Transcript Request Form</li>
+                                    <li>Merit List/ CBSE Results</li>
+                                </ul>
+                            </div>
+                           
+                        </div>
+    
+                    </div> -->
+
+            </div>
+            <div class="col-md-4 py-3 mb-3">
+                <!-- <button class="btn btn-primary px-4" style="background: #1B2736;">DOWNLOAD ADMISSIONS BROCHURE</button> -->
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <h3 class="card-title text-cEnter"> <%= handler.safeView(data.instructions, 'title') -%>:</h3>
+
+                        <div class="card-text">
+                            <%- md.render(String(handler.safeView(data.instructions, 'text'))) -%>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        var isPastStudent;
+        function handleChange() {
+
+            let selectedValue = $('#studentType').find(":selected").val()
+            if (selectedValue === "currentStudent") {
+                $('.class_division').show();
+                $('.passing_year').hide();
+                $('#currentStudent').rules('add', 'required');
+                $('#passing_year').rules('remove', 'required');
+                isPastStudent = false;
+            } else if (selectedValue === "pastStudent") {
+                $('.class_division').hide();
+                $('.passing_year').show();
+                isPastStudent = true;
+                $('#passing_year').rules('add', 'required');
+                $('#currentStudent').rules('remove', 'required');
+            } else {
+                $('.passing_year').hide();
+                $('.class_division').hide();
+                $('#currentStudent').rules('remove', 'required');
+                $('#passing_year').rules('remove', 'required');
+            }
+        }
+        $(function () {
+            // Initialize form validation on the registration form.
+            // It has the name attribute "registration"
+            $("form[name='downloadCertForm']").validate({
+
+                // Specify validation rules
+                rules: {
+                    // The key name on the left side is the name attribute
+                    // of an input field. Validation rules are defined
+                    // on the right side
+                    studentName: "required",
+                    fatherName: "required",
+                    motherName: "required",
+                    fatherName: "required",
+                    docType: {
+                        required: true
+                    },
+                    aadharNumber: {
+                        required: true,
+                        minlength: 16,
+                        maxlength: 16,
+                    },
+                    studentType:
+                    {
+                        required: true,
+                    },
+                    // passing_year: {
+                    //     required: true,
+                    //     studentType: {
+                    //         depends: function (element) {
+                    //             return isPastStudent;
+                    //         }
+                    //     }
+                    // },
+                    class_division: {
+                        required: true,
+                        // studentType: {
+                        //     depends: function (element) {
+                        //         return !isPastStudent;
+                        //     }
+                        // }
+                    },
+
+                    phone: "required",
+
+                    email: {
+                        required: true,
+                        // Specify that email should be validated
+                        // by the built-in "email" rule
+                        email: true
+                    },
+
+                },
+                // Specify validation error messages
+                messages: {
+                    studentName: "Please Enter your student Name",
+                    fatherName: "Please Enter your Fathers's Name",
+                    motherName: "Please Enter your mother's name",
+                    aadharNumber: {
+                        required: "Please provide your Aadhar Number",
+                        minlength: "Please Enter 16 digit Aadhar number"
+                    },
+                    phone: "Please Enter your Mobile Number",
+
+                    email: "Please Enter a valid email address"
+                },
+                // Make sure the form is submitted to the destination defined
+                // in the "action" attribute of the form when valid
+                submitHandler: function (form) {
+                    let data1 = {
+                        sName: $('#studentName').val(),
+                        fatherName: $('#fatherName').val(),
+                        motherName: $('#motherName').val(),
+                        aadharNumber: $('#aadharNumber').val(),
+                        studentType: $('#studentType').find(":selected").text(),
+                        email: $('#email').val(),
+                        class_division: $('#class_division').find(":selected").val(),
+                        passingYear: $('#passing_year').val(),
+                        docType: $('#docType').find(":selected").text(),
+                        phone: $('#phone').val(),
+                        cbseRollNo: $('#cbseRollNo').val(),
+                        formType: 'certificate'
+                    }
+                    // console.log("form", 1data);
+
+                    Swal.fire({
+                        title: 'Please Wait',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                        background: '#fff',
+                        showConfirmButton: false,
+                        onOpen: () => {
+                            Swal.showLoading();
+                            $.post("/api/contact",
+                                data1,
+                                function (data, status) {
+                                    // alert("Data: " + data.msg + "\nStatus: " + status);
+                                    if (data && data.success) {
+                                        Swal.fire({
+                                            title: data.msg,
+                                            icon: 'success',
+                                            showConfirmButton: true,
+
+                                        }).then(() => {
+                                            $('#resetForm').click();
+                                        })
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Error!',
+                                            text: data.msg,
+                                            icon: 'error',
+                                            showConfirmButton: true,
+                                        })
+                                    }
+
+                                });
+                        }
+                    })
+
+
+
+                    // form.submit();
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+
+</html>

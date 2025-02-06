@@ -1,0 +1,22 @@
+<div class="_feature_box">
+
+    <figure class="_fold_3_overlay">
+        <img class="shadow" width="100%" height="100%" src="<%= cmsBaseUrl + handler.mediaSelection(card.card_img, quality) %>"
+            alt=" <%= card.card_title %> Image">
+        <p class="fixp"> <%= card.card_title %></p>
+        <figcaption>
+            <div>
+                <p class="my-2">
+                    <%- md.render(String(card.card_text)) -%>
+                    <% if (Boolean(handler.safeView(card.card_link, 'link_title'))) { %>
+                        <a style="border-radius:0;" href="<%= card.card_link.link_href %>"
+                            class="btn btn-outline-light my-2"> <%= card.card_link.link_title %></a>
+                    <% } %>
+
+                    
+
+            </div>
+        </figcaption>
+    </figure>
+
+</div>

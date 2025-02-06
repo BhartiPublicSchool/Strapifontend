@@ -1,0 +1,454 @@
+<%- include('shared/headermeta'); %>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+
+    :root {
+        --color-1: rgba(197, 191, 191, 0.45);
+        --color-2: #12312323;
+        --color-3: #2334352a;
+        --color-4: #acf45323;
+        --color-5: #2334352a;
+    }
+
+    .bps-mission-element,
+    .bps-mission-bg {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+        flex: 1 1 100%;
+    }
+
+    .bps-mission-element {
+        position: relative;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 0;
+        flex: 1 0;
+        height: 350px;
+        background-size: cover;
+        background-position: center center;
+        border-left: 1px solid #fff;
+        margin-bottom: 0 !important;
+        text-align: center;
+    }
+
+    .bps-mission-container>.bps-mission-element:nth-child(1):before {
+        background-color: #83b5d1;
+    }
+
+    .bps-mission-container>.bps-mission-element:nth-child(2):before {
+        background-color: #f9cb40;
+        ;
+    }
+
+    .bps-mission-container>.bps-mission-element:nth-child(3):before {
+        background-color: #726e97;
+    }
+
+    .bps-mission-container>.bps-mission-element:nth-child(4):before {
+        background-color: #00b9a9;
+    }
+
+    .bps-mission-container>.bps-mission-element:nth-child(5):before {
+        background-color: #f4989c;
+    }
+
+    .bps-mission-container-2>.bps-mission-element:nth-child(1):before {
+        background-color: #69f09c;
+    }
+
+    .bps-mission-container-2>.bps-mission-element:nth-child(2):before {
+        background-color: #fa74d2;
+    }
+
+    .bps-mission-container>.bps-mission-element:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: .8;
+        transition: opacity .3s ease-in-out;
+    }
+
+    .bps-mission-container>.bps-mission-element>header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        transition: opacity .3s ease-in-out;
+    }
+
+    .bps-mission-container>.bps-mission-element>.bps-mission-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        color: rgb(153 83 83 / 70%);
+    }
+
+    .bps-mission-container>.bps-mission-element .title-center {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        padding: 30px !important;
+    }
+
+    .bps-mission-container>.bps-mission-element .title-center {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        padding: 30px !important;
+    }
+
+    .bps-mission-container>.bps-mission-element>.bps-mission-container .title-text {
+        margin-top: 0;
+        font-weight: normal;
+        line-height: 40px;
+        color: #0785b7;
+        font-weight: 700;
+        margin-bottom: 16px;
+        font-size: 20px;
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    .title-center p {
+        font-family: sofiaPro;
+        color: #000;
+    }
+
+    @media screen and (max-width: 1050px) {
+        .bps-mission-container>.bps-mission-element>.bps-mission-container .title-text {
+            font-size: 28px;
+        }
+    }
+
+    .bps-mission-container>.bps-mission-element>footer {
+        position: absolute;
+        bottom: 22px;
+        right: 17px;
+        opacity: 1;
+        transition: opacity .3s ease-in-out;
+    }
+
+    .bps-mission-container>.bps-mission-element>footer .bps-mission-footer {
+        color: rgba(0, 0, 0, 0.7);
+        text-transform: uppercase;
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 600;
+    }
+
+    .bps-mission-container>.bps-mission-element>footer .bps-mission-footer p {
+        display: inline;
+    }
+
+    .bps-mission-container>.bps-mission-element>footer .bps-mission-footer:after {
+        display: inline-block;
+        margin-left: 0.35714em;
+        font-family: 'FontAwesome';
+        font-weight: normal;
+        content: '\f055';
+    }
+
+    .bps-mission-container>.bps-mission-element:hover>header,
+    .bps-mission-container>.bps-mission-element:hover>footer {
+        opacity: 0;
+    }
+
+    .bps-mission-container>.bps-mission-element:hover>.bps-mission-container {
+        opacity: 1;
+    }
+
+    .bps-mission-container>.bps-mission-element:hover:before {
+        opacity: 1;
+    }
+
+    .mission-video-container {
+        min-width: 420px;
+    }
+
+    @media screen and (max-width:768px) {
+        .mission-video-container {
+            min-width: 320px;
+        }
+    }
+
+    @media (max-width: 1050px) {
+        .bps-mission-container>.bps-mission-element {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .jumbotron .overlay {
+            width: 100%;
+
+            top: 0;
+        }
+    }
+
+    .nav-link.active {
+        font-weight: bolder;
+        border-bottom: 3px solid var(--blue);
+    }
+
+    .mission-play, .mission-pause {
+        border: 0;
+        background: none;
+        outline: 0;
+        margin: 0;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.15);
+        font-size: 0;
+        transition: all .3s ease-in-out;
+    }
+
+    .mission-play:before {
+        content: '\f04b';
+        font-size: 16px;
+        font-family: FontAwesome;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-40%, -50%);
+        -ms-transform: translate(-40%, -50%);
+        transform: translate(-40%, -50%);
+        transition: all .3s ease-in-out;
+    }
+    .mission-pause:before {
+        content: '\f04c';
+        font-size: 16px;
+        font-family: FontAwesome;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-40%, -50%);
+        -ms-transform: translate(-40%, -50%);
+        transform: translate(-40%, -50%);
+        transition: all .3s ease-in-out;
+    }
+    .responsive-height {
+        height: 210px;
+    }
+   
+
+    @media screen and (min-width: 550px) {
+        .responsive-height {
+        height: 330px;
+    }
+    }
+
+</style>
+</head>
+
+<body>
+
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+
+
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality) %>');
+            background-size: cover; background-position: center;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+               letter-spacing: 10px;">
+                <%= data.page_title %>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[0].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 0 ? "active" : "" %> ">
+                <%= item.sub_menu_item %>
+            </a>
+
+
+
+            <% }); %>
+        </nav>
+    </div>
+    <div class="contain f-18">
+        <div>
+            <div class="my-5 ">
+                <div class="my-5">
+                    <div class="u-line-center ">
+                        <h3 class="text-center f-40"><%= data.fold1.heading %></h3>
+                    </div>
+                </div>
+
+
+                <h4 style="color: #3562a5;" class=" mx-1 px-1 mx-lg-5 px-lg-5 text-center">
+                    <%- md.render(String(data.fold1.mission_body)) -%>
+
+                </h4>
+            </div>
+            <section class="my-5 u-line-center">
+                <h3 class="text-center f-40"><%= data.fold2[0].heading %>
+                </h3>
+            </section>
+            <div class="d-flex flex-column flex-md-row">
+                <div style="flex:2;" class="text-justify text-muted">
+                    <%- md.render(String(data.fold2[0].text)) -%>
+                </div>
+                <div style="flex:3;" class="mission-video-container text-center mx-0 ml-md-4 mb-3">
+                    <div style="position: relative;">
+
+                        <!-- <video onended="endedVideo()" id="mission-video" width="100%" class="img-fluid shadow">
+                            <source src="<%= cmsBaseUrl + handler.urlStringSelection(data.fold2[0].video) %>">
+
+                            Your browser does not support the video tag.
+                        </video> -->
+                        <iframe class="responsive-height" style="border: 0;" id="mission-video" width="100%" height="100%" src="<%= handler.safeView(data, 'vimeo_link') %>" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        <!-- <button id="m_play" class="mission-play" onclick="playPause()">Play</button> -->
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="text-muted">
+                <%- md.render(String(data.fold2[0].extra_text)) -%>
+            </div>
+        </div>
+
+    </div>
+    <div class="body-wrap">
+        <div class="d-flex my-5">
+            <div class="bps-mission-container d-flex w-100 flex-wrap">
+                <% data.fold3.forEach(function(m){ %>
+                <section class="bps-mission-element "
+                    style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(m.img, quality) %>');">
+                    <header role="presentation">
+                        <div class="title-center">
+                            <h4 class="bps-mission-title"><b><%= m.heading %></b></h4>
+
+                        </div>
+                    </header>
+                    <div class="bps-mission-container">
+                        <div class="title-center">
+                            <div class="title-text"><%= m.heading %></div>
+                            <%- md.render(String(m.text)) -%>
+
+
+                        </div>
+                    </div>
+                    <footer role="presentation">
+                        <div class="bps-mission-footer">
+                            <p><%= m.heading %></p>
+
+                        </div>
+                    </footer>
+
+
+                </section>
+
+
+                <% }); %>
+
+            </div>
+        </div>
+
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+    <script>
+        var myVideo = document.getElementById("mission-video");
+   function endedVideo() {
+    $("#m_play").addClass("mission-play");
+    $("#m_play").removeClass("mission-pause");
+   }
+   function playPause() {
+       if (myVideo.paused) {
+        myVideo.play();
+        if(!$("#m_play").hasClass("mission-play")) {
+            $("#m_play").removeClass("mission-pause");
+         
+        } else {
+            $("#m_play").removeClass("mission-play");
+            $("#m_play").addClass("mission-pause");
+        }
+     
+       }
+          
+       else {
+        myVideo.pause();
+        $("#m_play").addClass("mission-play");
+        $("#m_play").removeClass("mission-pause")
+       }
+          
+   }
+   </script>
+    <script>
+       
+
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "lib": ["es6", "dom", "es2017"],
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "sourceMap": false,
+        "skipLibCheck": true,
+        "outDir": "dist",
+        "baseUrl": "./src",
+        "paths": {
+            "*": [
+                "node_modules/*",
+                "*",
+                "src/*",
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+, "scripts"    ]
+}

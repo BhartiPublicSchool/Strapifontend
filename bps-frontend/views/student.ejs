@@ -1,0 +1,288 @@
+<%- include('shared/headermeta'); %>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+    
+ <title>Bharti Public School</title>
+
+    <style>
+        .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+
+
+
+
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+                width: 100%;
+
+                top: 0;
+            }
+        }
+
+        .faculty-overlay-1 {
+            position: absolute;
+            bottom: 1.5rem;
+            background: var(--blue);
+            background: var(--blue-transparent);
+            /* Black see-through */
+            color: #f1f1f1;
+            width: 100%;
+            opacity: 1;
+            transition: .5s ease;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .f_overlay {
+            position: absolute;
+            bottom: 0;
+            background: var(--blue);
+            background: var(--blue-transparent);
+            /* Black see-through */
+            color: #f1f1f1;
+            width: 100%;
+            height: 100%;
+            transition: .5s ease;
+            opacity: 0;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .faculty-card:hover .faculty-overlay-1 {
+            opacity: 0;
+        }
+
+        .faculty-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .faculty-card {
+            position: relative;
+        }
+
+        .controls {
+            position: absolute;
+            display: inline;
+            top: 0;
+            right: 1rem;
+        }
+
+        .faculty-tabs a {
+            display: block;
+            font-size: 1rem;
+            line-height: 1.1875;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: 1px solid #E6E6E6;
+            padding: 14px 17px;
+            -webkit-transition: 0.3s all;
+            transition: 0.3s all;
+            position: relative;
+            background: #F2F2F2;
+            color: #252B33;
+
+        }
+
+        .faculty-tabs a.active {
+            background: #012E61;
+            color: #FFF;
+            border-color: #012E61;
+        }
+
+        .faculty-tabs a.active:after {
+            border-top-color: #012E61;
+        }
+
+        .faculty-tabs a:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+            border-left: 13px solid transparent;
+            border-right: 13px solid transparent;
+            border-top: 7px solid transparent;
+            -webkit-transition: 0.3s border;
+            transition: 0.3s border;
+        }
+
+        .faculty-tabs a.active {
+            background: #012E61;
+            color: #FFF;
+            border-color: #012E61;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+    <div class="body-wrap">
+        <div id="top_fold"  style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+                <%= handler.safeView(data, 'page_title') %>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[4].submenu.forEach(function(item, index){ %>
+    
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 2 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
+        </nav>
+    </div>
+    <div class="contain">
+        <div>
+            <div class="my-5 u-line-center">
+                <h3 class="text-center">
+                    <%=  handler.safeView(data.fold2, 'card_title',0) %>
+                </h3>
+            </div>
+            <div>
+                <div class="d-flex flex-column flex-md-row">
+
+
+                    <div style="flex:5;" class="text-justify text-muted f-18">
+                        <%- md.render(String(handler.safeView(data.fold2, 'card_text',0))) -%>
+                    </div>
+                    <div style="flex:4;" class="text-center mx-0 ml-md-4 mb-3">
+                        <img class="img-fluid shadow"
+                        src="<%= cmsBaseUrl + handler.mediaSelection(handler.safeView(data.fold2, 'card_img',0), quality) %>"
+                        alt="<%= handler.safeView(handler.safeView(data.fold2, 'card_img',0), 'alternativeText', 0)  %> ">
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="text-muted">
+
+                <%- md.render(String(handler.safeView(data.fold2, 'card_extra',0))) -%>
+            </div>
+        </div>
+        <div>
+            <div class="my-5 u-line-center">
+                <h3 class="text-center">
+                    <%=  handler.safeView(data.fold2, 'card_title',1) %>
+                </h3>
+            </div>
+            <div class="row my-4">
+                <div class="col-md-6 mb-2">
+                    <img class="w-100 shadow" 
+                    src="<%= cmsBaseUrl + handler.mediaSelection(handler.safeView(data.fold2, 'card_img',1), quality) %>"
+                    alt="<%= handler.safeView(handler.safeView(data.fold2, 'card_img',1), 'alternativeText', 0)  %> ">
+                </div>
+                <div class="col-md-6">
+                    <div class="text-muted text-justify f-18">
+                        <%- md.render(String(handler.safeView(data.fold2, 'card_text',1))) -%>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="text-muted">
+
+                <%- md.render(String(handler.safeView(data.fold2, 'card_extra',1))) -%>
+            </div>
+        </div>
+    </div>
+    <div class="body-wrap">
+            <%- include('elements/carousel', {carausel_data : data.student_carousel ,data_title: "Meet A Bhartian"}); %>
+    </div>
+
+    <%- include('shared/footer', {footer: common.footer}); %>
+
+    <script>
+        $('.btn-next').on('click', function (e) {
+            e.preventDefault()
+            $('.carousel').carousel('next')
+        })
+        $('.btn-previous').on('click', function (e) {
+            e.preventDefault()
+            $('.carousel').carousel('prev')
+        })
+    </script>
+    <script type="text/javascript">
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+</body>
+
+</html>

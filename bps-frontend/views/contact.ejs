@@ -1,0 +1,125 @@
+<!doctype html>
+<%- include('shared/headermeta'); %>
+
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+
+<link rel="stylesheet" href="css/card-overlay.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .jumbotron .overlay {
+            width: 100%;
+
+            top: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality)%>');
+    background-size: cover; background-position: center top;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+                <%= handler.safeView(data, 'page_title')%>
+
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[5].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 0 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
+        </nav>
+    </div>
+
+    <div class="contain">
+        <div class="my-5">
+
+            <div class="d-flex flex-column flex-md-row">
+
+
+                <div style="flex:2;" class="text-center f-18">
+                    <%- md.render(handler.safeView(data, 'contact_details')) -%>
+
+                </div>
+                <div style="flex:3; order: 1;" class="text-center mx-0 ml-md-4 mb-3">
+                    <div class="col my-2 my-md-0">
+                        <div class="d-flex flex-column justify-content-center h-100">
+                            <a target="_blank" href="<%= data.map_link %> ">
+                                <img src="<%= cmsBaseUrl + handler.mediaSelection(data.map, quality)%>" style="width:100%">
+                            </a>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="contain">
+            <div class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
+                <% data.buttons.forEach(function(item, index){ %>
+                <div class="my-2 text-center">
+                    <a href="<%= item.btn_href %>" class="btn explore" <% if (data.buttons.length > 2 && index == 1) { %>
+                        target="_blank"
+                       <% } %>>
+                        <%= item.btn_name %></a>
+                </div>
+
+
+                <% }); %>
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <%- include('shared/footer', {footer: common.footer}); %>
+</body>
+
+</html>

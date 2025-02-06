@@ -1,0 +1,156 @@
+<%- include('shared/headermeta'); %>
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/card-overlay.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+    <title>Bharti Public School</title>
+    <style>
+        .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+
+        
+
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+                width: 100%;
+
+                top: 0;
+            }
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover; background-position: center right;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 5px;">
+              <%= handler.safeView(data, 'page_title') %>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <a href="academics" class="nav-link text-center p-1 m-1">Academics</a>
+            <% common.header_menu[2].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 3 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
+        </nav>
+    </div>
+  
+    
+    <div class="contain">
+            <div class="row mx-0">
+              
+                <div class="col">
+                    <div class="m-2">
+                        <div class="text-center u-line-center">
+                            <h3 class="half-underline my-5 f-40">
+                                 <%= handler.safeView(data.fold2, 'title') %>
+                            </h3>
+                        </div>
+                            <div class="text-muted text-justify f-18">
+                         
+                                <%- md.render(String(handler.safeView(data.fold2,'text'))) -%> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <% data.fold3.forEach(element => { %>
+                            <div class="col-md-4 px-3 my-4">
+                                <div class="img-container">
+                                    <div class="card-overlay"
+                                        style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(element.img, quality) %>');">
+                                        <div class="pop-btn-text">
+                                            <section>
+                                                <h4> <%= handler.safeView(element, 'title') %> </h4>
+                                            </section>
+                                            <footer>
+                                                <div class="">
+                                                    <%- md.render(String(handler.safeView(element,'text'))) -%> 
+                        
+                                                </div>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        <% }) %>
+                      
+                     </div> 
+                    <div class="mt-5">
+                        <div class="pb-4">
+                            <div class="text-center u-line-center">
+                                <h3 class="half-underline f-30 ">
+                                     <%= handler.safeView(data.fold4, 'card_title') %> 
+                                </h3>
+                                
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-md-6 f-18">
+                            <div class="text-muted text-justify">
+                                <%- md.render(String(handler.safeView(data.fold4,'card_text'))) -%> 
+                            </div>
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <img class="w-100 shadow" src="<%= cmsBaseUrl + handler.mediaSelection(data.fold4.card_img[0], quality) %>" alt="">
+                        </div>
+                    </div>
+                    <div  class="d-flex flex-column justify-content-center  flex-md-row justify-content-md-around">
+                        <% data.buttons.forEach(function(item, index){ %>
+                            <div class="my-2 text-center">
+                                <a href="<%= item.btn_href %>" class="btn explore" <% if (data.buttons.length > 2 && index == 1) { %>
+                                    target="_blank"
+                                   <% } %>>
+                                    <%= item.btn_name %></a>
+                            </div>
+            
+            
+                            <% }); %>
+                      
+                    </div>
+                </div>
+                
+              
+            </div>
+      
+    </div>
+
+    <%- include('shared/footer', {footer: common.footer}); %>
+   
+ 
+</body>
+
+</html>

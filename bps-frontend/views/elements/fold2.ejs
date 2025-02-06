@@ -1,0 +1,26 @@
+<div id="fold_2" class="_fold_2" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(fold2.fold2_bg, quality) %>');
+                        background-repeat: no-repeat;
+                        background-size: 400px 200px;
+                        background-position: center;">
+
+    <div style="z-index: 1;" class="d-flex justify-content-center align-items-center">
+        <section class="text-center m-5">
+            <h1 style="
+            font-size: 40px;
+            text-transform: uppercase;" class="my-4" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"
+                data-aos-offset="0"><span> <%= fold2.fold2_title_start %></span><br> <%= fold2.fold2_title_end %></h1>
+
+            <div class="my-5 f-sofia-pro f-18" data-aos="fade-right" data-aos-duration="2000">
+
+
+                <%- md.render(String(fold2.fold2_text)) -%>
+
+            </div>
+
+            <h5 class="my-5" data-aos="fade-left" data-aos-duration="2000">
+                <a style="text-decoration: none;"
+                    href="<%= fold2.fold2_link.link_href %>"><%= fold2.fold2_link.link_title %></a></h5>
+        </section>
+    </div>
+    <div style="position: absolute; z-index: -1;" id="box2" data-scroll-speed="20"></div>
+</div>

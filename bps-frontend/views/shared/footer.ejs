@@ -1,0 +1,121 @@
+<div class="body-wrap shadow">
+
+    <footer style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(footer.footer_bg, quality) %>');
+        background-size: cover;
+        background-position: center;">
+        <div class="footer-bg">
+            <div class="row mx-0">
+                <div style="z-index: 1;" class="social-icons col-md-4">
+                    <h4 class="text-white text-center my-5">Stay Connected</h4>
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <a class="fb" href="<%= common.fb_link %>"><i
+                                    class="fa fa-facebook" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <a class="ln" href="<%= common.ln_link %>"><i
+                                    class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <a class="yt" href="<%= common.yt_link %>"><i
+                                    class="fa fa-youtube" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <a class="in" href="<%= common.in_link %>"><i
+                                    class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="z-index: 1;" class="col-md-4 text-center pt-4">
+                    <div class=" p-3">
+
+                        <img src="<%= cmsBaseUrl + handler.safeView(common.logo, 'url') %>" alt="">
+
+                    </div>
+                    <div class="footer-title f-julias-san my-5">
+                        <!-- <h6><b> Bharti Public School</b></h6>
+                    <h6>Swasthya Vihar</h6> -->
+                    <%- md.render(String(common.footer_address)) -%> 
+                        <!-- <p>Near, Metro Station, Vikas Marg, Nirman Vihar, <br>Swasthya Vihar, New Delhi
+                            110092.</p> -->
+
+                    </div>
+                    <div class="d-flex justify-content-around  text-white mt-2">
+
+                        <!-- <div class="footer-links"> -->
+                        <!-- <div class="d-flex "> -->
+                        <a href="explore-campus" style="min-width: 115px;" class=" btn btn-outline-light rounded-0"
+                            href="">Explore</a>
+                        <a href="apply" style="min-width: 115px;" class="btn btn-outline-light rounded-0"
+                            href="">Apply</a>
+                        <a href="contact" style="min-width: 115px;" class="btn btn-outline-light rounded-0"
+                            href="">Contact Us</a>
+                        <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+
+                </div>
+
+                <div style="z-index: 1;" class="acredition col-md-4 text-center">
+                    <h4 class="text-white my-5">Accreditation</h4>
+                    <div class="d-flex justify-content-center">
+                        <div style="width: 150px;">
+                            <img width="100%" src="<%= cmsBaseUrl + handler.mediaSelection(common.accreditation[0], quality) %>" alt="">
+                        </div>
+                        <div style="width: 150px;">
+                            <img width="100%" src="<%= cmsBaseUrl + handler.mediaSelection(common.accreditation[1], quality) %>"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-0 mt-4">
+                <div style="z-index: 1"
+                    class="w-100 pt-4 px-5 mx-0 ml-md-3 mr-md-5 d-flex flex-column flex-md-row justify-content-between">
+                    <div style="flex:2;">
+                        <ul style="list-style: none;" class="d-flex justify-content-around px-0">
+                            <% common.footer_links.forEach((element, index) => { %>
+                                <li><a class="text-white p-2" href="<%= element.btn_href %>">  <%= element.btn_name %> </a></li>
+                                <% if (index != common.footer_links.length-1 ) { %>
+                                    <li style="border-right: 1px solid #fff;"></li>
+                                <% } %>
+                               
+                            <% }) %>
+                            <!-- <li><a class="text-white p-2" href="faculty">Directory</a></li>
+                            <li style="border-right: 1px solid #fff;"></li>
+                            <li><a class="text-white p-2" href="#">Site Map</a></li>
+                            <li style="border-right: 1px solid #fff;"></li>
+                            <li><a class="text-white p-2" href="employment">Careers</a></li> -->
+                        </ul>
+                    </div>
+                    <div style="z-index: 1; flex: 5;" class="text-white mx-0">
+                        <p class="text-md-right text-center mr-md-4">© 2020 Bharti Public School</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="mr-2 mb-2" style="display: inline;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    right: 0;">
+            <a style=" cursor: pointer;" onclick="gotoTop()">
+                <div class="d-flex flex-column">
+                    <i class="fa fa-angle-double-up fa-2x text-white mx-3"></i>
+                    <span style="font-size: 10px;" class="text-white">Take me up</span>
+                </div>
+
+            </a>
+
+        </div>
+
+
+    </footer>
+</div>
+
+<script src="js/shared.js"></script>

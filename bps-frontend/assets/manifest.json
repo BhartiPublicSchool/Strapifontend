@@ -1,0 +1,26 @@
+{
+    "short_name": "FabThrive",
+    "name": "FabThrive Login",
+    "icons": [
+      {
+        "src": "fmj.png",
+        "sizes": "64x64 32x32 24x24 16x16",
+        "type": "image/png"
+      },
+      {
+        "src": "fmj.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "fmj.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }
+  

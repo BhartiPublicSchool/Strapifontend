@@ -1,0 +1,148 @@
+.custom-jumbotron{
+    height: 550px;
+    margin: 0;
+    background: gray;
+}
+
+.padding-margin{
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.custom-possibilities{
+    max-width: 45.25rem;
+    margin: 0 auto;
+}
+
+#qa_accordion pre{
+    white-space: normal;
+    text-align: justify;
+}
+
+.custom-button{
+    background: #2A72A2;
+}
+.custom-faq-border-bottom{
+    border-bottom: 0
+}
+.custom-faq-card-background{
+    background: #EEEDED;
+}
+.custom-faq-font{
+    color: #1B2736;
+    background: #EEEDED;
+}
+
+.custom-faq-font:hover {
+    /* background: #427C9E; */
+    background: var(--blue);
+    color: white;
+}
+
+.custom-faq-font-focus {
+    color: #EEEDED;
+    background: var(--blue);
+    
+}
+.custom-faq-font-focus:hover{
+    color: #EEEDED;
+    background: var(--blue);
+    /* background: #1B2736; */
+}
+
+.font-blue-on-hover:hover {
+   
+        color: var(--blue);
+  
+}
+
+.nav-heading{
+    height: 50px;
+    background: #EEEDED;
+}
+
+
+
+.parallex{
+    
+    height: 450px; 
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+}
+
+/* @media screen and (max-width: 888px) {
+    .parallex{
+    
+        height: 500px; 
+        width: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+} */
+
+.parallax-container {
+    max-height: 390px;
+    overflow: hidden;
+}
+
+.custom-table {
+    color: white;
+    background: var(--blue);
+    /* background: #333e48; */
+    border-color: grey;
+}
+.w-16{
+    width: 16.6%;
+    text-align: center;
+}
+
+.custom-card{
+    background: var(--blue);
+    /* background-color:#433e96; */
+    color: white;
+}
+
+
+.nav-link {
+    color: black;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  nav.bg-light {
+    height: 50px;
+  }
+  nav.bg-light a:hover{
+    font-weight: bolder;
+    border-bottom: 3px solid var(--blue);
+  }
+
+  .nav-link.active {
+    font-weight: bolder;
+    border-bottom: 3px solid var(--blue);
+}
+  
+  .btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgb(46 48 51 / 84%);
+  }
+
+  
+  svg {
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.qaAccordian.faq-vistited svg {
+    transform: rotate(180deg);
+}
+
+
+
+
+
+

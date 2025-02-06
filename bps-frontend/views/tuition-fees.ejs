@@ -1,0 +1,379 @@
+<%- include('shared/headermeta'); %>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+<link rel="stylesheet" href="css/topnavbar.css">
+
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/fold4.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+
+    $(document).ready(function () {
+        console.log(window.innerWidth);
+        // if (window.innerWidth < 900) {
+        //     let pp = document.getElementById('parallax');
+        //     pp.classList.remove('mcparallax');
+        //     document.getElementById('parallax').removeAttribute('data-speed')
+        // }
+    })
+
+</script>
+<script src="js/mcparallax.min.js"></script>
+<style>
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+
+
+    @media screen and (max-width: 768px) {
+        .jumbotron .overlay {
+            width: 100%;
+
+            top: 0;
+        }
+    }
+
+
+    .header-brand {
+        position: absolute;
+        width: 10rem;
+        height: 6rem;
+        margin-top: 0.25rem;
+    }
+
+    /* .body-wrap {
+         
+        } */
+    .table-wrapper table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        border: 0;
+        margin-bottom: 0;
+    }
+
+    .table-wrapper thead td,
+    .table-wrapper thead th {
+        border-bottom-width: 2px;
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table-wrapper td,
+    .table-wrapper th {
+        border: 1px solid #dee2e6;
+    }
+
+    .table-wrapper table td,
+    .table-wrapper table th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+        width: 16.6%;
+        text-align: center;
+    }
+
+    .w-16 {
+        width: 16.6%;
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+    <div class="body-wrap">
+
+        <div id="top_fold" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover; background-position: center center;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+                <%= handler.safeView(data, 'page_title') %>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[1].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 2 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+
+
+
+            <% }); %>
+        </nav>
+        <div class="contain">
+            <div>
+                <div class="my-5">
+                    <section class="u-line-center">
+                        <h3 class="text-center f-40">
+                            <%= data.fold2.title %>
+                        </h3>
+                    </section>
+
+                </div>
+
+                <div class="text-justify text-muted f-18">
+                    <%- md.render(String(handler.safeView(data.fold2,'text'))) -%>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="parallax-container">
+            <div style=" background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.parallax.parallax_img, quality) %>');"
+                id="parallax" class="parallex mcparallax d-flex justify-content-center align-items-center"
+                data-speed="1">
+
+                <div class="" style="width: 25rem;">
+                    <h1 class="text-center text-white">
+                        <%= handler.safeView(data.parallax, 'text') %>
+                    </h1>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+        <div class="contain">
+            <div class="my-3">
+                <div class="text-justify text-muted f-18">
+                    <%- md.render(String(handler.safeView(data.parallax,'extra_text'))) -%>
+                </div>
+            </div>
+            <div class="row f-18 my-5">
+                <div class="col">
+                    <table class="table table-bordered mb-0 custom-table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    <%= handler.safeView(data.table, 'title') %>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="table-wrapper table-responsive shadow mb-2">
+                        <%- md.render(String(handler.safeView(data.table,'text'))) -%>
+
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body custom-card shadow">
+                            <h5 class="card-title"> <%= handler.safeView(data.oneTimePayment, 'title') %></h5>
+                            <%- md.render(String(handler.safeView(data.oneTimePayment,'text'))) -%>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card custom-card">
+                                <div class="card-body">
+                                    <h3 class="card-title text-center">
+                                        <%= handler.safeView(data.paymentPlan, 'title') %>
+                                    </h3>
+                                    <%- md.render(String(handler.safeView(data.paymentPlan,'text'))) -%>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex flex-column justify-content-center">
+                                <% data.buttons.forEach(function(item, index){ %>
+                                <div class="my-2 text-center">
+                                    <a <% if (String(item.btn_href).includes('uploads')) { %>
+                                        target="_blank"
+                                    <% } %>  href="<%= item.btn_href %>" class="btn explore w-100">
+                                        <%= item.btn_name %></a>
+                                </div>
+
+
+                                <% }); %>
+                            
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <section class="my-5">
+                            <div class="u-line">
+                                <h3 class="f-30 ">
+                                    <%= handler.safeView(data.lastFold, 'title') %>
+                                </h3>
+                            </div>
+
+                        </section>
+
+                        <div class="text-justify text-muted f-18">
+                            <%- md.render(String(handler.safeView(data.lastFold,'text'))) -%>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            <div data-aos="fade-up" data-aos-duration="2000" class="_fold_4 py-0">
+                <section>
+                    <header class="" data-aos="fade-down">
+                        <h1 class="text-center pb-5">
+                            <%= data.statistics_title.title %>
+                        </h1>
+                    </header>
+                    <div class="statistics-slider">
+                        <% data.statatistics.forEach(element => { %>
+                        <%- include('elements/fold4', {card: element}); %>
+                        <% }) %>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <%- include('shared/footer', {footer: common.footer}); %>
+
+
+    <script>
+
+        AOS.init({
+            // Global settings:
+            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+            initClassName: 'aos-init', // class applied after initialization
+            animatedClassName: 'aos-animate', // class applied on animation
+            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+            offset: 120, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 500, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: true, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+        });
+
+
+
+        $('.statistics-slider').slick({
+            effect: 'cube',
+            cubeEffect: {
+                slideShadows: false,
+            },
+            // dots: true,
+            infinite: false,
+            nextArrow: $('#Next'),
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            }, {
+                breakpoint: 600,
+                settings: {
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            }, {
+                breakpoint: 480,
+                settings: {
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+
+            ]
+        });
+
+
+
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,534 @@
+<%- include('shared/headermeta'); %>
+<link rel="stylesheet" href="css/refined.css">
+<link rel="stylesheet" href="css/topnavbar.css">
+<link rel="stylesheet" href="css/dropdownhover.css">
+<link rel="stylesheet" href="css/foldFooter.css">
+<script>  function slideOverlay() {
+        let overlay = document.getElementById('overlay');
+        overlay.classList.add('slideShowView');
+        overlay.classList.add('animate');
+
+    }
+
+    function showblocks(params) {
+        let blocks = document.getElementsByClassName('dropdown');
+        let element = document.getElementById('explore');
+        element.classList.add('animated');
+        element.classList.add('moveback');
+        for (const b of blocks) {
+            b.classList.add('animated');
+        }
+        console.log(blocks.length);
+
+    }
+
+    function closeSlideShow() {
+        let overlay = document.getElementById('overlay');
+        overlay.classList.remove('slideShowView');
+
+    }</script>
+
+
+<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+
+
+<style>
+    :root {
+        --grey: #363E47;
+        --blue: #28295d;
+        --green: #62a25d;
+        --yellow: rgb(255, 210, 29);
+        --orange: #df682d;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .header-design-2 {
+        box-shadow: 0 3px 12px 0 rgba(0, 0, 0, .08);
+        position: relative !important;
+        display: flex !important;
+        background: var(--blue) !important;
+        top: 0;
+        width: 100%;
+        height: 5rem;
+        z-index: 3;
+        /* transform: translateY(-100%); */
+        /* animation: sticky-slide-down .4s ease .25s forwards; */
+    }
+
+    .slick-next {
+        right: 40px;
+    }
+
+    .slick-prev {
+        left: 20px;
+        z-index: 1;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-family: 'slick';
+        font-size: 40px;
+        line-height: 1;
+        opacity: .75;
+        color: #3F51B5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .slick-slide {
+        margin: 0 -65px;
+        width: 390px;
+        height: 390px;
+        transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        box-shadow: 0 14px 26px 3px rgba(3, 3, 3, 0.2);
+        opacity: 0.5;
+        z-index: 0;
+        -webkit-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6);
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        height: auto;
+
+        /* transform: scale(0.5); */
+        /* transition: transform 0.5s; */
+    }
+
+    .slick-current {
+        position: relative;
+        z-index: 2;
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    .slick-active {
+        /* z-index: 3; */
+    }
+
+    .alumni-container {
+        position: relative;
+    }
+
+    .alumni img {
+        object-fit: contain;
+        /* width: 390px; */
+        /* position: relative;
+            display: block;
+            z-index: 1;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            -webkit-transition: opacity 0.2s linear, -webkit-transform 0.3s linear;
+            transition: opacity 0.2s linear, -webkit-transform 0.3s linear;
+            transition: opacity 0.2s linear, transform 0.3s linear;
+            transition: opacity 0.2s linear, transform 0.3s linear, -webkit-transform 0.3s linear;
+            -webkit-transition: opacity 0.2s linear, transform 0.3s linear; */
+
+    }
+
+    .header-underline h5:before {
+        content: '';
+        background: #56a0d3;
+        width: 57px;
+        height: 2px;
+        position: absolute;
+        bottom: 85px;
+        transform: translateX(200%);
+    }
+
+    .jumbotron .overlay {
+        position: absolute;
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        height: 550px;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .jumbotron .overlay {
+            width: 100%;
+
+            top: 0;
+        }
+    }
+
+    @media screen and (max-width: 460px) {
+        .alumni-title {
+font-size: 0.855rem;
+        }
+        .alumni-subtitle {
+font-size: 0.75rem;
+        }
+        .alumni-container .prev-nav-alumni {
+            display: none;
+            z-index: 2;
+            left: 50%;
+            margin-left: -170px !important;
+        }
+
+        .alumni-container .next-nav-alumni {
+            display: none;
+            z-index: 2;
+            right: 50%;
+            margin-right: -170px !important;
+        }
+    }
+
+    .alumni-container .prev-nav-alumni {
+        display: none;
+        z-index: 2;
+        left: 50%;
+        margin-left: -215px;
+    }
+
+    .alumni-container .next-nav-alumni {
+        display: none;
+        z-index: 2;
+        right: 50%;
+        margin-right: -215px;
+    }
+
+    .next-nav-alumni {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin: 1rem;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        box-shadow: 0 0 10px 4px rgba(3, 3, 3, 0.2);
+        margin-top: -20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .prev-nav-alumni:after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 1px;
+        background: #000;
+        position: absolute;
+        top: 20px;
+        left: 12px;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .prev-nav-alumni:before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid #000;
+        border-right: 1px solid #000;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        position: absolute;
+        top: 17px;
+        left: 13px;
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+    }
+
+    .next-nav-alumni:after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 1px;
+        background: #000;
+        position: absolute;
+        top: 20px;
+        right: 12px;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .next-nav-alumni:before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid #000;
+        border-right: 1px solid #000;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        position: absolute;
+        top: 17px;
+        right: 13px;
+        -webkit-transform: rotate(45deg);
+    }
+
+
+    .prev-nav-alumni {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin: 1rem;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        box-shadow: 0 0 10px 4px rgba(3, 3, 3, 0.2);
+        margin-top: -20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+    }
+
+    .alumni-gallery {
+        position: relative;
+        /* min-width: 200px; */
+        /* min-height: 290px; */
+    }
+
+    .alumni-gallery::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        top: 0;
+        height: 100%;
+        /* z-index: 1; */
+        background-color: rgba(0, 0, 0, 0.445);
+    }
+
+    .alumni-overlay {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+
+    }
+</style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality) %>');
+            background-size: cover;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+               letter-spacing: 10px;">
+                <%= handler.safeView(data, 'page_title') %>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[4].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 3 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+            <% }); %>
+        </nav>
+    </div>
+    <div class="contain">
+        <div class="">
+            <div class=" my-5 u-line-center">
+                <h3 class="f-40 text-center">
+                    <%=  handler.safeView(data.fold_2, 'card_title') %>
+                </h3>
+            </div>
+            <div class="row mx-0">
+                <div class="f-18 text-justify text-muted">
+                    <%- md.render(String( handler.safeView(data.fold_2, 'card_text'))) -%>
+                </div>
+
+            </div>
+            <section class=" f-20 ">
+                <div class="text-center font-weight-bold">
+                    <%- md.render(String( handler.safeView(data.fold_2, 'card_extra'))) -%>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+    <div class="body-wrap">
+        <div class="my-5 text-center">
+            <div class="u-line-center">
+                <h3>
+                    <%= handler.safeView(data.alumni_title, 'title') %>
+                </h3>
+            </div>
+        </div>
+
+        <div class="alumni-container my-5">
+            <div class="next-nav-alumni" title="Navigate Right" style="display: block;"></div>
+            <div class="prev-nav-alumni" title="Navigate Left" style="display: block;"></div>
+            <div class="alumni">
+                <% data.alumni_gallery.forEach((element) => { %>
+                <div class="alumni-gallery d-flex justify-content-center align-items-center">
+                    <!-- <a style="cursor: pointer;" id="<%= element.id %>" onclick="showAlumniModal(this)"> -->
+                    <img class="img-fluid align-self-center"
+                        src="<%= cmsBaseUrl + handler.mediaSelection(element.img, quality)%>">
+                    <div class="alumni-overlay d-flex flex-column  justify-content-end align-items-center p-1">
+                        <h5 class="text-center alumni-title font-weight-bold">
+                            <%= handler.safeView(element, 'title') %>
+                        </h5>
+                        <h6 class="text-center alumni-subtitle">
+                            <%= handler.safeView(element, 'subtitle') %>
+                        </h6>
+                        <div class="text-center">
+                            <a style="cursor: pointer;" class="f-julias-san f-14 dropdown-item" id="<%= element.id %>"
+                                onclick="showAlumniModal(this)">Read More</a>
+                            <!-- <%- md.render(String(element.text)) -%> -->
+                        </div>
+
+                    </div>
+                    <!-- </a> -->
+
+                </div>
+
+                <% }) %>
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <%- include('shared/footer', {footer: common.footer}); %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script>
+        var modals = [];
+        var md;
+        $(document).ready(function (e) {
+            md = window.markdownit();
+            $.ajax({
+                url: '/alumni/modals', success: function (result) {
+                    modals = result;
+                    console.log(result);
+                }
+            });
+            // $('#exampleModal').modal('show');
+        });
+
+
+        $('.alumni').slick({
+            centerMode: true,
+            centerPadding: '60px',
+            prevArrow: $('.prev-nav-alumni'),
+            nextArrow: $('.next-nav-alumni'),
+            arrows: true,
+            slidesToShow: 5,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        centerMode: true,
+                        centerPadding: '60px',
+                        prevArrow: $('.prev-nav-alumni'),
+                        nextArrow: $('.next-nav-alumni'),
+                        arrows: true,
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        // arrows: true,
+                        // prevArrow: $('.prev-nav-alumni'),
+                        // nextArrow: $('.next-nav-alumni'),
+                        dots: true,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                }
+            ]
+        });
+
+        function showAlumniModal(x) {
+            let alumniData = modals.filter(m => m.id === Number(x.id))[0];
+            console.log('hello',);
+            Swal.fire({
+                title: '',
+                showCloseButton: true,
+                confirmButtonText: 'Close',
+                text: 'Modal with a custom image.',
+                html: `<div class="mb-3">
+                    <img class="img-fluid shadow rounded" src="${alumniData.img.url}">
+                    </div>
+                  <h4 class="text-center font-weight-bold">
+                               ${alumniData.title}
+                            </h4>
+                            <h5>
+                                ${alumniData.subtitle ? alumniData.subtitle : '' }</h5>
+                            <div class="text-justify modal-text-md">
+                              ${md.render(String(alumniData.text))}
+                            </div>`,
+            });
+            var modals_text_md = $('.modal-text-md');
+            var aas = modals_text_md.find('a');
+            aas.attr("target", "_black");
+        }
+
+        // $('.alumni').slick({
+        //     dots: true,
+        //     infinite: false,
+        //     centerMode: true,
+        //     speed: 300,
+        //     slidesToShow: 5,
+        //     slidesToScroll: 1,
+        //     responsive: [
+        //         {
+        //             breakpoint: 1024,
+        //             settings: {
+        //                 slidesToShow: 3,
+        //                 slidesToScroll: 3,
+        //                 infinite: true,
+        //                 dots: true
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 600,        //             settings: {
+        //                 slidesToShow: 2,
+        //                 slidesToScroll: 2
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 480,
+        //             settings: {
+        //                 slidesToShow: 1,
+        //                 slidesToScroll: 1
+        //             }
+        //         }
+        //         // You can unslick at a given breakpoint now by adding:
+        //         // settings: "unslick"
+        //         // instead of a settings object
+        //     ]
+        // });
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js"
+        integrity="sha512-7VN0JcGJWL+i8LXzTvbROqUSPzZIu8Fp6GWpkVwtHwrgWwY8CrbZgyHA2YpNhAASQNrYqGYoI2HusCqV+S2xnQ=="
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

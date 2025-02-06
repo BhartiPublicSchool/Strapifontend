@@ -1,0 +1,273 @@
+<!doctype html>
+<%- include('shared/headermeta'); %>
+    <link rel="stylesheet" href="css/refined.css">
+    <link rel="stylesheet" href="css/topnavbar.css">
+    <link rel="stylesheet" href="css/dropdownhover.css">
+    <link rel="stylesheet" href="css/foldFooter.css">
+    <style>
+        .header-underline h5:before {
+            content: '';
+            background: #56a0d3;
+            width: 57px;
+            height: 2px;
+            position: absolute;
+            bottom: 85px;
+            transform: translateX(200%);
+        }
+
+        .jumbotron .overlay {
+            position: absolute;
+            top: 0.75rem;
+            width: calc(100% - 1.5rem);
+            height: 550px;
+            background-color: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top, rgb(0 0 0 / 36%) 0%, rgb(0 0 0 / 23%) 10%, rgb(0 0 0 / 27%) 30%, rgb(0 0 0 / 50%) 70%, rgb(0 0 0 / 50%) 90%, rgb(0 0 0 / 52%) 100%);
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .jumbotron .overlay {
+                width: 100%;
+
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('shared/sidebar', { Menu: common.header_menu }); %>
+    <%- include('shared/header', { Menu: common.header_menu }); %>
+    <%- include('shared/stickyHeader', { Menu: common.header_menu }); %>
+
+    <div class="body-wrap">
+        <div id="top_fold" style="background-image: url('<%= cmsBaseUrl + handler.mediaSelection(data.page_bg, quality) %>');
+    background-size: cover; background-position: center;"
+            class="jumbotron text-white custom-jumbotron d-flex justify-content-center align-items-end">
+            <div class="overlay"></div>
+            <h1 style="z-index: 1; font-size: 7vw; line-height: 20px;
+       letter-spacing: 10px;">
+                <%=  handler.safeView(data, 'page_title') %>
+            </h1>
+        </div>
+        <nav class="nav justify-content-center d-md-flex flex-row d-none py-2 bg-light">
+            <% common.header_menu[0].submenu.forEach(function(item, index){ %>
+
+            <a href="<%= item.menu_link %>" class="nav-link text-center p-1 m-1 <%= index == 2 ? "active" : "" %>">
+                <%= item.sub_menu_item %>
+            </a>
+
+
+
+            <% }); %>
+        </nav>
+        <div class="contain f-18">
+            <div class="text-justify">
+                <% data.folds.forEach((element, index) => { %>
+                 <% if (index %2 == 0) { %>
+                    <%- include('elements/image-right', {object: element}); %>
+
+                  <% } else { %>
+                    <%- include('elements/image-left', {object: element}); %>
+                 <% } %>
+
+                <% }) %>
+
+                <!-- <div class="my-5">
+                    <div
+                        class="text-center my-5 <%=handler.isPresent(!handler.safeView(data.folds, 'card_title',0), 'u-line-center') %>">
+                        <h3 class="f-40">
+                            <%=  handler.safeView(data.folds, 'card_title',0) %>
+                         
+                        </h3>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row">
+
+
+                        <div style="flex:1;" class="text-muted text-justify f-18">
+                            <%- md.render(String(handler.safeView(data.folds, 'card_text',0))) -%>
+
+                        </div>
+                        <div style="flex:1;" class="text-center mx-0 ml-md-4 mb-3">
+                            <img class="img-fluid shadow"
+                                src="<%= cmsBaseUrl + handler.mediaSelection(handler.safeView(data.folds, 'card_img',0), quality) %>"
+                                alt="<%= handler.safeView(handler.safeView(data.folds, 'card_img',0), 'alternativeText', 0)  %> ">
+
+                        </div>
+
+                    </div>
+                    <div class="text-muted">
+                        <%- md.render(String(handler.safeView(data.folds, 'card_extra',0))) -%>
+                    </div>
+                </div> -->
+                <!-- <div class="my-5">
+                    <div
+                        class="text-center my-5 <%=handler.isPresent(!handler.safeView(data.folds, 'card_title',1), 'u-line-center') %>">
+                        <h3 class="f-40">
+
+                            <%=  handler.safeView(data.folds, 'card_title',1) %>
+
+                        </h3>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-md-6 mb-2">
+                            <img class="w-100 shadow"
+                                src="<%= cmsBaseUrl + handler.mediaSelection(handler.safeView(data.folds, 'card_img',1), quality) %>"
+                                alt="<%= handler.safeView(handler.safeView(data.folds, 'card_img',1), 'alternativeText', 0)  %> ">
+                        </div>
+                        <div class="col-md-6 text-muted text-justify">
+                            <%- md.render(String(handler.safeView(data.folds, 'card_text',1))) -%>
+
+                        </div>
+
+                    </div>
+                    <div class="text-muted">
+                        <%- md.render(String(handler.safeView(data.folds, 'card_extra',1))) -%>
+                    </div>
+                </div> -->
+
+
+
+
+                <!-- <div class="my-5">
+                    <div
+                        class="text-center my-5 <%=handler.isPresent(!handler.safeView(data.folds, 'card_title',2), 'u-line-center') %>">
+                        <h3 class="f-40">
+                          
+                            <%=  handler.safeView(data.folds, 'card_title',2) %>
+                        </h3>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row">
+                        <div style="flex:1;" class="text-justify text-muted f-18">
+
+                            <%- md.render(String(handler.safeView(data.folds, 'card_text',2))) -%>
+
+                        </div>
+                        <div style="flex:1;" class="text-center mx-0 ml-md-4 mb-3">
+                            <img class="img-fluid shadow"
+                                src="<%= cmsBaseUrl + handler.mediaSelection(handler.safeView(data.folds, 'card_img',2), quality) %>" 
+                                 alt="<%= handler.safeView(handler.safeView(data.folds, 'card_img',2), 'alternativeText', 0)  %> ">
+
+                        </div>
+
+                    </div>
+                    <div class="text-muted">
+                        <%- md.render(String(handler.safeView(data.folds, 'card_extra',2))) -%>
+                    </div>
+
+                </div> -->
+
+             
+
+
+
+
+
+
+                <!-- <div class="my-5">
+                    <div
+                        class="text-center my-5 <%= handler.isPresent(!handler.safeView(data.folds, 'card_title',3), 'u-line-center') %>">
+                        <h3 class="f-40">
+                            <%=  handler.safeView(data.folds, 'card_title',3) %>
+                        </h3>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-md-6 mb-2  order-2 order-md-0">
+                            <img class="w-100 shadow"
+                                src="<%= cmsBaseUrl + handler.mediaSelection(handler.safeView(data.folds, 'card_img',3), quality) %>"
+                                alt="<%= handler.safeView(handler.safeView(data.folds, 'card_img',3), 'alternativeText', 0)  %> ">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-muted text-justify f-18">
+                                <%- md.render(String(handler.safeView(data.folds, 'card_text',3))) -%>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="text-muted">
+                        <%- md.render(String(handler.safeView(data.folds, 'card_extra',3))) -%>
+                    </div>
+
+                </div> -->
+
+
+                <!-- <div class="my-5">
+                    <div
+                        class="text-center my-5 <%= handler.isPresent(!handler.safeView(data.folds, 'card_title',4), 'u-line-center') %>">
+                        <h3 class="f-40">
+                            <%=  handler.safeView(data.folds, 'card_title',4) %>
+                        </h3>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row">
+
+
+                        <div style="flex:4;" class="text-justify text-muted f-18">
+
+                            <%- md.render(String( handler.safeView(data.folds, 'card_title',4))) -%>
+
+
+                        </div>
+                        <div style="flex:3;" class="text-center mx-0 ml-md-4 mb-3">
+                            <% if (handler.safeView(data.folds, 'card_img',4)) { %>
+                            <img class="img-fluid shadow"
+                                src="<%= cmsBaseUrl + handler.mediaSelection( handler.safeView(data.folds, 'card_img',4), quality) %>"
+                                alt="<%= handler.safeView(handler.safeView(data.folds, 'card_img',4), 'alternativeText', 0)  %> ">
+                            <% } %>
+                            <img src="" alt="">
+
+                        </div>
+
+                    </div>
+                    <div class="text-muted">
+                        <%- md.render(String(handler.safeView(data.folds, 'card_extra',4))) -%>
+                    </div>
+                </div> -->
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <%- include('shared/footer', {footer: common.footer}); %>
+
+
+    <script type="text/javascript">
+        function openNav() {
+            console.log("open sidenav");
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        function gotoTop() {
+            window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: 0
+            });
+
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        function myFunction() {
+            console.log(this);
+            if (!$(this).hasClass("faq-vistited")) {
+                $(this).addClass("custom-faq-font-focus")
+                $(this).addClass("faq-vistited")
+                $(this).removeClass("custom-faq-font")
+
+
+            } else {
+                $(this).addClass("custom-faq-font")
+                $(this).removeClass("faq-vistited")
+                $(this).removeClass("custom-faq-font-focus")
+            }
+        }
+    </script>
+</body>
+
+</html>

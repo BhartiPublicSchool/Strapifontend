@@ -18,9 +18,9 @@ md.use(markdownItAttrs);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-API_ENDPOINT = "http://localhost:1337";
-env = API_ENDPOINT;
-// API_ENDPOINT = "https://admin.bps.edu.in";
+// API_ENDPOINT = "http://localhost:1337/api";
+// env = API_ENDPOINT;
+API_ENDPOINT = "https://admin.bps.edu.in";
 // env = API_ENDPOINT;
 
 var env = process.env.NODE_ENV == "Development" ? `${API_ENDPOINT}` : "";
@@ -30,6 +30,8 @@ app.use(express.static("public", { index: false }));
 app.use(async (req, res, next) => {
   try {
     commons = await axios.get(`${API_ENDPOINT}/shared`);
+    console.log(commons);
+    
   } catch (error) {
     console.log("unable to get common data", error);
   }
